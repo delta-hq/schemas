@@ -1,0 +1,154 @@
+{
+    "schema": "dex-aggregator",
+    "description": "Standard table definitions for DEX aggregators.",
+    "version": "1.0.0-alpha",
+    "tables": [
+        {
+            "tableName": "tokens",
+            "description": "List of tokens supported by the protocol.",
+            "properties": {
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "tokenAddress": {
+                    "description": "The contract address of the token.",
+                    "type": "string"
+                },
+                "tokenName": {
+                    "description": "The full name of the token, from the eth_call name().",
+                    "type": "string"
+                },
+                "tokenSymbol": {
+                    "description": "The symbol of the token, from the eth_call symbol().",
+                    "type": "string"
+                },
+                "decimals": {
+                    "description": "The decimals name of the token, from the eth_call decimals().",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "tokenSnapshot",
+            "description": "Volume, fees, and incentives data at the token level.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the record.",
+                    "type": "string"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "tokenAddress": {
+                    "description": "The contract address of the token.",
+                    "type": "string"
+                },
+                "volumeAmount": {
+                    "description": "The cumulative volume amount of the token (in native, normalized terms).",
+                    "type": "number"
+                },
+                "volumeUsd": {
+                    "description": "The cumulative volume of the token in USD.",
+                    "type": "number"
+                },
+                "feesUsd": {
+                    "description": "The cumulative fees collected in USD.",
+                    "type": "number"
+                },
+                "incentiveAmount": {
+                    "description": "The cumulative amount of incentives.",
+                    "type": "number"
+                },
+                "incentiveUsd": {
+                    "description": "The value of incentives in USD.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "protocolSnapshot",
+            "description": "Volume and fees data at the protocol level.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the record.",
+                    "type": "string"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "volumeUsd": {
+                    "description": "The cumulative volume in USD.",
+                    "type": "number"
+                },
+                "feesUsd": {
+                    "description": "The cumulative fees collected in USD.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "trades",
+            "description": "List of trades executed on the protocol.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the trade.",
+                    "type": "string"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain this trade belongs to"
+                },
+                "blockNumber": {
+                    "description": "The block number in which the trade occurred.",
+                    "type": "number"
+                },
+                "transactionId": {
+                    "description": "The transaction id associated with this trade.",
+                    "type": "string"
+                },
+                "gasFees": {
+                    "description": "The amount of gas used in the native blockchain's gas currency (ie, Gwei)",
+                    "type": "number"
+                },
+                "fees": {
+                    "description": "The amount of fees (ideally in USD terms) for this trade.",
+                    "type": "number"
+                },
+                "slippage": {
+                    "description": "(Optional) The slippage of the given trade.",
+                    "type": "number"
+                },
+                "userAddress": {
+                    "description": "The address of the user initiating the trade.",
+                    "type": "string"
+                },
+                "inputTokens": {
+                    "description": "The contract address of the input token(s).",
+                    "type": "[string]"
+                },
+                "inputTokenAmounts": {
+                    "description": "Parallel array to inputTokens, dictating the normalzied native amounts of each token traded.",
+                    "type": "[number]"
+                },
+                "outputTokens": {
+                    "description": "The contract address of the output token(s).",
+                    "type": "[string]"
+                },
+                "outputTokenAmounts": {
+                    "description": "Parallel array to output, dictating the normalzied native amounts of each token traded.",
+                    "type": "[number]"
+                },
+                "swapAmountUsd": {
+                    "description": "The value of the swap in USD.",
+                    "type": "number"
+                }
+            }
+        }
+    ]
+}
