@@ -10,6 +10,7 @@ This repository will house the source of truth for our externally facing standar
 - There is a schema, tables / entities for each protocol vertical.
 - Each protocol vertical schema has a version following [semver](https://semver.org/).
 - Schemas can be programatically accessed in this repository.
+- These schemas can support non-breaking additions to any base schema. This may be required for some analytics.
 
 ## Schemas
 
@@ -24,7 +25,8 @@ Below you will find links to each of the following verticals.
 - Intent-Based Bridge
 - LSTs (Liquid Staking Tokens)
 - Yield Aggregators (Leverage, Gambling, RWA, ALM, Liquidity/LP, Index)
-- DEX Aggregator
+- [DEX Aggregator](./schemas/dex-aggregator/SCHEMA.md)
 - Restaking
 - AVS
 - LRT (Liquid Restaking Tokens)
+- [NFT](./schemas/nft/SCHEMA.md)

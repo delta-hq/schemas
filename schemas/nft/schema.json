@@ -1,0 +1,40 @@
+{
+    "schema": "nft",
+    "description": "Standard table definitions for NFTs.",
+    "version": "1.0.0-alpha",
+    "tables": [
+        {
+            "tableName": "nftTransfers",
+            "description": "List of NFT transfers.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the transfer.",
+                    "type": "number"
+                },
+                "blockNumber": {
+                    "description": "The block number of the transfer.",
+                    "type": "number"
+                },
+                "transactionId": {
+                    "description": "The transaction id of the transfer here."
+                },
+                "nftCollectionAddress": {
+                    "description": "The contract address of the NFT collection.",
+                    "type": "string"
+                },
+                "nftId": {
+                    "description": "The unique identifier of the NFT.",
+                    "type": "string"
+                },
+                "senderAddress": {
+                    "description": "The address of the sender of the NFT.",
+                    "type": "string"
+                },
+                "receiverAddress": {
+                    "description": "The address of the receiver of the NFT.",
+                    "type": "string"
+                }
+            }
+        }
+    ]
+}
