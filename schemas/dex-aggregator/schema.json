@@ -35,7 +35,7 @@
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the record.",
-                    "type": "string"
+                    "type": "number"
                 },
                 "protocolName": {
                     "description": "The name of the protocol this table belongs to.",
@@ -73,7 +73,7 @@
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the record.",
-                    "type": "string"
+                    "type": "number"
                 },
                 "protocolName": {
                     "description": "The name of the protocol this table belongs to.",
@@ -95,7 +95,7 @@
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the trade.",
-                    "type": "string"
+                    "type": "number"
                 },
                 "protocolName": {
                     "description": "The name of the protocol this table belongs to.",
