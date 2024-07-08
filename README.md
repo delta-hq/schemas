@@ -1,5 +1,5 @@
 [![OBL](./docs/images/obl-logo.jpeg)](https://www.openblocklabs.com/)
-# OpenBlock Labs Schema
+# OpenBlock Labs Schemas
 
 Welcome to OpenBlock Lab's canonical schema repository!
 
