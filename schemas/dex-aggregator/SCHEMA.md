@@ -46,7 +46,6 @@ Please follow the below schemas for integrating a DEX Aggregator with OpenBlock 
 | chainId            | The standard id of the chain this trade belongs to                          | number     |
 | blockNumber        | The block number in which the trade occurred.                               | number     |
 | transactionId      | The transaction id associated with this trade.                              | string     |
-| gasFees            | The amount of gas used in the native blockchain's gas currency (ie, Gwei).  | number     |
 | fees               | The amount of fees (ideally in USD terms) for this trade.                   | number     |
 | slippage           | (Optional) The slippage of the given trade.                                 | number     |
 | userAddress        | The address of the user initiating the trade.                               | string     |
