@@ -1,5 +1,5 @@
 [![OBL](./docs/images/obl-logo.jpeg)](https://www.openblocklabs.com/)
-# OpenBlock Labs Schema
+# OpenBlock Labs Schemas
 
 Welcome to OpenBlock Lab's canonical schema repository!
 
@@ -25,8 +25,8 @@ Below you will find links to each of the following verticals.
 - Intent-Based Bridge
 - LSTs (Liquid Staking Tokens)
 - Yield Aggregators (Leverage, Gambling, RWA, ALM, Liquidity/LP, Index)
-- DEX Aggregator
+- [DEX Aggregator](./schemas/dex-aggregator/SCHEMA.md)
 - Restaking
 - AVS
 - LRT (Liquid Restaking Tokens)
-- NFT
+- [NFT](./schemas/nft/SCHEMA.md)
