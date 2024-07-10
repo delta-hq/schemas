@@ -129,6 +129,10 @@
                     "description": "The amount of fees for this trade.",
                     "type": "number"
                 },
+                "feesUsd": {
+                    "description": "The fees for this trade in USD.",
+                    "type": "number"
+                },
                 "slippage": {
                     "description": "(Optional) The slippage of the given trade.",
                     "type": "number"

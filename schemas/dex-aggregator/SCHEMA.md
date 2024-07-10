@@ -50,6 +50,7 @@ Please follow the below schemas for integrating a DEX Aggregator with OpenBlock 
 | blockNumber        | The block number in which the trade occurred.                               | number     |
 | transactionId      | The transaction id associated with this trade.                              | string     |
 | fees               | The amount of fees for this trade.                                          | number     |
+| feesUsd            | The fees for this trade in USD.                                             | number     |
 | slippage           | (Optional) The slippage of the given trade.                                 | number     |
 | userAddress        | The address of the user initiating the trade.                               | string     |
 | inputTokens        | The contract address of the input token(s).                                 | [string]   |
