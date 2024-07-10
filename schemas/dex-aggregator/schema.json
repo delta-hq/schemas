@@ -8,8 +8,12 @@
             "description": "List of tokens supported by the protocol.",
             "properties": {
                 "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
+                    "description": "The name of the protocol.",
                     "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
                 },
                 "tokenAddress": {
                     "description": "The contract address of the token.",
@@ -45,24 +49,28 @@
                     "description": "The contract address of the token.",
                     "type": "string"
                 },
-                "volumeAmount": {
-                    "description": "The cumulative volume amount of the token (in native, normalized terms).",
+                "dailyVolumeAmount": {
+                    "description": "The daily volume amount of the token (in native, decimal normalized terms).",
                     "type": "number"
                 },
-                "volumeUsd": {
-                    "description": "The cumulative volume of the token in USD.",
+                "dailyVolumeUsd": {
+                    "description": "The daily volume of the token in USD.",
                     "type": "number"
                 },
-                "feesUsd": {
-                    "description": "The cumulative fees collected in USD.",
+                "dailyFees": {
+                    "description": "The daily fees taken from this token in native, decimal normalized terms.",
                     "type": "number"
                 },
-                "incentiveAmount": {
-                    "description": "The cumulative amount of incentives.",
+                "dailyFeesUsd": {
+                    "description": "The daily fees collected in USD.",
                     "type": "number"
                 },
-                "incentiveUsd": {
-                    "description": "The value of incentives in USD.",
+                "dailyIncentiveAmount": {
+                    "description": "The daily amount of incentives collected from this token.",
+                    "type": "number"
+                },
+                "dailyIncentiveUsd": {
+                    "description": "The daily value of incentives in USD.",
                     "type": "number"
                 }
             }
@@ -72,19 +80,23 @@
             "description": "Volume and fees data at the protocol level.",
             "properties": {
                 "timestamp": {
-                    "description": "The timestamp of the record.",
+                    "description": "The timestamp of the block this snapshot was taken.",
                     "type": "number"
                 },
                 "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
+                    "description": "The name of the protocol.",
                     "type": "string"
                 },
-                "volumeUsd": {
-                    "description": "The cumulative volume in USD.",
+                "chainId": {
+                    "description": "The standard id of the chain.",
                     "type": "number"
                 },
-                "feesUsd": {
-                    "description": "The cumulative fees collected in USD.",
+                "dailyVolumeUsd": {
+                    "description": "The daily volume in USD.",
+                    "type": "number"
+                },
+                "dailyFeesUsd": {
+                    "description": "The daily fees collected in USD.",
                     "type": "number"
                 }
             }
@@ -102,7 +114,8 @@
                     "type": "string"
                 },
                 "chainId": {
-                    "description": "The standard id of the chain this trade belongs to"
+                    "description": "The standard id of the chain this trade belongs to.",
+                    "type": "number"
                 },
                 "blockNumber": {
                     "description": "The block number in which the trade occurred.",
@@ -113,7 +126,11 @@
                     "type": "string"
                 },
                 "fees": {
-                    "description": "The amount of fees (ideally in USD terms) for this trade.",
+                    "description": "The amount of fees for this trade.",
+                    "type": "number"
+                },
+                "feesUsd": {
+                    "description": "The fees for this trade in USD.",
                     "type": "number"
                 },
                 "slippage": {
