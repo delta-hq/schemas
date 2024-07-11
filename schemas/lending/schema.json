@@ -44,7 +44,7 @@
                     "type": "string"
                 },
                 "poolType": {
-                    "description": "The type of the pool (TODO: what is this?)",
+                    "description": "The type of the pool (ie, collateral_only, isolated, supply_pool, cdp).",
                     "type": "string"
                 }
             }
@@ -98,11 +98,11 @@
                     "type": "number"
                 },
                 "collateralAmount": {
-                    "description": "(Optional) TODO: not sure what this is yet.",
+                    "description": "(Optional) The amount of collateral-only tokens of this asset, normalized.",
                     "type": "number"
                 },
                 "collateralUsd": {
-                    "description": "TODO",
+                    "description": "(Optional) The amount of collateral-only tokens in USD.",
                     "type": "number"
                 }
             }
@@ -136,11 +136,11 @@
                     "type": "string"
                 },
                 "availableAmount": {
-                    "description": "TODO: is this needed? The available amount in the pool.",
+                    "description": "The amount of token's available to borrow (ie, liquidity or net supply or supply - borrow).",
                     "type": "number"
                 },
                 "availableTvlUsd": {
-                    "description": "TODO: is this needed? The available TVL in USD.",
+                    "description": "The available amount of token's in this pool in USD.",
                     "type": "number"
                 },
                 "totalSuppliedAmount": {
@@ -152,11 +152,11 @@
                     "type": "number"
                 },
                 "collateralAmount": {
-                    "description": "TODO",
+                    "description": "(Optional) The amount of collateral only tokens in this pool.",
                     "type": "number"
                 },
                 "collateralUsd": {
-                    "description": "TODO",
+                    "description": "(Optional) THe amount of collateral only tokens in the pool.",
                     "type": "number"
                 },
                 "collateralFactor": {
@@ -230,15 +230,15 @@
                     "type": "number"
                 },
                 "borrowAmountUsd": {
-                    "description": "The total amount of token's borrowed in USD.",
+                    "description": "The total amount of tokens borrowed in USD.",
                     "type": "number"
                 },
-                "availableTvlUsd": {
-                    "description": "TODO",
+                "availableAmountUsd": {
+                    "description": "The amount of tokens available to borrow in this protocol in USD.",
                     "type": "number"
                 },
-                "collateralTvlUsd": {
-                    "description": "TODO",
+                "collateralUsd": {
+                    "description": "(Optional) The amount of collateral only assets available in USD.",
                     "type": "number"
                 },
                 "feesUsd": {
