@@ -15,7 +15,7 @@
                     "description": "The standard id of the chain.",
                     "type": "number"
                 },
-                "creationBlock": {
+                "creationBlockNumber": {
                     "description": "The block this pool was created in.",
                     "type": "number"
                 },
