@@ -1,0 +1,581 @@
+{
+    "schema": "dex",
+    "description": "Standard table definitions for dex protocols.",
+    "version": "1.0.0-alpha",
+    "tables": [
+        {
+            "tableName": "pools",
+            "aggregation": "list",
+            "description": "List of LP pools in this protocol.",
+            "properties": {
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "creationBlockNumber": {
+                    "description": "The block this pool was created in.",
+                    "type": "number"
+                },
+                "creationTimestamp": {
+                    "description": "The timestamp of the block that this pool was created in.",
+                    "type": "number"
+                },
+                "poolAddress": {
+                    "description": "The contract address of the lp pool.",
+                    "type": "string"
+                },
+                "lpTokenAddress": {
+                    "description": "The token address of the LP token for this pool.",
+                    "type": "string"
+                },
+                "lpTokenSymbol": {
+                    "description": "The symbol of the LP token.",
+                    "type": "string"
+                },
+                "inputTokenAddresses": {
+                    "description": "A list of the input tokens of this pool. Ensure the tokens are in the index as they appear in the protocol (ie, token index 0 comes first).",
+                    "type": "[string]"
+                },
+                "tokenIndex": {
+                    "description": "TODO",
+                    "type": "number"
+                },
+                "feeRate": {
+                    "description": "The fee rate of the pool.",
+                    "type": "number"
+                },
+                "dexType": {
+                    "description": "The type of the DEX (ie, TODO).",
+                    "type": "string"
+                }
+            }
+        },
+        {
+            "tableName": "lpPositionSnapshot",
+            "aggregation": "daily",
+            "description": "User level snapshot on the LP positions in the protocol.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the record.",
+                    "type": "number"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "poolAddress": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "lpAddress": {
+                    "description": "The address of the liquidity provider.",
+                    "type": "string"
+                },
+                "tokenIndex": {
+                    "description": "TODO",
+                    "type": "number"
+                },
+                "lpTokenAddress": {
+                    "description": "The contract address of the LP token.",
+                    "type": "string"
+                },
+                "lpTokenSymbol": {
+                    "description": "The symbol of the LP token.",
+                    "type": "string"
+                },
+                "lpTokenAmount": {
+                    "description": "The amount of the LP token held by the liquidity provider in the position, decimal normalized.",
+                    "type": "number"
+                },
+                "lpTokenAmountUsd": {
+                    "description": "The amount of the LP token in USD.",
+                    "type": "number"
+                },
+                "feesUsd": {
+                    "description": "TODO",
+                    "type": "number"
+                },
+                "incentiveAmount": {
+                    "description": "TODO",
+                    "type": "number"
+                },
+                "incentiveUsd": {
+                    "description": "TODO",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "poolSnapshot",
+            "aggregation": "daily",
+            "description": "TVL, volume, fees, and incentives data at the pool level.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the record.",
+                    "type": "number"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "poolAddress": {
+                    "description": "The contract address of the LP pool.",
+                    "type": "string"
+                },
+                "tokenIndex": {
+                    "description": "TODO",
+                    "type": "number"
+                },
+                "lpTokenAddress": {
+                    "description": "The contract address of the LP token.",
+                    "type": "string"
+                },
+                "lpTokenSymbol": {
+                    "description": "The symbol of the LP token.",
+                    "type": "string"
+                },
+                "tokenAmount": {
+                    "description": "TODO: is this of the LP token?The amount of the token.",
+                    "type": "number"
+                },
+                "tokenAmountUsd": {
+                    "description": "The amount of the token in USD.",
+                    "type": "number"
+                },
+                "poolVolumeUsd": {
+                    "description": "The volume of the pool in USD.",
+                    "type": "number"
+                },
+                "poolFeesUsd": {
+                    "description": "The fees of the pool in USD.",
+                    "type": "number"
+                },
+                "poolIncentiveAmount": {
+                    "description": "TODO: daily? The amount of incentives in the pool.",
+                    "type": "number"
+                },
+                "poolIncentiveUsd": {
+                    "description": "The value of incentives in the pool in USD.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "protocolSnapshot",
+            "aggregation": "daily",
+            "description": "TVL, volume, and fees data at the protocol level.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the snapshot.",
+                    "type": "string"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "tvlUsd": {
+                    "description": "The total value locked in USD.",
+                    "type": "number"
+                },
+                "volumeUsd": {
+                    "description": "The volume in USD.",
+                    "type": "number"
+                },
+                "feesUsd": {
+                    "description": "The fees collected in USD.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "trades",
+            "aggregation": "event",
+            "description": "List of trades (ie, swaps) in the DEX.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the transaction.",
+                    "type": "number"
+                },
+                "blockNumber": {
+                    "description": "The block number of the trade.",
+                    "type": "number"
+                },
+                "logIndex": {
+                    "description": "The log index of the event recorded.",
+                    "type": "number"
+                },
+                "transactionHash": {
+                    "description": "The hash of the transaction.",
+                    "type": "string"
+                },
+                "pairName": {
+                    "description": "The name of the token pair.",
+                    "type": "string"
+                },
+                "poolAddress": {
+                    "description": "The contract address of the LP pool being traded in.",
+                    "type": "string"
+                },
+                "inputTokenSymbol": {
+                    "description": "The symbol of the input token.",
+                    "type": "string"
+                },
+                "inputTokenAddress": {
+                    "description": "The contract address of the input token.",
+                    "type": "string"
+                },
+                "inputTokenAmount": {
+                    "description": "The amount of the input token.",
+                    "type": "number"
+                },
+                "outputTokenSymbol": {
+                    "description": "The symbol of the output token.",
+                    "type": "string"
+                },
+                "outputTokenAddress": {
+                    "description": "The contract address of the output token.",
+                    "type": "string"
+                },
+                "outputTokenAmount": {
+                    "description": "The amount of the output token.",
+                    "type": "number"
+                },
+                "swapAmountUsd": {
+                    "description": "The amount of the swap in USD.",
+                    "type": "number"
+                },
+                "feeUsd": {
+                    "description": "The fee for the trade in USD.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "mints",
+            "aggregation": "event",
+            "description": "Mint events for v2 DEXs.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the record.",
+                    "type": "number"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "blockNumber": {
+                    "description": "The block number of the mint.",
+                    "type": "number"
+                },
+                "userAddress": {
+                    "description": "The address of the user who initiated this event.",
+                    "type": "string"
+                },
+                "poolAddress": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "token0Address": {
+                    "description": "The contract address of token0.",
+                    "type": "string"
+                },
+                "token0Amount": {
+                    "description": "The amount of token0.",
+                    "type": "number"
+                },
+                "token1Address": {
+                    "description": "The contract address of token1.",
+                    "type": "string"
+                },
+                "token1Amount": {
+                    "description": "The amount of token1.",
+                    "type": "number"
+                },
+                "mintAmount": {
+                    "description": "The amount of LP token minted by the trader, decimal normalized.",
+                    "type": "number"
+                },
+                "mintAmountUsd": {
+                    "description": "The amount of the mint in USD.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "burns",
+            "aggregation": "event",
+            "description": "Burns events for v2 DEXs.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the record.",
+                    "type": "number"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "blockNumber": {
+                    "description": "The block number of the burn.",
+                    "type": "number"
+                },
+                "userAddress": {
+                    "description": "The address of the user who initiated this event.",
+                    "type": "string"
+                },
+                "poolAddress": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "token0Address": {
+                    "description": "The contract address of token0.",
+                    "type": "string"
+                },
+                "token0Amount": {
+                    "description": "The amount of token0.",
+                    "type": "number"
+                },
+                "token1Address": {
+                    "description": "The contract address of token1.",
+                    "type": "string"
+                },
+                "token1Amount": {
+                    "description": "The amount of token1.",
+                    "type": "number"
+                },
+                "burnAmount": {
+                    "description": "The amount of LP tokens burned, decimal normalized.",
+                    "type": "number"
+                },
+                "burnAmountUsd": {
+                    "description": "The amount of the burn in USD.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "syncs",
+            "description": "Sync events for v2 DEXs.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the record.",
+                    "type": "number"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "blockNumber": {
+                    "description": "The block number of the sync.",
+                    "type": "number"
+                },
+                "poolAddress": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "token0Address": {
+                    "description": "The contract address of token0.",
+                    "type": "string"
+                },
+                "token0Amount": {
+                    "description": "The amount of token0.",
+                    "type": "number"
+                },
+                "token1Address": {
+                    "description": "The contract address of token1.",
+                    "type": "string"
+                },
+                "token1Amount": {
+                    "description": "The amount of token1.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "transfers",
+            "description": "LP transfer events for v3 DEXs.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the record.",
+                    "type": "number"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "blockNumber": {
+                    "description": "The block number of the transfer.",
+                    "type": "number"
+                },
+                "userAddress": {
+                    "description": "The address of the user who initiated this event.",
+                    "type": "string"
+                },
+                "poolAddress": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "poolTokenBalance": {
+                    "description": "The balance of the pool token, decimal normalized.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "v3Events",
+            "aggregation": "event",
+            "description": "TODO: can this be combined with another table?LP activity data for DEX V3 (Mint/Burn/Transfer).",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the record.",
+                    "type": "number"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "blockNumber": {
+                    "description": "The block number of the activity.",
+                    "type": "number"
+                },
+                "action": {
+                    "description": "The action taken (ie, Mint/Burn/Transfer).",
+                    "type": "string"
+                },
+                "transactionFromAddress": {
+                    "description": "The address from which the transaction originated.",
+                    "type": "string"
+                },
+                "transactionToAddress": {
+                    "description": "The address to which the transaction is directed.",
+                    "type": "string"
+                },
+                "poolId": {
+                    "description": "TODO",
+                    "type": "string"
+                },
+                "tokenId": {
+                    "description": "TODO",
+                    "type": "string"
+                },
+                "liquidityAmount": {
+                    "description": "The amount of liquidity.",
+                    "type": "number"
+                },
+                "liquidityUSD": {
+                    "description": "The liquidity amount in USD.",
+                    "type": "number"
+                },
+                "tickLower": {
+                    "description": "The lower tick of the liquidity range.",
+                    "type": "number"
+                },
+                "tickUpper": {
+                    "description": "The upper tick of the liquidity range.",
+                    "type": "number"
+                },
+                "tick": {
+                    "description": "The current tick.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "v3Swap",
+            "aggregation": "event",
+            "description": "TODO: can this be combined?Swap events for DEX V3.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the record.",
+                    "type": "number"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "blockNumber": {
+                    "description": "The block number of the swap.",
+                    "type": "number"
+                },
+                "userAddress": {
+                    "description": "The address of the user who made the swap.",
+                    "type": "string"
+                },
+                "poolAddress": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "liquidityAmount": {
+                    "description": "TODO",
+                    "type": "number"
+                },
+                "token0Amount": {
+                    "description": "The amount of token0.",
+                    "type": "number"
+                },
+                "token1Amount": {
+                    "description": "The amount of token1.",
+                    "type": "number"
+                },
+                "sqrtPriceX96": {
+                    "description": "The square root of the price multiplied by 2^96.",
+                    "type": "number"
+                },
+                "tick": {
+                    "description": "The current tick.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "tableName": "marketDepthUserSnapshot",
+            "aggregation": "hourly/daily",
+            "description": "(Optional) Market depth score data at the user level.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the record.",
+                    "type": "number"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "blockNumber": {
+                    "description": "The block number of the record.",
+                    "type": "number"
+                },
+                "userAddress": {
+                    "description": "The address of the user.",
+                    "type": "string"
+                },
+                "poolAddress": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "marketDepthScore": {
+                    "description": "TODO: how to define this?",
+                    "type": "number"
+                }
+            }
+        }
+    ]
+}
