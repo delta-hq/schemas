@@ -1,0 +1,256 @@
+{
+    "schema": "general",
+    "description": "Table definitions for the generic schema. These tables can be used for any protocol.",
+    "version": "1.0.0-alpha",
+    "tables": [
+      {
+        "tableName": "incentiveClaimData",
+        "aggregation": "transaction",
+        "description": "Transactional data on user level incentives claimed data.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the claim.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "The standard chain id.",
+            "type": "number"
+          },
+          "userAddress": {
+            "description": "The address of the user.",
+            "type": "string"
+          },
+          "claimedTokenAddress": {
+            "description": "The smart contract address of the claimed token."
+          },
+          "claimedTokenAmount": {
+            "description": "The amount of the token claimed, decimal normalized.",
+            "type": "number"
+          },
+          "claimedTokenUsd": {
+            "description": "The amount of claimed tokens in USD.",
+            "type": "number"
+          },
+          "otherIncentiveUsd": {
+            "description": "Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "tableName": "airdrop",
+        "aggregation": "none",
+        "description": "Schema for airdrop data.",
+        "properties": {
+          "airdropTimestamp": {
+            "description": "The timestmap the airdrop was given to the user.",
+            "type": "number"
+          },
+          "userAddress": {
+            "description": "The address of the user claiming the airdrop.",
+            "type": "string"
+          },
+          "claimTimestamp": {
+            "description": "The timestamp of when the user claimed the airdrop.",
+            "type": "number"
+          },
+          "airdropTokenAddress": {
+            "description": "The smart contract address of the airdropped token.",
+            "type": "string"
+          },
+          "airdropTokenSymbol": {
+            "description": "The symbol of the token being airdropped",
+            "type": "string"
+          },
+          "tokenAmounts": {
+            "description": "The amount of each token airdropped, decimal normalized.",
+            "type": "[number]"
+          },
+          "amountUsd": {
+            "description": "The USD value of the airdropped tokens.",
+            "type": "number"
+          },
+          "firstOutgoingTransactionAddress": {
+            "description": "The address of the first receiver of airdropped tokens.",
+            "type": "string"
+          },
+          "firstOutgoingTransactionTimestamp": {
+            "description": "The timestamp of the first outgoing transaction.",
+            "type": "number"
+          },
+          "firstOutgoingTransactionAmount": {
+            "description": "The amount of the first outgoing transaction, decimal normalized.",
+            "type": "number"
+          },
+          "signature": {
+            "description": "The signature of the airdrop.",
+            "type": "string"
+          },
+          "methodId": {
+            "description": "The method ID of the airdrop.",
+            "type": "string"
+          }
+        }
+      },
+      {
+        "tableName": "protocolSnapshot",
+        "aggregation": "daily",
+        "description": "Protocol level snapshot focused on incentives and users.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "The standard chain id.",
+            "type": "number"
+          },
+          "dailyActiveUsers": {
+            "description": "The number of unique daily active users on this protocol.",
+            "type": "number"
+          },
+          "transactionCount": {
+            "description": "The number of transactions in this time period.",
+            "type": "number"
+          },
+          "transactionFees": {
+            "description": "The amount of fees in this given period, decimal normalized.",
+            "type": "number"
+          },
+          "incentiveAmount": {
+            "description": "The amount of incentives given out over the snapshot period, decimal normalized.",
+            "type": "number"
+          },
+          "incentiveUsd": {
+            "description": "The value of incentives in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "tableName": "userLiquiditySnapshot",
+        "aggregation": "hourly/daily",
+        "description": "User level passive liquidity snapshot.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "The standard chain id.",
+            "type": "number"
+          },
+          "userAddress": {
+            "description": "The address of the user.",
+            "type": "string"
+          },
+          "tokenAddress": {
+            "description": "The smart contract address of the token."
+          },
+          "tokenSymbol": {
+            "description": "The symbol of the token.",
+            "type": "string"
+          },
+          "tokenAmount": {
+            "description": "The amount of the token, decimal normalized.",
+            "type": "number"
+          },
+          "tokenAmountUsd": {
+            "description": "The USD value of the token.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "tableName": "poolSnapshot",
+        "aggregation": "daily",
+        "description": "APR and APY data at the pool level.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the record.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "The standard chain id.",
+            "type": "number"
+          },
+          "protocolType": {
+            "description": "The type of protocol (ie, Lending, CDP, DEX, Gaming, etc).",
+            "type": "string"
+          },
+          "poolAddress": {
+            "description": "The smart contract address of the pool.",
+            "type": "string"
+          },
+          "poolName": {
+            "description": "The name of the pool (ie, pool() in the smart contract, if it exists).",
+            "type": "string"
+          },
+          "tvlUsd": {
+            "description": "The total value locked within this pool in USD.",
+            "type": "number"
+          },
+          "return30d": {
+            "description": "The return of this pool over 30 days.",
+            "type": "number"
+          },
+          "apr": {
+            "description": "The annual percentage rate of this pool at the snapshot.",
+            "type": "number"
+          },
+          "apy": {
+            "description": "The annual percentage yield of the pool.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "tableName": "userTransactionSnapshot",
+        "aggregation": "daily",
+        "description": "Transaction and gas fees data at the user level.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "The standard chain id.",
+            "type": "number"
+          },
+          "userAddress": {
+            "description": "The address of the user.",
+            "type": "string"
+          },
+          "transactionCount": {
+            "description": "Number of transactions during this snapshot period from the user.",
+            "type": "number"
+          },
+          "transactionFees": {
+            "description": "The amount of fees in this given period, decimal normalized.",
+            "type": "number"
+          }
+        }
+      }
+    ]
+  }
+  
