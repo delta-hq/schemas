@@ -1,0 +1,176 @@
+{
+    "schema": "Yield Aggregator",
+    "description": "Standard table definitions for yield aggregator protocols (can include, Leverage, Gambling, RWA, ALM, Liquidity/LP, index).",
+    "version": "1.0.0-alpha",
+    "tables": [
+      {
+        "tableName": "pools",
+        "aggregation": "none",
+        "description": "List of pools in the protocol.",
+        "properties": {
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "The standard chain id.",
+            "type": "number"
+          },
+          "creationTimestamp": {
+            "description": "The timestamp this pool was created.",
+            "type": "number"
+          },
+          "creationBlockNumber": {
+            "description": "The block number that this pool was created.",
+            "type": "number"
+          },
+          "underlyingTokenAddress": {
+            "description": "The contract address of the underlying token or deposited token.",
+            "type": "string"
+          },
+          "underlyingTokenSymbol": {
+            "description": "The symbol of the underlying token token.",
+            "type": "string"
+          },
+          "receiptTokenAddress": {
+            "description": "The contract address of the output or receipt token of this pool, if available.",
+            "type": "string"
+          },
+          "receiptTokenSymbol": {
+            "description": "The symbol of the receipt token.",
+            "type": "string"
+          },
+          "poolAddress": {
+            "description": "The smart contract address of the pool.",
+            "type": "string"
+          },
+          "poolSymbol": {
+            "description": "The symbol of the pool.",
+            "type": "string"
+          }
+        }
+      },
+      {
+        "tableName": "positionSnapshot",
+        "aggregation": "daily",
+        "description": "Snapshot of the pool users.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "The standard chain id.",
+            "type": "number"
+          },
+          "poolAddress": {
+            "description": "The address of the pool this user has a position in.",
+            "type": "string"
+          },
+          "userAddress": {
+            "description": "The address of the user who has a position in the pool.",
+            "type": "string"
+          },
+          "depositAmount": {
+            "description": "The amount of the underlying token that the user deposited, decimal normalized.",
+            "type": "number"
+          },
+          "depositAmountUsd": {
+            "description": "The deposit amount in USD.",
+            "type": "number"
+          },
+          "feesUsd": {
+            "description": "The total fees in USD for the given snapshot period.",
+            "type": "number"
+          },
+          "incentiveAmount": {
+            "description": "The amount of incentives.",
+            "type": "number"
+          },
+          "incentiveUsd": {
+            "description": "The value of incentives in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "tableName": "poolSnapshot",
+        "aggregation": "daily",
+        "description": "TVL, fees, and incentives data at the pool level.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "The standard chain id.",
+            "type": "number"
+          },
+          "poolAddress": {
+            "description": "The address of the pool.",
+            "type": "string"
+          },
+          "depositAmount": {
+            "description": "The amount of underlying token deposited in this pool, decimal normalized.",
+            "type": "number"
+          },
+          "depositAmountUsd": {
+            "description": "The total value locked in this pool of the deposited token in USD.",
+            "type": "number"
+          },
+          "feesUsd": {
+            "description": "The fees in this pool in USD for the given snapshot period.",
+            "type": "number"
+          },
+          "incentiveTokenAddress": {
+            "description": "The contract address of the incentive token, if available.",
+            "type": "string"
+          },
+          "incentiveAmount": {
+            "description": "The amount of incentives given out in the snapshot period, decimal normalized.",
+            "type": "number"
+          },
+          "incentiveUsd": {
+            "description": "The value of incentives given out in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "tableName": "protocolSnapshot",
+        "aggregation": "daily",
+        "description": "Protocol level snapshots (including TVL and fees data).",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "The standard chain id.",
+            "type": "number"
+          },
+          "tvlUsd": {
+            "description": "The total value locked in USD.",
+            "type": "number"
+          },
+          "feesUsd": {
+            "description": "The fees in USD.",
+            "type": "number"
+          }
+        }
+      }
+    ]
+  }
+  
