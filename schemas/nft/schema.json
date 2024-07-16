@@ -4,12 +4,17 @@
     "version": "1.0.0-alpha",
     "tables": [
         {
-            "tableName": "NFT Transfers",
+            "label": "NFT Transfers",
+            "tableName": "nft_transfers",
             "aggregation": "transaction",
             "description": "List of NFT transfers.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the transfer.",
+                    "type": "number"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
                     "type": "number"
                 },
                 "blockNumber": {
