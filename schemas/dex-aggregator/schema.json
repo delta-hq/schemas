@@ -4,7 +4,8 @@
     "version": "1.0.0-alpha",
     "tables": [
         {
-            "tableName": "Tokens",
+            "label": "Tokens",
+            "tableName": "dex_agg_tokens",
             "aggregation": "none",
             "description": "List of tokens supported by the protocol.",
             "properties": {
@@ -35,7 +36,8 @@
             }
         },
         {
-            "tableName": "Token Snapshot",
+            "label": "Token Snapshot",
+            "tableName": "dex_agg_token_metrics",
             "aggregation": "daily",
             "description": "Volume, fees, and incentives data at the token level.",
             "properties": {
@@ -47,38 +49,43 @@
                     "description": "The name of the protocol this table belongs to.",
                     "type": "string"
                 },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
                 "tokenAddress": {
                     "description": "The contract address of the token.",
                     "type": "string"
                 },
-                "dailyVolumeAmount": {
-                    "description": "The daily volume amount of the token (in native, decimal normalized terms).",
+                "volumeAmount": {
+                    "description": "The volume amount of the token, during the snapshot period, decimal normalized.",
                     "type": "number"
                 },
-                "dailyVolumeUsd": {
-                    "description": "The daily volume of the token in USD.",
+                "volumeUsd": {
+                    "description": "The volume of the token in USD.",
                     "type": "number"
                 },
-                "dailyFees": {
-                    "description": "The daily fees taken from this token in native, decimal normalized terms.",
+                "fees": {
+                    "description": "The fees taken from this token in native, decimal normalized terms.",
                     "type": "number"
                 },
-                "dailyFeesUsd": {
-                    "description": "The daily fees collected in USD.",
+                "feesUsd": {
+                    "description": "The  fees collected in USD.",
                     "type": "number"
                 },
-                "dailyIncentiveAmount": {
-                    "description": "The daily amount of incentives collected from this token.",
+                "incentiveAmount": {
+                    "description": "The amount of incentives collected from this token, during the snapshot period, decimal normalized.",
                     "type": "number"
                 },
-                "dailyIncentiveUsd": {
-                    "description": "The daily value of incentives in USD.",
+                "incentiveUsd": {
+                    "description": "The value of incentives in USD.",
                     "type": "number"
                 }
             }
         },
         {
-            "tableName": "Protocol Snapshot",
+            "label": "Protocol Snapshot",
+            "tableName": "dex_agg_metrics",
             "aggregation": "daily",
             "description": "Volume and fees data at the protocol level.",
             "properties": {
@@ -94,18 +101,19 @@
                     "description": "The standard id of the chain.",
                     "type": "number"
                 },
-                "dailyVolumeUsd": {
-                    "description": "The daily volume in USD.",
+                "volumeUsd": {
+                    "description": "The volume in USD, in the given snapshot period.",
                     "type": "number"
                 },
-                "dailyFeesUsd": {
-                    "description": "The daily fees collected in USD.",
+                "feesUsd": {
+                    "description": "The fees collected in USD, during the snapshot period.",
                     "type": "number"
                 }
             }
         },
         {
-            "tableName": "Trades",
+            "label": "Trades",
+            "tableName": "dex_agg_trades",
             "aggregation": "transaction",
             "description": "List of trades executed on the protocol.",
             "properties": {
