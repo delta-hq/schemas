@@ -1,0 +1,73 @@
+{
+    "schema": "Liquid Staking Tokens",
+    "description": "Standard table definitions for LSTs (liquid staking tokens)",
+    "version": "1.0.0-alpha",
+    "tables": [
+      {
+        "tableName": "Position Snapshot",
+        "aggregation": "daily",
+        "description": "User level snapshot of holders in this protocol.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "Standard chain ID.",
+            "type": "number"
+          },
+          "tokenAddress": {
+            "description": "The address of the LST in the protocol.",
+            "type": "string"
+          },
+          "tokenSymbol": {
+            "description": "The symbol of the token.",
+            "type": "string"
+          },
+          "userAddress": {
+            "description": "The address of the user holding the LST",
+            "type": "string"
+          },
+          "amount": {
+            "description": "The amount of LST tokens held in the protocol, decimal normalized."
+          },
+          "amountUsd": {
+            "description": "The amount held in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "tableName": "Protocol Snapshot",
+        "aggregation": "daily",
+        "description": "Snapshot at the protocol level, including, TVL and fees data.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "Standard chain ID.",
+            "type": "number"
+          },
+          "tvlUsd": {
+            "description": "The total value locked in USD (ie, the value of the liquid staking tokens in the protocol).",
+            "type": "number"
+          },
+          "feesUsd": {
+            "description": "The fees collected in USD in the given snapshot period.",
+            "type": "number"
+          }
+        }
+      }
+    ]
+  }
+  
