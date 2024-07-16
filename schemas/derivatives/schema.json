@@ -1,0 +1,256 @@
+{
+    "schema": "Derivatives",
+    "description": "Standard table definitions for derivatives protocols (options and perps).",
+    "version": "1.0.0-alpha",
+    "tables": [
+      {
+        "tableName": "Pools",
+        "aggregation": "none",
+        "description": "Pools in the protocol (one entry for each token).",
+        "properties": {
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "Standard chain id.",
+            "type": "number"
+          },
+          "creationTimestamp": {
+            "description": "The timestamp of the block the pool was created on.",
+            "type": "number"
+          },
+          "creationBlockNumber": {
+            "description": "The block number this pool was created on."
+          },
+          "poolAddress": {
+            "description": "The contract address of the pool.",
+            "type": "string"
+          },
+          "tokenIndex": {
+            "description": "The index of the token in the smart contract.",
+            "type": "number"
+          },
+          "tokenAddress": {
+            "description": "The contract address of the token.",
+            "type": "string"
+          },
+          "tokenSymbol": {
+            "description": "The symbol of the token.",
+            "type": "string"
+          },
+          "feeRate": {
+            "description": "The fee rate of the pool.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "tableName": "LP Snapshot",
+        "aggregation": "daily",
+        "description": "Liquidity providers snapshot (one entry for each token in a pool).",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "Standard chain id.",
+            "type": "number"
+          },
+          "poolAddress": {
+            "description": "The address of the pool.",
+            "type": "string"
+          },
+          "lpAddress": {
+            "description": "The address of the liquidity provider.",
+            "type": "string"
+          },
+          "tokenIndex": {
+            "description": "The index of the token in the smart contract.",
+            "type": "number"
+          },
+          "tokenAddress": {
+            "description": "The address of the token provided as liquidity.",
+            "type": "string"
+          },
+          "tokenSymbol": {
+            "description": "The symbol of the token.",
+            "type": "string"
+          },
+          "tokenAmount": {
+            "description": "The amount of tokens, decimal normalized.",
+            "type": "number"
+          },
+          "tokenAmountUsd": {
+            "description": "The amount of the provided token in USD.",
+            "type": "number"
+          },
+          "feesUsd": {
+            "description": "The fees in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "tableName": "Pool Snapshot",
+        "aggregation": "daily",
+        "description": "Pool level snapshot data.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "Standard chain id.",
+            "type": "number"
+          },
+          "poolAddress": {
+            "description": "The smart contract address of the pool.",
+            "type": "string"
+          },
+          "tvlUsd": {
+            "description": "The total value locked in USD.",
+            "type": "number"
+          },
+          "openInterestLongsUsd": {
+            "description": "The open interest of longs in USD.",
+            "type": "number"
+          },
+          "openInterestShortsUsd": {
+            "description": "The open interest of shorts in USD.",
+            "type": "number"
+          },
+          "volumeUsd": {
+            "description": "The volume in USD during this given snapshot period.",
+            "type": "number"
+          },
+          "feesUsd": {
+            "description": "The fees in USD in the given snapshot period.",
+            "type": "number"
+          },
+          "incentiveAmount": {
+            "description": "The amount of incentives given out during this snapshot.",
+            "type": "number"
+          },
+          "incentiveUsd": {
+            "description": "The value of incentives in USD.",
+            "type": "number"
+          },
+          "putMaturityTimestamp": {
+            "description": "The maturity date for the put option as a timestamp, options protocols only.",
+            "type": "number"
+          },
+          "callMaturityTimestamp": {
+            "description": "The maturity date for the call option as a timestamp, options protocols only.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "tableName": "Protocol Snapshot",
+        "aggregation": "daily",
+        "description": "Protocol level snapshot.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "Standard chain id.",
+            "type": "number"
+          },
+          "tvlUsd": {
+            "description": "The total value locked in USD.",
+            "type": "number"
+          },
+          "openInterestLongsUsd": {
+            "description": "The sum of open interest of longs in USD in the protocol.",
+            "type": "number"
+          },
+          "openInterestShortsUsd": {
+            "description": "The sum of open interest of shorts in USD.",
+            "type": "number"
+          },
+          "volumeUsd": {
+            "description": "The volume in USD, during the given snapshot period.",
+            "type": "number"
+          },
+          "feesUsd": {
+            "description": "The fees in USD.",
+            "type": "number"
+          },
+          "fundingRate": {
+            "description": "The funding rate as a percentage (ie, 2.3% as 2.3)",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "tableName": "Trades",
+        "aggregation": "transaction",
+        "description": "List of trades in the protocol.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the trade.",
+            "type": "number"
+          },
+          "protocolName": {
+            "description": "The name of the protocol.",
+            "type": "string"
+          },
+          "chainId": {
+            "description": "Standard chain id.",
+            "type": "number"
+          },
+          "transactionHash": {
+            "description": "The hash of the transaction this trade was performed in."
+          },    
+          "blockNumber": {
+            "description": "The block number of the trade.",
+            "type": "number"
+          },
+          "poolAddress": {
+            "description": "The address of the pool this token was traded in.",
+            "type": "string"
+          },
+          "makerAddress": {
+            "description": "The address of the maker.",
+            "type": "string"
+          },
+          "takerAddress": {
+            "description": "The address of the taker.",
+            "type": "string"
+          },
+          "tokenAddress": {
+            "description": "The address of the token.",
+            "type": "number"
+          },
+          "tradeAmount": {
+            "description": "The amount of the token traded, decimal normalized."
+          },
+          "tradeAmountUsd": {
+            "description": "The trade amount in USD.",
+            "type": "number"
+          },
+          "pnlUsd": {
+            "description": "The total profit and loss of the trade in USD.",
+            "type": "number"
+          }
+        }
+      }
+    ]
+  }
+  

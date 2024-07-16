@@ -19,12 +19,10 @@ Below you will find links to each of the following verticals.
 - General
 - DEX (Decentralized Exchange)
 - Lending / CDP (Collateralized Debt Position)
-- Perpetuals / Options / Derivatives
-- Pool-Based Bridge
-- Mint-Based Bridge
-- Intent-Based Bridge
-- LSTs (Liquid Staking Tokens)
-- Yield Aggregators (Leverage, Gambling, RWA, ALM, Liquidity/LP, Index)
+- [Derivatives](./schemas/derivatives/schema.json) (Perpetuals / Options) 
+- [Bridges](./schemas/bridges/SCHEMA.md) (Mint-Based, Pool-Based, Intent-Based)
+- [LST](./schemas/lst/SCHEMA.md) (Liquid Staking Tokens)
+- [Yield Aggregator](./schemas/yield-aggregator/SCHEMA.md) (Leverage, Gambling, RWA, ALM, Liquidity/LP, Index)
 - [DEX Aggregator](./schemas/dex-aggregator/SCHEMA.md)
 - Restaking
 - AVS
