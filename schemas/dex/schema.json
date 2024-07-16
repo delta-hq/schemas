@@ -1,12 +1,12 @@
 {
-    "schema": "dex",
+    "schema": "DEX",
     "description": "Standard table definitions for dex protocols.",
     "version": "1.0.0-alpha",
     "tables": [
         {
-            "tableName": "pools",
-            "aggregation": "list",
-            "description": "List of LP pools in this protocol.",
+            "tableName": "Pools",
+            "aggregation": "none",
+            "description": "List of LP pools in this protocol (one entry per token in a pool).",
             "properties": {
                 "protocolName": {
                     "description": "The name of the protocol this table belongs to.",
@@ -36,12 +36,12 @@
                     "description": "The symbol of the LP token.",
                     "type": "string"
                 },
-                "inputTokenAddresses": {
-                    "description": "A list of the input tokens of this pool. Ensure the tokens are in the index as they appear in the protocol (ie, token index 0 comes first).",
-                    "type": "[string]"
+                "tokenAddress": {
+                    "description": "The token address of the pool token at tokenIndex.",
+                    "type": "string"
                 },
                 "tokenIndex": {
-                    "description": "TODO",
+                    "description": "The index in the pool smart contract that this token appears at (ie, 0, 1, etc).",
                     "type": "number"
                 },
                 "feeRate": {
@@ -49,18 +49,18 @@
                     "type": "number"
                 },
                 "dexType": {
-                    "description": "The type of the DEX (ie, TODO).",
+                    "description": "The type of the DEX (ie, CPMM, CLMM, Orderbook).",
                     "type": "string"
                 }
             }
         },
         {
-            "tableName": "lpPositionSnapshot",
+            "tableName": "LP Position Snapshot",
             "aggregation": "daily",
-            "description": "User level snapshot on the LP positions in the protocol.",
+            "description": "User level snapshot on the LP positions in the protocol (one entry per token per pool).",
             "properties": {
                 "timestamp": {
-                    "description": "The timestamp of the record.",
+                    "description": "The timestamp of the snapshot.",
                     "type": "number"
                 },
                 "protocolName": {
@@ -80,7 +80,7 @@
                     "type": "string"
                 },
                 "tokenIndex": {
-                    "description": "TODO",
+                    "description": "The token index based on the smart contract.",
                     "type": "number"
                 },
                 "lpTokenAddress": {
@@ -100,26 +100,26 @@
                     "type": "number"
                 },
                 "feesUsd": {
-                    "description": "TODO",
+                    "description": "LP fees paid in the given period, in USD.",
                     "type": "number"
                 },
                 "incentiveAmount": {
-                    "description": "TODO",
+                    "description": "The amount of incentives given out over the snapshot period, in USD.",
                     "type": "number"
                 },
                 "incentiveUsd": {
-                    "description": "TODO",
+                    "description": "The incentives in USD.",
                     "type": "number"
                 }
             }
         },
         {
-            "tableName": "poolSnapshot",
+            "tableName": "Pool Snapshot",
             "aggregation": "daily",
-            "description": "TVL, volume, fees, and incentives data at the pool level.",
+            "description": "TVL, volume, fees, and incentives data at the pool level (one entry per token).",
             "properties": {
                 "timestamp": {
-                    "description": "The timestamp of the record.",
+                    "description": "The timestamp of the snapshot.",
                     "type": "number"
                 },
                 "protocolName": {
@@ -135,19 +135,19 @@
                     "type": "string"
                 },
                 "tokenIndex": {
-                    "description": "TODO",
+                    "description": "The token index in the smart contract.",
                     "type": "number"
                 },
-                "lpTokenAddress": {
-                    "description": "The contract address of the LP token.",
+                "tokenAddress": {
+                    "description": "The contract address of the token in the pool.",
                     "type": "string"
                 },
-                "lpTokenSymbol": {
-                    "description": "The symbol of the LP token.",
+                "tokenSymbol": {
+                    "description": "The symbol of the token.",
                     "type": "string"
                 },
                 "tokenAmount": {
-                    "description": "TODO: is this of the LP token?The amount of the token.",
+                    "description": "The amount of the the token in this pool at the snapshot, decimal normalized.",
                     "type": "number"
                 },
                 "tokenAmountUsd": {
@@ -155,15 +155,15 @@
                     "type": "number"
                 },
                 "poolVolumeUsd": {
-                    "description": "The volume of the pool in USD.",
+                    "description": "The volume of the pool in USD, during the snapshot period.",
                     "type": "number"
                 },
                 "poolFeesUsd": {
-                    "description": "The fees of the pool in USD.",
+                    "description": "The fees of the pool in USD, during the snapshot.",
                     "type": "number"
                 },
                 "poolIncentiveAmount": {
-                    "description": "TODO: daily? The amount of incentives in the pool.",
+                    "description": "The amount of incentives in the pool, during the given snapshot, decimal normalized.",
                     "type": "number"
                 },
                 "poolIncentiveUsd": {
@@ -173,7 +173,7 @@
             }
         },
         {
-            "tableName": "protocolSnapshot",
+            "tableName": "Protocol Snapshot",
             "aggregation": "daily",
             "description": "TVL, volume, and fees data at the protocol level.",
             "properties": {
@@ -204,12 +204,16 @@
             }
         },
         {
-            "tableName": "trades",
-            "aggregation": "event",
+            "tableName": "Trades",
+            "aggregation": "transaction",
             "description": "List of trades (ie, swaps) in the DEX.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the transaction.",
+                    "type": "number"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
                     "type": "number"
                 },
                 "blockNumber": {
@@ -241,7 +245,7 @@
                     "type": "string"
                 },
                 "inputTokenAmount": {
-                    "description": "The amount of the input token.",
+                    "description": "The amount of the input token, decimal normalized.",
                     "type": "number"
                 },
                 "outputTokenSymbol": {
@@ -253,7 +257,7 @@
                     "type": "string"
                 },
                 "outputTokenAmount": {
-                    "description": "The amount of the output token.",
+                    "description": "The amount of the output token, decimal normalized.",
                     "type": "number"
                 },
                 "swapAmountUsd": {
@@ -267,9 +271,9 @@
             }
         },
         {
-            "tableName": "mints",
-            "aggregation": "event",
-            "description": "Mint events for v2 DEXs.",
+            "tableName": "Mints",
+            "aggregation": "transaction",
+            "description": "Mint events for V2 DEXs.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the record.",
@@ -278,6 +282,10 @@
                 "protocolName": {
                     "description": "The name of the protocol this table belongs to.",
                     "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
                 },
                 "blockNumber": {
                     "description": "The block number of the mint.",
@@ -318,9 +326,9 @@
             }
         },
         {
-            "tableName": "burns",
-            "aggregation": "event",
-            "description": "Burns events for v2 DEXs.",
+            "tableName": "Burns",
+            "aggregation": "transaction",
+            "description": "Burns events for V2 DEXs.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the record.",
@@ -329,6 +337,10 @@
                 "protocolName": {
                     "description": "The name of the protocol this table belongs to.",
                     "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
                 },
                 "blockNumber": {
                     "description": "The block number of the burn.",
@@ -369,8 +381,8 @@
             }
         },
         {
-            "tableName": "syncs",
-            "description": "Sync events for v2 DEXs.",
+            "tableName": "Syncs",
+            "description": "Sync events for V2 DEXs.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the record.",
@@ -379,6 +391,10 @@
                 "protocolName": {
                     "description": "The name of the protocol this table belongs to.",
                     "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
                 },
                 "blockNumber": {
                     "description": "The block number of the sync.",
@@ -407,8 +423,8 @@
             }
         },
         {
-            "tableName": "transfers",
-            "description": "LP transfer events for v3 DEXs.",
+            "tableName": "Transfers",
+            "description": "LP transfer events for V3 DEXs.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the record.",
@@ -417,6 +433,10 @@
                 "protocolName": {
                     "description": "The name of the protocol this table belongs to.",
                     "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
                 },
                 "blockNumber": {
                     "description": "The block number of the transfer.",
@@ -437,9 +457,9 @@
             }
         },
         {
-            "tableName": "v3Events",
-            "aggregation": "event",
-            "description": "TODO: can this be combined with another table?LP activity data for DEX V3 (Mint/Burn/Transfer).",
+            "tableName": "V3 Events",
+            "aggregation": "transaction",
+            "description": "Activity (event-based) data for DEX V3 (Mint/Burn/Transfer).",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the record.",
@@ -449,11 +469,15 @@
                     "description": "The name of the protocol this table belongs to.",
                     "type": "string"
                 },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
                 "blockNumber": {
                     "description": "The block number of the activity.",
                     "type": "number"
                 },
-                "action": {
+                "eventType": {
                     "description": "The action taken (ie, Mint/Burn/Transfer).",
                     "type": "string"
                 },
@@ -465,12 +489,12 @@
                     "description": "The address to which the transaction is directed.",
                     "type": "string"
                 },
-                "poolId": {
-                    "description": "TODO",
+                "poolAddress": {
+                    "description": "The contract address of the pool.",
                     "type": "string"
                 },
-                "tokenId": {
-                    "description": "TODO",
+                "tokenAddress": {
+                    "description": "The contract address of the token",
                     "type": "string"
                 },
                 "liquidityAmount": {
@@ -496,9 +520,9 @@
             }
         },
         {
-            "tableName": "v3Swap",
-            "aggregation": "event",
-            "description": "TODO: can this be combined?Swap events for DEX V3.",
+            "tableName": "V# Swaps",
+            "aggregation": "transaction",
+            "description": "Swap events for V3 DEXs.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the record.",
@@ -507,6 +531,10 @@
                 "protocolName": {
                     "description": "The name of the protocol this table belongs to.",
                     "type": "string"
+                },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
                 },
                 "blockNumber": {
                     "description": "The block number of the swap.",
@@ -521,7 +549,7 @@
                     "type": "string"
                 },
                 "liquidityAmount": {
-                    "description": "TODO",
+                    "description": "The liquidity field that is emitted in a V3 event, decimal normalized.",
                     "type": "number"
                 },
                 "token0Amount": {
@@ -543,7 +571,7 @@
             }
         },
         {
-            "tableName": "marketDepthUserSnapshot",
+            "tableName": "Market Depth User Snapshot",
             "aggregation": "hourly/daily",
             "description": "(Optional) Market depth score data at the user level.",
             "properties": {
