@@ -1,10 +1,11 @@
 {
-    "schema": "Yield Aggregator",
+    "schema": "Yield Aggregator (Leverage, Gambling, RWA, ALM, Liquidity/LP, index)",
     "description": "Standard table definitions for yield aggregator protocols (can include, Leverage, Gambling, RWA, ALM, Liquidity/LP, index).",
     "version": "1.0.0-alpha",
     "tables": [
       {
-        "tableName": "pools",
+        "label": "Pools",
+        "tableName": "misc_pools",
         "aggregation": "none",
         "description": "List of pools in the protocol.",
         "properties": {
@@ -51,7 +52,8 @@
         }
       },
       {
-        "tableName": "positionSnapshot",
+        "label": "Position Snapshot",
+        "tableName": "misc_depositors",
         "aggregation": "daily",
         "description": "Snapshot of the pool users.",
         "properties": {
@@ -98,7 +100,8 @@
         }
       },
       {
-        "tableName": "poolSnapshot",
+        "label": "Pool Snapshot",
+        "tableName": "misc_pool_metrics",
         "aggregation": "daily",
         "description": "TVL, fees, and incentives data at the pool level.",
         "properties": {
@@ -145,7 +148,8 @@
         }
       },
       {
-        "tableName": "protocolSnapshot",
+        "label": "Protocol Snapshot",
+        "tableName": "misc_metrics",
         "aggregation": "daily",
         "description": "Protocol level snapshots (including TVL and fees data).",
         "properties": {
