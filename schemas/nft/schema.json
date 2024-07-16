@@ -1,10 +1,11 @@
 {
-    "schema": "nft",
+    "schema": "NFT",
     "description": "Standard table definitions for NFTs.",
     "version": "1.0.0-alpha",
     "tables": [
         {
-            "tableName": "nftTransfers",
+            "tableName": "NFT Transfers",
+            "aggregation": "transaction",
             "description": "List of NFT transfers.",
             "properties": {
                 "timestamp": {
