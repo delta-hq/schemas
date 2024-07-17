@@ -4,7 +4,8 @@
     "version": "1.0.0-alpha",
     "tables": [
         {
-            "tableName": "Pools",
+            "label": "Pools",
+            "tableName": "dex_pools",
             "aggregation": "none",
             "description": "List of LP pools in this protocol (one entry per token in a pool).",
             "properties": {
@@ -55,7 +56,8 @@
             }
         },
         {
-            "tableName": "LP Position Snapshot",
+            "label": "LP Position Snapshot",
+            "tableName": "dex_lps",
             "aggregation": "daily",
             "description": "User level snapshot on the LP positions in the protocol (one entry per token per pool).",
             "properties": {
@@ -114,7 +116,8 @@
             }
         },
         {
-            "tableName": "Pool Snapshot",
+            "label": "Pool Snapshot",
+            "tableName": "dex_pool_metrics",
             "aggregation": "daily",
             "description": "TVL, volume, fees, and incentives data at the pool level (one entry per token).",
             "properties": {
@@ -173,7 +176,8 @@
             }
         },
         {
-            "tableName": "Protocol Snapshot",
+            "label": "Protocol Snapshot",
+            "tableName": "dex_metrics",
             "aggregation": "daily",
             "description": "TVL, volume, and fees data at the protocol level.",
             "properties": {
@@ -204,7 +208,8 @@
             }
         },
         {
-            "tableName": "Trades",
+            "label": "Trades",
+            "tableName": "dex_trades",
             "aggregation": "transaction",
             "description": "List of trades (ie, swaps) in the DEX.",
             "properties": {
@@ -271,7 +276,8 @@
             }
         },
         {
-            "tableName": "Mints",
+            "label": "Mints",
+            "tableName": "dex_mints",
             "aggregation": "transaction",
             "description": "Mint events for V2 DEXs.",
             "properties": {
@@ -326,7 +332,8 @@
             }
         },
         {
-            "tableName": "Burns",
+            "label": "Burns",
+            "tableName": "dex_burns",
             "aggregation": "transaction",
             "description": "Burns events for V2 DEXs.",
             "properties": {
@@ -381,7 +388,8 @@
             }
         },
         {
-            "tableName": "Syncs",
+            "label": "Syncs",
+            "tableName": "dex_syncs",
             "description": "Sync events for V2 DEXs.",
             "properties": {
                 "timestamp": {
@@ -423,7 +431,8 @@
             }
         },
         {
-            "tableName": "Transfers",
+            "label": "Transfers",
+            "tableName": "dex_lp_transfers",
             "description": "LP transfer events for V3 DEXs.",
             "properties": {
                 "timestamp": {
@@ -457,7 +466,8 @@
             }
         },
         {
-            "tableName": "V3 Events",
+            "label": "V3 Events",
+            "tableName": "dex_v3_events",
             "aggregation": "transaction",
             "description": "Activity (event-based) data for DEX V3 (Mint/Burn/Transfer).",
             "properties": {
@@ -520,7 +530,8 @@
             }
         },
         {
-            "tableName": "V# Swaps",
+            "label": "V3 Swaps",
+            "tableName": "dex_v3_trades",
             "aggregation": "transaction",
             "description": "Swap events for V3 DEXs.",
             "properties": {
@@ -571,7 +582,8 @@
             }
         },
         {
-            "tableName": "Market Depth User Snapshot",
+            "label": "Market Depth User Snapshot",
+            "tableName": "dex_user_market_depth",
             "aggregation": "hourly/daily",
             "description": "(Optional) Market depth score data at the user level.",
             "properties": {
