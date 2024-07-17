@@ -612,7 +612,7 @@
                     "type": "string"
                 },
                 "marketDepthScore": {
-                    "description": "TODO: how to define this?",
+                    "description": "(Ask for supporting documents and formula). The percentage price range market depth is derived from a 30-day realized volatility.",
                     "type": "number"
                 }
             }

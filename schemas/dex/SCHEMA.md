@@ -139,10 +139,48 @@ This is OpenBlock Labs standard DEX schema.
 | poolTokenBalance    | The balance of the pool token, decimal normalized.                   | number |
 
 ### V3 Events
-| Property            | Description                                                          | Type   |
-|---------------------|----------------------------------------------------------------------|--------|
-| timestamp           | The timestamp of the record.                                         | number |
-| protocolName        | The name of the protocol this table belongs to.                      | string |
-| chainId             | The standard id of the chain.                                        | number |
-| blockNumber         | The block number of the activity.                                    | number |
-| eventType           | The action taken (e
+| Property                | Description                                                      | Type   |
+|-------------------------|------------------------------------------------------------------|--------|
+| timestamp               | The timestamp of the record.                                     | number |
+| protocolName            | The name of the protocol this table belongs to.                   | string |
+| chainId                 | The standard id of the chain.                                    | number |
+| blockNumber             | The block number of the activity.                                | number |
+| eventType               | The action taken (Mint/Burn/Transfer).                           | string |
+| transactionFromAddress  | The address from which the transaction originated.               | string |
+| transactionToAddress    | The address to which the transaction is directed.                | string |
+| poolAddress             | The contract address of the pool.                                | string |
+| tokenAddress            | The contract address of the token.                               | string |
+| liquidityAmount         | The amount of liquidity involved.                                | number |
+| liquidityUSD            | The liquidity amount in USD.                                     | number |
+| tickLower               | The lower tick of the liquidity range.                           | number |
+| tickUpper               | The upper tick of the liquidity range.                           | number |
+| tick                    | The current tick.                                                | number |
+
+### V3 Swaps
+
+| Property        | Description                                                      | Type   |
+|-----------------|------------------------------------------------------------------|--------|
+| timestamp       | The timestamp of the record.                                     | number |
+| protocolName    | The name of the protocol this table belongs to.                   | string |
+| chainId         | The standard id of the chain.                                    | number |
+| blockNumber     | The block number of the swap.                                    | number |
+| userAddress     | The address of the user who made the swap.                       | string |
+| poolAddress     | The contract address of the pool.                                | string |
+| liquidityAmount | The liquidity field emitted in a V3 event, decimal normalized.   | number |
+| token0Amount    | The amount of token0 involved in the swap.                       | number |
+| token1Amount    | The amount of token1 involved in the swap.                       | number |
+| sqrtPriceX96    | The square root of the price multiplied by 2^96.                 | number |
+| tick            | The current tick.                                                | number |
+
+
+### Market Depth User Snapshot
+
+| Property           | Description                                                                                     | Type   |
+|--------------------|-------------------------------------------------------------------------------------------------|--------|
+| timestamp          | The timestamp of the record.                                                                    | number |
+| protocolName       | The name of the protocol this table belongs to.                                                  | string |
+| chainId            | The standard id of the chain.                                                                   | number |
+| blockNumber        | The block number of the record.                                                                 | number |
+| userAddress        | The address of the user.                                                                        | string |
+| poolAddress        | The contract address of the pool.                                                               | string |
+| marketDepthScore   | (Ask for supporting documents and formula). The percentage price range market depth derived from a 30-day realized volatility. | number |
