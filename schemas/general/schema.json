@@ -1,10 +1,11 @@
 {
-    "schema": "general",
+    "schema": "General",
     "description": "Table definitions for the generic schema. These tables can be used for any protocol.",
     "version": "1.0.0-alpha",
     "tables": [
       {
-        "tableName": "incentiveClaimData",
+        "label": "Incentive Claim Data",
+        "tableName": "user_incentive_claim",
         "aggregation": "transaction",
         "description": "Transactional data on user level incentives claimed data.",
         "properties": {
@@ -42,7 +43,8 @@
         }
       },
       {
-        "tableName": "airdrop",
+        "label": "Airdrop",
+        "tableName": "general_airdrop",
         "aggregation": "none",
         "description": "Schema for airdrop data.",
         "properties": {
@@ -97,7 +99,8 @@
         }
       },
       {
-        "tableName": "protocolSnapshot",
+        "label": "Protocol Snapshot",
+        "tableName": "general_metrics",
         "aggregation": "daily",
         "description": "Protocol level snapshot focused on incentives and users.",
         "properties": {
@@ -136,7 +139,8 @@
         }
       },
       {
-        "tableName": "userLiquiditySnapshot",
+        "label": "User Liquidity Snapshot",
+        "tableName": "general_user_liquidity_metrics",
         "aggregation": "hourly/daily",
         "description": "User level passive liquidity snapshot.",
         "properties": {
@@ -174,7 +178,8 @@
         }
       },
       {
-        "tableName": "poolSnapshot",
+        "label": "Pool Snapshot",
+        "tableName": "general_pools",
         "aggregation": "daily",
         "description": "APR and APY data at the pool level.",
         "properties": {
@@ -221,7 +226,8 @@
         }
       },
       {
-        "tableName": "userTransactionSnapshot",
+        "label": "User Transaction Snapshot",
+        "tableName": "general_user_transaction_metrics",
         "aggregation": "daily",
         "description": "Transaction and gas fees data at the user level.",
         "properties": {
