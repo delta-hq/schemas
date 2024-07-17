@@ -1,10 +1,12 @@
 {
-    "schema": "dex-aggregator",
+    "schema": "DEX Aggregator",
     "description": "Standard table definitions for DEX aggregators.",
     "version": "1.0.0-alpha",
     "tables": [
         {
-            "tableName": "tokens",
+            "label": "Tokens",
+            "tableName": "dex_agg_tokens",
+            "aggregation": "none",
             "description": "List of tokens supported by the protocol.",
             "properties": {
                 "protocolName": {
@@ -34,7 +36,9 @@
             }
         },
         {
-            "tableName": "tokenSnapshot",
+            "label": "Token Snapshot",
+            "tableName": "dex_agg_token_metrics",
+            "aggregation": "daily",
             "description": "Volume, fees, and incentives data at the token level.",
             "properties": {
                 "timestamp": {
@@ -45,38 +49,44 @@
                     "description": "The name of the protocol this table belongs to.",
                     "type": "string"
                 },
+                "chainId": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
                 "tokenAddress": {
                     "description": "The contract address of the token.",
                     "type": "string"
                 },
-                "dailyVolumeAmount": {
-                    "description": "The daily volume amount of the token (in native, decimal normalized terms).",
+                "volumeAmount": {
+                    "description": "The volume amount of the token, during the snapshot period, decimal normalized.",
                     "type": "number"
                 },
-                "dailyVolumeUsd": {
-                    "description": "The daily volume of the token in USD.",
+                "volumeUsd": {
+                    "description": "The volume of the token in USD.",
                     "type": "number"
                 },
-                "dailyFees": {
-                    "description": "The daily fees taken from this token in native, decimal normalized terms.",
+                "fees": {
+                    "description": "The fees (ie, revenue generated from trading this token) from this token in native, decimal normalized terms.",
                     "type": "number"
                 },
-                "dailyFeesUsd": {
-                    "description": "The daily fees collected in USD.",
+                "feesUsd": {
+                    "description": "The  fees collected in USD.",
                     "type": "number"
                 },
-                "dailyIncentiveAmount": {
-                    "description": "The daily amount of incentives collected from this token.",
+                "incentiveAmount": {
+                    "description": "The amount of incentives collected from this token, during the snapshot period, decimal normalized.",
                     "type": "number"
                 },
-                "dailyIncentiveUsd": {
-                    "description": "The daily value of incentives in USD.",
+                "incentiveUsd": {
+                    "description": "The value of incentives in USD.",
                     "type": "number"
                 }
             }
         },
         {
-            "tableName": "protocolSnapshot",
+            "label": "Protocol Snapshot",
+            "tableName": "dex_agg_metrics",
+            "aggregation": "daily",
             "description": "Volume and fees data at the protocol level.",
             "properties": {
                 "timestamp": {
@@ -91,18 +101,20 @@
                     "description": "The standard id of the chain.",
                     "type": "number"
                 },
-                "dailyVolumeUsd": {
-                    "description": "The daily volume in USD.",
+                "volumeUsd": {
+                    "description": "The volume in USD, in the given snapshot period.",
                     "type": "number"
                 },
-                "dailyFeesUsd": {
-                    "description": "The daily fees collected in USD.",
+                "feesUsd": {
+                    "description": "The fees (ie, total revenue generated in the protocol) collected in USD, during the snapshot period.",
                     "type": "number"
                 }
             }
         },
         {
-            "tableName": "trades",
+            "label": "Trades",
+            "tableName": "dex_agg_trades",
+            "aggregation": "transaction",
             "description": "List of trades executed on the protocol.",
             "properties": {
                 "timestamp": {
@@ -126,7 +138,7 @@
                     "type": "string"
                 },
                 "fees": {
-                    "description": "The amount of fees for this trade.",
+                    "description": "The amount of fees from this trade (ie, the revenue generated from executing this trade).",
                     "type": "number"
                 },
                 "feesUsd": {
@@ -134,7 +146,7 @@
                     "type": "number"
                 },
                 "slippage": {
-                    "description": "(Optional) The slippage of the given trade.",
+                    "description": "(Optional) The slippage of the given trade, as a percentage (ie, 0.3% slippage is 0.3).",
                     "type": "number"
                 },
                 "userAddress": {
@@ -146,7 +158,7 @@
                     "type": "[string]"
                 },
                 "inputTokenAmounts": {
-                    "description": "Parallel array to inputTokens, dictating the normalzied native amounts of each token traded.",
+                    "description": "Parallel array to inputTokens, dictating the normalized native amounts of each token traded.",
                     "type": "[number]"
                 },
                 "outputTokens": {
@@ -154,7 +166,7 @@
                     "type": "[string]"
                 },
                 "outputTokenAmounts": {
-                    "description": "Parallel array to output, dictating the normalzied native amounts of each token traded.",
+                    "description": "Parallel array to output, dictating the normalized native amounts of each token traded.",
                     "type": "[number]"
                 },
                 "swapAmountUsd": {
