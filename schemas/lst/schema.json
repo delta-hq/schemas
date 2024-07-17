@@ -1,10 +1,11 @@
 {
-    "schema": "Liquid Staking Tokens",
+    "schema": "Liquid Staking Tokens (LSTs)",
     "description": "Standard table definitions for LSTs (liquid staking tokens)",
     "version": "1.0.0-alpha",
     "tables": [
       {
-        "tableName": "Position Snapshot",
+        "label": "Position Snapshot",
+        "tableName": "lst_holders",
         "aggregation": "daily",
         "description": "User level snapshot of holders in this protocol.",
         "properties": {
@@ -42,7 +43,8 @@
         }
       },
       {
-        "tableName": "Protocol Snapshot",
+        "label": "Protocol Snapshot",
+        "tableName": "lst_metrics",
         "aggregation": "daily",
         "description": "Snapshot at the protocol level, including, TVL and fees data.",
         "properties": {
