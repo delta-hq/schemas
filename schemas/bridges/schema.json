@@ -1,10 +1,11 @@
 {
-    "schema": "bridges",
+    "schema": "Bridges",
     "description": "Standard table definitions for bridge protocols, including pool-based, mint-based, and intent-based bridges.",
     "version": "1.0.0-alpha",
     "tables": [
         {
-            "tableName": "Tokens",
+            "label": "Tokens",
+            "tableName": "bridge_intent_tokens",
             "aggregation": "none",
             "description": "List of tokens in bridge protocols.",
             "properties": {
@@ -27,9 +28,10 @@
             }
         },
       {
-        "tableName": "pools",
+        "label": "Pools",
+        "tableName": "bridge_pools",
         "aggregation": "none",
-        "description": "List of pools in bridge protocols (applicable .",
+        "description": "List of pools in bridge protocols (applicable for pool and mint based bridges).",
         "properties": {
           "creationTimestamp": {
             "description": "The timestamp this pool was created.",
@@ -78,7 +80,8 @@
         }
       },
       {
-        "tableName": "LP Snapshot",
+        "label": "LP Snapshot",
+        "tableName": "bridge_lps",
         "aggregation": "daily",
         "description": "List of liquidity providers in pool-based bridge protocols.",
         "properties": {
@@ -129,7 +132,8 @@
         }
       },
       {
-        "tableName": "User Snapshot",
+        "label": "User Snapshot",
+        "tableName": "bridge_bridgers",
         "aggregation": "daily",
         "description": "User level snapshot of accounts that have used the bridge (applicable to pool and intent based bridges).",
         "properties": {
@@ -168,7 +172,8 @@
         }
       },
       {
-        "tableName": "Pool Snapshot",
+        "label": "Pool Snapshot",
+        "tableName": "bridge_pool_metrics",
         "aggregation": "daily",
         "description": "Pool level snapshots for pool and mint based bridges.",
         "properties": {
@@ -231,7 +236,8 @@
         }
       },
       {
-        "tableName": "Protocol Snapshot",
+        "label": "Protocol Snapshot",
+        "tableName": "bridge_metrics",
         "aggregation": "daily",
         "description": "Protocol level snapshot for all bridges.",
         "properties": {
@@ -266,7 +272,8 @@
         }
       },
       {
-        "tableName": "Bridge Transactions",
+        "label": "Bridge Transactions",
+        "tableName": "bridge_transactions",
         "aggregation": "transaction",
         "description": "List of bridge transactions.",
         "properties": {
@@ -317,7 +324,8 @@
         }
       },
       {
-        "tableName": "Maker Snapshot",
+        "label": "Maker Snapshot",
+        "tableName": "bridge_intent_makers",
         "aggregation": "daily",
         "description": "List of makers in intent-based bridge protocols.",
         "properties": {
@@ -352,7 +360,8 @@
         }
       },
       {
-        "tableName": "Taker Snapshot",
+        "label": "Taker Snapshot",
+        "tableName": "bridge_intent_takers",
         "aggregation": "daily",
         "description": "List of takers in intent-based bridge protocols.",
         "properties": {
@@ -379,7 +388,8 @@
         }
       },
       {
-        "tableName": "Token Snapshot",
+        "label": "Token Snapshot",
+        "tableName": "bridge_intent_token_metrics",
         "aggregation": "daily",
         "description": "Volume and fees data at the token level for intent-based bridges.",
         "properties": {
