@@ -1,10 +1,11 @@
 {
-    "schema": "lending",
+    "schema": "Lending / CDP",
     "description": "Standard table definitions for lending protocols.",
     "version": "1.0.0-alpha",
     "tables": [
         {
-            "tableName": "pools",
+            "label": "Pools",
+            "tableName": "lending_pools",
             "description": "List of lending pools in this protocol.",
             "properties": {
                 "protocolName": {
@@ -50,11 +51,12 @@
             }
         },
         {
-            "tableName": "positionSnapshot",
+            "label": "Position Snapshot",
+            "tableName": "lending_suppliers",
             "description": "Snapshot of user positions in the lending protocol.",
             "properties": {
                 "timestamp": {
-                    "description": "The timestamp of the record.",
+                    "description": "The timestamp of the snapshot.",
                     "type": "string"
                 },
                 "protocolName": {
@@ -78,7 +80,7 @@
                     "type": "string"
                 },
                 "userAddress": {
-                    "description": "The address of the user.",
+                    "description": "The address of the user who has the position.",
                     "type": "string"
                 },
                 "suppliedAmount": {
@@ -108,7 +110,8 @@
             }
         },
         {
-            "tableName": "poolSnapshot",
+            "label": "Pool Snapshot",
+            "tableName": "lending_pool_netrics",
             "description": "Pool level snapshots.",
             "properties": {
                 "timestamp": {
@@ -196,21 +199,22 @@
                     "type": "number"
                 },
                 "feesUsd": {
-                    "description": "TODO: is this total revenue? Or is it protocol side or supply side?",
+                    "description": "The total revenue / fees accrued in this pool during the given snapshot period.",
                     "type": "number"
                 },
                 "incentiveAmount": {
-                    "description": "TODO: what is this?",
+                    "description": "The amount of incentives distributed in this pool during the given snapshot period, decimal normalized.",
                     "type": "number"
                 },
                 "incentiveUsd": {
-                    "description": "TODO",
+                    "description": "The amount of incentives distributed, in USD.",
                     "type": "number"
                 }
             }
         },
         {
-            "tableName": "protocolSnapshot",
+            "label": "Protocol Snapshot",
+            "tableName": "lending_metrics",
             "description": "Protocol level snapshot.",
             "properties": {
                 "timestamp": {
@@ -242,7 +246,7 @@
                     "type": "number"
                 },
                 "feesUsd": {
-                    "description": "TODO: is this total revenue? Do we want to break it up between supply / protocol revenue too?",
+                    "description": "The total revenue and fees collected by the protocol in the gicen snapshot period, in USD.",
                     "type": "number"
                 }
             }
