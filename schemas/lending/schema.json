@@ -8,10 +8,6 @@
             "tableName": "lending_pools",
             "description": "List of lending pools in this protocol.",
             "properties": {
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
                 "chainId": {
                     "description": "The standard id of the chain.",
                     "type": "number"
@@ -57,10 +53,6 @@
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the snapshot.",
-                    "type": "string"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
                     "type": "string"
                 },
                 "chainId": {
@@ -116,10 +108,6 @@
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the snapshot.",
-                    "type": "string"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
                     "type": "string"
                 },
                 "chainId": {
@@ -219,10 +207,6 @@
             "properties": {
                 "timestamp": {
                     "description": "The timestamp the snapshot was taken.",
-                    "type": "string"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
                     "type": "string"
                 },
                 "chainId": {

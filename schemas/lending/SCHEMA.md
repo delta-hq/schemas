@@ -10,7 +10,6 @@ This is the OpenBlock Labs standard schema for lending protocols.
 
 | Property              | Description                                                       | Type   |
 |-----------------------|-------------------------------------------------------------------|--------|
-| protocolName          | The name of the protocol this table belongs to.                   | string |
 | chainId               | The standard id of the chain.                                     | number |
 | creationBlockNumber   | The block this pool was created in.                               | number |
 | creationTimestamp     | The timestamp of the block that this pool was created in.         | number |
@@ -28,7 +27,6 @@ This is the OpenBlock Labs standard schema for lending protocols.
 | Property               | Description                                                                                  | Type   |
 |------------------------|----------------------------------------------------------------------------------------------|--------|
 | timestamp              | The timestamp of the snapshot.                                                               | string |
-| protocolName           | The name of the protocol this table belongs to.                                              | string |
 | chainId                | The standard id of the chain.                                                                | number |
 | poolAddress            | The contract address of the pool.                                                            | string |
 | underlyingTokenAddress | The contract address of the underlying token.                                                | string |
@@ -48,7 +46,6 @@ This is the OpenBlock Labs standard schema for lending protocols.
 | Property               | Description                                                                                  | Type   |
 |------------------------|----------------------------------------------------------------------------------------------|--------|
 | timestamp              | The timestamp of the snapshot.                                                               | string |
-| protocolName           | The name of the protocol this table belongs to.                                              | string |
 | chainId                | The standard id of the chain.                                                                | number |
 | poolAddress            | The contract address of the pool.                                                            | string |
 | underlyingTokenAddress | The contract address of the underlying token.                                                | string |
@@ -79,7 +76,6 @@ This is the OpenBlock Labs standard schema for lending protocols.
 | Property               | Description                                                                                  | Type   |
 |------------------------|----------------------------------------------------------------------------------------------|--------|
 | timestamp              | The timestamp the snapshot was taken.                                                        | string |
-| protocolName           | The name of the protocol this table belongs to.                                              | string |
 | chainId                | The standard id of the chain.                                                                | number |
 | tvlUsd                 | The total value locked in the protocol in USD. (ie, the total deposit or supplied amount).   | number |
 | borrowAmountUsd        | The total amount of tokens borrowed in USD.                                                  | number |
