@@ -8,6 +8,10 @@
             "tableName": "lending_pools",
             "description": "List of lending pools in this protocol.",
             "properties": {
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
+                    "type": "string"
+                },
                 "chainId": {
                     "description": "The standard id of the chain.",
                     "type": "number"
@@ -53,6 +57,10 @@
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the snapshot.",
+                    "type": "string"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
                     "type": "string"
                 },
                 "chainId": {
@@ -103,11 +111,15 @@
         },
         {
             "label": "Pool Snapshot",
-            "tableName": "lending_pool_netrics",
+            "tableName": "lending_pool_metrics",
             "description": "Pool level snapshots.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the snapshot.",
+                    "type": "string"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
                     "type": "string"
                 },
                 "chainId": {
@@ -142,6 +154,10 @@
                     "description": "The supplied amount in USD.",
                     "type": "number"
                 },
+                "nonRecursiveSuppliedAmount": {
+                    "description": "(Optional) The amount of non recursive supply in this pool, in the underlying token, decimal normalized. This is an aggregation of all of the user's net supply of this asset.",
+                    "type": "number"
+                },
                 "collateralAmount": {
                     "description": "(Optional) The amount of collateral only tokens in this pool.",
                     "type": "number"
@@ -162,10 +178,6 @@
                     "description": "The current annual percentage rate for supplied amount.",
                     "type": "number"
                 },
-                "supplyIncentiveApr": {
-                    "description": "The incentive annual percentage rate for supply.",
-                    "type": "number"
-                },
                 "borrowedAmount": {
                     "description": "The amount of underlying tokens borrowed from this pool, normalized to the underlying token.",
                     "type": "number"
@@ -182,20 +194,8 @@
                     "description": "The annual percentage rate for borrow.",
                     "type": "number"
                 },
-                "borrowIncentiveApr": {
-                    "description": "The incentive annual percentage rate for borrow.",
-                    "type": "number"
-                },
                 "feesUsd": {
-                    "description": "The total revenue / fees accrued in this pool during the given snapshot period.",
-                    "type": "number"
-                },
-                "incentiveAmount": {
-                    "description": "The amount of incentives distributed in this pool during the given snapshot period, decimal normalized.",
-                    "type": "number"
-                },
-                "incentiveUsd": {
-                    "description": "The amount of incentives distributed, in USD.",
+                    "description": "(Optional) The total revenue / fees accrued in this pool during the given snapshot period.",
                     "type": "number"
                 }
             }
@@ -207,6 +207,10 @@
             "properties": {
                 "timestamp": {
                     "description": "The timestamp the snapshot was taken.",
+                    "type": "string"
+                },
+                "protocolName": {
+                    "description": "The name of the protocol this table belongs to.",
                     "type": "string"
                 },
                 "chainId": {
@@ -230,7 +234,7 @@
                     "type": "number"
                 },
                 "feesUsd": {
-                    "description": "The total revenue and fees collected by the protocol in the gicen snapshot period, in USD.",
+                    "description": "(Optional) The total revenue and fees collected by the protocol in the gicen snapshot period, in USD.",
                     "type": "number"
                 }
             }
