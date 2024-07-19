@@ -29,7 +29,7 @@ Below you will find links to each of the following verticals.
 
 - General
 - DEX (Decentralized Exchange)
-- Lending / CDP (Collateralized Debt Position)
+- [Lending](./schemas/lending/SCHEMA.md) / MM (Money Market) / CDP (Collateralized Debt Position)
 - Perpetuals / Options / Derivatives
 - Pool-Based Bridge
 - Mint-Based Bridge
