@@ -5,27 +5,27 @@
     "tables": [
         {
             "label": "Tokens",
-            "tableName": "dex_agg_tokens",
+            "table_name": "dex_agg_tokens",
             "aggregation": "none",
             "description": "List of tokens supported by the protocol.",
             "properties": {
-                "protocolName": {
+                "protocol_name": {
                     "description": "The name of the protocol.",
                     "type": "string"
                 },
-                "chainId": {
+                "chain_id": {
                     "description": "The standard id of the chain.",
                     "type": "number"
                 },
-                "tokenAddress": {
+                "token_address": {
                     "description": "The contract address of the token.",
                     "type": "string"
                 },
-                "tokenName": {
+                "token_name": {
                     "description": "The full name of the token, from the eth_call name().",
                     "type": "string"
                 },
-                "tokenSymbol": {
+                "token_symbol": {
                     "description": "The symbol of the token, from the eth_call symbol().",
                     "type": "string"
                 },
@@ -37,7 +37,7 @@
         },
         {
             "label": "Token Snapshot",
-            "tableName": "dex_agg_token_metrics",
+            "table_name": "dex_agg_token_metrics",
             "aggregation": "daily",
             "description": "Volume, fees, and incentives data at the token level.",
             "properties": {
@@ -45,23 +45,23 @@
                     "description": "The timestamp of the record.",
                     "type": "number"
                 },
-                "protocolName": {
+                "protocol_name": {
                     "description": "The name of the protocol this table belongs to.",
                     "type": "string"
                 },
-                "chainId": {
+                "chain_id": {
                     "description": "The standard id of the chain.",
                     "type": "number"
                 },
-                "tokenAddress": {
+                "token_address": {
                     "description": "The contract address of the token.",
                     "type": "string"
                 },
-                "volumeAmount": {
+                "volume_amount": {
                     "description": "The volume amount of the token, during the snapshot period, decimal normalized.",
                     "type": "number"
                 },
-                "volumeUsd": {
+                "volume_usd": {
                     "description": "The volume of the token in USD.",
                     "type": "number"
                 },
@@ -69,15 +69,15 @@
                     "description": "The fees (ie, revenue generated from trading this token) from this token in native, decimal normalized terms.",
                     "type": "number"
                 },
-                "feesUsd": {
-                    "description": "The  fees collected in USD.",
+                "fees_usd": {
+                    "description": "The fees collected in USD.",
                     "type": "number"
                 },
-                "incentiveAmount": {
+                "incentive_amount": {
                     "description": "The amount of incentives collected from this token, during the snapshot period, decimal normalized.",
                     "type": "number"
                 },
-                "incentiveUsd": {
+                "incentive_usd": {
                     "description": "The value of incentives in USD.",
                     "type": "number"
                 }
@@ -85,7 +85,7 @@
         },
         {
             "label": "Protocol Snapshot",
-            "tableName": "dex_agg_metrics",
+            "table_name": "dex_agg_metrics",
             "aggregation": "daily",
             "description": "Volume and fees data at the protocol level.",
             "properties": {
@@ -93,19 +93,19 @@
                     "description": "The timestamp of the block this snapshot was taken.",
                     "type": "number"
                 },
-                "protocolName": {
+                "protocol_name": {
                     "description": "The name of the protocol.",
                     "type": "string"
                 },
-                "chainId": {
+                "chain_id": {
                     "description": "The standard id of the chain.",
                     "type": "number"
                 },
-                "volumeUsd": {
+                "volume_usd": {
                     "description": "The volume in USD, in the given snapshot period.",
                     "type": "number"
                 },
-                "feesUsd": {
+                "fees_usd": {
                     "description": "The fees (ie, total revenue generated in the protocol) collected in USD, during the snapshot period.",
                     "type": "number"
                 }
@@ -113,7 +113,7 @@
         },
         {
             "label": "Trades",
-            "tableName": "dex_agg_trades",
+            "table_name": "dex_agg_trades",
             "aggregation": "transaction",
             "description": "List of trades executed on the protocol.",
             "properties": {
@@ -121,19 +121,19 @@
                     "description": "The timestamp of the trade.",
                     "type": "number"
                 },
-                "protocolName": {
+                "protocol_name": {
                     "description": "The name of the protocol this table belongs to.",
                     "type": "string"
                 },
-                "chainId": {
+                "chain_id": {
                     "description": "The standard id of the chain this trade belongs to.",
                     "type": "number"
                 },
-                "blockNumber": {
+                "block_number": {
                     "description": "The block number in which the trade occurred.",
                     "type": "number"
                 },
-                "transactionId": {
+                "transaction_id": {
                     "description": "The transaction id associated with this trade.",
                     "type": "string"
                 },
@@ -141,7 +141,7 @@
                     "description": "The amount of fees from this trade (ie, the revenue generated from executing this trade).",
                     "type": "number"
                 },
-                "feesUsd": {
+                "fees_usd": {
                     "description": "The fees for this trade in USD.",
                     "type": "number"
                 },
@@ -149,27 +149,27 @@
                     "description": "(Optional) The slippage of the given trade, as a percentage (ie, 0.3% slippage is 0.3).",
                     "type": "number"
                 },
-                "userAddress": {
+                "user_address": {
                     "description": "The address of the user initiating the trade.",
                     "type": "string"
                 },
-                "inputTokens": {
+                "input_tokens": {
                     "description": "The contract address of the input token(s).",
                     "type": "[string]"
                 },
-                "inputTokenAmounts": {
-                    "description": "Parallel array to inputTokens, dictating the normalized native amounts of each token traded.",
+                "input_token_amounts": {
+                    "description": "Parallel array to input_tokens, dictating the normalized native amounts of each token traded.",
                     "type": "[number]"
                 },
-                "outputTokens": {
+                "output_tokens": {
                     "description": "The contract address of the output token(s).",
                     "type": "[string]"
                 },
-                "outputTokenAmounts": {
-                    "description": "Parallel array to output, dictating the normalized native amounts of each token traded.",
+                "output_token_amounts": {
+                    "description": "Parallel array to output_tokens, dictating the normalized native amounts of each token traded.",
                     "type": "[number]"
                 },
-                "swapAmountUsd": {
+                "swap_amount_usd": {
                     "description": "The value of the swap in USD.",
                     "type": "number"
                 }
