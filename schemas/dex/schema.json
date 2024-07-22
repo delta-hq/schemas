@@ -1,621 +1,580 @@
 {
     "schema": "DEX",
     "description": "Standard table definitions for dex protocols.",
-    "version": "1.0.0-alpha",
+    "version": "1.0.0",
     "tables": [
-        {
-            "label": "Pools",
-            "tableName": "dex_pools",
-            "aggregation": "none",
-            "description": "List of LP pools in this protocol (one entry per token in a pool).",
-            "properties": {
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "creationBlockNumber": {
-                    "description": "The block this pool was created in.",
-                    "type": "number"
-                },
-                "creationTimestamp": {
-                    "description": "The timestamp of the block that this pool was created in.",
-                    "type": "number"
-                },
-                "poolAddress": {
-                    "description": "The contract address of the lp pool.",
-                    "type": "string"
-                },
-                "lpTokenAddress": {
-                    "description": "The token address of the LP token for this pool.",
-                    "type": "string"
-                },
-                "lpTokenSymbol": {
-                    "description": "The symbol of the LP token.",
-                    "type": "string"
-                },
-                "tokenAddress": {
-                    "description": "The token address of the pool token at tokenIndex.",
-                    "type": "string"
-                },
-                "tokenIndex": {
-                    "description": "The index in the pool smart contract that this token appears at (ie, 0, 1, etc).",
-                    "type": "number"
-                },
-                "feeRate": {
-                    "description": "The fee rate of the pool.",
-                    "type": "number"
-                },
-                "dexType": {
-                    "description": "The type of the DEX (ie, CPMM, CLMM, Orderbook).",
-                    "type": "string"
-                }
-            }
-        },
-        {
-            "label": "LP Position Snapshot",
-            "tableName": "dex_lps",
-            "aggregation": "daily",
-            "description": "User level snapshot on the LP positions in the protocol (one entry per token per pool).",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the snapshot.",
-                    "type": "number"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "poolAddress": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "lpAddress": {
-                    "description": "The address of the liquidity provider.",
-                    "type": "string"
-                },
-                "tokenIndex": {
-                    "description": "The token index based on the smart contract.",
-                    "type": "number"
-                },
-                "lpTokenAddress": {
-                    "description": "The contract address of the LP token.",
-                    "type": "string"
-                },
-                "lpTokenSymbol": {
-                    "description": "The symbol of the LP token.",
-                    "type": "string"
-                },
-                "lpTokenAmount": {
-                    "description": "The amount of the LP token held by the liquidity provider in the position, decimal normalized.",
-                    "type": "number"
-                },
-                "lpTokenAmountUsd": {
-                    "description": "The amount of the LP token in USD.",
-                    "type": "number"
-                },
-                "feesUsd": {
-                    "description": "LP fees paid in the given period, in USD.",
-                    "type": "number"
-                },
-                "incentiveAmount": {
-                    "description": "The amount of incentives given out over the snapshot period, in USD.",
-                    "type": "number"
-                },
-                "incentiveUsd": {
-                    "description": "The incentives in USD.",
-                    "type": "number"
-                }
-            }
-        },
-        {
-            "label": "Pool Snapshot",
-            "tableName": "dex_pool_metrics",
-            "aggregation": "daily",
-            "description": "TVL, volume, fees, and incentives data at the pool level (one entry per token).",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the snapshot.",
-                    "type": "number"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "poolAddress": {
-                    "description": "The contract address of the LP pool.",
-                    "type": "string"
-                },
-                "tokenIndex": {
-                    "description": "The token index in the smart contract.",
-                    "type": "number"
-                },
-                "tokenAddress": {
-                    "description": "The contract address of the token in the pool.",
-                    "type": "string"
-                },
-                "tokenSymbol": {
-                    "description": "The symbol of the token.",
-                    "type": "string"
-                },
-                "tokenAmount": {
-                    "description": "The amount of the the token in this pool at the snapshot, decimal normalized.",
-                    "type": "number"
-                },
-                "tokenAmountUsd": {
-                    "description": "The amount of the token in USD.",
-                    "type": "number"
-                },
-                "poolVolumeUsd": {
-                    "description": "The volume of the pool in USD, during the snapshot period.",
-                    "type": "number"
-                },
-                "poolFeesUsd": {
-                    "description": "The fees of the pool in USD, during the snapshot.",
-                    "type": "number"
-                },
-                "poolIncentiveAmount": {
-                    "description": "The amount of incentives in the pool, during the given snapshot, decimal normalized.",
-                    "type": "number"
-                },
-                "poolIncentiveUsd": {
-                    "description": "The value of incentives in the pool in USD.",
-                    "type": "number"
-                }
-            }
-        },
-        {
-            "label": "Protocol Snapshot",
-            "tableName": "dex_metrics",
-            "aggregation": "daily",
-            "description": "TVL, volume, and fees data at the protocol level.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the snapshot.",
-                    "type": "string"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "tvlUsd": {
-                    "description": "The total value locked in USD.",
-                    "type": "number"
-                },
-                "volumeUsd": {
-                    "description": "The volume in USD.",
-                    "type": "number"
-                },
-                "feesUsd": {
-                    "description": "The fees collected in USD.",
-                    "type": "number"
-                }
-            }
-        },
-        {
-            "label": "Trades",
-            "tableName": "dex_trades",
-            "aggregation": "transaction",
-            "description": "List of trades (ie, swaps) in the DEX.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the transaction.",
-                    "type": "number"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "blockNumber": {
-                    "description": "The block number of the trade.",
-                    "type": "number"
-                },
-                "logIndex": {
-                    "description": "The log index of the event recorded.",
-                    "type": "number"
-                },
-                "transactionHash": {
-                    "description": "The hash of the transaction.",
-                    "type": "string"
-                },
-                "pairName": {
-                    "description": "The name of the token pair.",
-                    "type": "string"
-                },
-                "poolAddress": {
-                    "description": "The contract address of the LP pool being traded in.",
-                    "type": "string"
-                },
-                "inputTokenSymbol": {
-                    "description": "The symbol of the input token.",
-                    "type": "string"
-                },
-                "inputTokenAddress": {
-                    "description": "The contract address of the input token.",
-                    "type": "string"
-                },
-                "inputTokenAmount": {
-                    "description": "The amount of the input token, decimal normalized.",
-                    "type": "number"
-                },
-                "outputTokenSymbol": {
-                    "description": "The symbol of the output token.",
-                    "type": "string"
-                },
-                "outputTokenAddress": {
-                    "description": "The contract address of the output token.",
-                    "type": "string"
-                },
-                "outputTokenAmount": {
-                    "description": "The amount of the output token, decimal normalized.",
-                    "type": "number"
-                },
-                "swapAmountUsd": {
-                    "description": "The amount of the swap in USD.",
-                    "type": "number"
-                },
-                "feeUsd": {
-                    "description": "The fee for the trade in USD.",
-                    "type": "number"
-                }
-            }
-        },
-        {
-            "label": "Mints",
-            "tableName": "dex_mints",
-            "aggregation": "transaction",
-            "description": "Mint events for V2 DEXs.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the record.",
-                    "type": "number"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "blockNumber": {
-                    "description": "The block number of the mint.",
-                    "type": "number"
-                },
-                "userAddress": {
-                    "description": "The address of the user who initiated this event.",
-                    "type": "string"
-                },
-                "poolAddress": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "token0Address": {
-                    "description": "The contract address of token0.",
-                    "type": "string"
-                },
-                "token0Amount": {
-                    "description": "The amount of token0.",
-                    "type": "number"
-                },
-                "token1Address": {
-                    "description": "The contract address of token1.",
-                    "type": "string"
-                },
-                "token1Amount": {
-                    "description": "The amount of token1.",
-                    "type": "number"
-                },
-                "mintAmount": {
-                    "description": "The amount of LP token minted by the trader, decimal normalized.",
-                    "type": "number"
-                },
-                "mintAmountUsd": {
-                    "description": "The amount of the mint in USD.",
-                    "type": "number"
-                }
-            }
-        },
-        {
-            "label": "Burns",
-            "tableName": "dex_burns",
-            "aggregation": "transaction",
-            "description": "Burns events for V2 DEXs.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the record.",
-                    "type": "number"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "blockNumber": {
-                    "description": "The block number of the burn.",
-                    "type": "number"
-                },
-                "userAddress": {
-                    "description": "The address of the user who initiated this event.",
-                    "type": "string"
-                },
-                "poolAddress": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "token0Address": {
-                    "description": "The contract address of token0.",
-                    "type": "string"
-                },
-                "token0Amount": {
-                    "description": "The amount of token0.",
-                    "type": "number"
-                },
-                "token1Address": {
-                    "description": "The contract address of token1.",
-                    "type": "string"
-                },
-                "token1Amount": {
-                    "description": "The amount of token1.",
-                    "type": "number"
-                },
-                "burnAmount": {
-                    "description": "The amount of LP tokens burned, decimal normalized.",
-                    "type": "number"
-                },
-                "burnAmountUsd": {
-                    "description": "The amount of the burn in USD.",
-                    "type": "number"
-                }
-            }
-        },
-        {
-            "label": "Syncs",
-            "tableName": "dex_syncs",
-            "description": "Sync events for V2 DEXs.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the record.",
-                    "type": "number"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "blockNumber": {
-                    "description": "The block number of the sync.",
-                    "type": "number"
-                },
-                "poolAddress": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "token0Address": {
-                    "description": "The contract address of token0.",
-                    "type": "string"
-                },
-                "token0Amount": {
-                    "description": "The amount of token0.",
-                    "type": "number"
-                },
-                "token1Address": {
-                    "description": "The contract address of token1.",
-                    "type": "string"
-                },
-                "token1Amount": {
-                    "description": "The amount of token1.",
-                    "type": "number"
-                }
-            }
-        },
-        {
-            "label": "Transfers",
-            "tableName": "dex_lp_transfers",
-            "description": "LP transfer events for V3 DEXs.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the record.",
-                    "type": "number"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "blockNumber": {
-                    "description": "The block number of the transfer.",
-                    "type": "number"
-                },
-                "userAddress": {
-                    "description": "The address of the user who initiated this event.",
-                    "type": "string"
-                },
-                "poolAddress": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "poolTokenBalance": {
-                    "description": "The balance of the pool token, decimal normalized.",
-                    "type": "number"
-                }
-            }
-        },
-        {
-            "label": "V3 Events",
-            "tableName": "dex_v3_events",
-            "aggregation": "transaction",
-            "description": "Activity (event-based) data for DEX V3 (Mint/Burn/Transfer).",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the record.",
-                    "type": "number"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "blockNumber": {
-                    "description": "The block number of the activity.",
-                    "type": "number"
-                },
-                "eventType": {
-                    "description": "The action taken (ie, Mint/Burn/Transfer).",
-                    "type": "string"
-                },
-                "transactionFromAddress": {
-                    "description": "The address from which the transaction originated.",
-                    "type": "string"
-                },
-                "transactionToAddress": {
-                    "description": "The address to which the transaction is directed.",
-                    "type": "string"
-                },
-                "poolAddress": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "tokenAddress": {
-                    "description": "The contract address of the token",
-                    "type": "string"
-                },
-                "liquidityAmount": {
-                    "description": "The amount of liquidity.",
-                    "type": "number"
-                },
-                "liquidityUSD": {
-                    "description": "The liquidity amount in USD.",
-                    "type": "number"
-                },
-                "tickLower": {
-                    "description": "The lower tick of the liquidity range.",
-                    "type": "number"
-                },
-                "tickUpper": {
-                    "description": "The upper tick of the liquidity range.",
-                    "type": "number"
-                },
-                "tick": {
-                    "description": "The current tick.",
-                    "type": "number"
-                }
-            }
-        },
-        {
-            "label": "V3 Swaps",
-            "tableName": "dex_v3_trades",
-            "aggregation": "transaction",
-            "description": "Swap events for V3 DEXs.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the record.",
-                    "type": "number"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "blockNumber": {
-                    "description": "The block number of the swap.",
-                    "type": "number"
-                },
-                "userAddress": {
-                    "description": "The address of the user who made the swap.",
-                    "type": "string"
-                },
-                "poolAddress": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "liquidityAmount": {
-                    "description": "The liquidity field that is emitted in a V3 event, decimal normalized.",
-                    "type": "number"
-                },
-                "token0Amount": {
-                    "description": "The amount of token0.",
-                    "type": "number"
-                },
-                "token1Amount": {
-                    "description": "The amount of token1.",
-                    "type": "number"
-                },
-                "sqrtPriceX96": {
-                    "description": "The square root of the price multiplied by 2^96.",
-                    "type": "number"
-                },
-                "tick": {
-                    "description": "The current tick.",
-                    "type": "number"
-                }
-            }
-        },
-        {
-            "label": "Market Depth User Snapshot",
-            "tableName": "dex_user_market_depth",
-            "aggregation": "hourly/daily",
-            "description": "(Optional) Market depth score data at the user level.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the record.",
-                    "type": "number"
-                },
-                "protocolName": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
-                },
-                "chainId": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "blockNumber": {
-                    "description": "The block number of the record.",
-                    "type": "number"
-                },
-                "userAddress": {
-                    "description": "The address of the user.",
-                    "type": "string"
-                },
-                "poolAddress": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "marketDepthScore": {
-                    "description": "(Ask for supporting documents and formula). The percentage price range market depth is derived from a 30-day realized volatility.",
-                    "type": "number"
-                }
-            }
+      {
+        "label": "Pools",
+        "table_name": "dex_pools",
+        "aggregation": "none",
+        "description": "List of LP pools in this protocol (one entry per token in a pool).",
+        "properties": {
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "creation_block_number": {
+            "description": "The block this pool was created in.",
+            "type": "number"
+          },
+          "creation_timestamp": {
+            "description": "The timestamp of the block that this pool was created in.",
+            "type": "number"
+          },
+          "pool_address": {
+            "description": "The contract address of the LP pool.",
+            "type": "string"
+          },
+          "lp_token_address": {
+            "description": "The token address of the LP token for this pool.",
+            "type": "string"
+          },
+          "lp_token_symbol": {
+            "description": "The symbol of the LP token.",
+            "type": "string"
+          },
+          "token_address": {
+            "description": "The token address of the pool token at token_index.",
+            "type": "string"
+          },
+          "token_index": {
+            "description": "The index in the pool smart contract that this token appears at (ie, one entry per token in a pool).",
+            "type": "number"
+          },
+          "fee_rate": {
+            "description": "The fee rate of the pool, as a percentage.",
+            "type": "number"
+          },
+          "dex_type": {
+            "description": "The type of the DEX (e.g., CPMM, CLMM, Orderbook).",
+            "type": "string"
+          }
         }
+      },
+      {
+        "label": "LP Position Snapshot",
+        "table_name": "dex_lp_position_snapshot",
+        "aggregation": "none",
+        "description": "Snapshot of LP positions in the pools.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "pool_address": {
+            "description": "The contract address of the pool.",
+            "type": "string"
+          },
+          "lp_address": {
+            "description": "The address of the liquidity provider.",
+            "type": "string"
+          },
+          "token_index": {
+            "description": "The token index based on the smart contract.",
+            "type": "number"
+          },
+          "lp_token_address": {
+            "description": "The contract address of the LP token.",
+            "type": "string"
+          },
+          "lp_token_symbol": {
+            "description": "The symbol of the LP token.",
+            "type": "string"
+          },
+          "lp_token_amount": {
+            "description": "The amount of the LP token held by the liquidity provider.",
+            "type": "number"
+          },
+          "lp_token_amount_usd": {
+            "description": "The amount of the LP token in USD.",
+            "type": "number"
+          },
+          "fees_usd": {
+            "description": "LP fees paid in the given period, in USD.",
+            "type": "number"
+          },
+          "incentive_amount": {
+            "description": "The amount of incentives given out over the snapshot period, in USD.",
+            "type": "number"
+          },
+          "incentive_usd": {
+            "description": "The incentives in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "label": "Pool Snapshot",
+        "table_name": "dex_pool_snapshot",
+        "aggregation": "none",
+        "description": "Snapshot of the pool state.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "pool_address": {
+            "description": "The contract address of the LP pool.",
+            "type": "string"
+          },
+          "token_index": {
+            "description": "The token index in the smart contract.",
+            "type": "number"
+          },
+          "token_address": {
+            "description": "The contract address of the token in the pool.",
+            "type": "string"
+          },
+          "token_symbol": {
+            "description": "The symbol of the token.",
+            "type": "string"
+          },
+          "token_amount": {
+            "description": "The amount of the token in this pool at the snapshot.",
+            "type": "number"
+          },
+          "token_amount_usd": {
+            "description": "The amount of the token in USD.",
+            "type": "number"
+          },
+          "pool_volume_usd": {
+            "description": "The volume of the pool in USD, during the snapshot period.",
+            "type": "number"
+          },
+          "pool_fees_usd": {
+            "description": "The fees of the pool in USD, during the snapshot.",
+            "type": "number"
+          },
+          "pool_incentive_amount": {
+            "description": "The amount of incentives in the pool, during the snapshot.",
+            "type": "number"
+          },
+          "pool_incentive_usd": {
+            "description": "The value of incentives in the pool in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "label": "Protocol Snapshot",
+        "table_name": "dex_protocol_snapshot",
+        "aggregation": "none",
+        "description": "Snapshot of the protocol state.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "string"
+          },
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "tvl_usd": {
+            "description": "The total value locked in USD.",
+            "type": "number"
+          },
+          "volume_usd": {
+            "description": "The volume in USD.",
+            "type": "number"
+          },
+          "fees_usd": {
+            "description": "The fees collected in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "label": "Trades",
+        "table_name": "dex_trades",
+        "aggregation": "none",
+        "description": "List of trades in the pools.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the transaction.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "block_number": {
+            "description": "The block number of the trade.",
+            "type": "number"
+          },
+          "log_index": {
+            "description": "The log index of the event recorded.",
+            "type": "number"
+          },
+          "transaction_hash": {
+            "description": "The hash of the transaction.",
+            "type": "string"
+          },
+          "pair_name": {
+            "description": "The name of the token pair.",
+            "type": "string"
+          },
+          "pool_address": {
+            "description": "The contract address of the LP pool being traded in.",
+            "type": "string"
+          },
+          "input_token_symbol": {
+            "description": "The symbol of the input token.",
+            "type": "string"
+          },
+          "input_token_address": {
+            "description": "The contract address of the input token.",
+            "type": "string"
+          },
+          "input_token_amount": {
+            "description": "The amount of the input token, decimal normalized.",
+            "type": "number"
+          },
+          "output_token_symbol": {
+            "description": "The symbol of the output token.",
+            "type": "string"
+          },
+          "output_token_address": {
+            "description": "The contract address of the output token.",
+            "type": "string"
+          },
+          "output_token_amount": {
+            "description": "The amount of the output token, decimal normalized.",
+            "type": "number"
+          },
+          "swap_amount_usd": {
+            "description": "The amount of the swap in USD.",
+            "type": "number"
+          },
+          "fee_usd": {
+            "description": "The fee for the trade in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "label": "Mints",
+        "table_name": "dex_mints",
+        "aggregation": "none",
+        "description": "List of mint events in the pools.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the record.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "block_number": {
+            "description": "The block number of the mint.",
+            "type": "number"
+          },
+          "user_address": {
+            "description": "The address of the user who initiated this event.",
+            "type": "string"
+          },
+          "pool_address": {
+            "description": "The contract address of the pool.",
+            "type": "string"
+          },
+          "token0_address": {
+            "description": "The contract address of token0.",
+            "type": "string"
+          },
+          "token0_amount": {
+            "description": "The amount of token0.",
+            "type": "number"
+          },
+          "token1_address": {
+            "description": "The contract address of token1.",
+            "type": "string"
+          },
+          "token1_amount": {
+            "description": "The amount of token1.",
+            "type": "number"
+          },
+          "mint_amount": {
+            "description": "The amount of LP token minted by the trader, decimal normalized.",
+            "type": "number"
+          },
+          "mint_amount_usd": {
+            "description": "The amount of the mint in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "label": "Burns",
+        "table_name": "dex_burns",
+        "aggregation": "none",
+        "description": "List of burn events in the pools.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the record.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "block_number": {
+            "description": "The block number of the burn.",
+            "type": "number"
+          },
+          "user_address": {
+            "description": "The address of the user who initiated this event.",
+            "type": "string"
+          },
+          "pool_address": {
+            "description": "The contract address of the pool.",
+            "type": "string"
+          },
+          "token0_address": {
+            "description": "The contract address of token0.",
+            "type": "string"
+          },
+          "token0_amount": {
+            "description": "The amount of token0.",
+            "type": "number"
+          },
+          "token1_address": {
+            "description": "The contract address of token1.",
+            "type": "string"
+          },
+          "token1_amount": {
+            "description": "The amount of token1.",
+            "type": "number"
+          },
+          "burn_amount": {
+            "description": "The amount of LP tokens burned, decimal normalized.",
+            "type": "number"
+          },
+          "burn_amount_usd": {
+            "description": "The amount of the burn in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "label": "Syncs",
+        "table_name": "dex_syncs",
+        "aggregation": "none",
+        "description": "List of sync events in the pools.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the record.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "block_number": {
+            "description": "The block number of the sync.",
+            "type": "number"
+          },
+          "pool_address": {
+            "description": "The contract address of the pool.",
+            "type": "string"
+          },
+          "token0_address": {
+            "description": "The contract address of token0.",
+            "type": "string"
+          },
+          "token0_amount": {
+            "description": "The amount of token0.",
+            "type": "number"
+          },
+          "token1_address": {
+            "description": "The contract address of token1.",
+            "type": "string"
+          },
+          "token1_amount": {
+            "description": "The amount of token1.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "label": "Transfers",
+        "table_name": "dex_transfers",
+        "aggregation": "none",
+        "description": "List of transfer events in the pools.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the record.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "block_number": {
+            "description": "The block number of the transfer.",
+            "type": "number"
+          },
+          "user_address": {
+            "description": "The address of the user who initiated this event.",
+            "type": "string"
+          },
+          "pool_address": {
+            "description": "The contract address of the pool.",
+            "type": "string"
+          },
+          "pool_token_balance": {
+            "description": "The balance of the pool token, decimal normalized.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "label": "V3 Events",
+        "table_name": "dex_v3_events",
+        "aggregation": "none",
+        "description": "List of V3 events in the pools.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the record.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "block_number": {
+            "description": "The block number of the activity.",
+            "type": "number"
+          },
+          "event_type": {
+            "description": "The action taken (Mint/Burn/Transfer).",
+            "type": "string"
+          },
+          "transaction_from_address": {
+            "description": "The address from which the transaction originated.",
+            "type": "string"
+          },
+          "transaction_to_address": {
+            "description": "The address to which the transaction is directed.",
+            "type": "string"
+          },
+          "pool_address": {
+            "description": "The contract address of the pool.",
+            "type": "string"
+          },
+          "token_address": {
+            "description": "The contract address of the token.",
+            "type": "string"
+          },
+          "liquidity_amount": {
+            "description": "The amount of liquidity involved.",
+            "type": "number"
+          },
+          "liquidity_usd": {
+            "description": "The liquidity amount in USD.",
+            "type": "number"
+          },
+          "tick_lower": {
+            "description": "The lower tick of the liquidity range.",
+            "type": "number"
+          },
+          "tick_upper": {
+            "description": "The upper tick of the liquidity range.",
+            "type": "number"
+          },
+          "tick": {
+            "description": "The current tick.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "label": "V3 Swaps",
+        "table_name": "dex_v3_swaps",
+        "aggregation": "none",
+        "description": "List of V3 swaps in the pools.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the record.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "block_number": {
+            "description": "The block number of the swap.",
+            "type": "number"
+          },
+          "user_address": {
+            "description": "The address of the user who made the swap.",
+            "type": "string"
+          },
+          "pool_address": {
+            "description": "The contract address of the pool.",
+            "type": "string"
+          },
+          "liquidity_amount": {
+            "description": "The liquidity field emitted in a V3 event, decimal normalized.",
+            "type": "number"
+          },
+          "token0_amount": {
+            "description": "The amount of token0 involved in the swap.",
+            "type": "number"
+          },
+          "token1_amount": {
+            "description": "The amount of token1 involved in the swap.",
+            "type": "number"
+          },
+          "sqrt_price_x96": {
+            "description": "The square root of the price multiplied by 2^96.",
+            "type": "number"
+          },
+          "tick": {
+            "description": "The current tick.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "label": "Market Depth User Snapshot",
+        "table_name": "dex_market_depth_user_snapshot",
+        "aggregation": "none",
+        "description": "Snapshot of market depth from the user's perspective.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the record.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "The standard id of the chain.",
+            "type": "number"
+          },
+          "block_number": {
+            "description": "The block number of the record.",
+            "type": "number"
+          },
+          "user_address": {
+            "description": "The address of the user.",
+            "type": "string"
+          },
+          "pool_address": {
+            "description": "The contract address of the pool.",
+            "type": "string"
+          },
+          "market_depth_score": {
+            "description": "(Ask for supporting documents and formula). The percentage price range market depth derived from a 30-day realized volatility.",
+            "type": "number"
+          }
+        }
+      }
     ]
-}
+  }
+  

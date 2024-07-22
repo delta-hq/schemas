@@ -5,182 +5,168 @@ This is OpenBlock Labs standard DEX schema.
 ## Schema
 
 ### Pools
-| Property            | Description                                                          | Type   |
-|---------------------|----------------------------------------------------------------------|--------|
-| protocolName        | The name of the protocol this table belongs to.                      | string |
-| chainId             | The standard id of the chain.                                        | number |
-| creationBlockNumber | The block this pool was created in.                                  | number |
-| creationTimestamp   | The timestamp of the block that this pool was created in.            | number |
-| poolAddress         | The contract address of the lp pool.                                 | string |
-| lpTokenAddress      | The token address of the LP token for this pool.                     | string |
-| lpTokenSymbol       | The symbol of the LP token.                                          | string |
-| tokenAddress        | The token address of the pool token at tokenIndex.                   | string |
-| tokenIndex          | The index in the pool smart contract that this token appears at.     | number |
-| feeRate             | The fee rate of the pool.                                            | number |
-| dexType             | The type of the DEX (e.g., CPMM, CLMM, Orderbook).                   | string |
+| Property              | Description                                                          | Type   |
+|-----------------------|----------------------------------------------------------------------|--------|
+| chain_id              | The standard id of the chain.                                        | number |
+| creation_block_number | The block this pool was created in.                                  | number |
+| creation_timestamp    | The timestamp of the block that this pool was created in.            | number |
+| pool_address          | The contract address of the lp pool.                                 | string |
+| lp_token_address      | The token address of the LP token for this pool.                     | string |
+| lp_token_symbol       | The symbol of the LP token.                                          | string |
+| token_address         | The token address of the pool token at token_index.                  | string |
+| token_index           | The index in the pool smart contract that this token appears at (ie, one entry per token in a pool).     | number |
+| fee_rate              | The fee rate of the pool, as a percentage.                           | number |
+| dex_type              | The type of the DEX (e.g., CPMM, CLMM, Orderbook).                   | string |
 
 ### LP Position Snapshot
-| Property            | Description                                                          | Type   |
-|---------------------|----------------------------------------------------------------------|--------|
-| timestamp           | The timestamp of the snapshot.                                       | number |
-| protocolName        | The name of the protocol this table belongs to.                      | string |
-| chainId             | The standard id of the chain.                                        | number |
-| poolAddress         | The contract address of the pool.                                    | string |
-| lpAddress           | The address of the liquidity provider.                               | string |
-| tokenIndex          | The token index based on the smart contract.                         | number |
-| lpTokenAddress      | The contract address of the LP token.                                | string |
-| lpTokenSymbol       | The symbol of the LP token.                                          | string |
-| lpTokenAmount       | The amount of the LP token held by the liquidity provider.           | number |
-| lpTokenAmountUsd    | The amount of the LP token in USD.                                   | number |
-| feesUsd             | LP fees paid in the given period, in USD.                            | number |
-| incentiveAmount     | The amount of incentives given out over the snapshot period, in USD. | number |
-| incentiveUsd        | The incentives in USD.                                               | number |
+| Property              | Description                                                          | Type   |
+|-----------------------|----------------------------------------------------------------------|--------|
+| timestamp             | The timestamp of the snapshot.                                       | number |
+| chain_id              | The standard id of the chain.                                        | number |
+| pool_address          | The contract address of the pool.                                    | string |
+| lp_address            | The address of the liquidity provider.                               | string |
+| token_index           | The token index based on the smart contract.                         | number |
+| lp_token_address      | The contract address of the LP token.                                | string |
+| lp_token_symbol       | The symbol of the LP token.                                          | string |
+| lp_token_amount       | The amount of the LP token held by the liquidity provider.           | number |
+| lp_token_amount_usd   | The amount of the LP token in USD.                                   | number |
+| fees_usd              | LP fees paid in the given period, in USD.                            | number |
+| incentive_amount      | The amount of incentives given out over the snapshot period, in USD. | number |
+| incentive_usd         | The incentives in USD.                                               | number |
 
 ### Pool Snapshot
-| Property            | Description                                                          | Type   |
-|---------------------|----------------------------------------------------------------------|--------|
-| timestamp           | The timestamp of the snapshot.                                       | number |
-| protocolName        | The name of the protocol this table belongs to.                      | string |
-| chainId             | The standard id of the chain.                                        | number |
-| poolAddress         | The contract address of the LP pool.                                 | string |
-| tokenIndex          | The token index in the smart contract.                               | number |
-| tokenAddress        | The contract address of the token in the pool.                       | string |
-| tokenSymbol         | The symbol of the token.                                             | string |
-| tokenAmount         | The amount of the token in this pool at the snapshot.                | number |
-| tokenAmountUsd      | The amount of the token in USD.                                      | number |
-| poolVolumeUsd       | The volume of the pool in USD, during the snapshot period.           | number |
-| poolFeesUsd         | The fees of the pool in USD, during the snapshot.                    | number |
-| poolIncentiveAmount | The amount of incentives in the pool, during the snapshot.           | number |
-| poolIncentiveUsd    | The value of incentives in the pool in USD.                          | number |
+| Property              | Description                                                          | Type   |
+|-----------------------|----------------------------------------------------------------------|--------|
+| timestamp             | The timestamp of the snapshot.                                       | number |
+| chain_id              | The standard id of the chain.                                        | number |
+| pool_address          | The contract address of the LP pool.                                 | string |
+| token_index           | The token index in the smart contract.                               | number |
+| token_address         | The contract address of the token in the pool.                       | string |
+| token_symbol          | The symbol of the token.                                             | string |
+| token_amount          | The amount of the token in this pool at the snapshot.                | number |
+| token_amount_usd      | The amount of the token in USD.                                      | number |
+| pool_volume_usd       | The volume of the pool in USD, during the snapshot period.           | number |
+| pool_fees_usd         | The fees of the pool in USD, during the snapshot.                    | number |
+| pool_incentive_amount | The amount of incentives in the pool, during the snapshot.           | number |
+| pool_incentive_usd    | The value of incentives in the pool in USD.                          | number |
 
 ### Protocol Snapshot
-| Property            | Description                                                          | Type   |
-|---------------------|----------------------------------------------------------------------|--------|
-| timestamp           | The timestamp of the snapshot.                                       | string |
-| protocolName        | The name of the protocol this table belongs to.                      | string |
-| chainId             | The standard id of the chain.                                        | number |
-| tvlUsd              | The total value locked in USD.                                       | number |
-| volumeUsd           | The volume in USD.                                                   | number |
-| feesUsd             | The fees collected in USD.                                           | number |
+| Property              | Description                                                          | Type   |
+|-----------------------|----------------------------------------------------------------------|--------|
+| timestamp             | The timestamp of the snapshot.                                       | string |
+| chain_id              | The standard id of the chain.                                        | number |
+| tvl_usd               | The total value locked in USD.                                       | number |
+| volume_usd            | The volume in USD.                                                   | number |
+| fees_usd              | The fees collected in USD.                                           | number |
 
 ### Trades
-| Property            | Description                                                          | Type   |
-|---------------------|----------------------------------------------------------------------|--------|
-| timestamp           | The timestamp of the transaction.                                    | number |
-| chainId             | The standard id of the chain.                                        | number |
-| blockNumber         | The block number of the trade.                                       | number |
-| logIndex            | The log index of the event recorded.                                 | number |
-| transactionHash     | The hash of the transaction.                                         | string |
-| pairName            | The name of the token pair.                                          | string |
-| poolAddress         | The contract address of the LP pool being traded in.                 | string |
-| inputTokenSymbol    | The symbol of the input token.                                       | string |
-| inputTokenAddress   | The contract address of the input token.                             | string |
-| inputTokenAmount    | The amount of the input token, decimal normalized.                   | number |
-| outputTokenSymbol   | The symbol of the output token.                                      | string |
-| outputTokenAddress  | The contract address of the output token.                            | string |
-| outputTokenAmount   | The amount of the output token, decimal normalized.                  | number |
-| swapAmountUsd       | The amount of the swap in USD.                                       | number |
-| feeUsd              | The fee for the trade in USD.                                        | number |
+| Property              | Description                                                          | Type   |
+|-----------------------|----------------------------------------------------------------------|--------|
+| timestamp             | The timestamp of the transaction.                                    | number |
+| chain_id              | The standard id of the chain.                                        | number |
+| block_number          | The block number of the trade.                                       | number |
+| log_index             | The log index of the event recorded.                                 | number |
+| transaction_hash      | The hash of the transaction.                                         | string |
+| pair_name             | The name of the token pair.                                          | string |
+| pool_address          | The contract address of the LP pool being traded in.                 | string |
+| input_token_symbol    | The symbol of the input token.                                       | string |
+| input_token_address   | The contract address of the input token.                             | string |
+| input_token_amount    | The amount of the input token, decimal normalized.                   | number |
+| output_token_symbol   | The symbol of the output token.                                      | string |
+| output_token_address  | The contract address of the output token.                            | string |
+| output_token_amount   | The amount of the output token, decimal normalized.                  | number |
+| swap_amount_usd       | The amount of the swap in USD.                                       | number |
+| fee_usd               | The fee for the trade in USD.                                        | number |
 
 ### Mints
-| Property            | Description                                                          | Type   |
-|---------------------|----------------------------------------------------------------------|--------|
-| timestamp           | The timestamp of the record.                                         | number |
-| protocolName        | The name of the protocol this table belongs to.                      | string |
-| chainId             | The standard id of the chain.                                        | number |
-| blockNumber         | The block number of the mint.                                        | number |
-| userAddress         | The address of the user who initiated this event.                    | string |
-| poolAddress         | The contract address of the pool.                                    | string |
-| token0Address       | The contract address of token0.                                      | string |
-| token0Amount        | The amount of token0.                                                | number |
-| token1Address       | The contract address of token1.                                      | string |
-| token1Amount        | The amount of token1.                                                | number |
-| mintAmount          | The amount of LP token minted by the trader, decimal normalized.     | number |
-| mintAmountUsd       | The amount of the mint in USD.                                       | number |
+| Property              | Description                                                          | Type   |
+|-----------------------|----------------------------------------------------------------------|--------|
+| timestamp             | The timestamp of the record.                                         | number |
+| chain_id              | The standard id of the chain.                                        | number |
+| block_number          | The block number of the mint.                                        | number |
+| user_address          | The address of the user who initiated this event.                    | string |
+| pool_address          | The contract address of the pool.                                    | string |
+| token0_address        | The contract address of token0.                                      | string |
+| token0_amount         | The amount of token0.                                                | number |
+| token1_address        | The contract address of token1.                                      | string |
+| token1_amount         | The amount of token1.                                                | number |
+| mint_amount           | The amount of LP token minted by the trader, decimal normalized.     | number |
+| mint_amount_usd       | The amount of the mint in USD.                                       | number |
 
 ### Burns
-| Property            | Description                                                          | Type   |
-|---------------------|----------------------------------------------------------------------|--------|
-| timestamp           | The timestamp of the record.                                         | number |
-| protocolName        | The name of the protocol this table belongs to.                      | string |
-| chainId             | The standard id of the chain.                                        | number |
-| blockNumber         | The block number of the burn.                                        | number |
-| userAddress         | The address of the user who initiated this event.                    | string |
-| poolAddress         | The contract address of the pool.                                    | string |
-| token0Address       | The contract address of token0.                                      | string |
-| token0Amount        | The amount of token0.                                                | number |
-| token1Address       | The contract address of token1.                                      | string |
-| token1Amount        | The amount of token1.                                                | number |
-| burnAmount          | The amount of LP tokens burned, decimal normalized.                  | number |
-| burnAmountUsd       | The amount of the burn in USD.                                       | number |
+| Property              | Description                                                          | Type   |
+|-----------------------|----------------------------------------------------------------------|--------|
+| timestamp             | The timestamp of the record.                                         | number |
+| chain_id              | The standard id of the chain.                                        | number |
+| block_number          | The block number of the burn.                                        | number |
+| user_address          | The address of the user who initiated this event.                    | string |
+| pool_address          | The contract address of the pool.                                    | string |
+| token0_address        | The contract address of token0.                                      | string |
+| token0_amount         | The amount of token0.                                                | number |
+| token1_address        | The contract address of token1.                                      | string |
+| token1_amount         | The amount of token1.                                                | number |
+| burn_amount           | The amount of LP tokens burned, decimal normalized.                  | number |
+| burn_amount_usd       | The amount of the burn in USD.                                       | number |
 
 ### Syncs
-| Property            | Description                                                          | Type   |
-|---------------------|----------------------------------------------------------------------|--------|
-| timestamp           | The timestamp of the record.                                         | number |
-| protocolName        | The name of the protocol this table belongs to.                      | string |
-| chainId             | The standard id of the chain.                                        | number |
-| blockNumber         | The block number of the sync.                                        | number |
-| poolAddress         | The contract address of the pool.                                    | string |
-| token0Address       | The contract address of token0.                                      | string |
-| token0Amount        | The amount of token0.                                                | number |
-| token1Address       | The contract address of token1.                                      | string |
-| token1Amount        | The amount of token1.                                                | number |
+| Property              | Description                                                          | Type   |
+|-----------------------|----------------------------------------------------------------------|--------|
+| timestamp             | The timestamp of the record.                                         | number |
+| chain_id              | The standard id of the chain.                                        | number |
+| block_number          | The block number of the sync.                                        | number |
+| pool_address          | The contract address of the pool.                                    | string |
+| token0_address        | The contract address of token0.                                      | string |
+| token0_amount         | The amount of token0.                                                | number |
+| token1_address        | The contract address of token1.                                      | string |
+| token1_amount         | The amount of token1.                                                | number |
 
 ### Transfers
-| Property            | Description                                                          | Type   |
-|---------------------|----------------------------------------------------------------------|--------|
-| timestamp           | The timestamp of the record.                                         | number |
-| protocolName        | The name of the protocol this table belongs to.                      | string |
-| chainId             | The standard id of the chain.                                        | number |
-| blockNumber         | The block number of the transfer.                                    | number |
-| userAddress         | The address of the user who initiated this event.                    | string |
-| poolAddress         | The contract address of the pool.                                    | string |
-| poolTokenBalance    | The balance of the pool token, decimal normalized.                   | number |
+| Property              | Description                                                          | Type   |
+|-----------------------|----------------------------------------------------------------------|--------|
+| timestamp             | The timestamp of the record.                                         | number |
+| chain_id              | The standard id of the chain.                                        | number |
+| block_number          | The block number of the transfer.                                    | number |
+| user_address          | The address of the user who initiated this event.                    | string |
+| pool_address          | The contract address of the pool.                                    | string |
+| pool_token_balance    | The balance of the pool token, decimal normalized.                   | number |
 
 ### V3 Events
 | Property                | Description                                                      | Type   |
 |-------------------------|------------------------------------------------------------------|--------|
 | timestamp               | The timestamp of the record.                                     | number |
-| protocolName            | The name of the protocol this table belongs to.                   | string |
-| chainId                 | The standard id of the chain.                                    | number |
-| blockNumber             | The block number of the activity.                                | number |
-| eventType               | The action taken (Mint/Burn/Transfer).                           | string |
-| transactionFromAddress  | The address from which the transaction originated.               | string |
-| transactionToAddress    | The address to which the transaction is directed.                | string |
-| poolAddress             | The contract address of the pool.                                | string |
-| tokenAddress            | The contract address of the token.                               | string |
-| liquidityAmount         | The amount of liquidity involved.                                | number |
-| liquidityUSD            | The liquidity amount in USD.                                     | number |
-| tickLower               | The lower tick of the liquidity range.                           | number |
-| tickUpper               | The upper tick of the liquidity range.                           | number |
+| chain_id                | The standard id of the chain.                                    | number |
+| block_number            | The block number of the activity.                                | number |
+| event_type              | The action taken (Mint/Burn/Transfer).                           | string |
+| transaction_from_address| The address from which the transaction originated.               | string |
+| transaction_to_address  | The address to which the transaction is directed.                | string |
+| pool_address            | The contract address of the pool.                                | string |
+| token_address           | The contract address of the token.                               | string |
+| liquidity_amount        | The amount of liquidity involved.                                | number |
+| liquidity_usd           | The liquidity amount in USD.                                     | number |
+| tick_lower              | The lower tick of the liquidity range.                           | number |
+| tick_upper              | The upper tick of the liquidity range.                           | number |
 | tick                    | The current tick.                                                | number |
 
 ### V3 Swaps
-
-| Property        | Description                                                      | Type   |
-|-----------------|------------------------------------------------------------------|--------|
-| timestamp       | The timestamp of the record.                                     | number |
-| protocolName    | The name of the protocol this table belongs to.                   | string |
-| chainId         | The standard id of the chain.                                    | number |
-| blockNumber     | The block number of the swap.                                    | number |
-| userAddress     | The address of the user who made the swap.                       | string |
-| poolAddress     | The contract address of the pool.                                | string |
-| liquidityAmount | The liquidity field emitted in a V3 event, decimal normalized.   | number |
-| token0Amount    | The amount of token0 involved in the swap.                       | number |
-| token1Amount    | The amount of token1 involved in the swap.                       | number |
-| sqrtPriceX96    | The square root of the price multiplied by 2^96.                 | number |
-| tick            | The current tick.                                                | number |
-
+| Property                | Description                                                      | Type   |
+|-------------------------|------------------------------------------------------------------|--------|
+| timestamp               | The timestamp of the record.                                     | number |
+| chain_id                | The standard id of the chain.                                    | number |
+| block_number            | The block number of the swap.                                    | number |
+| user_address            | The address of the user who made the swap.                       | string |
+| pool_address            | The contract address of the pool.                                | string |
+| liquidity_amount        | The liquidity field emitted in a V3 event, decimal normalized.   | number |
+| token0_amount           | The amount of token0 involved in the swap.                       | number |
+| token1_amount           | The amount of token1 involved in the swap.                       | number |
+| sqrt_price_x96          | The square root of the price multiplied by 2^96.                 | number |
+| tick                    | The current tick.                                                | number |
 
 ### Market Depth User Snapshot
-
-| Property           | Description                                                                                     | Type   |
-|--------------------|-------------------------------------------------------------------------------------------------|--------|
-| timestamp          | The timestamp of the record.                                                                    | number |
-| protocolName       | The name of the protocol this table belongs to.                                                  | string |
-| chainId            | The standard id of the chain.                                                                   | number |
-| blockNumber        | The block number of the record.                                                                 | number |
-| userAddress        | The address of the user.                                                                        | string |
-| poolAddress        | The contract address of the pool.                                                               | string |
-| marketDepthScore   | (Ask for supporting documents and formula). The percentage price range market depth derived from a 30-day realized volatility. | number |
+| Property                | Description                                                                                     | Type   |
+|-------------------------|-------------------------------------------------------------------------------------------------|--------|
+| timestamp               | The timestamp of the record.                                                                    | number |
+| chain_id                | The standard id of the chain.                                                                   | number |
+| block_number            | The block number of the record.                                                                 | number |
+| user_address            | The address of the user.                                                                        | string |
+| pool_address            | The contract address of the pool.                                                               | string |
+| market_depth_score      | (Ask for supporting documents and formula). The percentage price range market depth derived from a 30-day realized volatility. | number |
