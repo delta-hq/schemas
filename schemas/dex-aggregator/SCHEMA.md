@@ -8,7 +8,6 @@ Please follow the below schemas for integrating a DEX Aggregator with OpenBlock 
 ### Tokens
 | Property      | Description                                             | Type   |
 |---------------|---------------------------------------------------------|--------|
-| protocol_name | The name of the protocol.                               | string |
 | chain_id      | The standard id of the chain.                           | number |
 | token_address | The contract address of the token.                      | string |
 | token_name    | The full name of the token, from the eth_call name().   | string |
@@ -19,7 +18,6 @@ Please follow the below schemas for integrating a DEX Aggregator with OpenBlock 
 | Property        | Description                                                      | Type   |
 |-----------------|------------------------------------------------------------------|--------|
 | timestamp       | The timestamp of the record.                                     | number |
-| protocol_name   | The name of the protocol this table belongs to.                  | string |
 | chain_id        | The standard id of the chain.                                    | number |
 | token_address   | The contract address of the token.                               | string |
 | volume_amount   | The volume amount of the token, during the snapshot period, decimal normalized. | number |
@@ -33,7 +31,6 @@ Please follow the below schemas for integrating a DEX Aggregator with OpenBlock 
 | Property      | Description                                                           | Type   |
 |---------------|-----------------------------------------------------------------------|--------|
 | timestamp     | The timestamp of the block this snapshot was taken.                   | number |
-| protocol_name | The name of the protocol.                                             | string |
 | chain_id      | The standard id of the chain.                                         | number |
 | volume_usd    | The volume in USD, in the given snapshot period.                      | number |
 | fees_usd      | The fees (ie, total revenue generated in the protocol) collected in USD, during the snapshot period. | number |
@@ -42,7 +39,6 @@ Please follow the below schemas for integrating a DEX Aggregator with OpenBlock 
 | Property           | Description                                                                 | Type    |
 |--------------------|-----------------------------------------------------------------------------|---------|
 | timestamp          | The timestamp of the trade.                                                 | number  |
-| protocol_name      | The name of the protocol this table belongs to.                             | string  |
 | chain_id           | The standard id of the chain this trade belongs to.                         | number  |
 | block_number       | The block number in which the trade occurred.                               | number  |
 | transaction_id     | The transaction id associated with this trade.                              | string  |

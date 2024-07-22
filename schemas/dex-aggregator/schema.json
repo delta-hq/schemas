@@ -9,10 +9,6 @@
             "aggregation": "none",
             "description": "List of tokens supported by the protocol.",
             "properties": {
-                "protocol_name": {
-                    "description": "The name of the protocol.",
-                    "type": "string"
-                },
                 "chain_id": {
                     "description": "The standard id of the chain.",
                     "type": "number"
@@ -44,10 +40,6 @@
                 "timestamp": {
                     "description": "The timestamp of the record.",
                     "type": "number"
-                },
-                "protocol_name": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
                 },
                 "chain_id": {
                     "description": "The standard id of the chain.",
@@ -93,10 +85,6 @@
                     "description": "The timestamp of the block this snapshot was taken.",
                     "type": "number"
                 },
-                "protocol_name": {
-                    "description": "The name of the protocol.",
-                    "type": "string"
-                },
                 "chain_id": {
                     "description": "The standard id of the chain.",
                     "type": "number"
@@ -120,10 +108,6 @@
                 "timestamp": {
                     "description": "The timestamp of the trade.",
                     "type": "number"
-                },
-                "protocol_name": {
-                    "description": "The name of the protocol this table belongs to.",
-                    "type": "string"
                 },
                 "chain_id": {
                     "description": "The standard id of the chain this trade belongs to.",
