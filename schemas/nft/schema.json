@@ -1,36 +1,43 @@
 {
-    "schema": "nft",
+    "schema": "NFT",
     "description": "Standard table definitions for NFTs.",
     "version": "1.0.0-alpha",
     "tables": [
         {
-            "tableName": "nftTransfers",
+            "label": "NFT Transfers",
+            "table_name": "nft_transfers",
+            "aggregation": "transaction",
             "description": "List of NFT transfers.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the transfer.",
                     "type": "number"
                 },
-                "blockNumber": {
+                "chain_id": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "block_number": {
                     "description": "The block number of the transfer.",
                     "type": "number"
                 },
-                "transactionId": {
-                    "description": "The transaction id of the transfer here."
+                "transaction_id": {
+                    "description": "The transaction id of the transfer.",
+                    "type": "string"
                 },
-                "nftCollectionAddress": {
+                "nft_collection_address": {
                     "description": "The contract address of the NFT collection.",
                     "type": "string"
                 },
-                "nftId": {
+                "nft_id": {
                     "description": "The unique identifier of the NFT.",
                     "type": "string"
                 },
-                "senderAddress": {
+                "sender_address": {
                     "description": "The address of the sender of the NFT.",
                     "type": "string"
                 },
-                "receiverAddress": {
+                "receiver_address": {
                     "description": "The address of the receiver of the NFT.",
                     "type": "string"
                 }
