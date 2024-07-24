@@ -31,8 +31,6 @@ This is OpenBlock Labs standard DEX schema.
 | lp_token_amount       | The amount of the LP token held by the liquidity provider.           | number |
 | lp_token_amount_usd   | The amount of the LP token in USD.                                   | number |
 | fees_usd              | LP fees paid in the given period, in USD.                            | number |
-| incentive_amount      | The amount of incentives given out over the snapshot period, in USD. | number |
-| incentive_usd         | The incentives in USD.                                               | number |
 
 ### Pool Snapshot
 | Property              | Description                                                          | Type   |
@@ -47,17 +45,6 @@ This is OpenBlock Labs standard DEX schema.
 | token_amount_usd      | The amount of the token in USD.                                      | number |
 | pool_volume_usd       | The volume of the pool in USD, during the snapshot period.           | number |
 | pool_fees_usd         | The fees of the pool in USD, during the snapshot.                    | number |
-| pool_incentive_amount | The amount of incentives in the pool, during the snapshot.           | number |
-| pool_incentive_usd    | The value of incentives in the pool in USD.                          | number |
-
-### Protocol Snapshot
-| Property              | Description                                                          | Type   |
-|-----------------------|----------------------------------------------------------------------|--------|
-| timestamp             | The timestamp of the snapshot.                                       | string |
-| chain_id              | The standard id of the chain.                                        | number |
-| tvl_usd               | The total value locked in USD.                                       | number |
-| volume_usd            | The volume in USD.                                                   | number |
-| fees_usd              | The fees collected in USD.                                           | number |
 
 ### Trades
 | Property              | Description                                                          | Type   |
@@ -115,6 +102,7 @@ This is OpenBlock Labs standard DEX schema.
 | chain_id              | The standard id of the chain.                                        | number |
 | block_number          | The block number of the sync.                                        | number |
 | pool_address          | The contract address of the pool.                                    | string |
+| user_address          | The address of the user who made the sync.                           | string |
 | token0_address        | The contract address of token0.                                      | string |
 | token0_amount         | The amount of token0.                                                | number |
 | token1_address        | The contract address of token1.                                      | string |
@@ -137,6 +125,7 @@ This is OpenBlock Labs standard DEX schema.
 | chain_id                | The standard id of the chain.                                    | number |
 | block_number            | The block number of the activity.                                | number |
 | event_type              | The action taken (Mint/Burn/Transfer).                           | string |
+| user_address            | The address of the user who made the event.                      | string |
 | transaction_from_address| The address from which the transaction originated.               | string |
 | transaction_to_address  | The address to which the transaction is directed.                | string |
 | pool_address            | The contract address of the pool.                                | string |
@@ -161,7 +150,7 @@ This is OpenBlock Labs standard DEX schema.
 | sqrt_price_x96          | The square root of the price multiplied by 2^96.                 | number |
 | tick                    | The current tick.                                                | number |
 
-### Market Depth User Snapshot
+### User Score Snapshot
 | Property                | Description                                                                                     | Type   |
 |-------------------------|-------------------------------------------------------------------------------------------------|--------|
 | timestamp               | The timestamp of the record.                                                                    | number |
@@ -170,3 +159,4 @@ This is OpenBlock Labs standard DEX schema.
 | user_address            | The address of the user.                                                                        | string |
 | pool_address            | The contract address of the pool.                                                               | string |
 | market_depth_score      | (Ask for supporting documents and formula). The percentage price range market depth derived from a 30-day realized volatility. | number |
+| total_value_locked_score | (Ask for supporting documents and formula). TODO                                               | number |
