@@ -162,8 +162,7 @@ This is OpenBlock Labs standard DEX schema.
 | event_type              | The action taken (Mint/Burn/Transfer).                           | string |
 | pool_address            | The contract address of the pool.                                | string |
 | token_address           | The contract address of the token.                               | string |
-| liquidity_amount        | The amount of liquidity, decimal normalized.                                | number |
-| liquidity_usd           | (Optional) The liquidity amount in USD.                                     | number |
+| liquidity_amount        | The amount of liquidity minted to the position range.            | number |
 | tick_lower              | The lower tick of the liquidity range.                           | number |
 | tick_upper              | The upper tick of the liquidity range.                           | number |
 | tick                    | The current tick.                                                | number |
@@ -180,7 +179,7 @@ This is OpenBlock Labs standard DEX schema.
 | contract_address        | The smart contract address the user interacted with (ie, transaction to). | string |
 | taker_address           | The taker, the address that receives the output of the swap (ie, could be the same as user_address unless a proxy contract/router is used). | string |
 | pool_address            | The contract address of the pool.                                | string |
-| liquidity_amount        | The liquidity field emitted in a V3 event, decimal normalized.   | number |
+| liquidity_amount        | The amount of liquidity minted to the position range.            | number |
 | token0_amount           | The amount of token0 involved in the swap.                       | number |
 | token1_amount           | The amount of token1 involved in the swap.                       | number |
 | sqrt_price_x96          | The square root of the price multiplied by 2^96.                 | number |
