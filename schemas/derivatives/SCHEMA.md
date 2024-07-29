@@ -39,34 +39,6 @@ This is the OpenBlock Labs standard schema for derivatives protocols (options an
 | user_fees_usd     | (Optional) The portion of fees accrued to users of the protocol, in USD. | number |
 | protocol_fees_usd | (Optional) The portion of fees accrued to the protocol, in USD. | number | 
 
-### Maker Snapshot
-
-**Description:** User level maker snapshot (one entry for each token in a pool).
-
-| Property          | Description                                           | Type   |
-|-------------------|-------------------------------------------------------|--------|
-| timestamp         | The timestamp of the snapshot.                        | number |
-| chain_id          | Standard chain id.                                    | number |
-| pool_address      | The address of the pool.                              | string |
-| maker_address     | The address of the user/maker.                        | string |
-| token_index       | The index of the token in the smart contract.         | number |
-| token_address     | The address of the token provided as liquidity.       | string |
-| token_symbol      | The symbol of the token.                              | string |
-
-### Taker Snapshot
-
-**Description:** User level taker snapshot (one entry for each token in a pool).
-
-| Property          | Description                                           | Type   |
-|-------------------|-------------------------------------------------------|--------|
-| timestamp         | The timestamp of the snapshot.                        | number |
-| chain_id          | Standard chain id.                                    | number |
-| pool_address      | The address of the pool.                              | string |
-| taker_address     | The address of the user/taker.                        | string |
-| token_index       | The index of the token in the smart contract.         | number |
-| token_address     | The address of the token provided as liquidity.       | string |
-| token_symbol      | The symbol of the token.                              | string |
-
 ### Pool Snapshot
 
 | Property                | Description                                                           | Type   |
