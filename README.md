@@ -35,7 +35,7 @@ Below you will find links to each of the following verticals.
 - Mint-Based Bridge
 - Intent-Based Bridge
 - LSTs (Liquid Staking Tokens)
-- Yield Aggregators (Leverage, Gambling, RWA, ALM, Liquidity/LP, Index)
+- [Yield Aggregators](./schemas/yield-aggregator/SCHEMA.md) (Leverage, Gambling, RWA, ALM, Liquidity/LP, Index)
 - [DEX Aggregator](./schemas/dex-aggregator/SCHEMA.md)
 - Restaking
 - AVS
