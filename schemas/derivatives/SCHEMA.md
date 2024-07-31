@@ -14,6 +14,7 @@ This is the OpenBlock Labs standard schema for derivatives protocols (options an
 | creation_timestamp  | The timestamp of the block the pool was created on.| number |
 | creation_block_number | The block number this pool was created on.       | number |
 | pool_address        | The contract address of the pool.                  | string |
+| pool_name           | The name of the pool (ie, name() in the smart contract). | string |
 | token_index         | The index of the token in the smart contract (one row for each token in a pool). | number |
 | token_address       | The contract address of the token.                 | string |
 | token_symbol        | The symbol of the token.                           | string |
