@@ -162,7 +162,7 @@
                     "type": "number"
                 },
                 "collateral_factor": {
-                    "description": "The collateral factor of the pool (defined as a percentage, between 0-100).",
+                    "description": "The collateral factor of the pool (defined as a decimal percentage, between 0-100).",
                     "type": "number"
                 },
                 "supply_index": {
@@ -170,7 +170,7 @@
                     "type": "number"
                 },
                 "supply_apr": {
-                    "description": "The current annual percentage rate for supplied amount.",
+                    "description": "The current annual percentage rate for supplied amount, as a decimal percentage.",
                     "type": "number"
                 },
                 "borrowed_amount": {
@@ -186,7 +186,7 @@
                     "type": "number"
                 },
                 "borrow_apr": {
-                    "description": "The current annual percentage rate for borrow.",
+                    "description": "The current annual percentage rate for borrow, as a decimal percentage.",
                     "type": "number"
                 },
                 "total_fees_usd": {
