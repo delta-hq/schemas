@@ -130,7 +130,7 @@
                     "type": "number"
                 },
                 "slippage": {
-                    "description": "(Optional) The slippage of the given trade, as a percentage (ie, 0.3% slippage is 0.3).",
+                    "description": "(Optional) The slippage of the given trade, as a percentage (ie, 1.3% slippage is 0.013).",
                     "type": "number"
                 },
                 "user_address": {

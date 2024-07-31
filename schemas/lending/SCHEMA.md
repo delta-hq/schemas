@@ -52,13 +52,13 @@ Standard table definitions for lending protocols.
 | non_recursive_supplied_amount | The amount of non recursive supply in this pool, in the underlying token, decimal normalized. This is an aggregation of all of the user's net supply of this asset. | number |
 | collateral_amount       | (Optional) The amount of collateral only tokens in this pool.                 | number |
 | collateral_amount_usd   | (Optional) The amount of collateral only tokens in the pool.                  | number |
-| collateral_factor       | The collateral factor of the pool (defined as a percentage, between 0-100).   | number |
+| collateral_factor       | The collateral factor of the pool (defined as a decimal percentage, between 0-100).   | number |
 | supply_index            | The supply index of the pool.                                                 | number |
-| supply_apr              | The current annual percentage rate for supplied amount.                       | number |
+| supply_apr              | The current annual percentage rate for supplied amount, as a decimal percentage.                       | number |
 | borrowed_amount         | The amount of underlying tokens borrowed from this pool in the underlying token, decimal normalized. | number |
 | borrowed_amount_usd     | (Optional) The borrowed amount in USD.                                                   | number |
 | borrow_index            | The borrow index of the pool.                                                 | number |
-| borrow_apr              | The current annual percentage rate for borrow.                                        | number |
+| borrow_apr              | The current annual percentage rate for borrow, as a decimal percentage.                                        | number |
 | total_fees_usd          | (Optional) The total revenue or fees accrued in this pool during the given snapshot period (ie, user_fees_usd + protocol_fees_usd = total+_fees_usd). | number |
 | user_fees_usd           | (Optional) The portion of total revenue or fees accrued to users of the protocol during the given snapshot period. | number |
 | protocol_fees_usd       | (Optional) The portion of total revenue or fees accrued to protocol during the given snapshot period. | number |

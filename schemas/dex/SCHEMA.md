@@ -17,7 +17,7 @@ This is OpenBlock Labs standard DEX schema.
 | token_symbol          | The symbol of the pool token.                                        | string |
 | token_decimals        | The decimals of the pool token.                                      | string |
 | token_index           | The index in the pool smart contract that this token appears at, default 0 (ie, one entry per token in a pool).     | number |
-| fee_rate              | (Optional, if dynamic fee) The fee rate of the pool, as a percentage (ie, 2.3% as 2.3).         | number |
+| fee_rate              | (Optional, if dynamic fee) The fee rate of the pool, as a percentage (ie, 2.3% as 0.023).         | number |
 | dex_type              | The type of the DEX (ie, CPMM, CLMM, Orderbook).                     | string |
 
 ### LP Position Snapshot
@@ -46,7 +46,7 @@ This is OpenBlock Labs standard DEX schema.
 | token_amount_usd      | (Optional) The amount of the token in USD.                           | number |
 | volume_amount         | The volume of the token transacted in this pool during the given snapshot, decimal normalized. | number |
 | volume_usd            | (Optional) The volume transacted in the given snapshot, in USD.      | number |
-| fee_rate              | The fee rate of the pool, as a percentage (ie, 2.3% as 2.3).         | number |
+| fee_rate              | The fee rate of the pool, as a percentage (ie, 2.3% as 0.023).         | number |
 | total_fees_usd        | (Optional) The total amount of revenue and fees paid in this pool in the given snapshot, in USD.      | number |
 | user_fees_usd         | (Optional) The amount of total fees accrued to liquidity providers of the protocol, in USD. | number |
 | protocol_fees_usd     | (Optional) The amount of total fees accrued to the protocol, in USD. | number |

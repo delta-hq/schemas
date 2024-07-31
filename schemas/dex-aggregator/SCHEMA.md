@@ -44,7 +44,7 @@ Please follow the below schemas for integrating a DEX Aggregator with OpenBlock 
 | transaction_id     | The transaction id associated with this trade.                              | string  |
 | fees               | The amount of fees from this trade (ie, the revenue generated from executing this trade). | number  |
 | fees_usd           | The fees for this trade in USD.                                             | number  |
-| slippage           | (Optional) The slippage of the given trade, as a percentage (ie, 0.3% slippage is 0.3). | number  |
+| slippage           | (Optional) The slippage of the given trade, as a percentage (ie, 1.3% slippage is 0.013). | number  |
 | user_address       | The address of the user initiating the trade.                               | string  |
 | input_tokens       | The contract address of the input token(s).                                 | [string]|
 | input_token_amounts  | Parallel array to inputTokens, dictating the normalized native amounts of each token traded. | [number]|

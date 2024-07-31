@@ -50,7 +50,7 @@
           "type": "number"
         },
         "fee_rate": {
-          "description": "(Optional, if dynamic fee) The fee rate of the pool, as a percentage (ie, 2.3% as 2.3).",
+          "description": "(Optional, if dynamic fee) The fee rate of the pool, as a percentage (ie, 2.3% as 0.023).",
           "type": "number"
         },
         "dex_type": {
@@ -150,7 +150,7 @@
           "type": "number"
         },
         "fee_rate": {
-          "description": "The fee rate of the pool, as a percentage (ie, 2.3% as 2.3).",
+          "description": "The fee rate of the pool, as a percentage (ie, 2.3% as 0.023).",
           "type": "number"
         },
         "total_fees_usd": {
