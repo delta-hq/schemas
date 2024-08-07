@@ -28,8 +28,9 @@ jobs:
 
     - name: Check existence of /schema files
       run: |
-        for folder in $folders; do
-          echo "Checking folder: $folder"
+        IFS=',' read -r -a folder_array <<< "$folders"
+        for folder in "${folder_array[@]}"; do
+          echo "Checking folder: $folder"  
           if [ ! -f "schemas/$folder/schema.json" ]; then
             echo "schema.json does not exist in $folder"
             exit 1
@@ -44,7 +45,8 @@ jobs:
 
     - name: Validate SCHEMA.md is auto-generated
       run: |
-        for folder in $folders; do
+        IFS=',' read -r -a folder_array <<< "$folders"
+        for folder in "${folder_array[@]}"; do
           echo "Processing folder: $folder"
           python3 utils/convert_schema_to_markdown.py $folder --action
           if ! diff schemas/$folder/SCHEMA_TEMP.md schemas/$folder/SCHEMA.md; then
