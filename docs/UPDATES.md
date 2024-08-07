@@ -4,9 +4,11 @@ This markdown document will walk you through how to make a schema update.
 
 ## High-level steps
 
-1. Update the `schema.json` file.
-2. Auto-generate the `SCHEMA.md` file.
-3. Request a review and merge.
+1. Clone the repository.
+2. Update the `schema.json` file.
+3. Auto-generate the `SCHEMA.md` file.
+4. Create a new branch and make a Pull Request.
+5. Request a review and merge.
 
 ### Schema JSON
 
@@ -38,6 +40,38 @@ As a reviewer, you should make note of the following:
     - However, it can be an easy way to visualize the schema changes.
 - The schema version should be updated appropriately. See [semver.org](https://semver.org/) for more info.
 - Descriptions should be clear and concise.
+
+### Pull Requests
+
+The only github functions needed for this are making a branch and creating a pull request with that branch.
+
+The general workflow should look like this:
+
+```bash
+git checkout main # starting on the main branch
+git pull
+git checkout -b your-github-name/branch-name # the branch name can be anything, but I like to follow this format
+
+# Make your code changes and repeat the following steps until done
+
+git add . # stage all of your code changes
+git commit -m "Commit message"
+git push 
+```
+
+### Clone the Repository
+
+Pull the repository into your local machine.
+
+Requirements:
+- Have git installed. See instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- Have an IDE installed. See instructions for VS Code [here](https://code.visualstudio.com/download).
+
+```bash
+git clone git@github.com:delta-hq/schemas.git
+cd schemas
+code . # launch VS Code
+```
 
 ### Column/Property Naming Conventions
 
