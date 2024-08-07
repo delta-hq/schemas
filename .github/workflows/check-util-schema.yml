@@ -21,11 +21,11 @@ jobs:
       id: get_modified_folders
       run: |
         MODIFIED_FOLDERS=$(git diff --name-only HEAD~1 HEAD | grep '^schemas/' | cut -d'/' -f2 | sort -u)
-        echo "::set-output name=folders::$MODIFIED_FOLDERS"
+        echo "folders=$MODIFIED_FOLDERS" >> $GITHUB_ENV
 
     - name: Run util and check output
       run: |
-        for folder in ${{ steps.get_modified_folders.outputs.folders }}; do
+        for folder in ${{ env.folders }}; do
           echo "Processing folder: $folder"
           python utils/convert_schema_to_markdown.py schemas/$folder > schemas/$folder/SCHEMA_TEMP.md
           if ! diff schemas/$folder/SCHEMA_TEMP.md schemas/$folder/SCHEMA.md; then
@@ -34,4 +34,4 @@ jobs:
           fi
         done
       env:
-        folders: ${{ steps.get_modified_folders.outputs.folders }}
+        folders: ${{ env.folders }}
