@@ -9,18 +9,20 @@ jobs:
   check-schema-util:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.x'
 
     - name: Get list of modified schema folders
       id: get_modified_folders
       run: |
-        MODIFIED_FOLDERS=$(git diff --name-only origin/main HEAD | grep '^schemas/' | cut -d'/' -f2 | sort -u)
+        MODIFIED_FOLDERS=$(git diff --name-only -r HEAD^1 HEAD | grep '^schemas/' | cut -d'/' -f2 | sort -u)
         echo "folders=$MODIFIED_FOLDERS" >> $GITHUB_ENV
 
     - name: Check existence of schema files
