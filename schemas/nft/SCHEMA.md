@@ -19,5 +19,4 @@ List of NFT transfers.
 | sender_address           | The address of the sender of the NFT.                     | string |
 | receiver_address         | The address of the receiver of the NFT.                   | string |
 
-
 > Note: This markdown file is auto-generated.

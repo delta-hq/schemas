@@ -23,8 +23,6 @@ List of LP pools in this protocol (one entry per token in a pool).
 | fee_rate                 | (Optional, if dynamic fee) The fee rate of the pool, as a percentage (ie, 2.3% as 0.023). | number |
 | dex_type                 | The type of the DEX (ie, CPMM, CLMM, Orderbook).          | string |
 
-
-> Note: This markdown file is auto-generated.
 ### LP Position Snapshot
 
 Snapshot of LP positions.
@@ -41,8 +39,6 @@ Snapshot of LP positions.
 | token_amount             | The amount of the liquidity position in the pool, decimal normalized. | number |
 | token_amount_usd         | (Optional) The amount of the token in USD.                | number |
 
-
-> Note: This markdown file is auto-generated.
 ### Pool Snapshot
 
 Snapshot of pool states.
@@ -64,8 +60,6 @@ Snapshot of pool states.
 | user_fees_usd            | (Optional) The amount of total fees accrued to liquidity providers of the protocol, in USD. | number |
 | protocol_fees_usd        | (Optional) The amount of total fees accrued to the protocol, in USD. | number |
 
-
-> Note: This markdown file is auto-generated.
 ### Trades (All DEX Types)
 
 All trades across different types of DEXs.
@@ -90,8 +84,6 @@ All trades across different types of DEXs.
 | swap_amount_usd          | (Optional) The amount of the swap in USD.                 | number |
 | fees_usd                 | (Optional) The fees paid by the user.                     | number |
 
-
-> Note: This markdown file is auto-generated.
 ### User Score Snapshot
 
 Snapshot of user scores.
@@ -106,8 +98,6 @@ Snapshot of user scores.
 | market_depth_score       | (Ask for supporting documents and formula). The percentage price range market depth derived from a 30-day realized volatility. | number |
 | total_value_locked_score | (Ask for supporting documents and formula). A score calculated based on TVL. | number |
 
-
-> Note: This markdown file is auto-generated.
 ### V2 Mints
 
 Mint events for V2.
@@ -128,8 +118,6 @@ Mint events for V2.
 | mint_amount              | The amount of LP token minted by the trader, decimal normalized. | number |
 | mint_amount_usd          | (Optional) The amount of the mint in USD.                 | number |
 
-
-> Note: This markdown file is auto-generated.
 ### V2 Burns
 
 Burn events for V2.
@@ -152,8 +140,6 @@ Burn events for V2.
 | burn_amount              | The amount of LP tokens burned, decimal normalized.       | number |
 | burn_amount_usd          | (Optional) The amount of the burn in USD.                 | number |
 
-
-> Note: This markdown file is auto-generated.
 ### V2 Syncs
 
 Sync events for V2.
@@ -171,8 +157,6 @@ Sync events for V2.
 | token1_address           | The contract address of token1.                           | string |
 | token1_amount            | The amount of token1.                                     | number |
 
-
-> Note: This markdown file is auto-generated.
 ### V2 Transfers
 
 Transfer events for V2.
@@ -190,8 +174,6 @@ Transfer events for V2.
 | pool_address             | The contract address of the pool.                         | string |
 | pool_token_balance       | The balance of the pool token, decimal normalized.        | number |
 
-
-> Note: This markdown file is auto-generated.
 ### V3 Events
 
 Events for V3.
@@ -218,8 +200,6 @@ Events for V3.
 | token_fees               | The amount of token fees.                                 | number |
 | amount_liquidity         | The amount of liquidity.                                  | number |
 
-
-> Note: This markdown file is auto-generated.
 ### V3 Transfers
 
 Transfer events for V3.
@@ -245,6 +225,5 @@ Transfer events for V3.
 | token1_amount            | The amount of token1.                                     | number |
 | token_fees               | The amount of token fees.                                 | number |
 | amount_liquidity         | The amount of liquidity.                                  | number |
-
 
 > Note: This markdown file is auto-generated.

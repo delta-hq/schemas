@@ -17,9 +17,9 @@ def json_to_markdown(json_data):
         for prop, details in table['properties'].items():
             markdown += f"| {prop.ljust(24)} | {details['description'].ljust(57)} | {details['type']} |\n"
 
-        markdown += "\n\n"
-        markdown += "> Note: This markdown file is auto-generated.\n"
-
+        markdown += "\n"
+    
+    markdown += "> Note: This markdown file is auto-generated.\n"
     return markdown
 
 def read_json_file(filepath):

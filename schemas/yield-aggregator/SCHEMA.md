@@ -23,8 +23,6 @@ List of pools in the protocol.
 | pool_address             | The smart contract address of the pool.                   | string |
 | pool_symbol              | The symbol of the pool.                                   | string |
 
-
-> Note: This markdown file is auto-generated.
 ### Position Snapshot
 
 Snapshot of the pool users.
@@ -41,8 +39,6 @@ Snapshot of the pool users.
 | underlying_token_amount_usd | The amount of underlying tokens supplied, in USD.         | number |
 | total_fees_usd           | The total amount of revenue and fees paid in this pool in the given snapshot, in USD. | number |
 
-
-> Note: This markdown file is auto-generated.
 ### Pool Snapshot
 
 TVL, fees, and incentives data at the pool level.
@@ -57,6 +53,5 @@ TVL, fees, and incentives data at the pool level.
 | underlying_token_amount  | The amount of underlying token supplied in this pool, decimal normalized. | number |
 | underlying_token_amount_usd | The amount of underlying tokens supplied in this pool, in USD. | number |
 | total_fees_usd           | The total amount of revenue and fees paid in this pool in the given snapshot, in USD. | number |
-
 
 > Note: This markdown file is auto-generated.
