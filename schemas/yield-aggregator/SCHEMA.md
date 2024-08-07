@@ -1,6 +1,4 @@
-# Yield Aggregator (Leverage, Gambling, RWA, ALM, Liquidity/LP, index)[^1]
-
-[^1]: This markdown file is auto-generated.
+# Yield Aggregator (Leverage, Gambling, RWA, ALM, Liquidity/LP, index)
 
 Standard table definitions for yield aggregator protocols (can include, Leverage, Gambling, RWA, ALM, Liquidity/LP, index).
 
@@ -10,7 +8,7 @@ Standard table definitions for yield aggregator protocols (can include, Leverage
 
 List of pools in the protocol.
 
-| Property               | Description                                               | Type   |
+| Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | chain_id                 | The standard chain id.                                    | number |
 | creation_timestamp       | The timestamp this pool was created.                      | number |
@@ -25,6 +23,8 @@ List of pools in the protocol.
 | pool_address             | The smart contract address of the pool.                   | string |
 | pool_symbol              | The symbol of the pool.                                   | string |
 
+
+> Note: This markdown file is auto-generated.
 ### Position Snapshot
 
 Snapshot of the pool users.
@@ -41,6 +41,8 @@ Snapshot of the pool users.
 | underlying_token_amount_usd | The amount of underlying tokens supplied, in USD.         | number |
 | total_fees_usd           | The total amount of revenue and fees paid in this pool in the given snapshot, in USD. | number |
 
+
+> Note: This markdown file is auto-generated.
 ### Pool Snapshot
 
 TVL, fees, and incentives data at the pool level.
@@ -56,3 +58,5 @@ TVL, fees, and incentives data at the pool level.
 | underlying_token_amount_usd | The amount of underlying tokens supplied in this pool, in USD. | number |
 | total_fees_usd           | The total amount of revenue and fees paid in this pool in the given snapshot, in USD. | number |
 
+
+> Note: This markdown file is auto-generated.

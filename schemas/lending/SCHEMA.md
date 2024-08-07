@@ -1,6 +1,4 @@
-# Lending / MM / CDP[^1]
-
-[^1]: This markdown file is auto-generated.
+# Lending / MM / CDP
 
 Standard table definitions for lending protocols.
 
@@ -22,6 +20,8 @@ List of pools in the lending protocol.
 | pool_address             | The contract address of the pool.                         | string |
 | pool_type                | The type of the pool (collateral_only, isolated, supply_pool, cdp). | string |
 
+
+> Note: This markdown file is auto-generated.
 ### Position Snapshot
 
 Snapshot of user positions in the lending protocol.
@@ -41,6 +41,8 @@ Snapshot of user positions in the lending protocol.
 | collateral_amount        | (Optional) The amount of collateral-only tokens of this asset, decimal normalized. | number |
 | collateral_amount_usd    | (Optional) The amount of collateral-only tokens in USD.   | number |
 
+
+> Note: This markdown file is auto-generated.
 ### Pool Snapshot
 
 Snapshot of the pool's state in the lending protocol.
@@ -71,3 +73,5 @@ Snapshot of the pool's state in the lending protocol.
 | user_fees_usd            | (Optional) The portion of total revenue or fees accrued to users of the protocol during the given snapshot period. | number |
 | protocol_fees_usd        | (Optional) The portion of total revenue or fees accrued to protocol during the given snapshot period. | number |
 
+
+> Note: This markdown file is auto-generated.

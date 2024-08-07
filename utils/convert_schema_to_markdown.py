@@ -4,8 +4,7 @@ import sys
 import argparse
 
 def json_to_markdown(json_data):
-    markdown = f"# {json_data['schema']}[^1]\n\n"
-    markdown += "[^1]: This markdown file is auto-generated.\n\n"
+    markdown = f"# {json_data['schema']}\n\n"
     markdown += f"{json_data['description']}\n\n"
     markdown += f"## Version: {json_data['version']}\n\n"
 
@@ -18,7 +17,8 @@ def json_to_markdown(json_data):
         for prop, details in table['properties'].items():
             markdown += f"| {prop.ljust(24)} | {details['description'].ljust(57)} | {details['type']} |\n"
 
-        markdown += "\n"
+        markdown += "\n\n"
+        markdown += "> Note: This markdown file is auto-generated.\n"
 
     return markdown
 
