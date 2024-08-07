@@ -27,7 +27,7 @@ jobs:
       run: |
         for folder in ${{ steps.get_modified_folders.outputs.folders }}; do
           echo "Processing folder: $folder"
-          python your_util_script.py schemas/$folder > schemas/$folder/SCHEMA_TEMP.md
+          python utils/convert_schema_to_markdown.py schemas/$folder > schemas/$folder/SCHEMA_TEMP.md
           if ! diff schemas/$folder/SCHEMA_TEMP.md schemas/$folder/SCHEMA.md; then
             echo "SCHEMA.md in $folder does not match the expected output."
             exit 1
