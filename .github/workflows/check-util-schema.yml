@@ -45,7 +45,7 @@ jobs:
       run: |
         for folder in $folders; do
           echo "Processing folder: $folder"
-          python3 utils/convert_schema_to_markdown.py schemas/$folder > schemas/$folder/SCHEMA_TEMP.md
+          python3 utils/convert_schema_to_markdown.py $folder > schemas/$folder/SCHEMA_TEMP.md
           if ! diff schemas/$folder/SCHEMA_TEMP.md schemas/$folder/SCHEMA.md; then
             echo "SCHEMA.md in $folder does not match the expected output."
             exit 1
