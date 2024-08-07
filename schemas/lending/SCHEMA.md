@@ -1,6 +1,8 @@
 # Lending / MM / CDP[^1]
 
-[^1]: This markdown file is auto-generated.Standard table definitions for lending protocols.
+[^1]: This markdown file is auto-generated.
+
+Standard table definitions or lending protocols.
 
 ## Version: 1.0.0
 
