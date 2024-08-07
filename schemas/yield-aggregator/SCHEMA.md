@@ -10,7 +10,7 @@ Standard table definitions for yield aggregator protocols (can include, Leverage
 
 List of pools in the protocol.
 
-| Property                | Description                                               | Type   |
+| Property               | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | chain_id                 | The standard chain id.                                    | number |
 | creation_timestamp       | The timestamp this pool was created.                      | number |
