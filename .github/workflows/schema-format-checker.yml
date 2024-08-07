@@ -22,8 +22,9 @@ jobs:
     - name: Get list of modified /schema folders
       id: get_modified_folders
       run: |
-        MODIFIED_FOLDERS=$(git diff --name-only -r HEAD^1 HEAD | grep '^schemas/' | cut -d'/' -f2 | sort -u | sed 's/-/_/g')
-        echo "folders=$MODIFIED_FOLDERS" >> $GITHUB_ENV
+        MODIFIED_FOLDERS=$(git diff --name-only -r HEAD^1 HEAD | grep '^schemas/' | cut -d'/' -f2 | sort -u)
+        MODIFIED_FOLDERS_STRING=$(echo "$MODIFIED_FOLDERS" | tr '\n' ',' | sed 's/,$//')
+        echo "folders=$MODIFIED_FOLDERS_STRING" >> $GITHUB_ENV
 
     - name: Check existence of /schema files
       run: |
