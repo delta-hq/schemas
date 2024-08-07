@@ -20,14 +20,30 @@ jobs:
     - name: Get list of modified schema folders
       id: get_modified_folders
       run: |
-        MODIFIED_FOLDERS=$(git diff --name-only HEAD~1 HEAD | grep '^schemas/' | cut -d'/' -f2 | sort -u)
+        MODIFIED_FOLDERS=$(git diff --name-only origin/main HEAD | grep '^schemas/' | cut -d'/' -f2 | sort -u)
         echo "folders=$MODIFIED_FOLDERS" >> $GITHUB_ENV
 
-    - name: Run util and check output
+    - name: Check existence of schema files
       run: |
-        for folder in ${{ env.folders }}; do
+        for folder in $folders; do
+          echo "Checking folder: $folder"
+          if [ ! -f "schemas/$folder/schema.json" ]; then
+            echo "schema.json does not exist in $folder"
+            exit 1
+          fi
+          if [ ! -f "schemas/$folder/SCHEMA.md" ]; then
+            echo "SCHEMA.md does not exist in $folder"
+            exit 1
+          fi
+        done
+      env:
+        folders: ${{ env.folders }}
+
+    - name: Process and compare SCHEMA.md
+      run: |
+        for folder in $folders; do
           echo "Processing folder: $folder"
-          python utils/convert_schema_to_markdown.py schemas/$folder > schemas/$folder/SCHEMA_TEMP.md
+          python3 utils/convert_schema_to_markdown.py schemas/$folder > schemas/$folder/SCHEMA_TEMP.md
           if ! diff schemas/$folder/SCHEMA_TEMP.md schemas/$folder/SCHEMA.md; then
             echo "SCHEMA.md in $folder does not match the expected output."
             exit 1
