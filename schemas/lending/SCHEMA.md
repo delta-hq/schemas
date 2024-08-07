@@ -2,7 +2,7 @@
 
 [^1]: This markdown file is auto-generated.
 
-Standard table definitions or lending protocols.
+Standard table definitions for lending protocols.
 
 ## Version: 1.0.0
 
