@@ -13,30 +13,27 @@
             "description": "The timestamp of the snapshot.",
             "type": "number"
           },
-          "protocolName": {
-            "description": "The name of the protocol.",
-            "type": "string"
-          },
-          "chainId": {
+          "chain_id": {
             "description": "Standard chain ID.",
             "type": "number"
           },
-          "tokenAddress": {
-            "description": "The address of the LST in the protocol.",
+          "token_address": {
+            "description": "The contract address of the LST.",
             "type": "string"
           },
-          "tokenSymbol": {
+          "token_symbol": {
             "description": "The symbol of the token.",
             "type": "string"
           },
-          "userAddress": {
-            "description": "The address of the user holding the LST",
+          "user_address": {
+            "description": "The address of the user holding the LST.",
             "type": "string"
           },
           "amount": {
-            "description": "The amount of LST tokens held in the protocol, decimal normalized."
+            "description": "The amount of LST tokens held in the protocol, decimal normalized.",
+            "type": "number"
           },
-          "amountUsd": {
+          "amount_usd": {
             "description": "The amount held in USD.",
             "type": "number"
           }
@@ -52,19 +49,15 @@
             "description": "The timestamp of the snapshot.",
             "type": "number"
           },
-          "protocolName": {
-            "description": "The name of the protocol.",
-            "type": "string"
-          },
-          "chainId": {
+          "chain_id": {
             "description": "Standard chain ID.",
             "type": "number"
           },
-          "tvlUsd": {
+          "total_value_locked_usd": {
             "description": "The total value locked in USD (ie, the value of the liquid staking tokens in the protocol).",
             "type": "number"
           },
-          "feesUsd": {
+          "fees_usd": {
             "description": "The fees collected in USD in the given snapshot period.",
             "type": "number"
           }
