@@ -1,0 +1,58 @@
+name: Schema Format Check
+
+on:
+  pull_request:
+    paths:
+      - 'schemas/**'
+      
+jobs:
+  Check-Schema-Format:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Get list of modified /schema folders
+      id: get_modified_folders
+      run: |
+        MODIFIED_FOLDERS=$(git diff --name-only -r HEAD^1 HEAD | grep '^schemas/' | cut -d'/' -f2 | sort -u)
+        MODIFIED_FOLDERS_STRING=$(echo "$MODIFIED_FOLDERS" | tr '\n' ',' | sed 's/,$//')
+        echo "folders=$MODIFIED_FOLDERS_STRING" >> $GITHUB_ENV
+
+    - name: Check existence of /schema files
+      run: |
+        IFS=',' read -r -a folder_array <<< "$folders"
+        for folder in "${folder_array[@]}"; do
+          echo "Checking folder: $folder"  
+          if [ ! -f "schemas/$folder/schema.json" ]; then
+            echo "schema.json does not exist in $folder"
+            exit 1
+          fi
+          if [ ! -f "schemas/$folder/SCHEMA.md" ]; then
+            echo "SCHEMA.md does not exist in $folder"
+            exit 1
+          fi
+        done
+      env:
+        folders: ${{ env.folders }}
+
+    - name: Validate SCHEMA.md is auto-generated
+      run: |
+        IFS=',' read -r -a folder_array <<< "$folders"
+        for folder in "${folder_array[@]}"; do
+          echo "Processing folder: $folder"
+          python3 utils/convert_schema_to_markdown.py $folder --action
+          if ! diff schemas/$folder/SCHEMA_TEMP.md schemas/$folder/SCHEMA.md; then
+            echo "SCHEMA.md in $folder does not match the expected auto-generated output. Please run python3 utils/convert_schema_to_markdown.py $folder locally and commit the changes."
+            exit 1
+          fi
+        done
+      env:
+        folders: ${{ env.folders }}

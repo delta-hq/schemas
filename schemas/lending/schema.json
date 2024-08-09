@@ -1,0 +1,207 @@
+{
+    "schema": "Lending / MM / CDP",
+    "description": "Standard table definitions for lending protocols.",
+    "version": "1.0.0",
+    "tables": [
+        {
+            "label": "Pools",
+            "table_name": "lending_pools",
+            "aggregation": "none",
+            "description": "List of pools in the lending protocol.",
+            "properties": {
+                "chain_id": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "creation_block_number": {
+                    "description": "The block this pool was created in.",
+                    "type": "number"
+                },
+                "creation_timestamp": {
+                    "description": "The timestamp of the block that this pool was created in.",
+                    "type": "number"
+                },
+                "underlying_token_address": {
+                    "description": "The contract address of the underlying token.",
+                    "type": "string"
+                },
+                "underlying_token_symbol": {
+                    "description": "The symbol of the underlying token.",
+                    "type": "string"
+                },
+                "receipt_token_address": {
+                    "description": "The contract address of the receipt token.",
+                    "type": "string"
+                },
+                "receipt_token_symbol": {
+                    "description": "The symbol of the receipt token.",
+                    "type": "string"
+                },
+                "pool_address": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "pool_type": {
+                    "description": "The type of the pool (collateral_only, isolated, supply_pool, cdp).",
+                    "type": "string"
+                }
+            }
+        },
+        {
+            "label": "Position Snapshot",
+            "table_name": "lending_position_snapshot",
+            "aggregation": "daily",
+            "description": "Snapshot of user positions in the lending protocol.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the snapshot.",
+                    "type": "number"
+                },
+                "chain_id": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "pool_address": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "underlying_token_address": {
+                    "description": "The contract address of the underlying token.",
+                    "type": "string"
+                },
+                "underlying_token_symbol": {
+                    "description": "The symbol of the underlying token.",
+                    "type": "string"
+                },
+                "user_address": {
+                    "description": "The address of the user who has the position.",
+                    "type": "string"
+                },
+                "supplied_amount": {
+                    "description": "The amount supplied by the user in the underlying token, decimal normalized.",
+                    "type": "number"
+                },
+                "supplied_amount_usd": {
+                    "description": "(Optional) The supplied amount in USD.",
+                    "type": "number"
+                },
+                "borrowed_amount": {
+                    "description": "The amount borrowed by the user in the underlying token, decimal normalized.",
+                    "type": "number"
+                },
+                "borrowed_amount_usd": {
+                    "description": "(Optional) The borrowed amount in USD.",
+                    "type": "number"
+                },
+                "collateral_amount": {
+                    "description": "(Optional) The amount of collateral-only tokens of this asset, decimal normalized.",
+                    "type": "number"
+                },
+                "collateral_amount_usd": {
+                    "description": "(Optional) The amount of collateral-only tokens in USD.",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "label": "Pool Snapshot",
+            "table_name": "lending_pool_snapshot",
+            "aggregation": "daily",
+            "description": "Snapshot of the pool's state in the lending protocol.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the snapshot.",
+                    "type": "number"
+                },
+                "chain_id": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "pool_address": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "underlying_token_address": {
+                    "description": "The contract address of the underlying token.",
+                    "type": "string"
+                },
+                "underlying_token_symbol": {
+                    "description": "The symbol of the underlying token.",
+                    "type": "string"
+                },
+                "underlying_token_price_usd": {
+                    "description": "(Optional) The token price of the underlying asset in USD.",
+                    "type": "number"
+                },
+                "available_amount": {
+                    "description": "The amount of token's available to borrow (liquidity or net supply or supply - borrow).",
+                    "type": "number"
+                },
+                "available_amount_usd": {
+                    "description": "(Optional) The available amount of token's in this pool in USD.",
+                    "type": "number"
+                },
+                "supplied_amount": {
+                    "description": "The total amount of the underlying token supplied in this pool, decimal normalized.",
+                    "type": "number"
+                },
+                "supplied_amount_usd": {
+                    "description": "(Optional) The supplied amount in USD.",
+                    "type": "number"
+                },
+                "non_recursive_supplied_amount": {
+                    "description": "The amount of non recursive supply in this pool, in the underlying token, decimal normalized. This is an aggregation of all of the user's net supply of this asset.",
+                    "type": "number"
+                },
+                "collateral_amount": {
+                    "description": "(Optional) The amount of collateral only tokens in this pool.",
+                    "type": "number"
+                },
+                "collateral_amount_usd": {
+                    "description": "(Optional) The amount of collateral only tokens in the pool.",
+                    "type": "number"
+                },
+                "collateral_factor": {
+                    "description": "The collateral factor of the pool (defined as a decimal percentage, between 0-100).",
+                    "type": "number"
+                },
+                "supply_index": {
+                    "description": "The supply index of the pool.",
+                    "type": "number"
+                },
+                "supply_apr": {
+                    "description": "The current annual percentage rate for supplied amount, as a decimal percentage.",
+                    "type": "number"
+                },
+                "borrowed_amount": {
+                    "description": "The amount of underlying tokens borrowed from this pool in the underlying token, decimal normalized.",
+                    "type": "number"
+                },
+                "borrowed_amount_usd": {
+                    "description": "(Optional) The borrowed amount in USD.",
+                    "type": "number"
+                },
+                "borrow_index": {
+                    "description": "The borrow index of the pool.",
+                    "type": "number"
+                },
+                "borrow_apr": {
+                    "description": "The current annual percentage rate for borrow, as a decimal percentage.",
+                    "type": "number"
+                },
+                "total_fees_usd": {
+                    "description": "(Optional) The total revenue or fees accrued in this pool during the given snapshot period (ie, user_fees_usd + protocol_fees_usd = total_fees_usd).",
+                    "type": "number"
+                },
+                "user_fees_usd": {
+                    "description": "(Optional) The portion of total revenue or fees accrued to users of the protocol during the given snapshot period.",
+                    "type": "number"
+                },
+                "protocol_fees_usd": {
+                    "description": "(Optional) The portion of total revenue or fees accrued to protocol during the given snapshot period.",
+                    "type": "number"
+                }
+            }
+        }
+    ]
+}
