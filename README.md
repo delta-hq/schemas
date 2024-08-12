@@ -27,7 +27,7 @@ We are always looking for feedback to make this whole process better.
 
 Below you will find links to each of the following verticals.
 
-- General
+- [General](./schemas/general/SCHEMA.md)
 - [DEX](./schemas/dex/SCHEMA.md) (Decentralized Exchange)
 - [Lending](./schemas/lending/SCHEMA.md) / MM (Money Market) / CDP (Collateralized Debt Position)
 - Perpetuals / Options / Derivatives
