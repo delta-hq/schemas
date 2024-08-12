@@ -54,7 +54,7 @@
           "type": "string"
         },
         "fee_rate": {
-          "description": "The fee rate as a percentage for the pool, if applicable (ie, 2.3% fee as 2.3).",
+          "description": "The fee rate as a percentage for the pool, if applicable (ie, 2.3% fee as 0.023).",
           "type": "number"
         },
         "pool_address": {
@@ -221,6 +221,10 @@
           "description": "The hash of the transaction this bridge originated from.",
           "type": "string"
         },
+        "log_index": {
+          "description": "The log index of the transaction.",
+          "type": "number"
+        },
         "source_chain_id": {
           "description": "The source standard chain ID.",
           "type": "number"
@@ -229,13 +233,21 @@
           "description": "The destination standard chain ID.",
           "type": "number"
         },
-        "volume_usd": {
-          "description": "The volume of the transaction in USD.",
-          "type": "number"
-        },
         "user_address": {
           "description": "The address of the user initiating the transaction.",
           "type": "string"
+        },
+        "token_address": {
+          "description": "The smart contract address of the source chain bridge token.",
+          "type": "string"
+        },
+        "token_amount": {
+          "description": "The amount of the token sent out from the source chain, decimal normalized.",
+          "type": "number"
+        },
+        "token_amount_usd": {
+          "description": "The token amount in USD.",
+          "type": "number"
         },
         "solver_address": {
           "description": "The address of the solver (for intent-based bridges).",
@@ -265,9 +277,21 @@
           "description": "The address of the maker.",
           "type": "string"
         },
+        "token_address": {
+          "description": "The smart contract address of the token being supplied by the maker.",
+          "type": "string"
+        },
+        "token_in_amount": {
+          "description": "The amount of the token received, decimal normalized.",
+          "type": "number"
+        },
         "amount_in_usd": {
           "description": "The amount received in USD, during this snapshot.",
           "type": "number"
+        },
+        "token_out_amount": {
+          "description":"The amount of the token sent out, decimal normalized.",
+          "type": "string"
         },
         "amount_out_usd": {
           "description": "The amount sent in USD, during this given snapshot.",
@@ -297,6 +321,10 @@
           "description": "The address of the taker.",
           "type": "string"
         },
+        "token_address": {
+          "description": "The smart contract address of the token.",
+          "type": "string"
+        },
         "volume_usd": {
           "description": "The volume bridged in USD, in the given snapshot.",
           "type": "number"
@@ -320,6 +348,14 @@
         "token_address": {
           "description": "he contract address of the token.",
           "type": "string"
+        },
+        "token_amount": {
+          "description": "The amount of the token held in the pool, decimal normalized (for pool-based bridges).",
+          "type": "number"
+        },
+        "token_amount_usd": {
+          "description": "The amount held in USD.",
+          "type": "number"
         },
         "volume_usd": {
           "description": "The volume in USD, during the given period.",
