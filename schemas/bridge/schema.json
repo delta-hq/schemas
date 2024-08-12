@@ -325,6 +325,10 @@
           "description": "The smart contract address of the token.",
           "type": "string"
         },
+        "volume_amount": {
+          "description": "The amount of volume bridged from the source chain, decimal normalized.",
+          "type": "number"
+        },
         "volume_usd": {
           "description": "The volume bridged in USD, in the given snapshot.",
           "type": "number"
@@ -339,7 +343,7 @@
       "label": "Token Snapshot",
       "tableName": "bridge_intent_token_metrics",
       "aggregation": "daily",
-      "description": "List of takers in intent-based bridge protocols.",
+      "description": "Snapshot of token level data.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
@@ -355,6 +359,10 @@
         },
         "token_amount_usd": {
           "description": "The amount held in USD.",
+          "type": "number"
+        },
+        "volume_amount": {
+          "description": "The amount of volume bridged of the token, decimal normalized.",
           "type": "number"
         },
         "volume_usd": {

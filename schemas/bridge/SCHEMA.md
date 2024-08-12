@@ -124,12 +124,13 @@ List of takers in intent-based bridge protocols.
 | timestamp                | The timestamp of the snapshot.                            | number |
 | user_address             | The address of the taker.                                 | string |
 | token_address            | The smart contract address of the token.                  | string |
+| volume_amount            | The amount of volume bridged from the source chain, decimal normalized. | number |
 | volume_usd               | The volume bridged in USD, in the given snapshot.         | number |
 | chain_id                 | The standard chain ID where the taker resides.            | number |
 
 ### Token Snapshot
 
-List of takers in intent-based bridge protocols.
+Snapshot of token level data.
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
@@ -137,6 +138,7 @@ List of takers in intent-based bridge protocols.
 | token_address            | he contract address of the token.                         | string |
 | token_amount             | The amount of the token held in the pool, decimal normalized (for pool-based bridges). | number |
 | token_amount_usd         | The amount held in USD.                                   | number |
+| volume_amount            | The amount of volume bridged of the token, decimal normalized. | number |
 | volume_usd               | The volume in USD, during the given period.               | number |
 | total_fees_usd           | The fees collected in USD, during this given period.      | number |
 | chain_id                 | The standard chain ID where the token resides.            | number |
