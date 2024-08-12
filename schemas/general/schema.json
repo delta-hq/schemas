@@ -1,0 +1,163 @@
+{
+  "schema": "General",
+  "description": "Table definitions for the generic schema. These tables can be used for any protocol.",
+  "version": "1.0.0-alpha",
+  "tables": [
+    {
+      "label": "Incentive Claim Data",
+      "tableName": "user_incentive_claim",
+      "aggregation": "transaction",
+      "description": "Transactional data on user level incentives claimed data.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the claim.",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "number"
+        },
+        "transaction_hash": {
+          "description": "The hash of the transaction.",
+          "type": "string"
+        },
+        "log_index": {
+          "description": "The log index of the event recorded.",
+          "type": "number"
+        },
+        "user_address": {
+          "description": "The address of the user who claimed the incentives.",
+          "type": "string"
+        },
+        "claimed_token_address": {
+          "description": "The smart contract address of the claimed token.",
+          "type": "string"
+        },
+        "claimed_token_amount": {
+          "description": "The amount of the token claimed, decimal normalized.",
+          "type": "number"
+        },
+        "claimed_token_usd": {
+          "description": "The amount of claimed tokens in USD.",
+          "type": "number"
+        },
+        "other_incentive_usd": {
+          "description": "Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "Airdrop",
+      "tableName": "general_airdrop",
+      "aggregation": "none",
+      "description": "Schema for airdrop data.",
+      "properties": {
+        "airdrop_timestamp": {
+          "description": "The timestamp the airdrop was given to the user.",
+          "type": "number"
+        },
+        "user_address": {
+          "description": "The address of the user claiming the airdrop.",
+          "type": "string"
+        },
+        "claim_timestamp": {
+          "description": "The timestamp of when the user claimed the airdrop.",
+          "type": "number"
+        },
+        "transaction_hash": {
+          "description": "The hash of the transaction.",
+          "type": "string"
+        },
+        "log_index": {
+          "description": "The log index of the event recorded.",
+          "type": "number"
+        },
+        "airdrop_token_address": {
+          "description": "The smart contract address of the airdropped token.",
+          "type": "string"
+        },
+        "airdrop_token_symbol": {
+          "description": "The symbol of the token being airdropped.",
+          "type": "string"
+        },
+        "token_amount": {
+          "description": "The amount of each token airdropped, decimal normalized.",
+          "type": "number"
+        },
+        "amount_usd": {
+          "description": "The USD value of the airdropped tokens.",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "Pool Snapshot",
+      "tableName": "general_pools",
+      "aggregation": "daily",
+      "description": "APR and APY data at the pool level.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the record.",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "number"
+        },
+        "protocol_type": {
+          "description": "The type of protocol (ie, Lending, CDP, DEX, Gaming, etc).",
+          "type": "string"
+        },
+        "pool_address": {
+          "description": "The smart contract address of the pool.",
+          "type": "string"
+        },
+        "pool_name": {
+          "description": "The name of the pool (ie, pool() in the smart contract, if it exists).",
+          "type": "string"
+        },
+        "total_value_locked_usd": {
+          "description": "The total value locked within this pool in USD.",
+          "type": "number"
+        },
+        "supply_apr": {
+          "description": "The annual percentage rate of this pool at the snapshot.",
+          "type": "number"
+        },
+        "supply_apy": {
+          "description": "The annual percentage yield of the pool.",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "Protocol Snapshot",
+      "tableName": "general_metrics",
+      "aggregation": "daily",
+      "description": "Protocol level snapshot focused on incentives and users.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "number"
+        },
+        "daily_active_users": {
+          "description": "The number of unique daily active users on this protocol.",
+          "type": "number"
+        },
+        "transaction_count": {
+          "description": "The number of transactions in this time period.",
+          "type": "number"
+        },
+        "fees_usd": {
+          "description": "The amount of fees in this given period, decimal normalized.",
+          "type": "number"
+        }
+      }
+    }
+  ]
+}
