@@ -88,14 +88,6 @@
         "amount_usd": {
           "description": "The USD value of the airdropped tokens.",
           "type": "number"
-        },
-        "signature": {
-          "description": "The signature of the airdrop.",
-          "type": "string"
-        },
-        "method_id": {
-          "description": "The method ID of the airdrop.",
-          "type": "string"
         }
       }
     },
@@ -127,10 +119,6 @@
         },
         "total_value_locked_usd": {
           "description": "The total value locked within this pool in USD.",
-          "type": "number"
-        },
-        "return_30d": {
-          "description": "The return of this pool over 30 days.",
           "type": "number"
         },
         "supply_apr": {

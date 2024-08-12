@@ -35,8 +35,6 @@ Schema for airdrop data.
 | airdrop_token_symbol     | The symbol of the token being airdropped.                 | string |
 | token_amount             | The amount of each token airdropped, decimal normalized.  | number |
 | amount_usd               | The USD value of the airdropped tokens.                   | number |
-| signature                | The signature of the airdrop.                             | string |
-| method_id                | The method ID of the airdrop.                             | string |
 
 ### Pool Snapshot
 
@@ -50,7 +48,6 @@ APR and APY data at the pool level.
 | pool_address             | The smart contract address of the pool.                   | string |
 | pool_name                | The name of the pool (ie, pool() in the smart contract, if it exists). | string |
 | total_value_locked_usd   | The total value locked within this pool in USD.           | number |
-| return_30d               | The return of this pool over 30 days.                     | number |
 | supply_apr               | The annual percentage rate of this pool at the snapshot.  | number |
 | supply_apy               | The annual percentage yield of the pool.                  | number |
 
