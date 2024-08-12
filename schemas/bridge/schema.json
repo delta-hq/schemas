@@ -1,0 +1,339 @@
+{
+  "schema": "Bridge",
+  "description": "Standard table definitions for bridge protocols, including pool-based, mint-based, and intent-based bridges.",
+  "version": "1.0.0-alpha",
+  "tables": [
+    {
+      "label": "Tokens",
+      "tableName": "bridge_intent_tokens",
+      "aggregation": "none",
+      "description": "List of tokens in bridge protocols.",
+      "properties": {
+        "token_address": {
+          "description": "The contract address of the token.",
+          "type": "string"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token.",
+          "type": "string"
+        },
+        "token_decimals": {
+          "description": "The decimal amount of the token.",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The blockchain ID where the token resides.",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "Pools",
+      "tableName": "bridge_pools",
+      "aggregation": "none",
+      "description": "List of pools in bridge protocols (applicable for pool and mint based bridges).",
+      "properties": {
+        "creation_timestamp": {
+          "description": "The timestamp this pool was created.",
+          "type": "number"
+        },
+        "creation_block_number": {
+          "description": "The block number this pool was created on.",
+          "type": "number"
+        },
+        "token_address": {
+          "description": "The contract address of the token being bridged or pooled.",
+          "type": "string"
+        },
+        "token_index": {
+          "description": "(Optional, only applicable to pool-based) The index of the pooled token in the smart contract.",
+          "type": "number"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token.",
+          "type": "string"
+        },
+        "fee_rate": {
+          "description": "The fee rate as a percentage for the pool, if applicable (ie, 2.3% fee as 2.3).",
+          "type": "number"
+        },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
+        "chain_id": {
+          "description": "Standard chain ID (ie, the chain ID of the network the pool lives on).",
+          "type": "number"
+        },
+        "bridge_type": {
+          "description": "The type of bridge (ie, pool-based, mint-based, or intent-based).",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "label": "LP Snapshot",
+      "tableName": "bridge_lps",
+      "aggregation": "daily",
+      "description": "List of liquidity providers in pool-based bridge protocols.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "pool_address": {
+          "description": "The address of the pool.",
+          "type": "string"
+        },
+        "lp_address": {
+          "description": "The address of the liquidity provider.",
+          "type": "string"
+        },
+        "token_address": {
+          "description": "The contract address of the token supplied.",
+          "type": "string"
+        },
+        "token_index": {
+          "description": "The index in the smart contract of this token, default to 0.",
+          "type": "number"
+        },
+        "token_amount": {
+          "description": "The amount of the supplied token, decimal normalized.",
+          "type": "number"
+        },
+        "token_amount_usd": {
+          "description": "The amount supplied, in USD.",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The standard chain ID where the liquidity provider resides.",
+          "type": "number"
+        },
+        "bridge_type": {
+          "description": "The type of bridge (pool-based, mint-based, or intent-based).",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "label": "User Snapshot",
+      "tableName": "bridge_bridgers",
+      "aggregation": "daily",
+      "description": "User level snapshot of accounts that have used the bridge (applicable to pool and intent based bridges).",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "pool_address": {
+          "description": "(Optional, only applicable to pool-based) The contract address of the pool.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address of the user this snapshot activity is based on.",
+          "type": "string"
+        },
+        "amount_in_usd": {
+          "description": "The amount of tokens received on this network by the user in USD during the given snapshot.",
+          "type": "number"
+        },
+        "amount_out_usd": {
+          "description": "The amount of tokens sent out of this network by the user in USD during the given snapshot.",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The standard chain ID where the bridger resides.",
+          "type": "number"
+        },
+        "bridge_type": {
+          "description": "The type of bridge (pool-based, mint-based, or intent-based).",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "label": "Pool Snapshot",
+      "tableName": "bridge_pool_metrics",
+      "aggregation": "daily",
+      "description": "Pool level snapshots for pool and mint based bridges.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
+        "token_address": {
+          "description": "The contract address of the token being bridged or pooled.",
+          "type": "string"
+        },
+        "token_index": {
+          "description": "(Optional, only applicable to pool-based) The index of the pooled token in the smart contract.",
+          "type": "number"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token.",
+          "type": "string"
+        },
+        "token_amount": {
+          "description": "The amount of the supplied token (in a pool-based bridge), decimal normalized.",
+          "type": "number"
+        },
+        "token_amount_usd": {
+          "description": "The amount supplied, in USD.",
+          "type": "number"
+        },
+        "volume_usd": {
+          "description": "The bridged volume in USD, during this snapshot.",
+          "type": "number"
+        },
+        "fees_usd": {
+          "description": "The fees collected in USD, during the snapshot period.",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The standard chain ID where the pool resides.",
+          "type": "number"
+        },
+        "bridge_type": {
+          "description": "The type of bridge (pool-based, mint-based, or intent-based).",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "label": "Bridge Transactions",
+      "tableName": "bridge_transactions",
+      "aggregation": "transaction",
+      "description": "List of bridge transactions.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the transaction.",
+          "type": "number"
+        },
+        "block_number": {
+          "description": "The block number of the transaction.",
+          "type": "number"
+        },
+        "transaction_hash": {
+          "description": "The hash of the transaction this bridge originated from.",
+          "type": "string"
+        },
+        "source_chain_id": {
+          "description": "The source standard chain ID.",
+          "type": "number"
+        },
+        "destination_chain_id": {
+          "description": "The destination standard chain ID.",
+          "type": "number"
+        },
+        "volume_usd": {
+          "description": "The volume of the transaction in USD.",
+          "type": "number"
+        },
+        "user_address": {
+          "description": "The address of the user initiating the transaction.",
+          "type": "string"
+        },
+        "solver_address": {
+          "description": "The address of the solver (for intent-based bridges).",
+          "type": "string"
+        },
+        "pool_address": {
+          "description": "The address of the pool (for pool-based and mint-based bridges).",
+          "type": "string"
+        },
+        "bridge_type": {
+          "description": "The type of bridge (pool-based, mint-based, or intent-based).",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "label": "Maker Snapshot",
+      "tableName": "bridge_intent_makers",
+      "aggregation": "daily",
+      "description": "List of makers in intent-based bridge protocols.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "user_address": {
+          "description": "The address of the maker.",
+          "type": "string"
+        },
+        "amount_in_usd": {
+          "description": "The amount received in USD, during this snapshot.",
+          "type": "number"
+        },
+        "amount_out_usd": {
+          "description": "The amount sent in USD, during this given snapshot.",
+          "type": "number"
+        },
+        "fees_usd": {
+          "description": "The fees collected in USD, during this snapshot.",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The standard chain ID where the maker resides.",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "label": "Taker Snapshot",
+      "tableName": "bridge_intent_takers",
+      "aggregation": "daily",
+      "description": "List of takers in intent-based bridge protocols.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "user_address": {
+          "description": "The address of the taker.",
+          "type": "string"
+        },
+        "volume_usd": {
+          "description": "The volume bridged in USD, in the given snapshot.",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The standard chain ID where the taker resides.",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "Token Snapshot",
+      "tableName": "bridge_intent_token_metrics",
+      "aggregation": "daily",
+      "description": "List of takers in intent-based bridge protocols.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "token_address": {
+          "description": "he contract address of the token.",
+          "type": "string"
+        },
+        "volume_usd": {
+          "description": "The volume in USD, during the given period.",
+          "type": "number"
+        },
+        "total_fees_usd": {
+          "description": "The fees collected in USD, during this given period.",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The standard chain ID where the token resides.",
+          "type": "number"
+        }
+      }
+    }
+  ]
+}
