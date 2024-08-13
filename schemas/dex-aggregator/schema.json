@@ -117,8 +117,8 @@
                     "description": "The block number in which the trade occurred.",
                     "type": "number"
                 },
-                "transaction_id": {
-                    "description": "The transaction id associated with this trade.",
+                "transaction_hash": {
+                    "description": "The transaction hash associated with this trade.",
                     "type": "string"
                 },
                 "fees": {

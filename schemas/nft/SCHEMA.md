@@ -13,7 +13,7 @@ List of NFT transfers.
 | timestamp                | The timestamp of the transfer.                            | number |
 | chain_id                 | The standard id of the chain.                             | number |
 | block_number             | The block number of the transfer.                         | number |
-| transaction_id           | The transaction id of the transfer.                       | string |
+| transaction_hash         | The transaction hash of the transfer.                     | string |
 | nft_collection_address   | The contract address of the NFT collection.               | string |
 | nft_id                   | The unique identifier of the NFT.                         | string |
 | sender_address           | The address of the sender of the NFT.                     | string |
