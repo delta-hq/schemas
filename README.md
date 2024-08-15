@@ -1,6 +1,7 @@
-<a href="https://www.openblocklabs.com/">
-  <img src="./docs/images/obl-logo.png" alt="OBL" style="width: 100%; height: 300px; object-fit: cover;">
+<a href="https://www.openblocklabs.com/" style="display: block; width: 100%; height: 300px; overflow: hidden;">
+  <img src="./docs/images/obl-logo.png" alt="OBL" style="width: 100%; object-fit: cover;">
 </a>
+
 
 # OpenBlock Labs Schemas
 
