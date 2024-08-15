@@ -96,7 +96,7 @@ Snapshot of user scores.
 | user_address             | The address of the user.                                  | string |
 | pool_address             | The contract address of the pool.                         | string |
 | market_depth_score       | (Ask for supporting documents and formula). The percentage price range market depth derived from a 30-day realized volatility. | number |
-| total_value_locked_score | (Ask for supporting documents and formula). A score calculated based on TVL. | number |
+| total_value_locked_score | A score calculated based on TVL. Please see the methodology [here](./TVL_METHODOLOGY.md). | number |
 
 ### V2 Mints
 
