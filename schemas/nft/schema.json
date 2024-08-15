@@ -21,8 +21,8 @@
                     "description": "The block number of the transfer.",
                     "type": "number"
                 },
-                "transaction_id": {
-                    "description": "The transaction id of the transfer.",
+                "transaction_hash": {
+                    "description": "The transaction hash of the transfer.",
                     "type": "string"
                 },
                 "nft_collection_address": {
