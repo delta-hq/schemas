@@ -1,4 +1,7 @@
-[![OBL](./docs/images/obl-logo.png)](https://www.openblocklabs.com/)
+<a href="https://www.openblocklabs.com/">
+  <img src="./docs/images/obl-logo.png" alt="OBL" style="width: 100%; height: 300px; object-fit: cover;">
+</a>
+
 # OpenBlock Labs Schemas
 
 Welcome to OpenBlock Lab's canonical schema repository!
