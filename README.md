@@ -1,4 +1,4 @@
-[![OBL](./docs/images/obl-logo.jpeg)](https://www.openblocklabs.com/)
+[![OBL](./docs/images/obl-logo.png)](https://www.openblocklabs.com/)
 # OpenBlock Labs Schemas
 
 Welcome to OpenBlock Lab's canonical schema repository!
