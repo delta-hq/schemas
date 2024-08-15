@@ -1,7 +1,4 @@
-<a href="https://www.openblocklabs.com/" style="display: block; width: 100%; height: 300px; overflow: hidden;">
-  <img src="./docs/images/obl-logo.png" alt="OBL" style="width: 100%; object-fit: cover;">
-</a>
-
+[![OBL](./docs/images/obl-logo.png)](https://www.openblocklabs.com/)
 
 # OpenBlock Labs Schemas
 
