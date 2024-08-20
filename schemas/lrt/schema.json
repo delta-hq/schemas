@@ -1,0 +1,68 @@
+{
+    "schema": "Liquid Restaking Tokens (LRT)",
+    "description": "Standard table definitions for LRTs (liquid restaking tokens)",
+    "version": "1.0.0-alpha",
+    "tables": [
+      {
+        "label": "Position Snapshot",
+        "tableName": "lrt_holders",
+        "aggregation": "daily",
+        "description": "User level snapshot of holders in this protocol.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "Standard chain ID.",
+            "type": "number"
+          },
+          "token_address": {
+            "description": "The contract address of the LRT.",
+            "type": "string"
+          },
+          "token_symbol": {
+            "description": "The symbol of the token.",
+            "type": "string"
+          },
+          "user_address": {
+            "description": "The address of the user holding the LRT.",
+            "type": "string"
+          },
+          "amount": {
+            "description": "The amount of LRT tokens held in the protocol, decimal normalized.",
+            "type": "number"
+          },
+          "amount_usd": {
+            "description": "The amount held in USD.",
+            "type": "number"
+          }
+        }
+      },
+      {
+        "label": "Protocol Snapshot",
+        "tableName": "lrt_metrics",
+        "aggregation": "daily",
+        "description": "Snapshot at the protocol level, including, TVL and fees data.",
+        "properties": {
+          "timestamp": {
+            "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "chain_id": {
+            "description": "Standard chain ID.",
+            "type": "number"
+          },
+          "total_value_locked_usd": {
+            "description": "The total value locked in USD (ie, the value of the liquid restaking tokens in the protocol).",
+            "type": "number"
+          },
+          "fees_usd": {
+            "description": "The fees collected in USD in the given snapshot period.",
+            "type": "number"
+          }
+        }
+      }
+    ]
+  }
+  
