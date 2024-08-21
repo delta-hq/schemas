@@ -137,12 +137,16 @@
           "description": "The total value locked in USD.",
           "type": "number"
         },
+        "volume_usd": {
+          "description": "The volume of positions opened and closed in the given snapshot in USD.",
+          "type": "number"
+        },
         "open_interest_longs_usd": {
-          "description": "The open interest of longs in USD.",
+          "description": "The sum of open interest of longs held within this pool in USD.",
           "type": "number"
         },
         "open_interest_shorts_usd": {
-          "description": "The open interest of shorts in USD.",
+          "description": "The sum of open interest in shorts held within this pool in USD.",
           "type": "number"
         }
       }
@@ -151,7 +155,7 @@
       "label": "Trades",
       "table_name": "trades",
       "aggregation": "none",
-      "description": "Trade data.",
+      "description": "Trade data, 1 entry for each close, open, or update of a trade.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the trade.",
@@ -196,6 +200,10 @@
         "pnl_usd": {
           "description": "The total profit and loss of the trade in USD.",
           "type": "number"
+        },
+        "trade_type": {
+          "description": "The type of trade being recorded in this entry (ie, OPEN, CLOSE, UPDATE).",
+          "type": "string"
         }
       }
     }

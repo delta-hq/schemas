@@ -52,12 +52,13 @@ Snapshot of the pool's metrics.
 | funding_rate             | The funding rate in this pool at the time of the snapshot, as a percentage. | number |
 | fee_rate                 | he pool's fee rate, as a percentage.                      | number |
 | total_value_locked_usd   | The total value locked in USD.                            | number |
-| open_interest_longs_usd  | The open interest of longs in USD.                        | number |
-| open_interest_shorts_usd | The open interest of shorts in USD.                       | number |
+| volume_usd               | The volume of positions opened and closed in the given snapshot in USD. | number |
+| open_interest_longs_usd  | The sum of open interest of longs held within this pool in USD. | number |
+| open_interest_shorts_usd | The sum of open interest in shorts held within this pool in USD. | number |
 
 ### Trades
 
-Trade data.
+Trade data, 1 entry for each close, open, or update of a trade.
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
@@ -72,5 +73,6 @@ Trade data.
 | amount                   | The amount of the token traded, decimal normalized.       | number |
 | amount_usd               | The trade amount in USD.                                  | number |
 | pnl_usd                  | The total profit and loss of the trade in USD.            | number |
+| trade_type               | The type of trade being recorded in this entry (ie, OPEN, CLOSE, UPDATE). | string |
 
 > Note: This markdown file is auto-generated.
