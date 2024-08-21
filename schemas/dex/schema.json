@@ -274,7 +274,7 @@
           "type": "number"
         },
         "total_value_locked_score": {
-          "description": "(Ask for supporting documents and formula). A score calculated based on TVL.",
+          "description": "A score calculated based on TVL. Please see the methodology [here](./METHODOLOGY.md).",
           "type": "number"
         }
       }
