@@ -214,7 +214,7 @@
           "type": "number"
         },
         "pnl_usd": {
-          "description": "The total profit and loss of the trade in USD (TODO).",
+          "description": "(Only applicable on trade close) The total profit and loss of the trade, in USD.",
           "type": "number"
         },
         "trade_action": {

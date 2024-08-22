@@ -76,7 +76,7 @@ Trade data, 1 entry for each close, open, or update of a trade.
 | amount_usd               | The trade amount in USD.                                  | number |
 | notional_value           | The value of the leveraged amount of the trade, decimal normalized. | number |
 | notional_value_usd       | The notional value, in USD.                               | number |
-| pnl_usd                  | The total profit and loss of the trade in USD (TODO).     | number |
+| pnl_usd                  | (Only applicable on trade close) The total profit and loss of the trade, in USD. | number |
 | trade_action             | The action of trade being recorded in this entry (ie, OPEN, CLOSE, UPDATE). | string |
 | trade_type               | The type of the trade being recorded in this entry (ie, LONG, SHORT). | string |
 
