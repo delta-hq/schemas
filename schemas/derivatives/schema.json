@@ -77,20 +77,28 @@
           "description": "The symbol of the token.",
           "type": "string"
         },
-        "token_amount": {
-          "description": "The amount of tokens, decimal normalized.",
+        "deposit_amount": {
+          "description": "(Optional, for Order Books) The amount deposited into the pool, decimal normalized.",
           "type": "number"
         },
-        "token_amount_usd": {
-          "description": "(Optional) The amount of the provided token in USD.",
+        "deposit_amount_usd": {
+          "description": "(Optional, for Order Books) The amount deposited, in USD.",
           "type": "number"
         },
-        "liquid_token_amount": {
-          "description": "The amount of tokens supplied that are liquid and usable by users of the protocol, decimal normalized.",
+        "amount_useful": {
+          "description": "(Optional, for LPs) The amount of tokens supplied that are liquid and usable by users of the protocol, decimal normalized.",
           "type": "number"
         },
-        "liquid_token_amount_usd": {
-          "description": "(Optional) The amount of liquid tokens supplied in USD.",
+        "amount_useful_usd": {
+          "description": "(Optional, for LPs) The amount of liquid tokens supplied in USD.",
+          "type": "number"
+        },
+        "liquidated_amount": {
+          "description": "The amount of tokens liquidated from the LP, decimal normalized.",
+          "type": "number"
+        },
+        "liquidated_amount_usd": {
+          "description": "The amount liquidated, in USD.",
           "type": "number"
         },
         "total_fees_usd": {
@@ -190,19 +198,31 @@
           "type": "string"
         },
         "amount": {
-          "description": "The amount of the token traded, decimal normalized.",
+          "description": "The value that a trader is putting to open a long or short, decimal normalized.",
           "type": "number"
         },
         "amount_usd": {
           "description": "The trade amount in USD.",
           "type": "number"
         },
-        "pnl_usd": {
-          "description": "The total profit and loss of the trade in USD.",
+        "notional_value": {
+          "description": "The value of the leveraged amount of the trade, decimal normalized.",
           "type": "number"
         },
+        "notional_value_usd": {
+          "description": "The notional value, in USD.",
+          "type": "number"
+        },
+        "pnl_usd": {
+          "description": "The total profit and loss of the trade in USD (TODO).",
+          "type": "number"
+        },
+        "trade_action": {
+          "description": "The action of trade being recorded in this entry (ie, OPEN, CLOSE, UPDATE).",
+          "type": "string"
+        },
         "trade_type": {
-          "description": "The type of trade being recorded in this entry (ie, OPEN, CLOSE, UPDATE).",
+          "description": "The type of the trade being recorded in this entry (ie, LONG, SHORT).",
           "type": "string"
         }
       }
