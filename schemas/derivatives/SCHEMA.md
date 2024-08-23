@@ -67,6 +67,7 @@ Trade data, 1 entry for each close, open, or update of a trade.
 | timestamp                | The timestamp of the trade.                               | number |
 | chain_id                 | Standard chain id.                                        | number |
 | transaction_hash         | The hash of the transaction this trade was performed in.  | string |
+| log_index                | Event log index.                                          | number |
 | block_number             | The block number of the trade.                            | number |
 | pool_address             | The address of the pool this token was traded in.         | string |
 | maker_address            | The address of the maker.                                 | string |
@@ -76,8 +77,9 @@ Trade data, 1 entry for each close, open, or update of a trade.
 | amount_usd               | The trade amount in USD.                                  | number |
 | notional_value           | The value of the leveraged amount of the trade, decimal normalized. | number |
 | notional_value_usd       | The notional value, in USD.                               | number |
-| pnl_usd                  | (Only applicable on trade close) The total profit and loss of the trade, in USD. | number |
-| trade_action             | The action of trade being recorded in this entry (ie, OPEN, CLOSE, UPDATE). | string |
+| maker_pnl_usd            | (Only applicable on trade close) The total profit and loss of the trade on the maker's side, in USD. | number |
+| taker_pnl_usd            | (Only applicable on trade close) The total profit and loss of the trade on the taker's side, in USD. | number |
+| trade_action             | The action of trade being recorded in this entry (ie, OPEN, CLOSE, INCREASE, DECREASE, LIQUIDATED). | string |
 | trade_type               | The type of the trade being recorded in this entry (ie, LONG, SHORT). | string |
 
 > Note: This markdown file is auto-generated.

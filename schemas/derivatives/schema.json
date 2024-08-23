@@ -177,6 +177,10 @@
           "description": "The hash of the transaction this trade was performed in.",
           "type": "string"
         },
+        "log_index": {
+          "description": "Event log index.",
+          "type": "number"
+        },
         "block_number": {
           "description": "The block number of the trade.",
           "type": "number"
@@ -213,12 +217,16 @@
           "description": "The notional value, in USD.",
           "type": "number"
         },
-        "pnl_usd": {
-          "description": "(Only applicable on trade close) The total profit and loss of the trade, in USD.",
+        "maker_pnl_usd": {
+          "description": "(Only applicable on trade close) The total profit and loss of the trade on the maker's side, in USD.",
+          "type": "number"
+        },
+        "taker_pnl_usd": {
+          "description": "(Only applicable on trade close) The total profit and loss of the trade on the taker's side, in USD.",
           "type": "number"
         },
         "trade_action": {
-          "description": "The action of trade being recorded in this entry (ie, OPEN, CLOSE, UPDATE).",
+          "description": "The action of trade being recorded in this entry (ie, OPEN, CLOSE, INCREASE, DECREASE, LIQUIDATED).",
           "type": "string"
         },
         "trade_type": {
