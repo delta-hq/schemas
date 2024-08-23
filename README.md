@@ -31,12 +31,9 @@ Below you will find links to each of the following verticals.
 - [General](./schemas/general/SCHEMA.md)
 - [DEX](./schemas/dex/SCHEMA.md) (Decentralized Exchange)
 - [Lending](./schemas/lending/SCHEMA.md) / MM (Money Market) / CDP (Collateralized Debt Position)
-- Perpetuals / Options / Derivatives
+- [Derivatives](./schemas/derivatives/schema.json) (Perpetuals / Options) 
 - [Bridges](./schemas/bridge/SCHEMA.md) (Pool-Based, Mint-Based, Intent-Based)
 - [LSTs](./schemas/lst/SCHEMA.md) (Liquid Staking Tokens)
 - [Yield Aggregators](./schemas/yield-aggregator/SCHEMA.md) (Leverage, Gambling, RWA, ALM, Liquidity/LP, Index)
 - [DEX Aggregator](./schemas/dex-aggregator/SCHEMA.md)
-- Restaking
-- AVS
-- LRT (Liquid Restaking Tokens)
 - [NFT](./schemas/nft/SCHEMA.md)
