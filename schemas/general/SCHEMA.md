@@ -63,4 +63,15 @@ Protocol level snapshot focused on incentives and users.
 | transaction_count        | The number of transactions in this time period.           | number |
 | fees_usd                 | The amount of fees in this given period, decimal normalized. | number |
 
+### EigenLayer Points Snapshot
+
+User level snapshot of EigenLayer points earned by users in this protocol.
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the snapshot.                            | number |
+| protocol_name            | The name of the LRT protocol.                             | string |
+| user_address             | The address of the user earning points (lowercase only).  | string |
+| eigenlayer_points        | The amount of EigenLayer points earned by this user (decimal normalized). | number |
+
 > Note: This markdown file is auto-generated.
