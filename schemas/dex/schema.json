@@ -1,6 +1,7 @@
 {
   "schema": "DEX",
   "description": "Standard table definitions for dex protocols.",
+  "protocolCategory": ["DEX"],
   "version": "1.0.0",
   "tables": [
     {

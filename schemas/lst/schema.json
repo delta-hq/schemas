@@ -1,6 +1,7 @@
 {
     "schema": "Liquid Staking Tokens (LSTs)",
     "description": "Standard table definitions for LSTs (liquid staking tokens)",
+    "protocolCategory": ["LRT", "LST"],
     "version": "1.0.0-alpha",
     "tables": [
       {

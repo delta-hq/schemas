@@ -1,6 +1,7 @@
 {
   "schema": "Derivatives",
   "description": "OpenBlock Labs standard schema for derivatives protocols (options and perps).",
+  "protocolCategory": ["Derivatives", "Option", "Perpetual"],
   "version": "1.0.0-alpha",
   "tables": [
     {

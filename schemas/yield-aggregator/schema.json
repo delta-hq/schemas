@@ -1,6 +1,7 @@
 {
   "schema": "Yield Aggregator (Leverage, Gambling, RWA, ALM, Liquidity/LP, index)",
   "description": "Standard table definitions for yield aggregator protocols (can include, Leverage, Gambling, RWA, ALM, Liquidity/LP, index).",
+  "protocolCategory": ["Automated Liquidity Manager", "Gambling", "Index", "Leverage", "Prediction Market", "RWA", "Yield", "Yield Aggregator"],
   "version": "1.0.0-alpha",
   "tables": [
     {

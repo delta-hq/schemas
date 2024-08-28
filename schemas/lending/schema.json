@@ -1,6 +1,7 @@
 {
     "schema": "Lending / MM / CDP",
     "description": "Standard table definitions for lending protocols.",
+    "protocolCategory": ["CDP", "Lending"],
     "version": "1.0.0",
     "tables": [
         {

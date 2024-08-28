@@ -1,6 +1,7 @@
 {
     "schema": "NFT",
     "description": "Standard table definitions for NFTs.",
+    "protocolCategory": ["NFT"],
     "version": "1.0.0-alpha",
     "tables": [
         {

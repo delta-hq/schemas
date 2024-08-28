@@ -1,6 +1,7 @@
 {
   "schema": "Bridge",
   "description": "Standard table definitions for bridge protocols, including pool-based, mint-based, and intent-based bridges.",
+  "protocolCategory": ["Bridge (Pool-Based)", "Bridge (Intent-Based)", "Bridge (Mint-Based)"],
   "version": "1.0.0-alpha",
   "tables": [
     {
