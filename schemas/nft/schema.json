@@ -5,7 +5,7 @@
     "tables": [
         {
             "label": "NFT Transfers",
-            "table_name": "nft_transfers",
+            "tableName": "nft_transfers",
             "aggregation": "transaction",
             "description": "List of NFT transfers.",
             "properties": {
