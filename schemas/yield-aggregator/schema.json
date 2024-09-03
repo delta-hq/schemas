@@ -8,6 +8,7 @@
       "label": "Pools",
       "tableName": "misc_pools",
       "aggregation": "none",
+      "uniqueKey": ["pool_address"],
       "description": "List of pools in the protocol.",
       "properties": {
         "chain_id": {
@@ -64,10 +65,15 @@
       "label": "Position Snapshot",
       "tableName": "misc_depositors",
       "aggregation": "daily",
+      "uniqueKey": ["user_address", "pool_address", "days"],
       "description": "Snapshot of the pool users.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "days": {
+          "description": "The number of days since unix epoch time.",
           "type": "number"
         },
         "chain_id": {
@@ -108,10 +114,15 @@
       "label": "Pool Snapshot",
       "tableName": "misc_pool_metrics",
       "aggregation": "daily",
+      "uniqueKey": ["pool_address", "days"],
       "description": "TVL, fees, and incentives data at the pool level.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "days": {
+          "description": "The number of days since unix epoch time.",
           "type": "number"
         },
         "chain_id": {

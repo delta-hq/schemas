@@ -8,10 +8,15 @@
         "label": "Position Snapshot",
         "tableName": "lst_holders",
         "aggregation": "daily",
+        "uniqueKey": ["user_address", "token_address", "days"],
         "description": "User level snapshot of holders in this protocol.",
         "properties": {
           "timestamp": {
             "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "days": {
+            "description": "The number of days since unix epoch time.",
             "type": "number"
           },
           "chain_id": {
@@ -44,10 +49,15 @@
         "label": "Protocol Snapshot",
         "tableName": "lst_metrics",
         "aggregation": "daily",
+        "uniqueKey": ["days"],
         "description": "Snapshot at the protocol level, including, TVL and fees data.",
         "properties": {
           "timestamp": {
             "description": "The timestamp of the snapshot.",
+            "type": "number"
+          },
+          "days": {
+            "description": "The number of days since unix epoch time.",
             "type": "number"
           },
           "chain_id": {

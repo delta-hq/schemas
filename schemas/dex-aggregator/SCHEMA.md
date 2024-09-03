@@ -23,6 +23,7 @@ Volume, fees, and incentives data at the token level.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the record.                              | number |
+| days                     | The number of days since unix epoch time.                 | number |
 | chain_id                 | The standard id of the chain.                             | number |
 | token_address            | The contract address of the token.                        | string |
 | volume_amount            | The volume amount of the token, during the snapshot period, decimal normalized. | number |
@@ -39,6 +40,7 @@ Volume and fees data at the protocol level.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the block this snapshot was taken.       | number |
+| days                     | The number of days since unix epoch time.                 | number |
 | chain_id                 | The standard id of the chain.                             | number |
 | volume_usd               | The volume in USD, in the given snapshot period.          | number |
 | fees_usd                 | The fees (ie, total revenue generated in the protocol) collected in USD, during the snapshot period. | number |
@@ -53,6 +55,7 @@ List of trades executed on the protocol.
 | chain_id                 | The standard id of the chain this trade belongs to.       | number |
 | block_number             | The block number in which the trade occurred.             | number |
 | transaction_hash         | The transaction hash associated with this trade.          | string |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | fees                     | The amount of fees from this trade (ie, the revenue generated from executing this trade). | number |
 | fees_usd                 | The fees for this trade in USD.                           | number |
 | slippage                 | (Optional) The slippage of the given trade, as a percentage (ie, 1.3% slippage is 0.013). | number |

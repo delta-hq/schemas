@@ -8,6 +8,7 @@
       "label": "Incentive Claim Data",
       "tableName": "user_incentive_claim",
       "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Transactional data on user level incentives claimed data.",
       "properties": {
         "timestamp": {
@@ -23,7 +24,7 @@
           "type": "string"
         },
         "log_index": {
-          "description": "The log index of the event recorded.",
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
         "user_address": {
@@ -51,7 +52,8 @@
     {
       "label": "Airdrop",
       "tableName": "general_airdrop",
-      "aggregation": "none",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Schema for airdrop data.",
       "properties": {
         "airdrop_timestamp": {
@@ -71,7 +73,7 @@
           "type": "string"
         },
         "log_index": {
-          "description": "The log index of the event recorded.",
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
         "airdrop_token_address": {
@@ -96,10 +98,15 @@
       "label": "Pool Snapshot",
       "tableName": "general_pools",
       "aggregation": "daily",
+      "uniqueKey": ["pool_address", "days"],
       "description": "APR and APY data at the pool level.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the record.",
+          "type": "number"
+        },
+        "days": {
+          "description": "The number of days since unix epoch time.",
           "type": "number"
         },
         "chain_id": {
@@ -136,10 +143,15 @@
       "label": "Protocol Snapshot",
       "tableName": "general_metrics",
       "aggregation": "daily",
+      "uniqueKey": ["days"],
       "description": "Protocol level snapshot focused on incentives and users.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "days": {
+          "description": "The number of days since unix epoch time.",
           "type": "number"
         },
         "chain_id": {

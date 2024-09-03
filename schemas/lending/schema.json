@@ -7,6 +7,7 @@
         {
             "label": "Pools",
             "table_name": "lending_pools",
+            "uniqueKey": ["pool_address"],
             "aggregation": "none",
             "description": "List of pools in the lending protocol.",
             "properties": {
@@ -52,12 +53,17 @@
             "label": "Position Snapshot",
             "table_name": "lending_position_snapshot",
             "aggregation": "daily",
+            "uniqueKey": ["user_address", "pool_address", "days"],
             "description": "Snapshot of user positions in the lending protocol.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the snapshot.",
                     "type": "number"
                 },
+                "days": {
+                    "description": "The number of days since unix epoch time.",
+                    "type": "number"
+                    },
                 "chain_id": {
                     "description": "The standard id of the chain.",
                     "type": "number"
@@ -108,12 +114,17 @@
             "label": "Pool Snapshot",
             "table_name": "lending_pool_snapshot",
             "aggregation": "daily",
+            "uniqueKey": ["pool_address", "days"],
             "description": "Snapshot of the pool's state in the lending protocol.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the snapshot.",
                     "type": "number"
                 },
+                "days": {
+                    "description": "The number of days since unix epoch time.",
+                    "type": "number"
+                },  
                 "chain_id": {
                     "description": "The standard id of the chain.",
                     "type": "number"

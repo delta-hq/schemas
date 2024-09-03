@@ -14,6 +14,7 @@ List of NFT transfers.
 | chain_id                 | The standard id of the chain.                             | number |
 | block_number             | The block number of the transfer.                         | number |
 | transaction_hash         | The transaction hash of the transfer.                     | string |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | nft_collection_address   | The contract address of the NFT collection.               | string |
 | nft_id                   | The unique identifier of the NFT.                         | string |
 | sender_address           | The address of the sender of the NFT.                     | string |

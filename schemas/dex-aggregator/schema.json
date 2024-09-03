@@ -8,6 +8,7 @@
             "label": "Tokens",
             "table_name": "dex_agg_tokens",
             "aggregation": "none",
+            "uniqueKey": ["token_address"],
             "description": "List of tokens supported by the protocol.",
             "properties": {
                 "chain_id": {
@@ -36,10 +37,15 @@
             "label": "Token Snapshot",
             "table_name": "dex_agg_token_metrics",
             "aggregation": "daily",
+            "uniqueKey": ["token_address", "days"],
             "description": "Volume, fees, and incentives data at the token level.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the record.",
+                    "type": "number"
+                },
+                "days": {
+                    "description": "The number of days since unix epoch time.",
                     "type": "number"
                 },
                 "chain_id": {
@@ -80,10 +86,15 @@
             "label": "Protocol Snapshot",
             "table_name": "dex_agg_metrics",
             "aggregation": "daily",
+            "uniqueKey": ["days"],
             "description": "Volume and fees data at the protocol level.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the block this snapshot was taken.",
+                    "type": "number"
+                },
+                "days": {
+                    "description": "The number of days since unix epoch time.",
                     "type": "number"
                 },
                 "chain_id": {
@@ -104,6 +115,7 @@
             "label": "Trades",
             "table_name": "dex_agg_trades",
             "aggregation": "transaction",
+            "uniqueKey": ["transaction_hash", "log_index"],
             "description": "List of trades executed on the protocol.",
             "properties": {
                 "timestamp": {
@@ -121,6 +133,10 @@
                 "transaction_hash": {
                     "description": "The transaction hash associated with this trade.",
                     "type": "string"
+                },
+                "log_index": {
+                    "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+                    "type": "number"
                 },
                 "fees": {
                     "description": "The amount of fees from this trade (ie, the revenue generated from executing this trade).",

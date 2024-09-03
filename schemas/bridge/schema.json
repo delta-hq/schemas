@@ -8,6 +8,7 @@
       "label": "Tokens",
       "tableName": "bridge_intent_tokens",
       "aggregation": "none",
+      "uniqueKey": ["token_address"],
       "description": "List of tokens in bridge protocols.",
       "properties": {
         "token_address": {
@@ -32,6 +33,7 @@
       "label": "Pools",
       "tableName": "bridge_pools",
       "aggregation": "none",
+      "uniqueKey": ["pool_address", "token_index"],
       "description": "List of pools in bridge protocols (applicable for pool and mint based bridges).",
       "properties": {
         "creation_timestamp": {
@@ -76,10 +78,15 @@
       "label": "LP Snapshot",
       "tableName": "bridge_lps",
       "aggregation": "daily",
+      "uniqueKey": ["lp_address", "pool_address", "token_index", "days"],
       "description": "List of liquidity providers in pool-based bridge protocols.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "days": {
+          "description": "The number of days since unix epoch time.",
           "type": "number"
         },
         "pool_address": {
@@ -120,10 +127,15 @@
       "label": "User Snapshot",
       "tableName": "bridge_bridgers",
       "aggregation": "daily",
+      "uniqueKey": ["user_address", "pool_address", "days"],
       "description": "User level snapshot of accounts that have used the bridge (applicable to pool and intent based bridges).",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "days": {
+          "description": "The number of days since unix epoch time.",
           "type": "number"
         },
         "pool_address": {
@@ -156,10 +168,15 @@
       "label": "Pool Snapshot",
       "tableName": "bridge_pool_metrics",
       "aggregation": "daily",
+      "uniqueKey": ["pool_address", "token_index", "days"],
       "description": "Pool level snapshots for pool and mint based bridges.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "days": {
+          "description": "The number of days since unix epoch time.",
           "type": "number"
         },
         "pool_address": {
@@ -208,6 +225,7 @@
       "label": "Bridge Transactions",
       "tableName": "bridge_transactions",
       "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "List of bridge transactions.",
       "properties": {
         "timestamp": {
@@ -268,10 +286,15 @@
       "label": "Maker Snapshot",
       "tableName": "bridge_intent_makers",
       "aggregation": "daily",
+      "uniqueKey": ["user_address", "token_address", "days"],
       "description": "List of makers in intent-based bridge protocols.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "days": {
+          "description": "The number of days since unix epoch time.",
           "type": "number"
         },
         "user_address": {
@@ -312,10 +335,15 @@
       "label": "Taker Snapshot",
       "tableName": "bridge_intent_takers",
       "aggregation": "daily",
+      "uniqueKey": ["user_address", "token_address", "days"],
       "description": "List of takers in intent-based bridge protocols.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "days": {
+          "description": "The number of days since unix epoch time.",
           "type": "number"
         },
         "user_address": {
@@ -344,10 +372,15 @@
       "label": "Token Snapshot",
       "tableName": "bridge_intent_token_metrics",
       "aggregation": "daily",
+      "uniqueKey": ["token_address", "days"],
       "description": "Snapshot of token level data.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "days": {
+          "description": "The number of days since unix epoch time.",
           "type": "number"
         },
         "token_address": {

@@ -8,6 +8,7 @@
       "label": "Pools",
       "table_name": "derivatives_pools",
       "aggregation": "none",
+      "uniqueKey": ["pool_address", "token_index"],
       "description": "Pools in the protocol (one entry for each token).",
       "properties": {
         "chain_id": {
@@ -47,13 +48,18 @@
     {
       "label": "LP Snapshot",
       "table_name": "lp_snapshot",
-      "aggregation": "none",
+      "aggregation": "daily",
+      "uniqueKey": ["lp_address", "pool_address", "token_index", "days"],
       "description": "Liquidity providers snapshot (one entry for each token in a pool).",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
         },
+        "days": {
+          "description": "The number of days since unix epoch time.",
+          "type": "number"
+        }, 
         "chain_id": {
           "description": "Standard chain id.",
           "type": "number"
@@ -119,13 +125,18 @@
     {
       "label": "Pool Snapshot",
       "table_name": "pool_snapshot",
-      "aggregation": "none",
+      "aggregation": "daily",
+      "uniqueKey": ["pool_address", "token_index", "days"],
       "description": "Snapshot of the pool's metrics.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
         },
+        "days": {
+          "description": "The number of days since unix epoch time.",
+          "type": "number"
+        }, 
         "chain_id": {
           "description": "Standard chain id.",
           "type": "number"
@@ -133,6 +144,10 @@
         "pool_address": {
           "description": "The smart contract address of the pool.",
           "type": "string"
+        },
+        "token_index": {
+          "description": "The index of the token in the smart contract (one row for each token in a pool).",
+          "type": "number"
         },
         "funding_rate": {
           "description": "The funding rate in this pool at the time of the snapshot, as a percentage.",
@@ -163,7 +178,8 @@
     {
       "label": "Trades",
       "table_name": "trades",
-      "aggregation": "none",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Trade data, 1 entry for each close, open, or update of a trade.",
       "properties": {
         "timestamp": {
