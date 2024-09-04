@@ -6,7 +6,7 @@
     "tables": [
         {
             "label": "Pools",
-            "table_name": "lending_pools",
+            "tableName": "lending_pools",
             "uniqueKey": ["pool_address"],
             "aggregation": "none",
             "description": "List of pools in the lending protocol.",
@@ -51,7 +51,7 @@
         },
         {
             "label": "Position Snapshot",
-            "table_name": "lending_position_snapshot",
+            "tableName": "lending_position_snapshot",
             "aggregation": "daily",
             "uniqueKey": ["user_address", "pool_address", "block_date"],
             "description": "Snapshot of user positions in the lending protocol.",
@@ -112,7 +112,7 @@
         },
         {
             "label": "Pool Snapshot",
-            "table_name": "lending_pool_snapshot",
+            "tableName": "lending_pool_snapshot",
             "aggregation": "daily",
             "uniqueKey": ["pool_address", "block_date"],
             "description": "Snapshot of the pool's state in the lending protocol.",

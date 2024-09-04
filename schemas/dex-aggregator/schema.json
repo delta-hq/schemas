@@ -6,7 +6,7 @@
     "tables": [
         {
             "label": "Tokens",
-            "table_name": "dex_agg_tokens",
+            "tableName": "dex_agg_tokens",
             "aggregation": "none",
             "uniqueKey": ["token_address"],
             "description": "List of tokens supported by the protocol.",
@@ -35,7 +35,7 @@
         },
         {
             "label": "Token Snapshot",
-            "table_name": "dex_agg_token_metrics",
+            "tableName": "dex_agg_token_metrics",
             "aggregation": "daily",
             "uniqueKey": ["token_address", "block_date"],
             "description": "Volume, fees, and incentives data at the token level.",
@@ -84,7 +84,7 @@
         },
         {
             "label": "Protocol Snapshot",
-            "table_name": "dex_agg_metrics",
+            "tableName": "dex_agg_metrics",
             "aggregation": "daily",
             "uniqueKey": ["block_date"],
             "description": "Volume and fees data at the protocol level.",
@@ -113,7 +113,7 @@
         },
         {
             "label": "Trades",
-            "table_name": "dex_agg_trades",
+            "tableName": "dex_agg_trades",
             "aggregation": "transaction",
             "uniqueKey": ["transaction_hash", "log_index"],
             "description": "List of trades executed on the protocol.",

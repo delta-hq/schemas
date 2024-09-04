@@ -6,7 +6,7 @@
   "tables": [
     {
       "label": "Pools",
-      "table_name": "dex_pools",
+      "tableName": "dex_pools",
       "aggregation": "none",
       "uniqueKey": ["pool_address", "token_index"],
       "description": "List of LP pools in this protocol (one entry per token in a pool).",
@@ -63,7 +63,7 @@
     },
     {
       "label": "LP Position Snapshot",
-      "table_name": "lp_position_snapshot",
+      "tableName": "lp_position_snapshot",
       "aggregation": "daily",
       "uniqueKey": ["user_address", "pool_address", "token_index", "block_date"],
       "description": "Snapshot of LP positions.",
@@ -112,7 +112,7 @@
     },
     {
       "label": "Pool Snapshot",
-      "table_name": "pool_snapshot",
+      "tableName": "pool_snapshot",
       "aggregation": "daily",
       "uniqueKey": ["pool_address", "token_index", "block_date"],
       "description": "Snapshot of pool states.",
@@ -181,7 +181,7 @@
     },
     {
       "label": "Trades (All DEX Types)",
-      "table_name": "dex_trades",
+      "tableName": "dex_trades",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
       "description": "All trades across different types of DEXs.",
@@ -258,7 +258,7 @@
     },
     {
       "label": "User Score Snapshot",
-      "table_name": "user_score_snapshot",
+      "tableName": "user_score_snapshot",
       "aggregation": "daily",
       "uniqueKey": ["user_address", "pool_address", "block_date"],
       "description": "Snapshot of user scores.",
@@ -299,7 +299,7 @@
     },
     {
       "label": "V2 Mints",
-      "table_name": "v2_mints",
+      "tableName": "v2_mints",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Mint events for V2.",
@@ -368,7 +368,7 @@
     },
     {
       "label": "V2 Burns",
-      "table_name": "v2_burns",
+      "tableName": "v2_burns",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Burn events for V2.",
@@ -437,7 +437,7 @@
     },
     {
       "label": "V2 Syncs",
-      "table_name": "v2_syncs",
+      "tableName": "v2_syncs",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Sync events for V2.",
@@ -486,7 +486,7 @@
     },
     {
       "label": "V2 Transfers",
-      "table_name": "v2_transfers",
+      "tableName": "v2_transfers",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Transfer events for V2.",
@@ -535,7 +535,7 @@
     },
     {
       "label": "V3 Events",
-      "table_name": "v3_events",
+      "tableName": "v3_events",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Events for V3.",
@@ -620,7 +620,7 @@
     },
     {
       "label": "V3 Transfers",
-      "table_name": "v3_transfers",
+      "tableName": "v3_transfers",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Transfer events for V3.",

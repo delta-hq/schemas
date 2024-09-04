@@ -6,7 +6,7 @@
     "tables": [
         {
             "label": "NFT Transfers",
-            "table_name": "nft_transfers",
+            "tableName": "nft_transfers",
             "aggregation": "transaction",
             "uniqueKey": ["transaction_hash", "log_index"],
             "description": "List of NFT transfers.",

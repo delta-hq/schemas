@@ -6,7 +6,7 @@
   "tables": [
     {
       "label": "Pools",
-      "table_name": "derivatives_pools",
+      "tableName": "derivatives_pools",
       "aggregation": "none",
       "uniqueKey": ["pool_address", "token_index"],
       "description": "Pools in the protocol (one entry for each token).",
@@ -47,7 +47,7 @@
     },
     {
       "label": "LP Snapshot",
-      "table_name": "lp_snapshot",
+      "tableName": "lp_snapshot",
       "aggregation": "daily",
       "uniqueKey": ["lp_address", "pool_address", "token_index", "block_date"],
       "description": "Liquidity providers snapshot (one entry for each token in a pool).",
@@ -124,7 +124,7 @@
     },
     {
       "label": "Pool Snapshot",
-      "table_name": "pool_snapshot",
+      "tableName": "pool_snapshot",
       "aggregation": "daily",
       "uniqueKey": ["pool_address", "token_index", "block_date"],
       "description": "Snapshot of the pool's metrics.",
@@ -177,7 +177,7 @@
     },
     {
       "label": "Trades",
-      "table_name": "trades",
+      "tableName": "trades",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Trade data, 1 entry for each close, open, or update of a trade.",
