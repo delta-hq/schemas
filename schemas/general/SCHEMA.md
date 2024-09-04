@@ -65,9 +65,9 @@ Protocol level snapshot focused on incentives and users.
 | transaction_count        | The number of transactions in this time period.           | number |
 | fees_usd                 | The amount of fees in this given period, decimal normalized. | number |
 
-### Token Balance
+### Token Balance Snapshot
 
-User level token balances.
+User level token balance snapshots.
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|

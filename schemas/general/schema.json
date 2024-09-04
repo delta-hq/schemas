@@ -173,11 +173,11 @@
       }
     },
     {
-      "label": "Token Balance",
+      "label": "Token Balance Snapshot",
       "tableName": "general_token_balance",
       "aggregation": "daily",
       "uniqueKey": ["user_address", "token_address", "block_date"],
-      "description": "User level token balances.",
+      "description": "User level token balance snapshots.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
