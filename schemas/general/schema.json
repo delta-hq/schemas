@@ -171,6 +171,84 @@
           "type": "number"
         }
       }
+    },
+    {
+      "label": "Token Balance",
+      "tableName": "general_token_balance",
+      "aggregation": "daily",
+      "uniqueKey": ["user_address", "token_address", "block_date"],
+      "description": "User level token balances.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "number"
+        },
+        "user_address": {
+          "description": "The address of the user this snapshot activity is based on.",
+          "type": "string"
+        },
+        "token_address": {
+          "description": "The smart contract address of the token.",
+          "type": "string"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token we are getting the balance of.",
+          "type": "string"
+        },
+        "token_amount": {
+          "description": "The amount of the token at the given snapshot timestamp (decimal normalized).",
+          "type": "number"
+        },
+        "token_amount_usd": {
+          "description": "The amount of the token in USD.",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "User Transaction Fee Snapshot",
+      "tableName": "general_transaction_snapshot",
+      "aggregation": "daily",
+      "uniqueKey": ["user_address", "block_date"],
+      "description": "Gas and transaction snapshot data at the user level.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "number"
+        },
+        "user_address": {
+          "description": "The address of the user this snapshot activity is based on.",
+          "type": "string"
+        },
+        "transaction_count": {
+          "description": "The number of transactions this user has signed in the given snapshot.",
+          "type": "number"
+        },
+        "transaction_fees": {
+          "description": "The total amount of gas used in the transactions occurring in the given snapshot (in the native gas amount).",
+          "type": "number"
+        },
+        "transaction_fees_usd": {
+          "description": "(Optional, if possible) The total amount of gas used in USD terms in the given snapshot.",
+          "type": "number"
+        }
+      }
     }
   ]
 }

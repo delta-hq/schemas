@@ -65,4 +65,33 @@ Protocol level snapshot focused on incentives and users.
 | transaction_count        | The number of transactions in this time period.           | number |
 | fees_usd                 | The amount of fees in this given period, decimal normalized. | number |
 
+### Token Balance
+
+User level token balances.
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the snapshot.                            | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| chain_id                 | The standard chain id.                                    | number |
+| user_address             | The address of the user this snapshot activity is based on. | string |
+| token_address            | The smart contract address of the token.                  | string |
+| token_symbol             | The symbol of the token we are getting the balance of.    | string |
+| token_amount             | The amount of the token at the given snapshot timestamp (decimal normalized). | number |
+| token_amount_usd         | The amount of the token in USD.                           | number |
+
+### User Transaction Fee Snapshot
+
+Gas and transaction snapshot data at the user level.
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the snapshot.                            | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| chain_id                 | The standard chain id.                                    | number |
+| user_address             | The address of the user this snapshot activity is based on. | string |
+| transaction_count        | The number of transactions this user has signed in the given snapshot. | number |
+| transaction_fees         | The total amount of gas used in the transactions occurring in the given snapshot (in the native gas amount). | number |
+| transaction_fees_usd     | (Optional, if possible) The total amount of gas used in USD terms in the given snapshot. | number |
+
 > Note: This markdown file is auto-generated.
