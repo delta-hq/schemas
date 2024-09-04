@@ -30,6 +30,7 @@ Snapshot of the pool users.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard chain id.                                    | number |
 | pool_address             | The address of the pool this user has a position in.      | string |
 | user_address             | The address of the user who has a position in the pool.   | string |
@@ -46,6 +47,7 @@ TVL, fees, and incentives data at the pool level.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard chain id.                                    | number |
 | underlying_token_address | The contract address of the underlying token or deposited token. | string |
 | underlying_token_index   | The index of the underlying token in the smart contract, default 0. | number |

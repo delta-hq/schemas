@@ -1,12 +1,14 @@
 {
   "schema": "Derivatives",
   "description": "OpenBlock Labs standard schema for derivatives protocols (options and perps).",
+  "protocolCategory": ["Derivatives", "Option", "Perpetual"],
   "version": "1.0.0-alpha",
   "tables": [
     {
       "label": "Pools",
-      "table_name": "derivatives_pools",
+      "tableName": "derivatives_pools",
       "aggregation": "none",
+      "uniqueKey": ["pool_address", "token_index"],
       "description": "Pools in the protocol (one entry for each token).",
       "properties": {
         "chain_id": {
@@ -45,14 +47,19 @@
     },
     {
       "label": "LP Snapshot",
-      "table_name": "lp_snapshot",
-      "aggregation": "none",
+      "tableName": "lp_snapshot",
+      "aggregation": "daily",
+      "uniqueKey": ["lp_address", "pool_address", "token_index", "block_date"],
       "description": "Liquidity providers snapshot (one entry for each token in a pool).",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
         },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
+        }, 
         "chain_id": {
           "description": "Standard chain id.",
           "type": "number"
@@ -117,14 +124,19 @@
     },
     {
       "label": "Pool Snapshot",
-      "table_name": "pool_snapshot",
-      "aggregation": "none",
+      "tableName": "pool_snapshot",
+      "aggregation": "daily",
+      "uniqueKey": ["pool_address", "token_index", "block_date"],
       "description": "Snapshot of the pool's metrics.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
         },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
+        }, 
         "chain_id": {
           "description": "Standard chain id.",
           "type": "number"
@@ -132,6 +144,10 @@
         "pool_address": {
           "description": "The smart contract address of the pool.",
           "type": "string"
+        },
+        "token_index": {
+          "description": "The index of the token in the smart contract (one row for each token in a pool).",
+          "type": "number"
         },
         "funding_rate": {
           "description": "The funding rate in this pool at the time of the snapshot, as a percentage.",
@@ -161,8 +177,9 @@
     },
     {
       "label": "Trades",
-      "table_name": "trades",
-      "aggregation": "none",
+      "tableName": "trades",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Trade data, 1 entry for each close, open, or update of a trade.",
       "properties": {
         "timestamp": {

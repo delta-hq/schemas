@@ -1,12 +1,14 @@
 {
   "schema": "General",
   "description": "Table definitions for the generic schema. These tables can be used for any protocol.",
+  "protocolCategory": ["Bond", "Gaming", "Oracle", "Payment", "Quest", "SocialFi", "Stablecoin", "Wallet"],
   "version": "1.0.0-alpha",
   "tables": [
     {
       "label": "Incentive Claim Data",
       "tableName": "user_incentive_claim",
       "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Transactional data on user level incentives claimed data.",
       "properties": {
         "timestamp": {
@@ -22,7 +24,7 @@
           "type": "string"
         },
         "log_index": {
-          "description": "The log index of the event recorded.",
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
         "user_address": {
@@ -50,7 +52,8 @@
     {
       "label": "Airdrop",
       "tableName": "general_airdrop",
-      "aggregation": "none",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Schema for airdrop data.",
       "properties": {
         "airdrop_timestamp": {
@@ -70,7 +73,7 @@
           "type": "string"
         },
         "log_index": {
-          "description": "The log index of the event recorded.",
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
         "airdrop_token_address": {
@@ -95,11 +98,16 @@
       "label": "Pool Snapshot",
       "tableName": "general_pools",
       "aggregation": "daily",
+      "uniqueKey": ["pool_address", "block_date"],
       "description": "APR and APY data at the pool level.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the record.",
           "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
         },
         "chain_id": {
           "description": "The standard chain id.",
@@ -135,11 +143,16 @@
       "label": "Protocol Snapshot",
       "tableName": "general_metrics",
       "aggregation": "daily",
+      "uniqueKey": ["block_date"],
       "description": "Protocol level snapshot focused on incentives and users.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
         },
         "chain_id": {
           "description": "The standard chain id.",

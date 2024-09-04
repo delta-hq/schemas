@@ -1,11 +1,13 @@
 {
     "schema": "Lending / MM / CDP",
     "description": "Standard table definitions for lending protocols.",
+    "protocolCategory": ["CDP", "Lending"],
     "version": "1.0.0",
     "tables": [
         {
             "label": "Pools",
             "tableName": "lending_pools",
+            "uniqueKey": ["pool_address"],
             "aggregation": "none",
             "description": "List of pools in the lending protocol.",
             "properties": {
@@ -51,12 +53,17 @@
             "label": "Position Snapshot",
             "tableName": "lending_position_snapshot",
             "aggregation": "daily",
+            "uniqueKey": ["user_address", "pool_address", "block_date"],
             "description": "Snapshot of user positions in the lending protocol.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the snapshot.",
                     "type": "number"
                 },
+                "block_date": {
+                    "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+                    "type": "date"
+                    },
                 "chain_id": {
                     "description": "The standard id of the chain.",
                     "type": "number"
@@ -107,12 +114,17 @@
             "label": "Pool Snapshot",
             "tableName": "lending_pool_snapshot",
             "aggregation": "daily",
+            "uniqueKey": ["pool_address", "block_date"],
             "description": "Snapshot of the pool's state in the lending protocol.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the snapshot.",
                     "type": "number"
                 },
+                "block_date": {
+                    "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+                    "type": "date"
+                },  
                 "chain_id": {
                     "description": "The standard id of the chain.",
                     "type": "number"

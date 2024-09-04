@@ -13,7 +13,7 @@ Transactional data on user level incentives claimed data.
 | timestamp                | The timestamp of the claim.                               | number |
 | chain_id                 | The standard chain id.                                    | number |
 | transaction_hash         | The hash of the transaction.                              | string |
-| log_index                | The log index of the event recorded.                      | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | user_address             | The address of the user who claimed the incentives.       | string |
 | claimed_token_address    | The smart contract address of the claimed token.          | string |
 | claimed_token_amount     | The amount of the token claimed, decimal normalized.      | number |
@@ -30,7 +30,7 @@ Schema for airdrop data.
 | user_address             | The address of the user claiming the airdrop.             | string |
 | claim_timestamp          | The timestamp of when the user claimed the airdrop.       | number |
 | transaction_hash         | The hash of the transaction.                              | string |
-| log_index                | The log index of the event recorded.                      | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | airdrop_token_address    | The smart contract address of the airdropped token.       | string |
 | airdrop_token_symbol     | The symbol of the token being airdropped.                 | string |
 | token_amount             | The amount of each token airdropped, decimal normalized.  | number |
@@ -43,6 +43,7 @@ APR and APY data at the pool level.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the record.                              | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard chain id.                                    | number |
 | protocol_type            | The type of protocol (ie, Lending, CDP, DEX, Gaming, etc). | string |
 | pool_address             | The smart contract address of the pool.                   | string |
@@ -58,6 +59,7 @@ Protocol level snapshot focused on incentives and users.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard chain id.                                    | number |
 | daily_active_users       | The number of unique daily active users on this protocol. | number |
 | transaction_count        | The number of transactions in this time period.           | number |

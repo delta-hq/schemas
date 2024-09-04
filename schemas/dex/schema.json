@@ -1,12 +1,14 @@
 {
   "schema": "DEX",
   "description": "Standard table definitions for dex protocols.",
+  "protocolCategory": ["DEX"],
   "version": "1.0.0",
   "tables": [
     {
       "label": "Pools",
       "tableName": "dex_pools",
       "aggregation": "none",
+      "uniqueKey": ["pool_address", "token_index"],
       "description": "List of LP pools in this protocol (one entry per token in a pool).",
       "properties": {
         "chain_id": {
@@ -62,13 +64,18 @@
     {
       "label": "LP Position Snapshot",
       "tableName": "lp_position_snapshot",
-      "aggregation": "none",
+      "aggregation": "daily",
+      "uniqueKey": ["user_address", "pool_address", "token_index", "block_date"],
       "description": "Snapshot of LP positions.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
         },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
+        }, 
         "chain_id": {
           "description": "The standard id of the chain.",
           "type": "number"
@@ -106,13 +113,18 @@
     {
       "label": "Pool Snapshot",
       "tableName": "pool_snapshot",
-      "aggregation": "none",
+      "aggregation": "daily",
+      "uniqueKey": ["pool_address", "token_index", "block_date"],
       "description": "Snapshot of pool states.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
         },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
+        }, 
         "chain_id": {
           "description": "The standard id of the chain.",
           "type": "number"
@@ -170,7 +182,8 @@
     {
       "label": "Trades (All DEX Types)",
       "tableName": "dex_trades",
-      "aggregation": "none",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "All trades across different types of DEXs.",
       "properties": {
         "timestamp": {
@@ -186,7 +199,7 @@
           "type": "number"
         },
         "log_index": {
-          "description": "The log index of the event recorded.",
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
         "transaction_hash": {
@@ -246,13 +259,18 @@
     {
       "label": "User Score Snapshot",
       "tableName": "user_score_snapshot",
-      "aggregation": "none",
+      "aggregation": "daily",
+      "uniqueKey": ["user_address", "pool_address", "block_date"],
       "description": "Snapshot of user scores.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the record.",
           "type": "number"
         },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
+        }, 
         "chain_id": {
           "description": "The standard id of the chain.",
           "type": "number"
@@ -282,7 +300,8 @@
     {
       "label": "V2 Mints",
       "tableName": "v2_mints",
-      "aggregation": "none",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Mint events for V2.",
       "properties": {
         "timestamp": {
@@ -296,6 +315,14 @@
         "block_number": {
           "description": "The block number of the mint.",
           "type": "number"
+        },
+        "log_index": {
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+          "type": "number"
+        },
+        "transaction_hash": {
+          "description": "The hash of the transaction.",
+          "type": "string"
         },
         "transaction_from_address": {
           "description": "The address that initiates the transaction (ie, the transaction signer).",
@@ -342,7 +369,8 @@
     {
       "label": "V2 Burns",
       "tableName": "v2_burns",
-      "aggregation": "none",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Burn events for V2.",
       "properties": {
         "timestamp": {
@@ -358,7 +386,7 @@
           "type": "number"
         },
         "log_index": {
-          "description": "The log index of the event recorded.",
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
         "transaction_hash": {
@@ -410,7 +438,8 @@
     {
       "label": "V2 Syncs",
       "tableName": "v2_syncs",
-      "aggregation": "none",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Sync events for V2.",
       "properties": {
         "timestamp": {
@@ -426,7 +455,7 @@
           "type": "number"
         },
         "log_index": {
-          "description": "The log index of the event recorded.",
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
         "transaction_hash": {
@@ -458,7 +487,8 @@
     {
       "label": "V2 Transfers",
       "tableName": "v2_transfers",
-      "aggregation": "none",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Transfer events for V2.",
       "properties": {
         "timestamp": {
@@ -474,7 +504,7 @@
           "type": "number"
         },
         "log_index": {
-          "description": "The log index of the event recorded.",
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
         "transaction_hash": {
@@ -506,7 +536,8 @@
     {
       "label": "V3 Events",
       "tableName": "v3_events",
-      "aggregation": "none",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Events for V3.",
       "properties": {
         "timestamp": {
@@ -522,7 +553,7 @@
           "type": "number"
         },
         "log_index": {
-          "description": "The log index of the event recorded.",
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
         "transaction_hash": {
@@ -590,7 +621,8 @@
     {
       "label": "V3 Transfers",
       "tableName": "v3_transfers",
-      "aggregation": "none",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "Transfer events for V3.",
       "properties": {
         "timestamp": {
@@ -606,7 +638,7 @@
           "type": "number"
         },
         "log_index": {
-          "description": "The log index of the event recorded.",
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
         "transaction_hash": {

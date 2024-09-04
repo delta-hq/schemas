@@ -30,6 +30,7 @@ Snapshot of LP positions.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard id of the chain.                             | number |
 | pool_address             | The contract address of the pool.                         | string |
 | user_address             | The address of the liquidity provider.                    | string |
@@ -46,6 +47,7 @@ Snapshot of pool states.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard id of the chain.                             | number |
 | pool_address             | The contract address of the LP pool.                      | string |
 | token_index              | The token index in the smart contract.                    | number |
@@ -69,7 +71,7 @@ All trades across different types of DEXs.
 | timestamp                | The timestamp of the transaction.                         | number |
 | chain_id                 | The standard id of the chain.                             | number |
 | block_number             | The block number of the trade.                            | number |
-| log_index                | The log index of the event recorded.                      | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | transaction_hash         | The hash of the transaction.                              | string |
 | user_address             | The address that initiates the transaction (ie, the transaction signer). | string |
 | taker_address            | The taker, the address that receives the output of the swap (ie, could be the same as user_address unless a proxy contract/router is used). | string |
@@ -91,6 +93,7 @@ Snapshot of user scores.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the record.                              | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard id of the chain.                             | number |
 | block_number             | The block number of the record.                           | number |
 | user_address             | The address of the user.                                  | string |
@@ -107,6 +110,8 @@ Mint events for V2.
 | timestamp                | The timestamp of the record.                              | number |
 | chain_id                 | The standard id of the chain.                             | number |
 | block_number             | The block number of the mint.                             | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
+| transaction_hash         | The hash of the transaction.                              | string |
 | transaction_from_address | The address that initiates the transaction (ie, the transaction signer). | string |
 | from_address             | The from address of the event (ie, the from field in a transfer). | string |
 | to_address               | The to address of the event (ie, the to field in a transfer). | string |
@@ -127,7 +132,7 @@ Burn events for V2.
 | timestamp                | The timestamp of the transaction.                         | number |
 | chain_id                 | The standard id of the chain.                             | number |
 | block_number             | The block number of the trade.                            | number |
-| log_index                | The log index of the event recorded.                      | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | transaction_hash         | The hash of the transaction.                              | string |
 | transaction_from_address | The address that initiates the transaction (ie, the transaction signer). | string |
 | from_address             | The from address of the event (ie, the from field in a transfer). | string |
@@ -149,7 +154,7 @@ Sync events for V2.
 | timestamp                | The timestamp of the transaction.                         | number |
 | chain_id                 | The standard id of the chain.                             | number |
 | block_number             | The block number of the trade.                            | number |
-| log_index                | The log index of the event recorded.                      | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | transaction_hash         | The hash of the transaction.                              | string |
 | pool_address             | The contract address of the pool.                         | string |
 | token0_address           | The contract address of token0.                           | string |
@@ -166,7 +171,7 @@ Transfer events for V2.
 | timestamp                | The timestamp of the transaction.                         | number |
 | chain_id                 | The standard id of the chain.                             | number |
 | block_number             | The block number of the trade.                            | number |
-| log_index                | The log index of the event recorded.                      | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | transaction_hash         | The hash of the transaction.                              | string |
 | transaction_from_address | The address that initiates the transaction (ie, the transaction signer). | string |
 | from_address             | The address that sends the LP token.                      | string |
@@ -183,7 +188,7 @@ Events for V3.
 | timestamp                | The timestamp of the transaction.                         | number |
 | chain_id                 | The standard id of the chain.                             | number |
 | block_number             | The block number of the trade.                            | number |
-| log_index                | The log index of the event recorded.                      | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | transaction_hash         | The hash of the transaction.                              | string |
 | transaction_from_address | The address that initiates the transaction (ie, the transaction signer). | string |
 | from_address             | The from address of the event (ie, the from field in a transfer). | string |
@@ -209,7 +214,7 @@ Transfer events for V3.
 | timestamp                | The timestamp of the transaction.                         | number |
 | chain_id                 | The standard id of the chain.                             | number |
 | block_number             | The block number of the trade.                            | number |
-| log_index                | The log index of the event recorded.                      | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | transaction_hash         | The hash of the transaction.                              | string |
 | transaction_from_address | The address that initiates the transaction (ie, the transaction signer). | string |
 | from_address             | The from address of the event (ie, the from field in a transfer). | string |

@@ -1,12 +1,14 @@
 {
   "schema": "Bridge",
   "description": "Standard table definitions for bridge protocols, including pool-based, mint-based, and intent-based bridges.",
+  "protocolCategory": ["Bridge (Pool-Based)", "Bridge (Intent-Based)", "Bridge (Mint-Based)"],
   "version": "1.0.0-alpha",
   "tables": [
     {
       "label": "Tokens",
       "tableName": "bridge_intent_tokens",
       "aggregation": "none",
+      "uniqueKey": ["token_address"],
       "description": "List of tokens in bridge protocols.",
       "properties": {
         "token_address": {
@@ -31,6 +33,7 @@
       "label": "Pools",
       "tableName": "bridge_pools",
       "aggregation": "none",
+      "uniqueKey": ["pool_address", "token_index"],
       "description": "List of pools in bridge protocols (applicable for pool and mint based bridges).",
       "properties": {
         "creation_timestamp": {
@@ -75,11 +78,16 @@
       "label": "LP Snapshot",
       "tableName": "bridge_lps",
       "aggregation": "daily",
+      "uniqueKey": ["lp_address", "pool_address", "token_index", "block_date"],
       "description": "List of liquidity providers in pool-based bridge protocols.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
         },
         "pool_address": {
           "description": "The address of the pool.",
@@ -119,11 +127,16 @@
       "label": "User Snapshot",
       "tableName": "bridge_bridgers",
       "aggregation": "daily",
+      "uniqueKey": ["user_address", "pool_address", "block_date"],
       "description": "User level snapshot of accounts that have used the bridge (applicable to pool and intent based bridges).",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
         },
         "pool_address": {
           "description": "(Optional, only applicable to pool-based) The contract address of the pool.",
@@ -155,11 +168,16 @@
       "label": "Pool Snapshot",
       "tableName": "bridge_pool_metrics",
       "aggregation": "daily",
+      "uniqueKey": ["pool_address", "token_index", "block_date"],
       "description": "Pool level snapshots for pool and mint based bridges.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
         },
         "pool_address": {
           "description": "The contract address of the pool.",
@@ -207,6 +225,7 @@
       "label": "Bridge Transactions",
       "tableName": "bridge_transactions",
       "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
       "description": "List of bridge transactions.",
       "properties": {
         "timestamp": {
@@ -267,11 +286,16 @@
       "label": "Maker Snapshot",
       "tableName": "bridge_intent_makers",
       "aggregation": "daily",
+      "uniqueKey": ["user_address", "token_address", "block_date"],
       "description": "List of makers in intent-based bridge protocols.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
         },
         "user_address": {
           "description": "The address of the maker.",
@@ -311,11 +335,16 @@
       "label": "Taker Snapshot",
       "tableName": "bridge_intent_takers",
       "aggregation": "daily",
+      "uniqueKey": ["user_address", "token_address", "block_date"],
       "description": "List of takers in intent-based bridge protocols.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
         },
         "user_address": {
           "description": "The address of the taker.",
@@ -343,11 +372,16 @@
       "label": "Token Snapshot",
       "tableName": "bridge_intent_token_metrics",
       "aggregation": "daily",
+      "uniqueKey": ["token_address", "block_date"],
       "description": "Snapshot of token level data.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
           "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "type": "date"
         },
         "token_address": {
           "description": "he contract address of the token.",
