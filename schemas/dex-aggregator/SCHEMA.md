@@ -23,7 +23,7 @@ Volume, fees, and incentives data at the token level.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the record.                              | number |
-| days                     | The number of days since unix epoch time.                 | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard id of the chain.                             | number |
 | token_address            | The contract address of the token.                        | string |
 | volume_amount            | The volume amount of the token, during the snapshot period, decimal normalized. | number |
@@ -40,7 +40,7 @@ Volume and fees data at the protocol level.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the block this snapshot was taken.       | number |
-| days                     | The number of days since unix epoch time.                 | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard id of the chain.                             | number |
 | volume_usd               | The volume in USD, in the given snapshot period.          | number |
 | fees_usd                 | The fees (ie, total revenue generated in the protocol) collected in USD, during the snapshot period. | number |

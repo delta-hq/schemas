@@ -53,16 +53,16 @@
             "label": "Position Snapshot",
             "table_name": "lending_position_snapshot",
             "aggregation": "daily",
-            "uniqueKey": ["user_address", "pool_address", "days"],
+            "uniqueKey": ["user_address", "pool_address", "block_date"],
             "description": "Snapshot of user positions in the lending protocol.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the snapshot.",
                     "type": "number"
                 },
-                "days": {
-                    "description": "The number of days since unix epoch time.",
-                    "type": "number"
+                "block_date": {
+                    "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+                    "type": "date"
                     },
                 "chain_id": {
                     "description": "The standard id of the chain.",
@@ -114,16 +114,16 @@
             "label": "Pool Snapshot",
             "table_name": "lending_pool_snapshot",
             "aggregation": "daily",
-            "uniqueKey": ["pool_address", "days"],
+            "uniqueKey": ["pool_address", "block_date"],
             "description": "Snapshot of the pool's state in the lending protocol.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the snapshot.",
                     "type": "number"
                 },
-                "days": {
-                    "description": "The number of days since unix epoch time.",
-                    "type": "number"
+                "block_date": {
+                    "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+                    "type": "date"
                 },  
                 "chain_id": {
                     "description": "The standard id of the chain.",

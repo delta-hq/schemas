@@ -43,7 +43,7 @@ APR and APY data at the pool level.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the record.                              | number |
-| days                     | The number of days since unix epoch time.                 | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard chain id.                                    | number |
 | protocol_type            | The type of protocol (ie, Lending, CDP, DEX, Gaming, etc). | string |
 | pool_address             | The smart contract address of the pool.                   | string |
@@ -59,7 +59,7 @@ Protocol level snapshot focused on incentives and users.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| days                     | The number of days since unix epoch time.                 | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard chain id.                                    | number |
 | daily_active_users       | The number of unique daily active users on this protocol. | number |
 | transaction_count        | The number of transactions in this time period.           | number |

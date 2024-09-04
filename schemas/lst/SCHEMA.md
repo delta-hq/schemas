@@ -11,7 +11,7 @@ User level snapshot of holders in this protocol.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| days                     | The number of days since unix epoch time.                 | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | Standard chain ID.                                        | number |
 | token_address            | The contract address of the LST.                          | string |
 | token_symbol             | The symbol of the token.                                  | string |
@@ -26,7 +26,7 @@ Snapshot at the protocol level, including, TVL and fees data.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| days                     | The number of days since unix epoch time.                 | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | Standard chain ID.                                        | number |
 | total_value_locked_usd   | The total value locked in USD (ie, the value of the liquid staking tokens in the protocol). | number |
 | fees_usd                 | The fees collected in USD in the given snapshot period.   | number |

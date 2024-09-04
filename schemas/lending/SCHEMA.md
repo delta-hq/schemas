@@ -27,7 +27,7 @@ Snapshot of user positions in the lending protocol.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| days                     | The number of days since unix epoch time.                 | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard id of the chain.                             | number |
 | pool_address             | The contract address of the pool.                         | string |
 | underlying_token_address | The contract address of the underlying token.             | string |
@@ -47,7 +47,7 @@ Snapshot of the pool's state in the lending protocol.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| days                     | The number of days since unix epoch time.                 | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | The standard id of the chain.                             | number |
 | pool_address             | The contract address of the pool.                         | string |
 | underlying_token_address | The contract address of the underlying token.             | string |

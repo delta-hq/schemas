@@ -26,7 +26,7 @@ Liquidity providers snapshot (one entry for each token in a pool).
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| days                     | The number of days since unix epoch time.                 | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | Standard chain id.                                        | number |
 | pool_address             | The address of the pool.                                  | string |
 | lp_address               | The address of the liquidity provider.                    | string |
@@ -50,7 +50,7 @@ Snapshot of the pool's metrics.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| days                     | The number of days since unix epoch time.                 | number |
+| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
 | chain_id                 | Standard chain id.                                        | number |
 | pool_address             | The smart contract address of the pool.                   | string |
 | token_index              | The index of the token in the smart contract (one row for each token in a pool). | number |
