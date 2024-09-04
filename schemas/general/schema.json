@@ -106,7 +106,7 @@
           "type": "number"
         },
         "block_date": {
-          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
           "type": "date"
         },
         "chain_id": {
@@ -151,7 +151,7 @@
           "type": "number"
         },
         "block_date": {
-          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
           "type": "date"
         },
         "chain_id": {
@@ -184,7 +184,7 @@
           "type": "number"
         },
         "block_date": {
-          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
           "type": "date"
         },
         "chain_id": {
@@ -225,7 +225,7 @@
           "type": "number"
         },
         "block_date": {
-          "description": "The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format).",
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
           "type": "date"
         },
         "chain_id": {

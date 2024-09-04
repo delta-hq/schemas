@@ -43,7 +43,7 @@ APR and APY data at the pool level.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the record.                              | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | chain_id                 | The standard chain id.                                    | number |
 | protocol_type            | The type of protocol (ie, Lending, CDP, DEX, Gaming, etc). | string |
 | pool_address             | The smart contract address of the pool.                   | string |
@@ -59,7 +59,7 @@ Protocol level snapshot focused on incentives and users.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | chain_id                 | The standard chain id.                                    | number |
 | daily_active_users       | The number of unique daily active users on this protocol. | number |
 | transaction_count        | The number of transactions in this time period.           | number |
@@ -72,7 +72,7 @@ User level token balance snapshots.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | chain_id                 | The standard chain id.                                    | number |
 | user_address             | The address of the user this snapshot activity is based on. | string |
 | token_address            | The smart contract address of the token.                  | string |
@@ -87,7 +87,7 @@ Gas and transaction snapshot data at the user level.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | chain_id                 | The standard chain id.                                    | number |
 | user_address             | The address of the user this snapshot activity is based on. | string |
 | transaction_count        | The number of transactions this user has signed in the given snapshot. | number |
