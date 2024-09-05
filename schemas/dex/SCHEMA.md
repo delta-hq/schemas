@@ -30,7 +30,7 @@ Snapshot of LP positions.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | chain_id                 | The standard id of the chain.                             | number |
 | pool_address             | The contract address of the pool.                         | string |
 | user_address             | The address of the liquidity provider.                    | string |
@@ -47,7 +47,7 @@ Snapshot of pool states.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | chain_id                 | The standard id of the chain.                             | number |
 | pool_address             | The contract address of the LP pool.                      | string |
 | token_index              | The token index in the smart contract.                    | number |
@@ -93,7 +93,7 @@ Snapshot of user scores.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the record.                              | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | chain_id                 | The standard id of the chain.                             | number |
 | block_number             | The block number of the record.                           | number |
 | user_address             | The address of the user.                                  | string |

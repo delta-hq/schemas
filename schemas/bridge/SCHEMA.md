@@ -38,7 +38,7 @@ List of liquidity providers in pool-based bridge protocols.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | pool_address             | The address of the pool.                                  | string |
 | lp_address               | The address of the liquidity provider.                    | string |
 | token_address            | The contract address of the token supplied.               | string |
@@ -55,7 +55,7 @@ User level snapshot of accounts that have used the bridge (applicable to pool an
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | pool_address             | (Optional, only applicable to pool-based) The contract address of the pool. | string |
 | user_address             | The address of the user this snapshot activity is based on. | string |
 | amount_in_usd            | The amount of tokens received on this network by the user in USD during the given snapshot. | number |
@@ -70,7 +70,7 @@ Pool level snapshots for pool and mint based bridges.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | pool_address             | The contract address of the pool.                         | string |
 | token_address            | The contract address of the token being bridged or pooled. | string |
 | token_index              | (Optional, only applicable to pool-based) The index of the pooled token in the smart contract. | number |
@@ -109,7 +109,7 @@ List of makers in intent-based bridge protocols.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | user_address             | The address of the maker.                                 | string |
 | token_address            | The smart contract address of the token being supplied by the maker. | string |
 | token_in_amount          | The amount of the token received, decimal normalized.     | number |
@@ -126,7 +126,7 @@ List of takers in intent-based bridge protocols.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | user_address             | The address of the taker.                                 | string |
 | token_address            | The smart contract address of the token.                  | string |
 | volume_amount            | The amount of volume bridged from the source chain, decimal normalized. | number |
@@ -140,7 +140,7 @@ Snapshot of token level data.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, 2023-03-04 in YYYY-MM-DD format). | date |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | token_address            | he contract address of the token.                         | string |
 | token_amount             | The amount of the token held in the pool, decimal normalized (for pool-based bridges). | number |
 | token_amount_usd         | The amount held in USD.                                   | number |
