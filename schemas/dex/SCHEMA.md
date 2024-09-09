@@ -83,6 +83,7 @@ All trades across different types of DEXs.
 | output_token_symbol      | The symbol of the output token.                           | string |
 | output_token_address     | The contract address of the output token.                 | string |
 | output_token_amount      | The amount of the output token, decimal normalized.       | number |
+| spot_price_after_swap    | The spot price in the pool after the swap is complete. This is the price ratio a user would get if they made an infinitesimal swap immediately after this one. | number |
 | swap_amount_usd          | (Optional) The amount of the swap in USD.                 | number |
 | fees_usd                 | (Optional) The fees paid by the user.                     | number |
 
