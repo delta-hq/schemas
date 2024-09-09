@@ -246,6 +246,10 @@
           "description": "The amount of the output token, decimal normalized.",
           "type": "number"
         },
+        "spot_price_after_swap": {
+          "description": "The spot price in the pool after the swap is complete.",
+          "type": "number"
+        },
         "swap_amount_usd": {
           "description": "(Optional) The amount of the swap in USD.",
           "type": "number"
