@@ -11,7 +11,7 @@ List of pools in the protocol.
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | chain_id                 | The standard chain id.                                    | number |
-| timestamp       | The timestamp this pool was created.                      | number |
+| timestamp                | The timestamp this pool was created.                      | number |
 | creation_block_number    | The block number that this pool was created.              | number |
 | underlying_token_address | The contract address of the underlying token or deposited token. | string |
 | underlying_token_index   | The index of the underlying token in the smart contract, default 0. | number |
