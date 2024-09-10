@@ -36,7 +36,7 @@
       "uniqueKey": ["pool_address", "token_index"],
       "description": "List of pools in bridge protocols (applicable for pool and mint based bridges).",
       "properties": {
-        "creation_timestamp": {
+        "timestamp": {
           "description": "The timestamp this pool was created.",
           "type": "number"
         },

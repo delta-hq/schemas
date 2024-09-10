@@ -12,7 +12,7 @@ List of LP pools in this protocol (one entry per token in a pool).
 |-------------------------|-----------------------------------------------------------|--------|
 | chain_id                 | The standard id of the chain.                             | number |
 | creation_block_number    | The block this pool was created in.                       | number |
-| creation_timestamp       | The timestamp of the block that this pool was created in. | number |
+| timestamp                | The timestamp of the block that this pool was created in. | number |
 | pool_address             | The contract address of the LP pool.                      | string |
 | lp_token_address         | The token address of the LP token for this pool.          | string |
 | lp_token_symbol          | The symbol of the LP token.                               | string |

@@ -12,7 +12,7 @@ List of pools in the lending protocol.
 |-------------------------|-----------------------------------------------------------|--------|
 | chain_id                 | The standard id of the chain.                             | number |
 | creation_block_number    | The block this pool was created in.                       | number |
-| creation_timestamp       | The timestamp of the block that this pool was created in. | number |
+| timestamp                | The timestamp of the block that this pool was created in. | number |
 | underlying_token_address | The contract address of the underlying token.             | string |
 | underlying_token_symbol  | The symbol of the underlying token.                       | string |
 | receipt_token_address    | The contract address of the receipt token.                | string |

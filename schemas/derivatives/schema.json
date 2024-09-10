@@ -15,7 +15,7 @@
           "description": "Standard chain id.",
           "type": "number"
         },
-        "creation_timestamp": {
+        "timestamp": {
           "description": "The timestamp of the block the pool was created on.",
           "type": "number"
         },

@@ -11,7 +11,7 @@ Pools in the protocol (one entry for each token).
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
 | chain_id                 | Standard chain id.                                        | number |
-| creation_timestamp       | The timestamp of the block the pool was created on.       | number |
+| timestamp                | The timestamp of the block the pool was created on.       | number |
 | creation_block_number    | The block number this pool was created on.                | number |
 | pool_address             | The contract address of the pool.                         | string |
 | pool_name                | The name of the pool (ie, name() in the smart contract).  | string |
