@@ -21,7 +21,7 @@ List of pools in bridge protocols (applicable for pool and mint based bridges).
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
-| creation_timestamp       | The timestamp this pool was created.                      | number |
+| timestamp       | The timestamp this pool was created.                      | number |
 | creation_block_number    | The block number this pool was created on.                | number |
 | token_address            | The contract address of the token being bridged or pooled. | string |
 | token_index              | (Optional, only applicable to pool-based) The index of the pooled token in the smart contract. | number |

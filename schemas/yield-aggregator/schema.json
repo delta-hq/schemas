@@ -15,7 +15,7 @@
           "description": "The standard chain id.",
           "type": "number"
         },
-        "creation_timestamp": {
+        "timestamp": {
           "description": "The timestamp this pool was created.",
           "type": "number"
         },
