@@ -214,6 +214,63 @@
                     "type": "number"
                 }
             }
+        },
+        {
+            "label": "Events",
+            "tableName": "lending_events",
+            "aggregation": "transaction",
+            "uniqueKey": ["transaction_hash", "log_index"],
+            "description": "All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Liquidation, Flashloan)",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the transaction.",
+                    "type": "number"
+                },
+                "chain_id": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "block_number": {
+                    "description": "The block number of the trade.",
+                    "type": "number"
+                },
+                "log_index": {
+                    "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+                    "type": "number"
+                },
+                "transaction_hash": {
+                    "description": "The hash of the transaction.",
+                    "type": "string"
+                },
+                "transaction_signer": {
+                    "description": "The address that initiates the transaction (ie, the transaction signer).",
+                    "type": "string"
+                },
+                "user_address": {
+                    "description": "The address that receives the output of the event (ie, account that receives aTokens in an Aave Deposit).",
+                    "type": "string"
+                },
+                "pool_address": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "token_address": {
+                    "description": "The address of the underlying token that was interacted with (ie, USDC and not aUSDC in Aave).",
+                    "type": "string"
+                },
+                "amount": {
+                    "description": "The amount of token_address transacted, decimal normalized.",
+                    "type": "number"
+                },
+                "amount_usd": {
+                    "description": "The amount of token_address transacted, in USD.",
+                    "type": "number"
+                },
+                "event_type": {
+                    "description": "The type of lending event, corresponds to the action taken by the user (ie, deposit, withdrawal, borrow, repay, liquidation, flashloan).",
+                    "type": "string"
+                }
+            }
         }
     ]
 }

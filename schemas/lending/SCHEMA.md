@@ -71,4 +71,23 @@ Snapshot of the pool's state in the lending protocol.
 | user_fees_usd            | (Optional) The portion of total revenue or fees accrued to users of the protocol during the given snapshot period. | number |
 | protocol_fees_usd        | (Optional) The portion of total revenue or fees accrued to protocol during the given snapshot period. | number |
 
+### Events
+
+All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Liquidation, Flashloan)
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the transaction.                         | number |
+| chain_id                 | The standard id of the chain.                             | number |
+| block_number             | The block number of the trade.                            | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
+| transaction_hash         | The hash of the transaction.                              | string |
+| transaction_signer       | The address that initiates the transaction (ie, the transaction signer). | string |
+| user_address             | The address that receives the output of the event (ie, account that receives aTokens in an Aave Deposit). | string |
+| pool_address             | The contract address of the pool.                         | string |
+| token_address            | The address of the underlying token that was interacted with (ie, USDC and not aUSDC in Aave). | string |
+| amount                   | The amount of token_address transacted, decimal normalized. | number |
+| amount_usd               | The amount of token_address transacted, in USD.           | number |
+| event_type               | The type of lending event, corresponds to the action taken by the user (ie, deposit, withdrawal, borrow, repay, liquidation, flashloan). | string |
+
 > Note: This markdown file is auto-generated.
