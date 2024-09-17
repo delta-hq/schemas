@@ -242,11 +242,11 @@
                     "description": "The hash of the transaction.",
                     "type": "string"
                 },
-                "transaction_signer": {
+                "user_address": {
                     "description": "The address that initiates the transaction (ie, the transaction signer).",
                     "type": "string"
                 },
-                "user_address": {
+                "taker_address": {
                     "description": "The address that receives the output of the event (ie, account that receives aTokens in an Aave Deposit).",
                     "type": "string"
                 },

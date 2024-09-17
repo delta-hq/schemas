@@ -82,8 +82,8 @@ All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay,
 | block_number             | The block number of the trade.                            | number |
 | log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | transaction_hash         | The hash of the transaction.                              | string |
-| transaction_signer       | The address that initiates the transaction (ie, the transaction signer). | string |
-| user_address             | The address that receives the output of the event (ie, account that receives aTokens in an Aave Deposit). | string |
+| user_address             | The address that initiates the transaction (ie, the transaction signer). | string |
+| taker_address            | The address that receives the output of the event (ie, account that receives aTokens in an Aave Deposit). | string |
 | pool_address             | The contract address of the pool.                         | string |
 | token_address            | The address of the underlying token that was interacted with (ie, USDC and not aUSDC in Aave). | string |
 | amount                   | The amount of token_address transacted, decimal normalized. | number |
