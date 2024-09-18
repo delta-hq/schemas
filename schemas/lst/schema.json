@@ -24,7 +24,7 @@
             "type": "number"
           },
           "token_address": {
-            "description": "The contract address of the LST.",
+            "description": "The contract address of the LST token.",
             "type": "string"
           },
           "token_symbol": {
@@ -73,7 +73,64 @@
             "type": "number"
           }
         }
-      }
+      },
+      {
+        "label": "Events",
+        "tableName": "lst_events",
+        "aggregation": "transaction",
+        "uniqueKey": ["transaction_hash", "log_index"],
+        "description": "All user events (ie, Mint, Burn, Transfer)",
+        "properties": {
+            "timestamp": {
+                "description": "The timestamp of the transaction.",
+                "type": "number"
+            },
+            "chain_id": {
+                "description": "The standard id of the chain.",
+                "type": "number"
+            },
+            "block_number": {
+                "description": "The block number of the trade.",
+                "type": "number"
+            },
+            "log_index": {
+                "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+                "type": "number"
+            },
+            "transaction_hash": {
+                "description": "The hash of the transaction.",
+                "type": "string"
+            },
+            "user_address": {
+                "description": "The address that initiates the transaction (ie, the transaction signer).",
+                "type": "string"
+            },
+            "from_address": {
+                "description": "The address that the event is from (ie, 0x00... address if a Mint).",
+                "type": "string"
+            },
+            "to_address": {
+                "description": "The address receiving the tokens (ie, the 0x000... address if a Burn).",
+                "type": "string"
+            },
+            "token_address": {
+                "description": "The contract address of the LST token.",
+                "type": "string"
+            },
+            "amount": {
+                "description": "The amount of token_address transacted, decimal normalized.",
+                "type": "number"
+            },
+            "amount_usd": {
+                "description": "The amount of token_address transacted, in USD.",
+                "type": "number"
+            },
+            "event_type": {
+                "description": "The type of event, corresponds to the action taken by the user (ie, mint, burn, transfer).",
+                "type": "string"
+            }
+        }
+    }
     ]
   }
   
