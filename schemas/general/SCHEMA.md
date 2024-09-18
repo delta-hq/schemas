@@ -16,9 +16,9 @@ Transactional data on user level incentives claimed data.
 | log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | user_address             | The address of the user who claimed the incentives.       | string |
 | claimed_token_address    | The smart contract address of the claimed token.          | string |
-| claimed_token_amount     | The amount of the token claimed, decimal normalized.      | number |
-| claimed_token_usd        | The amount of claimed tokens in USD.                      | number |
-| other_incentive_usd      | Any incentives outside of the claimed token, in this transaction, summed up in USD terms. | number |
+| amount                   | The amount of the token claimed, decimal normalized.      | number |
+| amount_usd               | The amount of claimed tokens in USD.                      | number |
+| other_incentive_usd      | (Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms. | number |
 
 ### Airdrop
 

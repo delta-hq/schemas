@@ -85,4 +85,20 @@ Trade data, 1 entry for each close, open, or update of a trade.
 | trade_action             | The action of trade being recorded in this entry (ie, OPEN, CLOSE, INCREASE, DECREASE, LIQUIDATED). | string |
 | trade_type               | The type of the trade being recorded in this entry (ie, LONG, SHORT). | string |
 
+### Incentive Claim Data
+
+Transactional data on user level incentives claimed data.
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the claim.                               | number |
+| chain_id                 | The standard chain id.                                    | number |
+| transaction_hash         | The hash of the transaction.                              | string |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
+| user_address             | The address of the user who claimed the incentives.       | string |
+| claimed_token_address    | The smart contract address of the claimed token.          | string |
+| amount                   | The amount of the token claimed, decimal normalized.      | number |
+| amount_usd               | The amount of claimed tokens in USD.                      | number |
+| other_incentive_usd      | (Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms. | number |
+
 > Note: This markdown file is auto-generated.

@@ -35,16 +35,16 @@
           "description": "The smart contract address of the claimed token.",
           "type": "string"
         },
-        "claimed_token_amount": {
+        "amount": {
           "description": "The amount of the token claimed, decimal normalized.",
           "type": "number"
         },
-        "claimed_token_usd": {
+        "amount_usd": {
           "description": "The amount of claimed tokens in USD.",
           "type": "number"
         },
         "other_incentive_usd": {
-          "description": "Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
+          "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
           "type": "number"
         }
       }
