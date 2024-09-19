@@ -214,6 +214,169 @@
                     "type": "number"
                 }
             }
-        }
+        },
+        {
+            "label": "Events",
+            "tableName": "lending_events",
+            "aggregation": "transaction",
+            "uniqueKey": ["transaction_hash", "log_index"],
+            "description": "All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Liquidation, Flashloan)",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the transaction.",
+                    "type": "number"
+                },
+                "chain_id": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "block_number": {
+                    "description": "The block number of the trade.",
+                    "type": "number"
+                },
+                "log_index": {
+                    "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+                    "type": "number"
+                },
+                "transaction_hash": {
+                    "description": "The hash of the transaction.",
+                    "type": "string"
+                },
+                "user_address": {
+                    "description": "The address that initiates the transaction (ie, the transaction signer).",
+                    "type": "string"
+                },
+                "taker_address": {
+                    "description": "The address that receives the output of the event (ie, account that receives aTokens in an Aave Deposit).",
+                    "type": "string"
+                },
+                "pool_address": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "token_address": {
+                    "description": "The address of the underlying token that was interacted with (ie, USDC and not aUSDC in Aave).",
+                    "type": "string"
+                },
+                "amount": {
+                    "description": "The amount of token_address transacted, decimal normalized.",
+                    "type": "number"
+                },
+                "amount_usd": {
+                    "description": "The amount of token_address transacted, in USD.",
+                    "type": "number"
+                },
+                "event_type": {
+                    "description": "The type of lending event, corresponds to the action taken by the user (ie, deposit, withdrawal, borrow, repay, liquidation, flashloan).",
+                    "type": "string"
+                }
+            }
+        },
+        {
+            "label": "Liquidations",
+            "tableName": "lending_liquidations",
+            "aggregation": "transaction",
+            "uniqueKey": ["transaction_hash", "log_index"],
+            "description": "All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Flashloan)",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the transaction.",
+                    "type": "number"
+                },
+                "chain_id": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "block_number": {
+                    "description": "The block number of the trade.",
+                    "type": "number"
+                },
+                "log_index": {
+                    "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+                    "type": "number"
+                },
+                "transaction_hash": {
+                    "description": "The hash of the transaction.",
+                    "type": "string"
+                },
+                "liquidator_address": {
+                    "description": "The address that initiates the liquidation.",
+                    "type": "string"
+                },
+                "user_address": {
+                    "description": "The address that was liquidated.",
+                    "type": "string"
+                },
+                "pool_address": {
+                    "description": "The contract address of the pool.",
+                    "type": "string"
+                },
+                "token_address": {
+                    "description": "The address of the underlying token that was repaid by the liquidator (ie, USDC and not aUSDC in Aave).",
+                    "type": "string"
+                },
+                "amount": {
+                    "description": "The amount of token_address transacted, decimal normalized.",
+                    "type": "number"
+                },
+                "amount_usd": {
+                    "description": "The amount of token_address transacted, in USD.",
+                    "type": "number"
+                },
+                "profit_usd": {
+                    "description": "The amount of profit the liquidator made from liquidating user_address (can be negative).",
+                    "type": "number"
+                }
+            }
+        },
+        {
+            "label": "Incentive Claim Data",
+            "tableName": "lending_incentive_claim",
+            "aggregation": "transaction",
+            "uniqueKey": ["transaction_hash", "log_index"],
+            "description": "Transactional data on user level incentives claimed data.",
+            "properties": {
+              "timestamp": {
+                "description": "The timestamp of the claim.",
+                "type": "number"
+              },
+              "chain_id": {
+                "description": "The standard chain id.",
+                "type": "number"
+              },
+              "transaction_hash": {
+                "description": "The hash of the transaction.",
+                "type": "string"
+              },
+              "log_index": {
+                "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+                "type": "number"
+              },
+              "transaction_signer": {
+                "description": "The address of the account that signed the transaction.",
+                "type": "string"
+              },
+              "user_address": {
+                "description": "The address of the user who claimed the incentives (could be different from the transaction_signer).",
+                "type": "string"
+              },
+              "claimed_token_address": {
+                "description": "The smart contract address of the claimed token.",
+                "type": "string"
+              },
+              "amount": {
+                "description": "The amount of the token claimed, decimal normalized.",
+                "type": "number"
+              },
+              "amount_usd": {
+                "description": "The amount of claimed tokens in USD.",
+                "type": "number"
+              },
+              "other_incentive_usd": {
+                "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
+                "type": "number"
+              }
+            }
+          }
     ]
 }

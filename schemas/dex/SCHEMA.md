@@ -232,4 +232,21 @@ Transfer events for V3.
 | token_fees               | The amount of token fees.                                 | number |
 | amount_liquidity         | The amount of liquidity.                                  | number |
 
+### Incentive Claim Data
+
+Transactional data on user level incentives claimed data.
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the claim.                               | number |
+| chain_id                 | The standard chain id.                                    | number |
+| transaction_hash         | The hash of the transaction.                              | string |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
+| transaction_signer       | The address of the account that signed the transaction.   | string |
+| user_address             | The address of the user who claimed the incentives (could be different from the transaction_signer). | string |
+| claimed_token_address    | The smart contract address of the claimed token.          | string |
+| amount                   | The amount of the token claimed, decimal normalized.      | number |
+| amount_usd               | The amount of claimed tokens in USD.                      | number |
+| other_incentive_usd      | (Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms. | number |
+
 > Note: This markdown file is auto-generated.

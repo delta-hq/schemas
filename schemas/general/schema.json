@@ -27,24 +27,28 @@
           "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
+        "transaction_signer": {
+          "description": "The address of the account that signed the transaction.",
+          "type": "string"
+        },
         "user_address": {
-          "description": "The address of the user who claimed the incentives.",
+          "description": "The address of the user who claimed the incentives (could be different from the transaction_signer).",
           "type": "string"
         },
         "claimed_token_address": {
           "description": "The smart contract address of the claimed token.",
           "type": "string"
         },
-        "claimed_token_amount": {
+        "amount": {
           "description": "The amount of the token claimed, decimal normalized.",
           "type": "number"
         },
-        "claimed_token_usd": {
+        "amount_usd": {
           "description": "The amount of claimed tokens in USD.",
           "type": "number"
         },
         "other_incentive_usd": {
-          "description": "Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
+          "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
           "type": "number"
         }
       }
