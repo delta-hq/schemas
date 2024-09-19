@@ -90,6 +90,25 @@ All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay,
 | amount_usd               | The amount of token_address transacted, in USD.           | number |
 | event_type               | The type of lending event, corresponds to the action taken by the user (ie, deposit, withdrawal, borrow, repay, liquidation, flashloan). | string |
 
+### Liquidations
+
+All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Flashloan)
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the transaction.                         | number |
+| chain_id                 | The standard id of the chain.                             | number |
+| block_number             | The block number of the trade.                            | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
+| transaction_hash         | The hash of the transaction.                              | string |
+| liquidator_address       | The address that initiates the liquidation.               | string |
+| user_address             | The address that was liquidated.                          | string |
+| pool_address             | The contract address of the pool.                         | string |
+| token_address            | The address of the underlying token that was repaid by the liquidator (ie, USDC and not aUSDC in Aave). | string |
+| amount                   | The amount of token_address transacted, decimal normalized. | number |
+| amount_usd               | The amount of token_address transacted, in USD.           | number |
+| profit_usd               | The amount of profit the liquidator made from liquidating user_address (can be negative). | number |
+
 ### Incentive Claim Data
 
 Transactional data on user level incentives claimed data.
@@ -100,7 +119,8 @@ Transactional data on user level incentives claimed data.
 | chain_id                 | The standard chain id.                                    | number |
 | transaction_hash         | The hash of the transaction.                              | string |
 | log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
-| user_address             | The address of the user who claimed the incentives.       | string |
+| transaction_signer       | The address of the account that signed the transaction.   | string |
+| user_address             | The address of the user who claimed the incentives (could be different from the transaction_signer). | string |
 | claimed_token_address    | The smart contract address of the claimed token.          | string |
 | amount                   | The amount of the token claimed, decimal normalized.      | number |
 | amount_usd               | The amount of claimed tokens in USD.                      | number |

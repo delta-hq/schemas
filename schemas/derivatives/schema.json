@@ -275,8 +275,12 @@
           "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
           "type": "number"
         },
+        "transaction_signer": {
+          "description": "The address of the account that signed the transaction.",
+          "type": "string"
+        },
         "user_address": {
-          "description": "The address of the user who claimed the incentives.",
+          "description": "The address of the user who claimed the incentives (could be different from the transaction_signer).",
           "type": "string"
         },
         "claimed_token_address": {

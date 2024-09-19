@@ -159,7 +159,8 @@ Transactional data on user level incentives claimed data.
 | chain_id                 | The standard chain id.                                    | number |
 | transaction_hash         | The hash of the transaction.                              | string |
 | log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
-| user_address             | The address of the user who claimed the incentives.       | string |
+| transaction_signer       | The address of the account that signed the transaction.   | string |
+| user_address             | The address of the user who claimed the incentives (could be different from the transaction_signer). | string |
 | claimed_token_address    | The smart contract address of the claimed token.          | string |
 | amount                   | The amount of the token claimed, decimal normalized.      | number |
 | amount_usd               | The amount of claimed tokens in USD.                      | number |
