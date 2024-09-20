@@ -101,7 +101,7 @@
           "type": "string"
         },
         "token_amount": {
-          "description": "The amount of the liquidity position in the pool, decimal normalized.",
+          "description": "The amount of the underlying liquidity position in the pool, decimal normalized (ie, the amount of USDC provided by the LPer in a USDC/WETH pool).",
           "type": "number"
         },
         "token_amount_usd": {
@@ -542,7 +542,7 @@
       "tableName": "v3_events",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
-      "description": "Events for V3.",
+      "description": "LP burn/mint events for V3 DEXs.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the transaction.",
@@ -577,7 +577,7 @@
           "type": "string"
         },
         "event_type": {
-          "description": "The action type of the event.",
+          "description": "The action type of the event (ie, mint, burn).",
           "type": "string"
         },
         "pool_address": {
@@ -627,7 +627,7 @@
       "tableName": "v3_transfers",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
-      "description": "Transfer events for V3.",
+      "description": "LP transfer events for V3 DEXs.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the transaction.",
@@ -662,7 +662,7 @@
           "type": "string"
         },
         "event_type": {
-          "description": "The action type of the event.",
+          "description": "The action type of the event (ie, transfer).",
           "type": "string"
         },
         "pool_address": {
