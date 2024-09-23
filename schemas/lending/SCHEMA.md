@@ -57,7 +57,6 @@ Snapshot of the pool's state in the lending protocol.
 | available_amount_usd     | (Optional) The available amount of token's in this pool in USD. | number |
 | supplied_amount          | The total amount of the underlying token supplied in this pool, decimal normalized. | number |
 | supplied_amount_usd      | (Optional) The supplied amount in USD.                    | number |
-| non_recursive_supplied_amount | The amount of non recursive supply in this pool, in the underlying token, decimal normalized. This is an aggregation of all of the user's net supply of this asset. | number |
 | collateral_amount        | (Optional) The amount of collateral only tokens in this pool. | number |
 | collateral_amount_usd    | (Optional) The amount of collateral only tokens in the pool. | number |
 | collateral_factor        | The collateral factor of the pool (defined as a decimal percentage, between 0-100). | number |

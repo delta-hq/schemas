@@ -161,10 +161,6 @@
                     "description": "(Optional) The supplied amount in USD.",
                     "type": "number"
                 },
-                "non_recursive_supplied_amount": {
-                    "description": "The amount of non recursive supply in this pool, in the underlying token, decimal normalized. This is an aggregation of all of the user's net supply of this asset.",
-                    "type": "number"
-                },
                 "collateral_amount": {
                     "description": "(Optional) The amount of collateral only tokens in this pool.",
                     "type": "number"
