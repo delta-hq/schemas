@@ -568,14 +568,6 @@
           "description": "The address that initiates the transaction (ie, the transaction signer).",
           "type": "string"
         },
-        "from_address": {
-          "description": "The from address of the event (ie, the from field in a transfer).",
-          "type": "string"
-        },
-        "to_address": {
-          "description": "The to address of the event (ie, the to field in a transfer).",
-          "type": "string"
-        },
         "event_type": {
           "description": "The action type of the event (ie, mint, burn).",
           "type": "string"
@@ -585,15 +577,19 @@
           "type": "string"
         },
         "tick_lower": {
-          "description": "The lower tick.",
+          "description": "The lower tick of the liquidity position.",
           "type": "number"
         },
         "tick_upper": {
-          "description": "The upper tick.",
+          "description": "The upper tick of the liquidity position.",
           "type": "number"
         },
-        "tick_spacing": {
-          "description": "The tick spacing.",
+        "current_tick": {
+          "description": "The current tick of the pool.",
+          "type": "number"
+        },
+        "nft_token_id": {
+          "description": "The token ID of the NFT that represents the liquidity position",
           "type": "number"
         },
         "token0_address": {
@@ -601,7 +597,7 @@
           "type": "string"
         },
         "token0_amount": {
-          "description": "The amount of token0.",
+          "description": "The amount of token0(raw token amount).",
           "type": "number"
         },
         "token1_address": {
@@ -609,7 +605,7 @@
           "type": "string"
         },
         "token1_amount": {
-          "description": "The amount of token1.",
+          "description": "The amount of token1(raw token amount).",
           "type": "number"
         },
         "token_fees": {

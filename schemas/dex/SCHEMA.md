@@ -192,17 +192,16 @@ LP burn/mint events for V3 DEXs.
 | log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
 | transaction_hash         | The hash of the transaction.                              | string |
 | transaction_from_address | The address that initiates the transaction (ie, the transaction signer). | string |
-| from_address             | The from address of the event (ie, the from field in a transfer). | string |
-| to_address               | The to address of the event (ie, the to field in a transfer). | string |
 | event_type               | The action type of the event (ie, mint, burn).            | string |
 | pool_address             | The contract address of the pool.                         | string |
-| tick_lower               | The lower tick.                                           | number |
-| tick_upper               | The upper tick.                                           | number |
-| tick_spacing             | The tick spacing.                                         | number |
+| tick_lower               | The lower tick of the liquidity position.                 | number |
+| tick_upper               | The upper tick of the liquidity position.                 | number |
+| current_tick             | The current tick of the pool.                             | number |
+| nft_token_id             | The token ID of the NFT that represents the liquidity position | number |
 | token0_address           | The contract address of token0.                           | string |
-| token0_amount            | The amount of token0.                                     | number |
+| token0_amount            | The amount of token0(raw token amount).                   | number |
 | token1_address           | The contract address of token1.                           | string |
-| token1_amount            | The amount of token1.                                     | number |
+| token1_amount            | The amount of token1(raw token amount).                   | number |
 | token_fees               | The amount of token fees.                                 | number |
 | amount_liquidity         | The amount of liquidity.                                  | number |
 
