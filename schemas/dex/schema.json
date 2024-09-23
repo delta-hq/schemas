@@ -585,7 +585,11 @@
           "type": "number"
         },
         "current_tick": {
-          "description": "The current tick of the pool.",
+          "description": "The current tick of the liquidity pool.",
+          "type": "number"
+        },
+        "tick_spacing": {
+          "description": "The tick spacing of the liquidity pool.",
           "type": "number"
         },
         "nft_token_id": {
