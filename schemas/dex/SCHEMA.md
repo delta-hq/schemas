@@ -37,7 +37,7 @@ Snapshot of LP positions.
 | token_index              | The token index based on the smart contract.              | number |
 | token_address            | The contract address of the token provided as liquidity.  | string |
 | token_symbol             | The symbol of the token.                                  | string |
-| token_amount             | The amount of the liquidity position in the pool, decimal normalized. | number |
+| token_amount             | The amount of the underlying liquidity position in the pool, decimal normalized (ie, the amount of USDC provided by the LPer in a USDC/WETH pool). | number |
 | token_amount_usd         | (Optional) The amount of the token in USD.                | number |
 
 ### Pool Snapshot
@@ -182,7 +182,7 @@ Transfer events for V2.
 
 ### V3 Events
 
-Events for V3.
+LP burn/mint events for V3 DEXs.
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
@@ -194,7 +194,7 @@ Events for V3.
 | transaction_from_address | The address that initiates the transaction (ie, the transaction signer). | string |
 | from_address             | The from address of the event (ie, the from field in a transfer). | string |
 | to_address               | The to address of the event (ie, the to field in a transfer). | string |
-| event_type               | The action type of the event.                             | string |
+| event_type               | The action type of the event (ie, mint, burn).            | string |
 | pool_address             | The contract address of the pool.                         | string |
 | tick_lower               | The lower tick.                                           | number |
 | tick_upper               | The upper tick.                                           | number |
@@ -208,7 +208,7 @@ Events for V3.
 
 ### V3 Transfers
 
-Transfer events for V3.
+LP transfer events for V3 DEXs.
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
@@ -220,7 +220,7 @@ Transfer events for V3.
 | transaction_from_address | The address that initiates the transaction (ie, the transaction signer). | string |
 | from_address             | The from address of the event (ie, the from field in a transfer). | string |
 | to_address               | The to address of the event (ie, the to field in a transfer). | string |
-| event_type               | The action type of the event.                             | string |
+| event_type               | The action type of the event (ie, transfer).              | string |
 | pool_address             | The contract address of the pool.                         | string |
 | tick_lower               | The lower tick.                                           | number |
 | tick_upper               | The upper tick.                                           | number |

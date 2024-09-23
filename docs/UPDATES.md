@@ -31,6 +31,11 @@ Steps to run, from the root of the repository, using `lending` as an example:
 python3 utils/convert_schema_to_markdown.py lending
 ```
 
+Steps to autogenerate all schema Markdown files at once:
+```bash
+python3 utils/convert_schema_to_markdown.py
+```
+
 ### Review
 
 Share the [Pull Request](https://github.com/delta-hq/schemas/pulls) with a relevant person on the research team, and ask them to review your schema changes.
