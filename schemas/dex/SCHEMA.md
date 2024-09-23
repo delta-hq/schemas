@@ -196,7 +196,8 @@ LP burn/mint events for V3 DEXs.
 | pool_address             | The contract address of the pool.                         | string |
 | tick_lower               | The lower tick of the liquidity position.                 | number |
 | tick_upper               | The upper tick of the liquidity position.                 | number |
-| current_tick             | The current tick of the pool.                             | number |
+| current_tick             | The current tick of the liquidity pool.                   | number |
+| tick_spacing             | The tick spacing of the liquidity pool.                   | number |
 | nft_token_id             | The token ID of the NFT that represents the liquidity position | number |
 | token0_address           | The contract address of token0.                           | string |
 | token0_amount            | The amount of token0(raw token amount).                   | number |
