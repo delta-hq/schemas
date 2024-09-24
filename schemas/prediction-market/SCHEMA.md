@@ -4,18 +4,19 @@ Standard table definitions for Prediction Markets.
 
 ## Version: 1.0.0-alpha
 
-### User Positions Tracking
+### User Positions Snapshot
 
-List of NFT transfers.
+Prediction market order snapshots.
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
-| block_timestamp          | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
+| timestamp                | The timestamp of the snapshot (in unix time).             | number |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | chain_id                 | The standard id of the chain.                             | number |
-| user_address             | The address of the user the record is for.                | string |
-| market_id                | Identifier for the market the order is placed on.         | number |
+| user_address             | The address of the user that owns this order in the snapshot. | string |
+| market_address           | The smart contract of the address of the market (if no smart contract, please create a unique identifier for the market). | string |
 | order_id                 | Identifier for the particular limit order.                | number |
-| open_order_size_usd      | The USD value of the open amount for the particular limit order. | number |
-| closed_order_size_usd    | The USD value of the open amount for the particular limit order. | number |
+| open_order_size_usd      | The USD value of the open amount for this particular limit order. | number |
+| closed_order_size_usd    | The USD value of the open amount for this particular limit order. | number |
 
 > Note: This markdown file is auto-generated.
