@@ -37,3 +37,4 @@ Below you will find links to each of the following verticals.
 - [Yield Aggregators](./schemas/yield-aggregator/SCHEMA.md) (Leverage, Gambling, RWA, ALM, Liquidity/LP, Index)
 - [DEX Aggregator](./schemas/dex-aggregator/SCHEMA.md)
 - [NFT](./schemas/nft/SCHEMA.md)
+- [Prediction Market](./schemas/prediction-market/SCHEMA.md)
