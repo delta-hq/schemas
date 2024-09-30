@@ -1,6 +1,6 @@
-# Yield Aggregator / Automated Liquidity Management
+# Automated Liquidity Management
 
-Standard table definitions for yield aggregator / automated liquidity management protocol.
+Standard table definitions for automated liquidity management protocol.
 
 ## Version: 1.0.0-alpha
 
@@ -32,7 +32,7 @@ Snapshot of the pool users.
 | user_address             | The address of the user who has a position in the strategy vault. | string |
 | underlying_liquidity_pool_address | The address of the underlying liquidity pool where liquidity are deposited into | string |
 | underlying_token_address | The address of the supplied underlying token.             | string |
-| underlying_token_index   | The index in the smart contract of this underlying token, default 0. | number |
+| underlying_token_index   | The index of the underlying token in the smart contract, default 0. | number |
 | underlying_token_amount  | The amount based on the user's share of the total underlying token, decimal normalized. | number |
 | underlying_token_amount_usd | The amount based on the user's share of the total underlying token, in USD. | number |
 | total_fees_usd           | The total amount of revenue and fees paid in this pool in the given snapshot, in USD. | number |
@@ -49,7 +49,7 @@ TVL, fees, and incentives data at the pool level.
 | strategy_vault_contract_address | The address of the strategy vault this user has a position in. | string |
 | underlying_liquidity_pool_address | The address of the underlying liquidity pool where liquidity are deposited into | string |
 | underlying_token_address | The address of the supplied underlying token.             | string |
-| underlying_token_index   | The index in the smart contract of this underlying token, default 0. | number |
+| underlying_token_index   | The index of the underlying token in the smart contract, default 0. | number |
 | underlying_token_amount  | The amount of underlying token supplied in this pool, decimal normalized. | number |
 | underlying_token_amount_usd | The amount of underlying tokens supplied in this pool, in USD. | number |
 | total_fees_usd           | The total amount of revenue and fees paid in this pool in the given snapshot, in USD. | number |
