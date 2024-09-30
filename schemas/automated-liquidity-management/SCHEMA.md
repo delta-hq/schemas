@@ -14,7 +14,7 @@ List of pools in the protocol.
 | timestamp                | The timestamp this pool was created.                      | number |
 | creation_block_number    | The block number that this pool was created.              | number |
 | strategy_vault_contract_address | The contract address of the strategy vault which manages the liquidity pool positions. | string |
-| underlying_liquidity_pool_address | The contract address of the underlying liquidity pool where liquidity are deposited into | string |
+| liquidity_pool_address   | The contract address of the underlying liquidity pool where liquidity are deposited into | string |
 | strategy_vault_receipt_token_address | The contract address of ERC20 token which represents the share of liquidity provided. | string |
 | strategy_vault_receipt_token_decimals | The decimal amount of the ERC20 receipt token.            | number |
 | strategy_vault_receipt_token_symbol | The symbol of the receipt token.                          | string |
@@ -30,7 +30,7 @@ Snapshot of the pool users.
 | chain_id                 | The standard chain id.                                    | number |
 | strategy_vault_contract_address | The address of the strategy vault this user has a position in. | string |
 | user_address             | The address of the user who has a position in the strategy vault. | string |
-| underlying_liquidity_pool_address | The address of the underlying liquidity pool where liquidity are deposited into | string |
+| liquidity_pool_address   | The address of the underlying liquidity pool where liquidity are deposited into | string |
 | underlying_token_address | The address of the supplied underlying token.             | string |
 | underlying_token_index   | The index of the underlying token in the smart contract, default 0. | number |
 | underlying_token_amount  | The amount based on the user's share of the total underlying token, decimal normalized. | number |
@@ -47,7 +47,7 @@ TVL, fees, and incentives data at the pool level.
 | block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | chain_id                 | The standard chain id.                                    | number |
 | strategy_vault_contract_address | The address of the strategy vault this user has a position in. | string |
-| underlying_liquidity_pool_address | The address of the underlying liquidity pool where liquidity are deposited into | string |
+| liquidity_pool_address   | The address of the underlying liquidity pool where liquidity are deposited into | string |
 | underlying_token_address | The address of the supplied underlying token.             | string |
 | underlying_token_index   | The index of the underlying token in the smart contract, default 0. | number |
 | underlying_token_amount  | The amount of underlying token supplied in this pool, decimal normalized. | number |

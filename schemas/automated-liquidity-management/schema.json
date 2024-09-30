@@ -27,7 +27,7 @@
           "description": "The contract address of the strategy vault which manages the liquidity pool positions.",
           "type": "string"
         },
-        "underlying_liquidity_pool_address": {
+        "liquidity_pool_address": {
           "description": "The contract address of the underlying liquidity pool where liquidity are deposited into",
           "type": "string"
         },
@@ -49,7 +49,7 @@
       "label": "Position Snapshot",
       "tableName": "automated_liquidity_depositors",
       "aggregation": "daily",
-      "uniqueKey": ["user_address", "pool_address", "block_date"],
+      "uniqueKey": ["user_address", "liquidity_pool_address", "block_date", "token_index"],
       "description": "Snapshot of the pool users.",
       "properties": {
         "timestamp": {
@@ -72,7 +72,7 @@
           "description": "The address of the user who has a position in the strategy vault.",
           "type": "string"
         },
-        "underlying_liquidity_pool_address": {
+        "liquidity_pool_address": {
           "description": "The address of the underlying liquidity pool where liquidity are deposited into",
           "type": "string"
         },
@@ -121,7 +121,7 @@
           "description": "The address of the strategy vault this user has a position in.",
           "type": "string"
         },
-        "underlying_liquidity_pool_address": {
+        "liquidity_pool_address": {
           "description": "The address of the underlying liquidity pool where liquidity are deposited into",
           "type": "string"
         },
@@ -149,7 +149,7 @@
     },
     {
       "label": "Events",
-      "tableName": "liquidity_yield_events",
+      "tableName": "automated_liquidity_events",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
       "description": "All user events (ie, Deposit, Withdrawal)",
@@ -202,7 +202,7 @@
   },
   {
     "label": "Incentive Claim Data",
-    "tableName": "misc_incentive_claim",
+    "tableName": "automated_liquidity_incentive_claim",
     "aggregation": "transaction",
     "uniqueKey": ["transaction_hash", "log_index"],
     "description": "Transactional data on user level incentives claimed data.",
