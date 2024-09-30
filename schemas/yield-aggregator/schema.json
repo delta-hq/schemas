@@ -1,12 +1,12 @@
 {
-  "schema": "Yield Aggregator / Automated Liquidity Management",
-  "description": "Standard table definitions for yield aggregator / automated liquidity management protocol.",
-  "protocolCategory": ["Yield Aggregator", "Automated Liquidity Manager"],
+  "schema": "Yield Aggregator (Leverage, Gambling, RWA, Liquidity/LP, index)",
+  "description": "Standard table definitions for yield aggregator protocols (can include, Leverage, Gambling, RWA, Liquidity/LP, index).",
+  "protocolCategory": ["Automated Liquidity Manager", "Gambling", "Index", "Leverage", "Prediction Market", "RWA", "Yield", "Yield Aggregator"],
   "version": "1.0.0-alpha",
   "tables": [
     {
       "label": "Pools",
-      "tableName": "yield_liquidity_pools",
+      "tableName": "misc_pools",
       "aggregation": "none",
       "uniqueKey": ["pool_address"],
       "description": "List of pools in the protocol.",
@@ -23,31 +23,47 @@
           "description": "The block number that this pool was created.",
           "type": "number"
         },
-        "strategy_vault_contract_address": {
-          "description": "The contract address of the strategy vault which manages the liquidity pool positions.",
+        "underlying_token_address": {
+          "description": "The contract address of the underlying token or deposited token.",
           "type": "string"
         },
-        "underlying_liquidity_pool_address": {
-          "description": "The contract address of the underlying liquidity pool where liquidity are deposited into",
-          "type": "string"
-        },
-        "strategy_vault_receipt_token_address": {
-          "description": "The contract address of ERC20 token which represents the share of liquidity provided.",
-          "type": "string"
-        },
-        "strategy_vault_receipt_token_decimals": {
-          "description": "The decimal amount of the ERC20 receipt token.",
+        "underlying_token_index": {
+          "description": "The index of the underlying token in the smart contract, default 0.",
           "type": "number"
         },
-        "strategy_vault_receipt_token_symbol": {
+        "underlying_token_symbol": {
+          "description": "The symbol of the underlying token token.",
+          "type": "string"
+        },
+        "underlying_token_decimals": {
+          "description": "The decimal amount of the underlying token.",
+          "type": "number"
+        },
+        "receipt_token_address": {
+          "description": "The contract address of the output or receipt token of this pool, if available.",
+          "type": "string"
+        },
+        "receipt_token_symbol": {
           "description": "The symbol of the receipt token.",
+          "type": "string"
+        },
+        "receipt_token_decimals": {
+          "description": "The symbol decimal amount for the receipt token.",
+          "type": "number"
+        },
+        "pool_address": {
+          "description": "The smart contract address of the pool.",
+          "type": "string"
+        },
+        "pool_symbol": {
+          "description": "The symbol of the pool.",
           "type": "string"
         }
       }
     },
     {
       "label": "Position Snapshot",
-      "tableName": "yield_liquidity_depositors",
+      "tableName": "misc_depositors",
       "aggregation": "daily",
       "uniqueKey": ["user_address", "pool_address", "block_date"],
       "description": "Snapshot of the pool users.",
@@ -64,16 +80,12 @@
           "description": "The standard chain id.",
           "type": "number"
         },
-        "strategy_vault_contract_address": {
-          "description": "The address of the strategy vault this user has a position in.",
+        "pool_address": {
+          "description": "The address of the pool this user has a position in.",
           "type": "string"
         },
         "user_address": {
-          "description": "The address of the user who has a position in the strategy vault.",
-          "type": "string"
-        },
-        "underlying_liquidity_pool_address": {
-          "description": "The address of the underlying liquidity pool where liquidity are deposited into",
+          "description": "The address of the user who has a position in the pool.",
           "type": "string"
         },
         "underlying_token_address": {
@@ -81,15 +93,15 @@
           "type": "string"
         },
         "underlying_token_index": {
-          "description": "The index of the underlying token in the smart contract, default 0.",
+          "description": "The index in the smart contract of this underlying token, default 0.",
           "type": "number"
         },
         "underlying_token_amount": {
-          "description": "The amount based on the user's share of the total underlying token, decimal normalized.",
+          "description": "The amount of the underlying token that the user deposited, decimal normalized.",
           "type": "number"
         },
         "underlying_token_amount_usd": {
-          "description": "The amount based on the user's share of the total underlying token, in USD.",
+          "description": "The amount of underlying tokens supplied, in USD.",
           "type": "number"
         },
         "total_fees_usd": {
@@ -100,7 +112,7 @@
     },
     {
       "label": "Pool Snapshot",
-      "tableName": "yield_liquidity_pool_metrics",
+      "tableName": "misc_pool_metrics",
       "aggregation": "daily",
       "uniqueKey": ["pool_address", "block_date"],
       "description": "TVL, fees, and incentives data at the pool level.",
@@ -117,21 +129,17 @@
           "description": "The standard chain id.",
           "type": "number"
         },
-        "strategy_vault_contract_address": {
-          "description": "The address of the strategy vault this user has a position in.",
-          "type": "string"
-        },
-        "underlying_liquidity_pool_address": {
-          "description": "The address of the underlying liquidity pool where liquidity are deposited into",
-          "type": "string"
-        },
         "underlying_token_address": {
-          "description": "The address of the supplied underlying token.",
+          "description": "The contract address of the underlying token or deposited token.",
           "type": "string"
         },
         "underlying_token_index": {
           "description": "The index of the underlying token in the smart contract, default 0.",
           "type": "number"
+        },
+        "pool_address": {
+          "description": "The address of the pool.",
+          "type": "string"
         },
         "underlying_token_amount": {
           "description": "The amount of underlying token supplied in this pool, decimal normalized.",
@@ -149,7 +157,7 @@
     },
     {
       "label": "Events",
-      "tableName": "liquidity_yield_events",
+      "tableName": "misc_events",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
       "description": "All user events (ie, Deposit, Withdrawal)",
@@ -176,6 +184,10 @@
           },
           "user_address": {
               "description": "The address that initiates the transaction (ie, the transaction signer).",
+              "type": "string"
+          },
+          "taker_address": {
+              "description": "The address that owns the position (ie, most of the time, it is the same as the user_address).",
               "type": "string"
           },
           "pool_address": {
