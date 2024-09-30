@@ -1,12 +1,12 @@
 {
   "schema": "Automated Liquidity Management",
   "description": "Standard table definitions for automated liquidity management protocol.",
-  "protocolCategory": ["Automated Liquidity Manager"],
+  "protocolCategory": ["Automated Liquidity Management"],
   "version": "1.0.0-alpha",
   "tables": [
     {
       "label": "Pools",
-      "tableName": "yield_liquidity_pools",
+      "tableName": "automated_liquidity_pools",
       "aggregation": "none",
       "uniqueKey": ["pool_address"],
       "description": "List of pools in the protocol.",
@@ -47,7 +47,7 @@
     },
     {
       "label": "Position Snapshot",
-      "tableName": "yield_liquidity_depositors",
+      "tableName": "automated_liquidity_depositors",
       "aggregation": "daily",
       "uniqueKey": ["user_address", "pool_address", "block_date"],
       "description": "Snapshot of the pool users.",
@@ -100,7 +100,7 @@
     },
     {
       "label": "Pool Snapshot",
-      "tableName": "yield_liquidity_pool_metrics",
+      "tableName": "automated_liquidity_pool_metrics",
       "aggregation": "daily",
       "uniqueKey": ["pool_address", "block_date"],
       "description": "TVL, fees, and incentives data at the pool level.",
