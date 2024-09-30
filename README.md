@@ -39,3 +39,4 @@ Below you will find links to each of the following verticals.
 - [NFT](./schemas/nft/SCHEMA.md)
 - [Prediction Market](./schemas/prediction-market/SCHEMA.md)
 - [Others](./schemas/others/SCHEMA.md) (Leverage, Gambling, RWA, Liquidity/LP, Index)
+

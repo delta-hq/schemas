@@ -1,0 +1,49 @@
+{
+    "schema": "Prediction Market",
+    "description": "Standard table definitions for Prediction Markets.",
+    "protocolCategory": ["Prediction Market"],
+    "version": "1.0.0-alpha",
+    "tables": [
+        {
+            "label": "User Positions Snapshot",
+            "tableName": "prediction_market_position_snapshot",
+            "aggregation": "snapshot",
+            "uniqueKey": ["user_address", "market_address", "order_id"],
+            "description": "Prediction market order snapshots.",
+            "properties": {
+                "timestamp": {
+                    "description": "The timestamp of the snapshot (in unix time).",
+                    "type": "number"
+                },
+                "block_date": {
+                    "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+                    "type": "date"
+                }, 
+                "chain_id": {
+                    "description": "The standard id of the chain.",
+                    "type": "number"
+                },
+                "user_address": {
+                    "description": "The address of the user that owns this order in the snapshot.",
+                    "type": "string"
+                },
+                "market_address": {
+                    "description": "The smart contract of the address of the market (if no smart contract, please create a unique identifier for the market).",
+                    "type": "string"
+                },
+                "order_id": {
+                    "description": "Identifier for the particular limit order.",
+                    "type": "number"
+                },
+                "open_order_size_usd": {
+                    "description": "The USD value of the open amount for this particular limit order.",
+                    "type": "number"
+                },
+                "closed_order_size_usd": {
+                    "description": "The USD value of the open amount for this particular limit order.",
+                    "type": "number"
+                }
+            }
+        }
+    ]
+}
