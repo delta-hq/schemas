@@ -1,6 +1,6 @@
-# Others (Leverage, Gambling, RWA, Liquidity/LP, index)
+# Yield Aggregator (Leverage, Gambling, RWA, Liquidity/LP, index)
 
-Standard table definitions for protocol that does not fit to any of the defined verticals (can include, Leverage, Gambling, RWA, Liquidity/LP, index).
+Standard table definitions for yield aggregator protocols (can include, Leverage, Gambling, RWA, Liquidity/LP, index).
 
 ## Version: 1.0.0-alpha
 
