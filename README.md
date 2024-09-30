@@ -34,7 +34,9 @@ Below you will find links to each of the following verticals.
 - [Derivatives](./schemas/derivatives/schema.json) (Perpetuals / Options) 
 - [Bridges](./schemas/bridge/SCHEMA.md) (Pool-Based, Mint-Based, Intent-Based)
 - [LSTs](./schemas/lst/SCHEMA.md) (Liquid Staking Tokens)
-- [Yield Aggregators](./schemas/yield-aggregator/SCHEMA.md) (Leverage, Gambling, RWA, ALM, Liquidity/LP, Index)
+- [Yield Aggregators](./schemas/yield-aggregator/SCHEMA.md) (Leverage, Gambling, RWA, Liquidity/LP, Index)
+- [Automated Liquidity Management](./schemas/automated-liquidity-management/SCHEMA.md)
 - [DEX Aggregator](./schemas/dex-aggregator/SCHEMA.md)
 - [NFT](./schemas/nft/SCHEMA.md)
 - [Prediction Market](./schemas/prediction-market/SCHEMA.md)
+
