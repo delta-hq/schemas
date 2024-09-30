@@ -81,7 +81,7 @@
           "type": "string"
         },
         "underlying_token_index": {
-          "description": "The index in the smart contract of this underlying token, default 0.",
+          "description": "The index of the underlying token in the smart contract, default 0.",
           "type": "number"
         },
         "underlying_token_amount": {
@@ -130,7 +130,7 @@
           "type": "string"
         },
         "underlying_token_index": {
-          "description": "The index in the smart contract of this underlying token, default 0.",
+          "description": "The index of the underlying token in the smart contract, default 0.",
           "type": "number"
         },
         "underlying_token_amount": {
