@@ -77,11 +77,11 @@ All trades across different types of DEXs.
 | taker_address            | The taker, the address that receives the output of the swap (ie, could be the same as user_address unless a proxy contract/router is used). | string |
 | pair_name                | The name of the token pair.                               | string |
 | pool_address             | The contract address of the LP pool being traded in.      | string |
+| input_token_address      | The contract address of the input token (ie, the tokenIn or the token being sold to the pool). | string |
 | input_token_symbol       | The symbol of the input token.                            | string |
-| input_token_address      | The contract address of the input token.                  | string |
 | input_token_amount       | The amount of the input token, decimal normalized.        | number |
+| output_token_address     | The contract address of the output token (ie, the tokenOut of the token being bought by the user and sent to the taker). | string |
 | output_token_symbol      | The symbol of the output token.                           | string |
-| output_token_address     | The contract address of the output token.                 | string |
 | output_token_amount      | The amount of the output token, decimal normalized.       | number |
 | spot_price_after_swap    | The spot price in the pool after the swap is complete. This is the price ratio a user would get if they made an infinitesimal swap immediately after this one. | number |
 | swap_amount_usd          | (Optional) The amount of the swap in USD.                 | number |
