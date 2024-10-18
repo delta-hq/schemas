@@ -222,24 +222,24 @@
           "description": "The contract address of the LP pool being traded in.",
           "type": "string"
         },
-        "input_token_symbol": {
-          "description": "The symbol of the input token.",
+        "input_token_address": {
+          "description": "The contract address of the input token (ie, the tokenIn or the token being sold to the pool).",
           "type": "string"
         },
-        "input_token_address": {
-          "description": "The contract address of the input token.",
+        "input_token_symbol": {
+          "description": "The symbol of the input token.",
           "type": "string"
         },
         "input_token_amount": {
           "description": "The amount of the input token, decimal normalized.",
           "type": "number"
         },
-        "output_token_symbol": {
-          "description": "The symbol of the output token.",
+        "output_token_address": {
+          "description": "The contract address of the output token (ie, the tokenOut of the token being bought by the user and sent to the taker).",
           "type": "string"
         },
-        "output_token_address": {
-          "description": "The contract address of the output token.",
+        "output_token_symbol": {
+          "description": "The symbol of the output token.",
           "type": "string"
         },
         "output_token_amount": {
