@@ -214,6 +214,10 @@
           "description": "The taker, the address that receives the output of the swap (ie, could be the same as user_address unless a proxy contract/router is used).",
           "type": "string"
         },
+        "maker_address": {
+          "description": "The maker, the address that receives the input of the swap (ie, could be the same as user_address unless a proxy contract/router is used).",
+          "type": "string"
+        },
         "pair_name": {
           "description": "The name of the token pair.",
           "type": "string"
