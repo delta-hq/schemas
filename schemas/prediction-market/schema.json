@@ -40,7 +40,11 @@
                     "type": "number"
                 },
                 "closed_order_size_usd": {
-                    "description": "The USD value of the open amount for this particular limit order.",
+                    "description": "The USD value of the open amount for this particular limit order in the interval for the given timestamp.",
+                    "type": "number"
+                },
+                "locked_order_size_usd": {
+                    "description": "The USD value of the open filled and matched for this particular limit order.",
                     "type": "number"
                 }
             }
