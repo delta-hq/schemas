@@ -1,0 +1,49 @@
+{
+  "schema": "ERC-20",
+  "description": "Table definitions for the ERC-20 schema. These tables can be used for any protocol.",
+  "protocolCategory": ["Bond", "Gaming", "LRT", "Oracle", "Payment", "Quest", "SocialFi", "Stablecoin", "Wallet", "Other"],
+  "version": "1.0.0-alpha",
+  "tables": [
+    {
+      "label": "Token ERC-20 Transfers",
+      "tableName": "general_token_erc20_transfers",
+      "aggregation": "transaction",
+      "uniqueKey": ["user_address", "token_address", "block_date"],
+      "description": "User level token balance snapshots.",
+      "properties": {
+        "timestamp": {
+          "description": "The UNIX timestamp of the block associated with the transaction.",
+          "type": "number"
+        },
+        "block_number": {
+          "description": "The block number for the transaction",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "number"
+        },
+        "from_user_address": {
+          "description": "The address of the user sending the erc-20 transfer.",
+          "type": "string"
+        },
+        "to_user_address": {
+          "description": "The address of the user receiving the erc-20 transfer.",
+          "type": "string"
+        },
+        "token_transfer_amount": {
+          "description": "The amount of the token transferred (decimal normalized).",
+          "type": "number"
+        },
+        "token_address": {
+          "description": "The smart contract address of the token.",
+          "type": "string"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token we are getting the balance of.",
+          "type": "string"
+        }
+      }
+    }
+  ]
+}
