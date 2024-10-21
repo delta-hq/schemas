@@ -17,6 +17,7 @@ Prediction market order snapshots.
 | market_address           | The smart contract of the address of the market (if no smart contract, please create a unique identifier for the market). | string |
 | order_id                 | Identifier for the particular limit order.                | number |
 | open_order_size_usd      | The USD value of the open amount for this particular limit order. | number |
-| closed_order_size_usd    | The USD value of the open amount for this particular limit order. | number |
+| closed_order_size_usd    | The USD value of the open amount for this particular limit order in the interval for the given timestamp. | number |
+| locked_order_size_usd    | The USD value of the open filled and matched for this particular limit order. | number |
 
 > Note: This markdown file is auto-generated.
