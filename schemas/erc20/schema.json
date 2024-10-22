@@ -9,7 +9,7 @@
       "tableName": "general_token_erc20_transfers",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
-      "description": "User level token balance snapshots.",
+      "description": "ERC-20 Token Transfers",
       "properties": {
         "timestamp": {
           "description": "The UNIX timestamp of the block associated with the transaction.",

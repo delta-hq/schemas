@@ -6,7 +6,7 @@ Table definitions for the ERC-20 schema. These tables can be used for any protoc
 
 ### Token ERC-20 Transfers
 
-User level token balance snapshots.
+ERC-20 Token Transfers
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
