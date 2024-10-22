@@ -1,7 +1,7 @@
 {
   "schema": "General",
   "description": "Table definitions for the generic schema. These tables can be used for any protocol.",
-  "protocolCategory": ["Bond", "Gaming", "LRT", "Oracle", "Payment", "Quest", "SocialFi", "Stablecoin", "Wallet", "Other"],
+  "protocolCategory": ["Bond", "Gaming", "Oracle", "Payment", "Quest", "SocialFi", "Stablecoin", "Wallet"],
   "version": "1.0.0-alpha",
   "tables": [
     {

@@ -18,5 +18,7 @@ User level token balance snapshots.
 | token_transfer_amount    | The amount of the token transferred (decimal normalized). | number |
 | token_address            | The smart contract address of the token.                  | string |
 | token_symbol             | The symbol of the token we are getting the balance of.    | string |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
+| transaction_hash         | The hash of the transaction.                              | string |
 
 > Note: This markdown file is auto-generated.
