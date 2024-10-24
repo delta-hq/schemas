@@ -8,7 +8,7 @@
 
 The filters and transformations to be applied to TVL for common DEX designs are outlined below.
 
-### Constant Product Market Maker (CPMM)
+### Constant Product Market Maker (CPMM) + Stableswap
 
 For CPMM designs, as all LP positions are utilized regardless of the current pool price, **no filter** is needed. The TVL value returned should be the **USD value of the LP position** on the pool.
 
