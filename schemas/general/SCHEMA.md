@@ -81,6 +81,23 @@ User level token balance snapshots.
 | token_amount             | The amount of the token at the given snapshot timestamp (decimal normalized). | number |
 | token_amount_usd         | The amount of the token in USD.                           | number |
 
+### General Transactions
+
+Generic table at a user and transaction level
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the transaction.                         | timestamp |
+| block_date               | A date representation of the timestamp (ie, YYYY-MM-DD HH:MM:SS) | date |
+| chain_id                 | The standard chain id.                                    | number |
+| block_number             | The ordinal block number.                                 | number |
+| signer_address           | The transaction signer's address.                         | varbinary |
+| transaction_hash         | The unique identifier for this transaction.               | varbinary |
+| log_index                | The unique identifier for this transaction.               | number |
+| event_name               | The string name for the event associated with log_index, corresponds to the action taken by the user (ie, deposit, withdrawal, borrow, repay, liquidation, flashloan). | string |
+| transaction_fee          | The total amount of gas used in the transactions occurring in the given snapshot (in the native gas amount). | number |
+| transaction_fee_usd      | (Optional, if possible) The total amount of gas used in USD terms in the given snapshot. | number |
+
 ### User Transaction Fee Snapshot
 
 Gas and transaction snapshot data at the user level.
