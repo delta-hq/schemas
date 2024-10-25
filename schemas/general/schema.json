@@ -218,6 +218,55 @@
       }
     },
     {
+      "label": "General Transactions",
+      "tableName": "general_transactions",
+      "aggregation": "None",
+      "uniqueKey": ["chain_id","block_number","transaction_hash"],
+      "description": "Generic table at a user and transaction level",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the transaction.",
+          "type": "timestamp"
+        },
+        "block_date": {
+          "description": "A date representation of the timestamp (ie, YYYY-MM-DD HH:MM:SS)",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "number"
+        },
+        "block_number": {
+          "description": "The ordinal block number.",
+          "type": "number"
+        },
+        "signer_address": {
+          "description": "The transaction signer's address.",
+          "type": "varbinary"
+        },
+        "transaction_hash": {
+          "description": "The unique identifier for this transaction.",
+          "type": "varbinary"
+        },
+        "log_index": {
+          "description": "The unique identifier for this transaction.",
+          "type": "number"
+        },
+        "event_name": {
+          "description": "The string name for the event associated with log_index, corresponds to the action taken by the user (ie, deposit, withdrawal, borrow, repay, liquidation, flashloan).",
+          "type": "string"
+        },
+        "transaction_fee": {
+          "description": "The total amount of gas used in the transactions occurring in the given snapshot (in the native gas amount).",
+          "type": "number"
+        },
+        "transaction_fee_usd": {
+          "description": "(Optional, if possible) The total amount of gas used in USD terms in the given snapshot.",
+          "type": "number"
+        }
+      }
+    },
+    {
       "label": "User Transaction Fee Snapshot",
       "tableName": "general_transaction_snapshot",
       "aggregation": "daily",
