@@ -19,5 +19,6 @@ Prediction market order snapshots.
 | open_order_size_usd      | The USD value of the open amount for this particular limit order. | number |
 | closed_order_size_usd    | The USD value of the open amount for this particular limit order in the interval for the given timestamp. | number |
 | locked_order_size_usd    | The USD value of the open filled and matched for this particular limit order. | number |
+| poll_duration            | Total duration of the poll the order is on, measured in minutes. | number |
 
 > Note: This markdown file is auto-generated.
