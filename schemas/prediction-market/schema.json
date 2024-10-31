@@ -47,8 +47,12 @@
                     "description": "The USD value of the open filled and matched for this particular limit order.",
                     "type": "number"
                 },
-                "poll_duration":{
-                    "description": "Total duration of the poll the order is on, measured in minutes.",
+                "poll_open_timestamp":{
+                    "description": "The timestamp that the poll opens at.",
+                    "type": "number"
+                },
+                "poll_close_timestamp":{
+                    "description": "The timestamp that the poll closes at.",
                     "type": "number"
                 }
             }
