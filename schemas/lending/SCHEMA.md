@@ -72,7 +72,7 @@ Snapshot of the pool's state in the lending protocol.
 
 ### Events
 
-All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Liquidation, Flashloan)
+All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Flashloan)
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
@@ -91,7 +91,7 @@ All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay,
 
 ### Liquidations
 
-All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Flashloan)
+Liquidation events, including profit and liquidator.
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
