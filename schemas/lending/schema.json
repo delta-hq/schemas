@@ -216,7 +216,7 @@
             "tableName": "lending_events",
             "aggregation": "transaction",
             "uniqueKey": ["transaction_hash", "log_index"],
-            "description": "All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Liquidation, Flashloan)",
+            "description": "All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Flashloan)",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the transaction.",
@@ -273,7 +273,7 @@
             "tableName": "lending_liquidations",
             "aggregation": "transaction",
             "uniqueKey": ["transaction_hash", "log_index"],
-            "description": "All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Flashloan)",
+            "description": "Liquidation events, including profit and liquidator.",
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the transaction.",
