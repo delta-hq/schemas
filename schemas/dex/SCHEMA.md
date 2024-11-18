@@ -75,6 +75,7 @@ All trades across different types of DEXs.
 | transaction_hash         | The hash of the transaction.                              | string |
 | user_address             | The address that initiates the transaction (ie, the transaction signer). | string |
 | taker_address            | The taker, the address that receives the output of the swap (ie, could be the same as user_address unless a proxy contract/router is used). | string |
+| maker_address            | The maker, the address that receives the input of the swap (ie, could be the same as user_address unless a proxy contract/router is used). | string |
 | pair_name                | The name of the token pair.                               | string |
 | pool_address             | The contract address of the LP pool being traded in.      | string |
 | input_token_address      | The contract address of the input token (ie, the tokenIn or the token being sold to the pool). | string |
