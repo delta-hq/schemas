@@ -148,6 +148,55 @@
       }
     },
     {
+      "label": "ERC LP Token Transfer Events",
+      "tableName": "automated_liquidity_lp_transfer_events",
+      "aggregation": "transaction",
+      "uniqueKey": ["transaction_hash", "log_index"],
+      "description": "All LP Token transfer events",
+      "properties": {
+          "timestamp": {
+              "description": "The timestamp of the transaction.",
+              "type": "number"
+          },
+          "chain_id": {
+              "description": "The standard id of the chain.",
+              "type": "number"
+          },
+          "block_number": {
+              "description": "The block number of the trade.",
+              "type": "number"
+          },
+          "log_index": {
+              "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+              "type": "number"
+          },
+          "transaction_hash": {
+              "description": "The hash of the transaction.",
+              "type": "string"
+          },
+          "from_address": {
+            "description": "The from address of the event (ie, the from field in a transfer).",
+            "type": "string"
+        },
+        "to_address": {
+          "description": "The to address of the event (ie, the to field in a transfer).",
+          "type": "string"
+      },
+          "pool_address": {
+              "description": "The contract address of the pool LP token.",
+              "type": "string"
+          },
+          "amount": {
+              "description": "The amount of token transacted, decimal normalized.",
+              "type": "number"
+          },
+          "event_type": {
+              "description": "The type of event, corresponds to the action taken by the user (ie, deposit, withdrawal).",
+              "type": "string"
+          }
+      }
+  },
+    {
       "label": "Events",
       "tableName": "automated_liquidity_events",
       "aggregation": "transaction",

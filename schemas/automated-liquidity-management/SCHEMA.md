@@ -54,6 +54,23 @@ TVL, fees, and incentives data at the pool level.
 | underlying_token_amount_usd | The amount of underlying tokens supplied in this pool, in USD. | number |
 | total_fees_usd           | The total amount of revenue and fees paid in this pool in the given snapshot, in USD. | number |
 
+### ERC LP Token Transfer Events
+
+All LP Token transfer events
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the transaction.                         | number |
+| chain_id                 | The standard id of the chain.                             | number |
+| block_number             | The block number of the trade.                            | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
+| transaction_hash         | The hash of the transaction.                              | string |
+| from_address             | The from address of the event (ie, the from field in a transfer). | string |
+| to_address               | The to address of the event (ie, the to field in a transfer). | string |
+| pool_address             | The contract address of the pool LP token.                | string |
+| amount                   | The amount of token transacted, decimal normalized.       | number |
+| event_type               | The type of event, corresponds to the action taken by the user (ie, deposit, withdrawal). | string |
+
 ### Events
 
 All user events (ie, Deposit, Withdrawal)
