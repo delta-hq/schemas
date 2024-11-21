@@ -148,7 +148,7 @@
       }
     },
     {
-      "label": "ERC LP Token Transfer Events",
+      "label": "ERC-20 LP Token Transfer Events",
       "tableName": "automated_liquidity_lp_transfer_events",
       "aggregation": "transaction",
       "uniqueKey": ["transaction_hash", "log_index"],
