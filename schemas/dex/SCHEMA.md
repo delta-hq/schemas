@@ -179,7 +179,7 @@ Transfer events for V2.
 | from_address             | The address that sends the LP token.                      | string |
 | to_address               | The address that receives the LP token.                   | string |
 | pool_address             | The contract address of the pool.                         | string |
-| pool_token_balance       | The balance of the pool token, decimal normalized.        | number |
+| token_amount             | The token amount that was transferred, decimal normalized. | number |
 
 ### V3 Events
 

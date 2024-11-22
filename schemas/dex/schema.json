@@ -535,8 +535,8 @@
           "description": "The contract address of the pool.",
           "type": "string"
         },
-        "pool_token_balance": {
-          "description": "The balance of the pool token, decimal normalized.",
+        "token_amount": {
+          "description": "The token amount that was transferred, decimal normalized.",
           "type": "number"
         }
       }
