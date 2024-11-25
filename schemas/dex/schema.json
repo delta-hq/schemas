@@ -27,6 +27,10 @@
           "description": "The contract address of the LP pool.",
           "type": "string"
         },
+        "pair_name": {
+          "description": "The name of the token pair (eg. WETH-USDC)",
+          "type":"string"
+        },
         "lp_token_address": {
           "description": "The token address of the LP token for this pool.",
           "type": "string"

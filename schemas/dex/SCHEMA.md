@@ -14,6 +14,7 @@ List of LP pools in this protocol (one entry per token in a pool).
 | creation_block_number    | The block this pool was created in.                       | number |
 | timestamp                | The timestamp of the block that this pool was created in. | number |
 | pool_address             | The contract address of the LP pool.                      | string |
+| pair_name                | The name of the token pair (eg. WETH-USDC)                | string |
 | lp_token_address         | The token address of the LP token for this pool.          | string |
 | lp_token_symbol          | The symbol of the LP token.                               | string |
 | token_address            | The token address of the pool token at token_index.       | string |
