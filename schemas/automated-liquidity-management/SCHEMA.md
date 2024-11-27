@@ -54,7 +54,7 @@ TVL, fees, and incentives data at the pool level.
 | underlying_token_amount_usd | The amount of underlying tokens supplied in this pool, in USD. | number |
 | total_fees_usd           | The total amount of revenue and fees paid in this pool in the given snapshot, in USD. | number |
 
-### ERC LP Token Transfer Events
+### ERC-20 LP Token Transfer Events
 
 All LP Token transfer events
 

@@ -1,0 +1,143 @@
+{
+  "schema": "Bridge Aggregator",
+  "description": "Standard table definitions for bridge aggregator protocols that route users across different bridge protocols.",
+  "protocolCategory": ["Bridge Aggregator"],
+  "version": "1.0.0-alpha",
+  "tables": [
+    {
+      "label": "Tokens",
+      "tableName": "bridge_aggregator_tokens",
+      "aggregation": "none",
+      "uniqueKey": ["chain_id", "token_address"],
+      "description": "List of tokens supported by the bridge aggregator.",
+      "properties": {
+        "chain_id": {
+          "description": "The blockchain ID where the token resides.",
+          "type": "number"
+        },
+        "token_address": {
+          "description": "The contract address of the token.",
+          "type": "string"
+        },
+        "token_name": {
+          "description": "The name of the token.",
+          "type": "string"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token.",
+          "type": "string"
+        },
+        "decimals": {
+          "description": "The decimal places of the token.",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "Token Snapshot",
+      "tableName": "bridge_aggregator_token_metrics",
+      "aggregation": "daily",
+      "uniqueKey": ["chain_id", "token_address", "block_date"],
+      "description": "Snapshot of token-level metrics in the aggregator.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The blockchain ID where the token resides.",
+          "type": "number"
+        },
+        "token_address": {
+          "description": "The contract address of the token.",
+          "type": "string"
+        },
+        "volume_amount": {
+          "description": "The total volume of the token bridged, decimal normalized.",
+          "type": "number"
+        },
+        "volume_usd": {
+          "description": "The total volume in USD.",
+          "type": "number"
+        },
+        "fees": {
+          "description": "The fees collected in token amount, decimal normalized.",
+          "type": "number"
+        },
+        "fees_usd": {
+          "description": "The fees collected in USD.",
+          "type": "number"
+        },
+        "incentive_amount": {
+          "description": "The amount of incentives distributed, decimal normalized.",
+          "type": "number"
+        },
+        "incentive_usd": {
+          "description": "The amount of incentives distributed in USD.",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "Bridge Transactions",
+      "tableName": "bridge_aggregator_transactions",
+      "aggregation": "transaction",
+      "uniqueKey": ["source_transaction_hash", "destination_transaction_hash"],
+      "description": "Transaction-level data for bridge aggregator operations.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the transaction.",
+          "type": "number"
+        },
+        "source_chain_id": {
+          "description": "The source chain ID.",
+          "type": "number"
+        },
+        "destination_chain_id": {
+          "description": "The destination chain ID.",
+          "type": "number"
+        },
+        "source_transaction_hash": {
+          "description": "The transaction hash on the source chain.",
+          "type": "string"
+        },
+        "destination_transaction_hash": {
+          "description": "The transaction hash on the destination chain.",
+          "type": "string"
+        },
+        "source_user_address": {
+          "description": "The user's address on the source chain.",
+          "type": "string"
+        },
+        "destination_user_address": {
+          "description": "The user's address on the destination chain.",
+          "type": "string"
+        },
+        "input_tokens": {
+          "description": "Array of token addresses used as input.",
+          "type": "[string]"
+        },
+        "input_token_amounts": {
+          "description": "Array of input token amounts, decimal normalized.",
+          "type": "[number]"
+        },
+        "input_token_fees": {
+          "description": "Array of fees paid in input tokens, decimal normalized.",
+          "type": "[number]"
+        },
+        "output_tokens": {
+          "description": "Array of token addresses received as output.",
+          "type": "[string]"
+        },
+        "output_token_amounts": {
+          "description": "Array of output token amounts, decimal normalized.",
+          "type": "[number]"
+          }
+        }
+    }
+  ]
+}
