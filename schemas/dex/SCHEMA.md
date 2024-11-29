@@ -34,7 +34,7 @@ Snapshot of LP positions.
 | chain_id                 | The standard id of the chain.                             | number |
 | pool_address             | The contract address of the pool.                         | string |
 | user_address             | The address of the liquidity provider.                    | string |
-| nft_token_id             | The token id of the NFT position.                         | string |
+| nft_token_id             | The token id of the NFT position.                         | number |
 | token_index              | The token index based on the smart contract.              | number |
 | token_address            | The contract address of the token provided as liquidity.  | string |
 | token_symbol             | The symbol of the token.                                  | string |

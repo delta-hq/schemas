@@ -90,7 +90,7 @@
         },
         "nft_token_id": {
           "description": "The token id of the NFT position.",
-          "type": "string"
+          "type": "number"
         },
         "token_index": {
           "description": "The token index based on the smart contract.",
