@@ -88,6 +88,10 @@
           "description": "The address of the liquidity provider.",
           "type": "string"
         },
+        "nft_token_id": {
+          "description": "The token id of the NFT position.",
+          "type": "string"
+        },
         "token_index": {
           "description": "The token index based on the smart contract.",
           "type": "number"
