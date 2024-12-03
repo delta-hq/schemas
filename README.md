@@ -39,4 +39,4 @@ Below you will find links to each of the following verticals.
 - [DEX Aggregator](./schemas/dex-aggregator/SCHEMA.md)
 - [NFT](./schemas/nft/SCHEMA.md)
 - [Prediction Market](./schemas/prediction-market/SCHEMA.md)
-
+- [Bridge Aggregator](./schemas/bridge-aggregator/SCHEM.md)
