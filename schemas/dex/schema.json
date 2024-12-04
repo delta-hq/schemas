@@ -665,49 +665,13 @@
           "description": "The to address of the event (ie, the to field in a transfer).",
           "type": "string"
         },
+        "nft_token_id": {
+          "description": "The token ID of the NFT transferred",
+          "type": "number"
+        },
         "event_type": {
           "description": "The action type of the event (ie, transfer).",
           "type": "string"
-        },
-        "pool_address": {
-          "description": "The contract address of the pool.",
-          "type": "string"
-        },
-        "tick_lower": {
-          "description": "The lower tick.",
-          "type": "number"
-        },
-        "tick_upper": {
-          "description": "The upper tick.",
-          "type": "number"
-        },
-        "tick_spacing": {
-          "description": "The tick spacing.",
-          "type": "number"
-        },
-        "token0_address": {
-          "description": "The contract address of token0.",
-          "type": "string"
-        },
-        "token0_amount": {
-          "description": "The amount of token0.",
-          "type": "number"
-        },
-        "token1_address": {
-          "description": "The contract address of token1.",
-          "type": "string"
-        },
-        "token1_amount": {
-          "description": "The amount of token1.",
-          "type": "number"
-        },
-        "token_fees": {
-          "description": "The amount of token fees.",
-          "type": "number"
-        },
-        "amount_liquidity": {
-          "description": "The amount of liquidity.",
-          "type": "number"
         }
       }
     },

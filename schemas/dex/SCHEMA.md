@@ -221,17 +221,8 @@ LP transfer events for V3 DEXs.
 | transaction_from_address | The address that initiates the transaction (ie, the transaction signer). | string |
 | from_address             | The from address of the event (ie, the from field in a transfer). | string |
 | to_address               | The to address of the event (ie, the to field in a transfer). | string |
+| nft_token_id             | The token ID of the NFT transferred                       | number |
 | event_type               | The action type of the event (ie, transfer).              | string |
-| pool_address             | The contract address of the pool.                         | string |
-| tick_lower               | The lower tick.                                           | number |
-| tick_upper               | The upper tick.                                           | number |
-| tick_spacing             | The tick spacing.                                         | number |
-| token0_address           | The contract address of token0.                           | string |
-| token0_amount            | The amount of token0.                                     | number |
-| token1_address           | The contract address of token1.                           | string |
-| token1_amount            | The amount of token1.                                     | number |
-| token_fees               | The amount of token fees.                                 | number |
-| amount_liquidity         | The amount of liquidity.                                  | number |
 
 ### Incentive Claim Data
 
