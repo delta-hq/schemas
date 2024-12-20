@@ -43,8 +43,8 @@ Liquidity providers snapshot (one entry for each token in a vault).
 | token_symbol             | The symbol of the token.                                  | string |
 | amount_useful            | The amount of tokens supplied by the LP that are liquid and usable by users in the vault, decimal normalized. | number |
 | amount_useful_usd        | The amount of liquid tokens supplied in USD. | number |
-| liquidated_amount        | The amount of tokens liquidated from the LP (when the taker has positive PnL if a position is closed), decimal normalized. | number |
-| liquidated_amount_usd    | The amount liquidated, in USD.                            | number |
+| liquidity_change_amount  | The amount of tokens lost (indicated by negative sign) or gained (indicated by positive sign) by the LP (when the taker has positive PnL if a position is closed), decimal normalized. | number |
+| liquidity_amount_usd     | The amount lost or gained by the LP, in USD.               | number |
 | total_lp_fees_usd        | Total fees generated for the LP at the time of snapshot (in USD). | number |
 
 ### Vault Snapshot
