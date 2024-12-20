@@ -59,8 +59,8 @@ Snapshot of the vault's metrics.
 | vault_address            | The smart contract address of the vault (one address for each vault, if you have multiple vaults). | string |
 | token_address            | The smart contract address of the token.                  | string |
 | token_index              | The index of the tokenin the smart contract (one row for each pair in a vault). | number |
-| tvl                      | Total Value Locked at snapshot, in tokens (one entry for each token in the vault). | number |
-| tvl_usd                  | Total Value Locked at snapshot (TOTAL of all tokens, in USD). | number |
+| token_amount             | Total Value Locked at snapshot, in tokens (one entry for each token in the vault). | number |
+| token_amount_usd         | Total Value Locked at snapshot (amount for each token, in USD). | number |
 | liquidity_available_usd	 | (Optional in case each pair liquidity field has been provided and the protocol has only one vault) The total liquidity available in the vault for trading, in USD.	| number |
 | open_interest_longs_usd  | (Optional in case each pair open interest field has been provided and the protocol has only one vault) The aggregate value of open long positions backed by the vault’s liquidity at snapshot, in USD. | number |
 | open_interest_shorts_usd | (Optional in case each pair open interest field has been provided and the protocol has only one vault) The aggregate value of open short positions backed by the vault’s liquidity at snapshot, in USD. | number |
