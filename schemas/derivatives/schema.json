@@ -176,6 +176,201 @@
       }
     },
     {
+      "label": "Pairs (AMM)",
+      "tableName": "derivatives_amm_pairs",
+      "aggregation": "none",
+      "uniqueKey": ["pair_address", "pair_index"],
+      "description": "Pairs traded in the protocol (one entry for each pair).",
+      "properties": {
+        "chain_id": {
+          "description": "Standard chain id.",
+          "type": "number"
+        },
+        "timestamp": {
+          "description": "The timestamp of the block the pool was created on.",
+          "type": "number"
+        },
+        "creation_block_number": {
+          "description": "The block number this pool was created on.",
+          "type": "number"
+        },
+        "pair_name": {
+          "description": "The name of the pool (ie, name() in the smart contract).",
+          "type": "string"
+        },
+        "pair_index": {
+          "description": "The index of the token in the smart contract (one row for each pair).",
+          "type": "number"
+        },
+        "pair_address": {
+          "description": "The contract address of the pair.",
+          "type": "string"
+        },
+        "pair_symbol": {
+          "description": "The symbol of the pair.",
+          "type": "string"
+        },
+        "pair_liquidity": {
+          "description": "The liquidity available for trading for the pair (24h rolling average, in tokens).",
+          "type": "number"
+        },
+        "pair_liquidity_usd": {
+          "description": "The liquidity available for trading for the pair (24h rolling average, in USD).",
+          "type": "number"
+        },
+        "volume_usd": {
+          "description": "The volume of each pair opened and closed in the given snapshot (24h rolling average, in USD).",
+          "type": "number"
+        },
+        "open_interest_longs_usd": {
+          "description": "The sum of open interest of longs held for each pair, in USD.",
+          "type": "number"
+        },
+        "open_interest_shorts_usd": {
+          "description": "The sum of open interest in shorts held for each pair, in USD.",
+          "type": "number"
+        },
+        "liquidation_fees_usd": {
+          "description": "The total liquidation fees accrued for each pair (24h rolling average, in USD).",
+          "type": "number"
+        },
+        "funding_rate": {
+          "description": "The funding rate for each pair at the time of the snapshot, as a percentage.",
+          "type": "number"
+        },
+        "open_fees_usd": {
+          "description": "The total open fees accrued for each pair (24h rolling average, in USD).",
+          "type": "number"
+        },
+        "close_fees_usd": {
+          "description": "The total close fees accrued for each pair (24h rolling average, in USD).",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "LP Snapshot (AMM)",
+      "tableName": "derivatives_amm_lp_snapshot",
+      "aggregation": "daily",
+      "uniqueKey": ["lp_address", "vault_address", "token_index", "block_date"],
+      "description": "Liquidity providers snapshot (one entry for each token in a vault).",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "Standard chain id.",
+          "type": "number"
+        },
+        "vault_address": {
+          "description": "The address of the vault.",
+          "type": "string"
+        },
+        "lp_address": {
+          "description": "The address of the liquidity provider.",
+          "type": "string"
+        },
+        "token_index": {
+          "description": "The index of the token in the smart contract.",
+          "type": "number"
+        },
+        "token_address": {
+          "description": "The address of the token provided as liquidity.",
+          "type": "string"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token.",
+          "type": "string"
+        },
+        "amount_useful": {
+          "description": "The amount of tokens supplied by the LP that are liquid and usable by users in the vault, decimal normalized.",
+          "type": "number"
+        },
+        "amount_useful_usd": {
+          "description": "The amount of liquid tokens supplied in USD.",
+          "type": "number"
+        },
+        "liquidity_change_amount": {
+          "description": "The amount of tokens lost (indicated by negative sign) or gained (indicated by positive sign) by the LP, decimal normalized.",
+          "type": "number"
+        },
+        "liquidity_amount_usd": {
+          "description": "The amount lost or gained by the LP, in USD.",
+          "type": "number"
+        },
+        "total_lp_fees_usd": {
+          "description": "Total fees generated for the LP at the time of snapshot (in USD).",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "Vault Snapshot (AMM)",
+      "tableName": "derivatives_amm_vault_snapshot",
+      "aggregation": "daily",
+      "uniqueKey": ["vault_address", "token_index", "block_date"],
+      "description": "Snapshot of the vault's metrics.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "Standard chain id.",
+          "type": "number"
+        },
+        "vault_address": {
+          "description": "The smart contract address of the vault.",
+          "type": "string"
+        },
+        "token_address": {
+          "description": "The smart contract address of the token.",
+          "type": "string"
+        },
+        "token_index": {
+          "description": "The index of the token in the smart contract.",
+          "type": "number"
+        },
+        "token_amount": {
+          "description": "Total Value Locked at snapshot, in tokens.",
+          "type": "number"
+        },
+        "token_amount_usd": {
+          "description": "Total Value Locked at snapshot (amount for each token, in USD).",
+          "type": "number"
+        },
+        "liquidity_available_usd": {
+          "description": "The total liquidity available in the vault for trading, in USD.",
+          "type": "number"
+        },
+        "open_interest_longs_usd": {
+          "description": "The aggregate value of open long positions backed by the vault’s liquidity at snapshot, in USD.",
+          "type": "number"
+        },
+        "open_interest_shorts_usd": {
+          "description": "The aggregate value of open short positions backed by the vault’s liquidity at snapshot, in USD.",
+          "type": "number"
+        },
+        "volume_usd": {
+          "description": "The volume of trades generated by the vault in the given snapshot (24h rolling average, in USD).",
+          "type": "number"
+        },
+        "vault_fees_usd": {
+          "description": "The portion of fees accrued by the protocol (24h rolling average, in USD).",
+          "type": "number"
+        }
+      }
+    },
+    {
       "label": "Trades",
       "tableName": "trades",
       "aggregation": "derivatives_transaction",
