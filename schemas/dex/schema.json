@@ -105,7 +105,7 @@
           "type": "number"
         },
         "token_amount_usd": {
-          "description": "(Optional) The amount of the token in USD.",
+          "description": "The amount of the token in USD.",
           "type": "number"
         }
       }
@@ -150,7 +150,7 @@
           "type": "number"
         },
         "token_amount_usd": {
-          "description": "(Optional) The amount of the token in USD.",
+          "description": "The amount of the token in USD.",
           "type": "number"
         },
         "volume_amount": {
@@ -158,7 +158,7 @@
           "type": "number"
         },
         "volume_usd": {
-          "description": "(Optional) The volume transacted in the given snapshot, in USD.",
+          "description": "The volume transacted in the given snapshot, in USD.",
           "type": "number"
         },
         "fee_rate": {
@@ -166,15 +166,15 @@
           "type": "number"
         },
         "total_fees_usd": {
-          "description": "(Optional) The total amount of revenue and fees paid in this pool in the given snapshot, in USD.",
+          "description": "The total amount of revenue and fees paid in this pool in the given snapshot, in USD.",
           "type": "number"
         },
         "user_fees_usd": {
-          "description": "(Optional) The amount of total fees accrued to liquidity providers of the protocol, in USD.",
+          "description": "The amount of total fees accrued to liquidity providers of the protocol, in USD.",
           "type": "number"
         },
         "protocol_fees_usd": {
-          "description": "(Optional) The amount of total fees accrued to the protocol, in USD.",
+          "description": "The amount of total fees accrued to the protocol, in USD.",
           "type": "number"
         }
       }
@@ -255,11 +255,11 @@
           "type": "number"
         },
         "swap_amount_usd": {
-          "description": "(Optional) The amount of the swap in USD.",
+          "description": "The amount of the swap in USD.",
           "type": "number"
         },
         "fees_usd": {
-          "description": "(Optional) The fees paid by the user.",
+          "description": "The fees paid by the user.",
           "type": "number"
         }
       }
@@ -369,7 +369,7 @@
           "type": "number"
         },
         "mint_amount_usd": {
-          "description": "(Optional) The amount of the mint in USD.",
+          "description": "The amount of the mint in USD.",
           "type": "number"
         }
       }
@@ -438,7 +438,7 @@
           "type": "number"
         },
         "burn_amount_usd": {
-          "description": "(Optional) The amount of the burn in USD.",
+          "description": "The amount of the burn in USD.",
           "type": "number"
         }
       }
@@ -719,7 +719,7 @@
           "type": "number"
         },
         "other_incentive_usd": {
-          "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
+          "description": "Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
           "type": "number"
         }
       }

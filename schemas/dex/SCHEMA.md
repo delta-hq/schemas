@@ -38,7 +38,7 @@ Snapshot of LP positions.
 | token_address            | The contract address of the token provided as liquidity.  | string |
 | token_symbol             | The symbol of the token.                                  | string |
 | token_amount             | The amount of the underlying liquidity position in the pool, decimal normalized (ie, the amount of USDC provided by the LPer in a USDC/WETH pool). | number |
-| token_amount_usd         | (Optional) The amount of the token in USD.                | number |
+| token_amount_usd         | The amount of the token in USD.                           | number |
 
 ### Pool Snapshot
 
@@ -54,13 +54,13 @@ Snapshot of pool states.
 | token_address            | The contract address of the token in the pool.            | string |
 | token_symbol             | The symbol of the token.                                  | string |
 | token_amount             | The amount of the token in this pool at the snapshot.     | number |
-| token_amount_usd         | (Optional) The amount of the token in USD.                | number |
+| token_amount_usd         | The amount of the token in USD.                           | number |
 | volume_amount            | The volume of the token transacted in this pool during the given snapshot, decimal normalized. | number |
-| volume_usd               | (Optional) The volume transacted in the given snapshot, in USD. | number |
+| volume_usd               | The volume transacted in the given snapshot, in USD.      | number |
 | fee_rate                 | The fee rate of the pool, as a percentage (ie, 2.3% as 0.023). | number |
-| total_fees_usd           | (Optional) The total amount of revenue and fees paid in this pool in the given snapshot, in USD. | number |
-| user_fees_usd            | (Optional) The amount of total fees accrued to liquidity providers of the protocol, in USD. | number |
-| protocol_fees_usd        | (Optional) The amount of total fees accrued to the protocol, in USD. | number |
+| total_fees_usd           | The total amount of revenue and fees paid in this pool in the given snapshot, in USD. | number |
+| user_fees_usd            | The amount of total fees accrued to liquidity providers of the protocol, in USD. | number |
+| protocol_fees_usd        | The amount of total fees accrued to the protocol, in USD. | number |
 
 ### Trades (All DEX Types)
 
@@ -85,8 +85,8 @@ All trades across different types of DEXs.
 | output_token_symbol      | The symbol of the output token.                           | string |
 | output_token_amount      | The amount of the output token, decimal normalized.       | number |
 | spot_price_after_swap    | The spot price in the pool after the swap is complete. This is the price ratio a user would get if they made an infinitesimal swap immediately after this one. | number |
-| swap_amount_usd          | (Optional) The amount of the swap in USD.                 | number |
-| fees_usd                 | (Optional) The fees paid by the user.                     | number |
+| swap_amount_usd          | The amount of the swap in USD.                            | number |
+| fees_usd                 | The fees paid by the user.                                | number |
 
 ### User Score Snapshot
 
@@ -123,7 +123,7 @@ Mint events for V2.
 | token1_address           | The contract address of token1.                           | string |
 | token1_amount            | The amount of token1.                                     | number |
 | mint_amount              | The amount of LP token minted by the trader, decimal normalized. | number |
-| mint_amount_usd          | (Optional) The amount of the mint in USD.                 | number |
+| mint_amount_usd          | The amount of the mint in USD.                            | number |
 
 ### V2 Burns
 
@@ -145,7 +145,7 @@ Burn events for V2.
 | token1_address           | The contract address of token1.                           | string |
 | token1_amount            | The amount of token1.                                     | number |
 | burn_amount              | The amount of LP tokens burned, decimal normalized.       | number |
-| burn_amount_usd          | (Optional) The amount of the burn in USD.                 | number |
+| burn_amount_usd          | The amount of the burn in USD.                            | number |
 
 ### V2 Syncs
 
@@ -239,6 +239,6 @@ Transactional data on user level incentives claimed data.
 | claimed_token_address    | The smart contract address of the claimed token.          | string |
 | amount                   | The amount of the token claimed, decimal normalized.      | number |
 | amount_usd               | The amount of claimed tokens in USD.                      | number |
-| other_incentive_usd      | (Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms. | number |
+| other_incentive_usd      | Any incentives outside of the claimed token, in this transaction, summed up in USD terms. | number |
 
 > Note: This markdown file is auto-generated.
