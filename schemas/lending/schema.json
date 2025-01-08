@@ -89,7 +89,7 @@
                     "type": "number"
                 },
                 "supplied_amount_usd": {
-                    "description": "(Optional) The supplied amount in USD.",
+                    "description": "The supplied amount in USD.",
                     "type": "number"
                 },
                 "borrowed_amount": {
@@ -97,15 +97,15 @@
                     "type": "number"
                 },
                 "borrowed_amount_usd": {
-                    "description": "(Optional) The borrowed amount in USD.",
+                    "description": "The borrowed amount in USD.",
                     "type": "number"
                 },
                 "collateral_amount": {
-                    "description": "(Optional) The amount of collateral-only tokens of this asset, decimal normalized.",
+                    "description": "The amount of collateral-only tokens of this asset, decimal normalized.",
                     "type": "number"
                 },
                 "collateral_amount_usd": {
-                    "description": "(Optional) The amount of collateral-only tokens in USD.",
+                    "description": "The amount of collateral-only tokens in USD.",
                     "type": "number"
                 }
             }
@@ -142,7 +142,7 @@
                     "type": "string"
                 },
                 "underlying_token_price_usd": {
-                    "description": "(Optional) The token price of the underlying asset in USD.",
+                    "description": "The token price of the underlying asset in USD.",
                     "type": "number"
                 },
                 "available_amount": {
@@ -150,7 +150,7 @@
                     "type": "number"
                 },
                 "available_amount_usd": {
-                    "description": "(Optional) The available amount of token's in this pool in USD.",
+                    "description": "The available amount of token's in this pool in USD.",
                     "type": "number"
                 },
                 "supplied_amount": {
@@ -158,15 +158,15 @@
                     "type": "number"
                 },
                 "supplied_amount_usd": {
-                    "description": "(Optional) The supplied amount in USD.",
+                    "description": "The supplied amount in USD.",
                     "type": "number"
                 },
                 "collateral_amount": {
-                    "description": "(Optional) The amount of collateral only tokens in this pool.",
+                    "description": "The amount of collateral only tokens in this pool.",
                     "type": "number"
                 },
                 "collateral_amount_usd": {
-                    "description": "(Optional) The amount of collateral only tokens in the pool.",
+                    "description": "The amount of collateral only tokens in the pool.",
                     "type": "number"
                 },
                 "collateral_factor": {
@@ -186,7 +186,7 @@
                     "type": "number"
                 },
                 "borrowed_amount_usd": {
-                    "description": "(Optional) The borrowed amount in USD.",
+                    "description": "The borrowed amount in USD.",
                     "type": "number"
                 },
                 "borrow_index": {
@@ -198,15 +198,15 @@
                     "type": "number"
                 },
                 "total_fees_usd": {
-                    "description": "(Optional) The total revenue or fees accrued in this pool during the given snapshot period (ie, user_fees_usd + protocol_fees_usd = total_fees_usd).",
+                    "description": "The total revenue or fees accrued in this pool during the given snapshot period (ie, user_fees_usd + protocol_fees_usd = total_fees_usd).",
                     "type": "number"
                 },
                 "user_fees_usd": {
-                    "description": "(Optional) The portion of total revenue or fees accrued to users of the protocol during the given snapshot period.",
+                    "description": "The portion of total revenue or fees accrued to users of the protocol during the given snapshot period.",
                     "type": "number"
                 },
                 "protocol_fees_usd": {
-                    "description": "(Optional) The portion of total revenue or fees accrued to protocol during the given snapshot period.",
+                    "description": "The portion of total revenue or fees accrued to protocol during the given snapshot period.",
                     "type": "number"
                 }
             }
@@ -369,7 +369,7 @@
                 "type": "number"
               },
               "other_incentive_usd": {
-                "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
+                "description": "Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
                 "type": "number"
               }
             }
