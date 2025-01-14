@@ -61,7 +61,44 @@
           "type": "number"
         },
         "creation_block_number": {
-          "description": "The block number this pool was created on.",
+          "description": "The block number this pair was created on.",
+          "type": "number"
+        },
+        "pair_name": {
+          "description": "The name of the pool (ie, name() in the smart contract).",
+          "type": "string"
+        },
+        "pair_index": {
+          "description": "The index of the token in the smart contract (one row for each pair).",
+          "type": "number"
+        },
+        "pair_address": {
+          "description": "The contract address of the pair.",
+          "type": "string"
+        },
+        "pair_symbol": {
+          "description": "The symbol of the pair.",
+          "type": "string"
+        },
+        "vault_address": {
+          "description": "The address of the vault where each pair are traded in.",
+          "type": "string"
+        }
+      }
+    },    
+    {
+      "label": "Pairs Snapshot (AMM)",
+      "tableName": "derivatives_amm_pairs_snapshot",
+      "aggregation": "none",
+      "uniqueKey": ["pair_address", "pair_index"],
+      "description": "Pairs traded in the protocol (snapshot data for each pair).",
+      "properties": {
+        "chain_id": {
+          "description": "Standard chain id.",
+          "type": "number"
+        },
+        "timestamp": {
+          "description": "The timestamp of the block the pool was created on.",
           "type": "number"
         },
         "pair_name": {
@@ -81,15 +118,15 @@
           "type": "string"
         },
         "pair_liquidity": {
-          "description": "The liquidity available for trading for the pair (24h rolling average, in tokens).",
+          "description": "The liquidity available for trading for the pair (at snapshot, in tokens).",
           "type": "number"
         },
         "pair_liquidity_usd": {
-          "description": "The liquidity available for trading for the pair (24h rolling average, in USD).",
+          "description": "The liquidity available for trading for the pair (at snapshot, in USD).",
           "type": "number"
         },
         "volume_usd": {
-          "description": "The volume of each pair opened and closed in the given snapshot (24h rolling average, in USD).",
+          "description": "The volume of each pair opened and closed in the given snapshot (at snapshot, in USD).",
           "type": "number"
         },
         "open_interest_longs_usd": {
@@ -101,7 +138,7 @@
           "type": "number"
         },
         "liquidation_fees_usd": {
-          "description": "The total liquidation fees accrued for each pair (24h rolling average, in USD).",
+          "description": "The total liquidation fees accrued for each pair (at snapshot, in USD).",
           "type": "number"
         },
         "funding_rate": {
@@ -109,11 +146,11 @@
           "type": "number"
         },
         "open_fees_usd": {
-          "description": "The total open fees accrued for each pair (24h rolling average, in USD).",
+          "description": "The total open fees accrued for each pair (at snapshot, in USD).",
           "type": "number"
         },
         "close_fees_usd": {
-          "description": "The total close fees accrued for each pair (24h rolling average, in USD).",
+          "description": "The total close fees accrued for each pair (at snapshot, in USD).",
           "type": "number"
         }
       }
@@ -195,6 +232,39 @@
         }
       }
     },
+    {
+      "label": "Vault (AMM)",
+      "tableName": "derivatives_amm_vault",
+      "aggregation": "none",
+      "uniqueKey": ["vault_address", "token_index"],
+      "description": "Vault(s) in the protocol (one entry for each vault).",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "Standard chain id.",
+          "type": "number"
+        },
+        "vault_address": {
+          "description": "The smart contract address of the vault.",
+          "type": "string"
+        },
+        "token_address": {
+          "description": "The smart contract address of the token used as collateral (for each token).",
+          "type": "string"
+        },
+        "token_index": {
+          "description": "The index of the token in the smart contract.",
+          "type": "number"
+        }
+      }
+    },    
     {
       "label": "LP Snapshot (AMM)",
       "tableName": "derivatives_amm_lp_snapshot",
