@@ -231,40 +231,7 @@
           "type": "number"
         }
       }
-    },
-    {
-      "label": "Vault (AMM)",
-      "tableName": "derivatives_amm_vault",
-      "aggregation": "none",
-      "uniqueKey": ["vault_address", "token_index"],
-      "description": "Vault(s) in the protocol (one entry for each vault).",
-      "properties": {
-        "timestamp": {
-          "description": "The timestamp of the snapshot.",
-          "type": "number"
-        },
-        "block_date": {
-          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
-          "type": "date"
-        },
-        "chain_id": {
-          "description": "Standard chain id.",
-          "type": "number"
-        },
-        "vault_address": {
-          "description": "The smart contract address of the vault.",
-          "type": "string"
-        },
-        "token_address": {
-          "description": "The smart contract address of the token used as collateral (for each token).",
-          "type": "string"
-        },
-        "token_index": {
-          "description": "The index of the token in the smart contract.",
-          "type": "number"
-        }
-      }
-    },    
+    },  
     {
       "label": "LP Snapshot (AMM)",
       "tableName": "derivatives_amm_lp_snapshot",
@@ -379,6 +346,43 @@
         }
       }
     },
+    {
+      "label": "Vault (AMM)",
+      "tableName": "derivatives_amm_vault",
+      "aggregation": "none",
+      "uniqueKey": ["vault_address", "token_index"],
+      "description": "Vault(s) in the protocol (one entry for each vault).",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "Standard chain id.",
+          "type": "number"
+        },
+        "vault_address": {
+          "description": "The smart contract address of the vault.",
+          "type": "string"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token.",
+          "type": "string"
+        },
+        "token_address": {
+          "description": "The smart contract address of the token used",
+          "type": "string"
+        },
+        "token_index": {
+          "description": "The index of the token in the smart contract.",
+          "type": "number"
+        }
+      }
+    },  
     {
       "label": "Vault Snapshot (AMM)",
       "tableName": "derivatives_amm_vault_snapshot",

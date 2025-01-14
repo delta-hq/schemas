@@ -80,19 +80,6 @@ Liquidity providers snapshot (one entry for each token in a pool).
 | user_fees_usd            | (Optional) The portion of fees accrued to users of the protocol, in USD. | number |
 | protocol_fees_usd        | (Optional) The portion of fees accrued to the protocol, in USD. | number |
 
-### Vault (AMM)
-
-Vault(s) in the protocol (one entry for each vault).
-
-| Property                | Description                                               | Type   |
-|-------------------------|-----------------------------------------------------------|--------|
-| timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
-| chain_id                 | Standard chain id.                                        | number |
-| vault_address            | The smart contract address of the vault.                  | string |
-| token_address            | The smart contract address of the token used as collateral (for each token). | string |
-| token_index              | The index of the token in the smart contract.             | number |
-
 ### LP Snapshot (AMM)
 
 Liquidity providers snapshot (one entry for each token in a vault).
@@ -130,6 +117,20 @@ Snapshot of the pool's metrics.
 | volume_usd               | The volume of positions opened and closed in the given snapshot in USD. | number |
 | open_interest_longs_usd  | The sum of open interest of longs held within this pool in USD. | number |
 | open_interest_shorts_usd | The sum of open interest in shorts held within this pool in USD. | number |
+
+### Vault (AMM)
+
+Vault(s) in the protocol (one entry for each vault).
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the snapshot.                            | number |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
+| chain_id                 | Standard chain id.                                        | number |
+| vault_address            | The smart contract address of the vault.                  | string |
+| token_symbol             | The symbol of the token.                                  | string |
+| token_address            | The smart contract address of the token used              | string |
+| token_index              | The index of the token in the smart contract.             | number |
 
 ### Vault Snapshot (AMM)
 
