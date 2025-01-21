@@ -13,15 +13,15 @@
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the transfer.",
-                    "type": "number"
+                    "type": "timestamp"
                 },
                 "chain_id": {
                     "description": "The standard id of the chain.",
-                    "type": "number"
+                    "type": "int"
                 },
                 "block_number": {
                     "description": "The block number of the transfer.",
-                    "type": "number"
+                    "type": "bigint"
                 },
                 "transaction_hash": {
                     "description": "The transaction hash of the transfer.",
@@ -29,7 +29,7 @@
                 },
                 "log_index": {
                     "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-                    "type": "number"
+                    "type": "bigint"
                 },
                 "nft_collection_address": {
                     "description": "The contract address of the NFT collection.",
@@ -58,11 +58,11 @@
             "properties": {
               "timestamp": {
                 "description": "The timestamp of the claim.",
-                "type": "number"
+                "type": "timestamp"
               },
               "chain_id": {
                 "description": "The standard chain id.",
-                "type": "number"
+                "type": "int"
               },
               "transaction_hash": {
                 "description": "The hash of the transaction.",
@@ -70,7 +70,7 @@
               },
               "log_index": {
                 "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-                "type": "number"
+                "type": "bigint"
               },
               "transaction_signer": {
                 "description": "The address of the account that signed the transaction.",
@@ -86,15 +86,15 @@
               },
               "amount": {
                 "description": "The amount of the token claimed, decimal normalized.",
-                "type": "number"
+                "type": "double"
               },
               "amount_usd": {
                 "description": "The amount of claimed tokens in USD.",
-                "type": "number"
+                "type": "double"
               },
               "other_incentive_usd": {
                 "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
-                "type": "number"
+                "type": "double"
               }
             }
           }

@@ -13,15 +13,15 @@
       "properties": {
         "chain_id": {
           "description": "Standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "timestamp": {
           "description": "The timestamp of the block the pool was created on.",
-          "type": "number"
+          "type": "timestamp"
         },
         "creation_block_number": {
           "description": "The block number this pool was created on.",
-          "type": "number"
+          "type": "bigint"
         },
         "pool_address": {
           "description": "The contract address of the pool.",
@@ -33,7 +33,7 @@
         },
         "token_index": {
           "description": "The index of the token in the smart contract (one row for each token in a pool).",
-          "type": "number"
+          "type": "bigint"
         },
         "token_address": {
           "description": "The contract address of the token.",
@@ -54,15 +54,15 @@
       "properties": {
         "chain_id": {
           "description": "Standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "timestamp": {
           "description": "The timestamp of the block the pool was created on.",
-          "type": "number"
+          "type": "timestamp"
         },
         "creation_block_number": {
           "description": "The block number this pair was created on.",
-          "type": "number"
+          "type": "bigint"
         },
         "pair_name": {
           "description": "The name of the pool (ie, name() in the smart contract).",
@@ -70,7 +70,7 @@
         },
         "pair_index": {
           "description": "The index of the token in the smart contract (one row for each pair).",
-          "type": "number"
+          "type": "bigint"
         },
         "pair_address": {
           "description": "The contract address of the pair.",
@@ -95,11 +95,11 @@
       "properties": {
         "chain_id": {
           "description": "Standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "timestamp": {
           "description": "The timestamp of the block the pool was created on.",
-          "type": "number"
+          "type": "timestamp"
         },
         "pair_name": {
           "description": "The name of the pool (ie, name() in the smart contract).",
@@ -107,7 +107,7 @@
         },
         "pair_index": {
           "description": "The index of the token in the smart contract (one row for each pair).",
-          "type": "number"
+          "type": "bigint"
         },
         "pair_address": {
           "description": "The contract address of the pair.",
@@ -119,39 +119,39 @@
         },
         "pair_liquidity": {
           "description": "The liquidity available for trading for the pair (at snapshot, in tokens).",
-          "type": "number"
+          "type": "double"
         },
         "pair_liquidity_usd": {
           "description": "The liquidity available for trading for the pair (at snapshot, in USD).",
-          "type": "number"
+          "type": "double"
         },
         "volume_usd": {
           "description": "The volume of each pair opened and closed in the given snapshot (at snapshot, in USD).",
-          "type": "number"
+          "type": "double"
         },
         "open_interest_longs_usd": {
           "description": "The sum of open interest of longs held for each pair, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "open_interest_shorts_usd": {
           "description": "The sum of open interest in shorts held for each pair, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "liquidation_fees_usd": {
           "description": "The total liquidation fees accrued for each pair (at snapshot, in USD).",
-          "type": "number"
+          "type": "double"
         },
         "funding_rate": {
           "description": "The funding rate for each pair at the time of the snapshot, as a percentage.",
-          "type": "number"
+          "type": "double"
         },
         "open_fees_usd": {
           "description": "The total open fees accrued for each pair (at snapshot, in USD).",
-          "type": "number"
+          "type": "double"
         },
         "close_fees_usd": {
           "description": "The total close fees accrued for each pair (at snapshot, in USD).",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -164,7 +164,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -172,7 +172,7 @@
         }, 
         "chain_id": {
           "description": "Standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "pool_address": {
           "description": "The address of the pool.",
@@ -184,7 +184,7 @@
         },
         "token_index": {
           "description": "The index of the token in the smart contract.",
-          "type": "number"
+          "type": "bigint"
         },
         "token_address": {
           "description": "The address of the token provided as liquidity.",
@@ -196,39 +196,39 @@
         },
         "deposit_amount": {
           "description": "(Optional, for Order Books) The amount deposited into the pool, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "deposit_amount_usd": {
           "description": "(Optional, for Order Books) The amount deposited, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "amount_useful": {
           "description": "(Optional, for LPs) The amount of tokens supplied that are liquid and usable by users of the protocol, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "amount_useful_usd": {
           "description": "(Optional, for LPs) The amount of liquid tokens supplied in USD.",
-          "type": "number"
+          "type": "double"
         },
         "liquidated_amount": {
           "description": "The amount of tokens liquidated from the LP, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "liquidated_amount_usd": {
           "description": "The amount liquidated, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "total_fees_usd": {
           "description": "(Optional) All fees generated by the LP in the given snapshot in USD.",
-          "type": "number"
+          "type": "double"
         },
         "user_fees_usd": {
           "description": "(Optional) The portion of fees accrued to users of the protocol, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "protocol_fees_usd": {
           "description": "(Optional) The portion of fees accrued to the protocol, in USD.",
-          "type": "number"
+          "type": "double"
         }
       }
     },  
@@ -241,7 +241,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -249,7 +249,7 @@
         },
         "chain_id": {
           "description": "Standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "vault_address": {
           "description": "The address of the vault.",
@@ -261,7 +261,7 @@
         },
         "token_index": {
           "description": "The index of the token in the smart contract.",
-          "type": "number"
+          "type": "bigint"
         },
         "token_address": {
           "description": "The address of the token provided as liquidity.",
@@ -273,23 +273,23 @@
         },
         "amount_useful": {
           "description": "The amount of tokens supplied by the LP that are liquid and usable by users in the vault, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "amount_useful_usd": {
           "description": "The amount of liquid tokens supplied in USD.",
-          "type": "number"
+          "type": "double"
         },
         "liquidity_change_amount": {
           "description": "The amount of tokens lost (indicated by negative sign) or gained (indicated by positive sign) by the LP, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "liquidity_amount_usd": {
           "description": "The amount lost or gained by the LP, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "total_lp_fees_usd": {
           "description": "Total fees generated for the LP at the time of snapshot (in USD).",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -302,7 +302,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -310,7 +310,7 @@
         }, 
         "chain_id": {
           "description": "Standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "pool_address": {
           "description": "The smart contract address of the pool.",
@@ -318,31 +318,31 @@
         },
         "token_index": {
           "description": "The index of the token in the smart contract (one row for each token in a pool).",
-          "type": "number"
+          "type": "bigint"
         },
         "funding_rate": {
           "description": "The funding rate in this pool at the time of the snapshot, as a percentage.",
-          "type": "number"
+          "type": "double"
         },
         "fee_rate": {
           "description": "he pool's fee rate, as a percentage.",
-          "type": "number"
+          "type": "double"
         },
         "total_value_locked_usd": {
           "description": "The total value locked in USD.",
-          "type": "number"
+          "type": "double"
         },
         "volume_usd": {
           "description": "The volume of positions opened and closed in the given snapshot in USD.",
-          "type": "number"
+          "type": "double"
         },
         "open_interest_longs_usd": {
           "description": "The sum of open interest of longs held within this pool in USD.",
-          "type": "number"
+          "type": "double"
         },
         "open_interest_shorts_usd": {
           "description": "The sum of open interest in shorts held within this pool in USD.",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -355,7 +355,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -363,7 +363,7 @@
         },
         "chain_id": {
           "description": "Standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "vault_address": {
           "description": "The smart contract address of the vault.",
@@ -379,7 +379,7 @@
         },
         "token_index": {
           "description": "The index of the token in the smart contract.",
-          "type": "number"
+          "type": "bigint"
         }
       }
     },  
@@ -392,7 +392,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -400,7 +400,7 @@
         },
         "chain_id": {
           "description": "Standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "vault_address": {
           "description": "The smart contract address of the vault.",
@@ -412,35 +412,35 @@
         },
         "token_index": {
           "description": "The index of the token in the smart contract.",
-          "type": "number"
+          "type": "bigint"
         },
         "token_amount": {
           "description": "Total Value Locked at snapshot, in tokens.",
-          "type": "number"
+          "type": "double"
         },
         "token_amount_usd": {
           "description": "Total Value Locked at snapshot (amount for each token, in USD).",
-          "type": "number"
+          "type": "double"
         },
         "liquidity_available_usd": {
           "description": "The total liquidity available in the vault for trading, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "open_interest_longs_usd": {
           "description": "The aggregate value of open long positions backed by the vault’s liquidity at snapshot, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "open_interest_shorts_usd": {
           "description": "The aggregate value of open short positions backed by the vault’s liquidity at snapshot, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "volume_usd": {
           "description": "The volume of trades generated by the vault in the given snapshot (24h rolling average, in USD).",
-          "type": "number"
+          "type": "double"
         },
         "vault_fees_usd": {
           "description": "The portion of fees accrued by the protocol (24h rolling average, in USD).",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -453,11 +453,11 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the trade.",
-          "type": "number"
+          "type": "timestamp"
         },
         "chain_id": {
           "description": "Standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "transaction_hash": {
           "description": "The hash of the transaction this trade was performed in.",
@@ -465,11 +465,11 @@
         },
         "log_index": {
           "description": "Event log index.",
-          "type": "number"
+          "type": "bigint"
         },
         "block_number": {
           "description": "The block number of the trade.",
-          "type": "number"
+          "type": "bigint"
         },
         "pool_address": {
           "description": "The address of the pool this token was traded in.",
@@ -489,27 +489,27 @@
         },
         "amount": {
           "description": "The value that a trader is putting to open a long or short, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "amount_usd": {
           "description": "The trade amount in USD.",
-          "type": "number"
+          "type": "double"
         },
         "notional_value": {
           "description": "The value of the leveraged amount of the trade, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "notional_value_usd": {
           "description": "The notional value, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "maker_pnl_usd": {
           "description": "(Only applicable on trade close) The total profit and loss of the trade on the maker's side, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "taker_pnl_usd": {
           "description": "(Only applicable on trade close) The total profit and loss of the trade on the taker's side, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "trade_action": {
           "description": "The action of trade being recorded in this entry (ie, OPEN, CLOSE, INCREASE, DECREASE, LIQUIDATED).",
@@ -530,11 +530,11 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the trade.",
-          "type": "number"
+          "type": "timestamp"
         },
         "chain_id": {
           "description": "Standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "transaction_hash": {
           "description": "The hash of the transaction this trade was performed in.",
@@ -542,11 +542,11 @@
         },
         "log_index": {
           "description": "Event log index.",
-          "type": "number"
+          "type": "bigint"
         },
         "block_number": {
           "description": "The block number of the trade.",
-          "type": "number"
+          "type": "bigint"
         },
         "pool_address": {
           "description": "The address of the pool this token was traded in.",
@@ -558,35 +558,35 @@
         },
         "pair_index": {
           "description": "The address of the pair that is traded.",
-          "type": "string"
+          "type": "bigint"
         },
         "amount": {
           "description": "The value that a trader is putting (and used as collateral) to open a long or a short, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "amount_usd": {
           "description": "The trade amount in USD (if deposit is only made in stable, amount = amount_usd).",
-          "type": "number"
+          "type": "double"
         },
         "notional_value": {
           "description": "The value of the leveraged amount of the trade, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "notional_value_usd": {
           "description": "The notional value, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "open_interest_longs_usd": {
           "description": "The aggregate value of open long positions held by the trader at snapshot, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "open_interest_shorts_usd": {
           "description": "The aggregate value of open short positions held by the trader at snapshot, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "taker_pnl_usd": {
           "description": "(Only applicable after trade is closed) The total profit and loss of the trade on the taker's side, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "trade_action": {
           "description": "The action of trade being recorded in this entry (ie, OPEN, CLOSE, INCREASE, DECREASE, LIQUIDATED).",
@@ -598,27 +598,27 @@
         },
         "open_fee_rate": {
           "description": "The open fee applied to to the taker trade, as percentage.",
-          "type": "number"
+          "type": "double"
         },
         "close_fee_rate": {
           "description": "The close fee applied to to the taker trade, as percentage.",
-          "type": "number"
+          "type": "double"
         },
         "open_fee_usd": {
           "description": "The open fee applied to to the taker trade, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "close_fee_usd": {
           "description": "The close fee applied to to the taker trade, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "liquidation_fee_rate": {
           "description": "(If applicable, i.e. PnL<0, 0 otherwise) The liquidation fee applied to to the taker trade, as percentage.",
-          "type": "number"
+          "type": "double"
         },
         "liquidation_fee_usd": {
           "description": "(If applicable, i.e. PnL<0, 0 otherwise) The liquidation fee applied to to the taker trade, in USD.",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -631,11 +631,11 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the claim.",
-          "type": "number"
+          "type": "timestamp"
         },
         "chain_id": {
           "description": "The standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "transaction_hash": {
           "description": "The hash of the transaction.",
@@ -643,7 +643,7 @@
         },
         "log_index": {
           "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-          "type": "number"
+          "type": "bigint"
         },
         "transaction_signer": {
           "description": "The address of the account that signed the transaction.",
@@ -659,15 +659,15 @@
         },
         "amount": {
           "description": "The amount of the token claimed, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "amount_usd": {
           "description": "The amount of claimed tokens in USD.",
-          "type": "number"
+          "type": "double"
         },
         "other_incentive_usd": {
           "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
-          "type": "number"
+          "type": "double"
         }
       }
     }

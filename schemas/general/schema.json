@@ -13,11 +13,11 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the claim.",
-          "type": "number"
+          "type": "timestamp"
         },
         "chain_id": {
           "description": "The standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "transaction_hash": {
           "description": "The hash of the transaction.",
@@ -25,7 +25,7 @@
         },
         "log_index": {
           "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-          "type": "number"
+          "type": "bigint"
         },
         "transaction_signer": {
           "description": "The address of the account that signed the transaction.",
@@ -41,15 +41,15 @@
         },
         "amount": {
           "description": "The amount of the token claimed, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "amount_usd": {
           "description": "The amount of claimed tokens in USD.",
-          "type": "number"
+          "type": "double"
         },
         "other_incentive_usd": {
           "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -62,7 +62,7 @@
       "properties": {
         "airdrop_timestamp": {
           "description": "The timestamp the airdrop was given to the user.",
-          "type": "number"
+          "type": "timestamp"
         },
         "user_address": {
           "description": "The address of the user claiming the airdrop.",
@@ -70,7 +70,7 @@
         },
         "claim_timestamp": {
           "description": "The timestamp of when the user claimed the airdrop.",
-          "type": "number"
+          "type": "timestamp"
         },
         "transaction_hash": {
           "description": "The hash of the transaction.",
@@ -78,7 +78,7 @@
         },
         "log_index": {
           "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-          "type": "number"
+          "type": "bigint"
         },
         "airdrop_token_address": {
           "description": "The smart contract address of the airdropped token.",
@@ -90,11 +90,11 @@
         },
         "token_amount": {
           "description": "The amount of each token airdropped, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "amount_usd": {
           "description": "The USD value of the airdropped tokens.",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -107,7 +107,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the record.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -115,7 +115,7 @@
         },
         "chain_id": {
           "description": "The standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "protocol_type": {
           "description": "The type of protocol (ie, Lending, CDP, DEX, Gaming, etc).",
@@ -131,15 +131,15 @@
         },
         "total_value_locked_usd": {
           "description": "The total value locked within this pool in USD.",
-          "type": "number"
+          "type": "double"
         },
         "supply_apr": {
           "description": "The annual percentage rate of this pool at the snapshot.",
-          "type": "number"
+          "type": "double"
         },
         "supply_apy": {
           "description": "The annual percentage yield of the pool.",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -152,7 +152,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -160,19 +160,19 @@
         },
         "chain_id": {
           "description": "The standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "daily_active_users": {
           "description": "The number of unique daily active users on this protocol.",
-          "type": "number"
+          "type": "bigint"
         },
         "transaction_count": {
           "description": "The number of transactions in this time period.",
-          "type": "number"
+          "type": "bigint"
         },
         "fees_usd": {
           "description": "The amount of fees in this given period, decimal normalized.",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -185,7 +185,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -193,7 +193,7 @@
         },
         "chain_id": {
           "description": "The standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "user_address": {
           "description": "The address of the user this snapshot activity is based on.",
@@ -209,11 +209,11 @@
         },
         "token_amount": {
           "description": "The amount of the token at the given snapshot timestamp (decimal normalized).",
-          "type": "number"
+          "type": "double"
         },
         "token_amount_usd": {
           "description": "The amount of the token in USD.",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -234,23 +234,23 @@
         },
         "chain_id": {
           "description": "The standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "block_number": {
           "description": "The ordinal block number.",
-          "type": "number"
+          "type": "bigint"
         },
         "signer_address": {
           "description": "The transaction signer's address.",
-          "type": "varbinary"
+          "type": "string"
         },
         "transaction_hash": {
           "description": "The unique identifier for this transaction.",
-          "type": "varbinary"
+          "type": "string"
         },
         "log_index": {
           "description": "The unique identifier for this transaction.",
-          "type": "number"
+          "type": "bigint"
         },
         "event_name": {
           "description": "The string name for the event associated with log_index, corresponds to the action taken by the user (ie, deposit, withdrawal, borrow, repay, liquidation, flashloan).",
@@ -258,11 +258,11 @@
         },
         "transaction_fee": {
           "description": "The total amount of gas used in the transactions occurring in the given snapshot (in the native gas amount).",
-          "type": "number"
+          "type": "double"
         },
         "transaction_fee_usd": {
           "description": "(Optional, if possible) The total amount of gas used in USD terms in the given snapshot.",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -275,7 +275,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -283,7 +283,7 @@
         },
         "chain_id": {
           "description": "The standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "user_address": {
           "description": "The address of the user this snapshot activity is based on.",
@@ -291,15 +291,15 @@
         },
         "transaction_count": {
           "description": "The number of transactions this user has signed in the given snapshot.",
-          "type": "number"
+          "type": "bigint"
         },
         "transaction_fees": {
           "description": "The total amount of gas used in the transactions occurring in the given snapshot (in the native gas amount).",
-          "type": "number"
+          "type": "double"
         },
         "transaction_fees_usd": {
           "description": "(Optional, if possible) The total amount of gas used in USD terms in the given snapshot.",
-          "type": "number"
+          "type": "double"
         }
       }
     }

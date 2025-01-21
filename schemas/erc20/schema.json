@@ -13,15 +13,15 @@
       "properties": {
         "timestamp": {
           "description": "The UNIX timestamp of the block associated with the transaction.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_number": {
           "description": "The block number for the transaction",
-          "type": "number"
+          "type": "bigint"
         },
         "chain_id": {
           "description": "The standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "from_user_address": {
           "description": "The address of the user sending the erc-20 transfer.",
@@ -33,7 +33,7 @@
         },
         "token_transfer_amount": {
           "description": "The amount of the token transferred (decimal normalized).",
-          "type": "number"
+          "type": "double"
         },
         "token_address": {
           "description": "The smart contract address of the token.",
@@ -45,7 +45,7 @@
         },
         "log_index": {
           "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-          "type": "number"
+          "type": "bigint"
         },
         "transaction_hash": {
           "description": "The hash of the transaction.",

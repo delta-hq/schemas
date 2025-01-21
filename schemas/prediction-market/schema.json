@@ -13,7 +13,7 @@
             "properties": {
                 "timestamp": {
                     "description": "The timestamp of the snapshot (in unix time).",
-                    "type": "number"
+                    "type": "timestamp"
                 },
                 "block_date": {
                     "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -21,7 +21,7 @@
                 }, 
                 "chain_id": {
                     "description": "The standard id of the chain.",
-                    "type": "number"
+                    "type": "int"
                 },
                 "user_address": {
                     "description": "The address of the user that owns this order in the snapshot.",
@@ -33,27 +33,27 @@
                 },
                 "order_id": {
                     "description": "Identifier for the particular limit order.",
-                    "type": "number"
+                    "type": "bigint"
                 },
                 "open_order_size_usd": {
                     "description": "The USD value of the open amount for this particular limit order.",
-                    "type": "number"
+                    "type": "double"
                 },
                 "closed_order_size_usd": {
                     "description": "The USD value of the open amount for this particular limit order in the interval for the given timestamp.",
-                    "type": "number"
+                    "type": "double"
                 },
                 "locked_order_size_usd": {
                     "description": "The USD value of the open filled and matched for this particular limit order.",
-                    "type": "number"
+                    "type": "double"
                 },
                 "poll_open_timestamp":{
                     "description": "The timestamp that the poll opens at.",
-                    "type": "number"
+                    "type": "timestamp"
                 },
                 "poll_close_timestamp":{
                     "description": "The timestamp that the poll closes at.",
-                    "type": "number"
+                    "type": "timestamp"
                 }
             }
         }

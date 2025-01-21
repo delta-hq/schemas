@@ -13,7 +13,7 @@
       "properties": {
         "chain_id": {
           "description": "The blockchain ID where the token resides.",
-          "type": "number"
+          "type": "int"
         },
         "token_address": {
           "description": "The contract address of the token.",
@@ -29,7 +29,7 @@
         },
         "decimals": {
           "description": "The decimal places of the token.",
-          "type": "number"
+          "type": "string"
         }
       }
     },
@@ -42,7 +42,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots).",
@@ -50,7 +50,7 @@
         },
         "chain_id": {
           "description": "The blockchain ID where the token resides.",
-          "type": "number"
+          "type": "int"
         },
         "token_address": {
           "description": "The contract address of the token.",
@@ -58,27 +58,27 @@
         },
         "volume_amount": {
           "description": "The total volume of the token bridged, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "volume_usd": {
           "description": "The total volume in USD.",
-          "type": "number"
+          "type": "double"
         },
         "fees": {
           "description": "The fees collected in token amount, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "fees_usd": {
           "description": "The fees collected in USD.",
-          "type": "number"
+          "type": "double"
         },
         "incentive_amount": {
           "description": "The amount of incentives distributed, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "incentive_usd": {
           "description": "The amount of incentives distributed in USD.",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -91,15 +91,15 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the transaction.",
-          "type": "number"
+          "type": "timestamp"
         },
         "source_chain_id": {
           "description": "The source chain ID.",
-          "type": "number"
+          "type": "int"
         },
         "destination_chain_id": {
           "description": "The destination chain ID.",
-          "type": "number"
+          "type": "int"
         },
         "source_transaction_hash": {
           "description": "The transaction hash on the source chain.",
@@ -123,11 +123,11 @@
         },
         "input_token_amounts": {
           "description": "Array of input token amounts, decimal normalized.",
-          "type": "[number]"
+          "type": "[double]"
         },
         "input_token_fees": {
           "description": "Array of fees paid in input tokens, decimal normalized.",
-          "type": "[number]"
+          "type": "[double]"
         },
         "output_tokens": {
           "description": "Array of token addresses received as output.",
@@ -135,9 +135,9 @@
         },
         "output_token_amounts": {
           "description": "Array of output token amounts, decimal normalized.",
-          "type": "[number]"
-          }
+          "type": "[double]"
         }
+      }
     }
   ]
 }
