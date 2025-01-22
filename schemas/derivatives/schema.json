@@ -283,7 +283,7 @@
           "description": "The amount of tokens lost (indicated by negative sign) or gained (indicated by positive sign) by the LP, decimal normalized.",
           "type": "number"
         },
-        "liquidity_amount_usd": {
+        "liquidity_change_amount_usd": {
           "description": "The amount lost or gained by the LP, in USD.",
           "type": "number"
         },
@@ -354,12 +354,8 @@
       "description": "Vault(s) in the protocol (one entry for each vault).",
       "properties": {
         "timestamp": {
-          "description": "The timestamp of the snapshot.",
+          "description": "The timestamp of the block the pool was created on.",
           "type": "number"
-        },
-        "block_date": {
-          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
-          "type": "date"
         },
         "chain_id": {
           "description": "Standard chain id.",
