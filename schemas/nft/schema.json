@@ -1,102 +1,110 @@
 {
-    "schema": "NFT",
-    "description": "Standard table definitions for NFTs.",
-    "protocolCategory": ["NFT"],
-    "version": "1.0.0-alpha",
-    "tables": [
-        {
-            "label": "NFT Transfers",
-            "tableName": "nft_transfers",
-            "aggregation": "transaction",
-            "uniqueKey": ["transaction_hash", "log_index"],
-            "description": "List of NFT transfers.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the transfer.",
-                    "type": "timestamp"
-                },
-                "chain_id": {
-                    "description": "The standard id of the chain.",
-                    "type": "int"
-                },
-                "block_number": {
-                    "description": "The block number of the transfer.",
-                    "type": "bigint"
-                },
-                "transaction_hash": {
-                    "description": "The transaction hash of the transfer.",
-                    "type": "string"
-                },
-                "log_index": {
-                    "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-                    "type": "bigint"
-                },
-                "nft_collection_address": {
-                    "description": "The contract address of the NFT collection.",
-                    "type": "string"
-                },
-                "nft_id": {
-                    "description": "The unique identifier of the NFT.",
-                    "type": "string"
-                },
-                "sender_address": {
-                    "description": "The address of the sender of the NFT.",
-                    "type": "string"
-                },
-                "receiver_address": {
-                    "description": "The address of the receiver of the NFT.",
-                    "type": "string"
-                }
-            }
+  "schema": "NFT",
+  "description": "Standard table definitions for NFTs.",
+  "protocolCategory": [
+    "NFT"
+  ],
+  "version": "1.0.0-alpha",
+  "tables": [
+    {
+      "label": "NFT Transfers",
+      "tableName": "nft_transfers",
+      "aggregation": "transaction",
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
+      "description": "List of NFT transfers.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the transfer.",
+          "type": "timestamp"
         },
-        {
-            "label": "Incentive Claim Data",
-            "tableName": "nft_incentive_claim",
-            "aggregation": "transaction",
-            "uniqueKey": ["transaction_hash", "log_index"],
-            "description": "Transactional data on user level incentives claimed data.",
-            "properties": {
-              "timestamp": {
-                "description": "The timestamp of the claim.",
-                "type": "timestamp"
-              },
-              "chain_id": {
-                "description": "The standard chain id.",
-                "type": "int"
-              },
-              "transaction_hash": {
-                "description": "The hash of the transaction.",
-                "type": "string"
-              },
-              "log_index": {
-                "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-                "type": "bigint"
-              },
-              "transaction_signer": {
-                "description": "The address of the account that signed the transaction.",
-                "type": "string"
-              },
-              "user_address": {
-                "description": "The address of the user who claimed the incentives (could be different from the transaction_signer).",
-                "type": "string"
-              },
-              "claimed_token_address": {
-                "description": "The smart contract address of the claimed token.",
-                "type": "string"
-              },
-              "amount": {
-                "description": "The amount of the token claimed, decimal normalized.",
-                "type": "double"
-              },
-              "amount_usd": {
-                "description": "The amount of claimed tokens in USD.",
-                "type": "double"
-              },
-              "other_incentive_usd": {
-                "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
-                "type": "double"
-              }
-            }
-          }
-    ]
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
+        },
+        "block_number": {
+          "description": "The block number of the transfer.",
+          "type": "bigint"
+        },
+        "transaction_hash": {
+          "description": "The transaction hash of the transfer.",
+          "type": "string"
+        },
+        "log_index": {
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+          "type": "bigint"
+        },
+        "nft_collection_address": {
+          "description": "The contract address of the NFT collection.",
+          "type": "string"
+        },
+        "nft_id": {
+          "description": "The unique identifier of the NFT.",
+          "type": "string"
+        },
+        "sender_address": {
+          "description": "The address of the sender of the NFT.",
+          "type": "string"
+        },
+        "receiver_address": {
+          "description": "The address of the receiver of the NFT.",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "label": "Incentive Claim Data",
+      "tableName": "nft_incentive_claim",
+      "aggregation": "transaction",
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
+      "description": "Transactional data on user level incentives claimed data.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the claim.",
+          "type": "timestamp"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "int"
+        },
+        "transaction_hash": {
+          "description": "The hash of the transaction.",
+          "type": "string"
+        },
+        "log_index": {
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+          "type": "bigint"
+        },
+        "transaction_signer": {
+          "description": "The address of the account that signed the transaction.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address of the user who claimed the incentives (could be different from the transaction_signer).",
+          "type": "string"
+        },
+        "claimed_token_address": {
+          "description": "The smart contract address of the claimed token.",
+          "type": "string"
+        },
+        "amount": {
+          "description": "The amount of the token claimed, decimal normalized.",
+          "type": "double"
+        },
+        "amount_usd": {
+          "description": "The amount of claimed tokens in USD.",
+          "type": "double"
+        },
+        "other_incentive_usd": {
+          "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
+          "type": "double"
+        }
+      }
+    }
+  ]
 }

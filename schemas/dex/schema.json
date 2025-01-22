@@ -1,14 +1,19 @@
 {
   "schema": "DEX",
   "description": "Standard table definitions for dex protocols.",
-  "protocolCategory": ["DEX"],
+  "protocolCategory": [
+    "DEX"
+  ],
   "version": "1.0.0",
   "tables": [
     {
       "label": "Pools",
       "tableName": "dex_pools",
       "aggregation": "none",
-      "uniqueKey": ["pool_address", "token_index"],
+      "uniqueKey": [
+        "pool_address",
+        "token_index"
+      ],
       "description": "List of LP pools in this protocol (one entry per token in a pool).",
       "properties": {
         "chain_id": {
@@ -65,7 +70,12 @@
       "label": "LP Position Snapshot",
       "tableName": "lp_position_snapshot",
       "aggregation": "daily",
-      "uniqueKey": ["user_address", "pool_address", "token_index", "block_date"],
+      "uniqueKey": [
+        "user_address",
+        "pool_address",
+        "token_index",
+        "block_date"
+      ],
       "description": "Snapshot of LP positions.",
       "properties": {
         "timestamp": {
@@ -75,7 +85,7 @@
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
           "type": "date"
-        }, 
+        },
         "chain_id": {
           "description": "The standard id of the chain.",
           "type": "int"
@@ -114,7 +124,11 @@
       "label": "Pool Snapshot",
       "tableName": "pool_snapshot",
       "aggregation": "daily",
-      "uniqueKey": ["pool_address", "token_index", "block_date"],
+      "uniqueKey": [
+        "pool_address",
+        "token_index",
+        "block_date"
+      ],
       "description": "Snapshot of pool states.",
       "properties": {
         "timestamp": {
@@ -124,7 +138,7 @@
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
           "type": "date"
-        }, 
+        },
         "chain_id": {
           "description": "The standard id of the chain.",
           "type": "int"
@@ -183,7 +197,10 @@
       "label": "Trades (All DEX Types)",
       "tableName": "dex_trades",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "All trades across different types of DEXs.",
       "properties": {
         "timestamp": {
@@ -268,7 +285,11 @@
       "label": "User Score Snapshot",
       "tableName": "user_score_snapshot",
       "aggregation": "daily",
-      "uniqueKey": ["user_address", "pool_address", "block_date"],
+      "uniqueKey": [
+        "user_address",
+        "pool_address",
+        "block_date"
+      ],
       "description": "Snapshot of user scores.",
       "properties": {
         "timestamp": {
@@ -278,7 +299,7 @@
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
           "type": "date"
-        }, 
+        },
         "chain_id": {
           "description": "The standard id of the chain.",
           "type": "int"
@@ -309,7 +330,10 @@
       "label": "V2 Mints",
       "tableName": "v2_mints",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "Mint events for V2.",
       "properties": {
         "timestamp": {
@@ -378,7 +402,10 @@
       "label": "V2 Burns",
       "tableName": "v2_burns",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "Burn events for V2.",
       "properties": {
         "timestamp": {
@@ -447,7 +474,10 @@
       "label": "V2 Syncs",
       "tableName": "v2_syncs",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "Sync events for V2.",
       "properties": {
         "timestamp": {
@@ -496,7 +526,10 @@
       "label": "V2 Transfers",
       "tableName": "v2_transfers",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "Transfer events for V2.",
       "properties": {
         "timestamp": {
@@ -545,7 +578,10 @@
       "label": "V3 Events",
       "tableName": "v3_events",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "LP burn/mint events for V3 DEXs.",
       "properties": {
         "timestamp": {
@@ -630,7 +666,10 @@
       "label": "V3 Transfers",
       "tableName": "v3_transfers",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "LP transfer events for V3 DEXs.",
       "properties": {
         "timestamp": {
@@ -679,7 +718,10 @@
       "label": "Incentive Claim Data",
       "tableName": "dex_incentive_claim",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "Transactional data on user level incentives claimed data.",
       "properties": {
         "timestamp": {

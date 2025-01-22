@@ -1,14 +1,21 @@
 {
   "schema": "Derivatives",
   "description": "OpenBlock Labs standard schema for derivatives protocols (options and perps).",
-  "protocolCategory": ["Derivatives", "Option", "Perpetual"],
+  "protocolCategory": [
+    "Derivatives",
+    "Option",
+    "Perpetual"
+  ],
   "version": "1.0.0-alpha",
   "tables": [
     {
       "label": "Pools",
       "tableName": "derivatives_pools",
       "aggregation": "none",
-      "uniqueKey": ["pool_address", "token_index"],
+      "uniqueKey": [
+        "pool_address",
+        "token_index"
+      ],
       "description": "Pools in the protocol (one entry for each token).",
       "properties": {
         "chain_id": {
@@ -49,7 +56,10 @@
       "label": "Pairs (AMM)",
       "tableName": "derivatives_amm_pairs",
       "aggregation": "none",
-      "uniqueKey": ["pair_address", "pair_index"],
+      "uniqueKey": [
+        "pair_address",
+        "pair_index"
+      ],
       "description": "Pairs traded in the protocol (one entry for each pair).",
       "properties": {
         "chain_id": {
@@ -85,12 +95,15 @@
           "type": "string"
         }
       }
-    },    
+    },
     {
       "label": "Pairs Snapshot (AMM)",
       "tableName": "derivatives_amm_pairs_snapshot",
       "aggregation": "none",
-      "uniqueKey": ["pair_address", "pair_index"],
+      "uniqueKey": [
+        "pair_address",
+        "pair_index"
+      ],
       "description": "Pairs traded in the protocol (snapshot data for each pair).",
       "properties": {
         "chain_id": {
@@ -159,7 +172,12 @@
       "label": "LP Snapshot",
       "tableName": "derivatives_lp_snapshot",
       "aggregation": "daily",
-      "uniqueKey": ["lp_address", "pool_address", "token_index", "block_date"],
+      "uniqueKey": [
+        "lp_address",
+        "pool_address",
+        "token_index",
+        "block_date"
+      ],
       "description": "Liquidity providers snapshot (one entry for each token in a pool).",
       "properties": {
         "timestamp": {
@@ -169,7 +187,7 @@
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
           "type": "date"
-        }, 
+        },
         "chain_id": {
           "description": "Standard chain id.",
           "type": "int"
@@ -231,12 +249,17 @@
           "type": "double"
         }
       }
-    },  
+    },
     {
       "label": "LP Snapshot (AMM)",
       "tableName": "derivatives_amm_lp_snapshot",
       "aggregation": "daily",
-      "uniqueKey": ["lp_address", "vault_address", "token_index", "block_date"],
+      "uniqueKey": [
+        "lp_address",
+        "vault_address",
+        "token_index",
+        "block_date"
+      ],
       "description": "Liquidity providers snapshot (one entry for each token in a vault).",
       "properties": {
         "timestamp": {
@@ -297,7 +320,11 @@
       "label": "Pool Snapshot",
       "tableName": "derivatives_pool_snapshot",
       "aggregation": "daily",
-      "uniqueKey": ["pool_address", "token_index", "block_date"],
+      "uniqueKey": [
+        "pool_address",
+        "token_index",
+        "block_date"
+      ],
       "description": "Snapshot of the pool's metrics.",
       "properties": {
         "timestamp": {
@@ -307,7 +334,7 @@
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
           "type": "date"
-        }, 
+        },
         "chain_id": {
           "description": "Standard chain id.",
           "type": "int"
@@ -350,7 +377,10 @@
       "label": "Vault (AMM)",
       "tableName": "derivatives_amm_vault",
       "aggregation": "none",
-      "uniqueKey": ["vault_address", "token_index"],
+      "uniqueKey": [
+        "vault_address",
+        "token_index"
+      ],
       "description": "Vault(s) in the protocol (one entry for each vault).",
       "properties": {
         "timestamp": {
@@ -378,12 +408,16 @@
           "type": "bigint"
         }
       }
-    },  
+    },
     {
       "label": "Vault Snapshot (AMM)",
       "tableName": "derivatives_amm_vault_snapshot",
       "aggregation": "daily",
-      "uniqueKey": ["vault_address", "token_index", "block_date"],
+      "uniqueKey": [
+        "vault_address",
+        "token_index",
+        "block_date"
+      ],
       "description": "Snapshot of the vault's metrics.",
       "properties": {
         "timestamp": {
@@ -444,7 +478,10 @@
       "label": "Trades",
       "tableName": "trades",
       "aggregation": "derivatives_transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "Trade data, 1 entry for each close, open, or update of a trade.",
       "properties": {
         "timestamp": {
@@ -521,7 +558,10 @@
       "label": "Trades (AMM)",
       "tableName": "derivatives_amm_trades",
       "aggregation": "none",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "Trade data, one entry for each close, open, or update of a trade.",
       "properties": {
         "timestamp": {
@@ -622,7 +662,10 @@
       "label": "Incentive Claim Data",
       "tableName": "derivatives_incentive_claim",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "Transactional data on user level incentives claimed data.",
       "properties": {
         "timestamp": {

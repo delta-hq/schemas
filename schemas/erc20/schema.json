@@ -1,14 +1,19 @@
 {
   "schema": "ERC-20",
   "description": "Table definitions for the ERC-20 schema. These tables can be used for any protocol.",
-  "protocolCategory": ["ERC20"],
+  "protocolCategory": [
+    "ERC20"
+  ],
   "version": "1.0.0-alpha",
   "tables": [
     {
       "label": "Token ERC-20 Transfers",
       "tableName": "general_token_erc20_transfers",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "ERC-20 Token Transfers",
       "properties": {
         "timestamp": {

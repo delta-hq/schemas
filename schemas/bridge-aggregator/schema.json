@@ -1,14 +1,19 @@
 {
   "schema": "Bridge Aggregator",
   "description": "Standard table definitions for bridge aggregator protocols that route users across different bridge protocols.",
-  "protocolCategory": ["Bridge Aggregator"],
+  "protocolCategory": [
+    "Bridge Aggregator"
+  ],
   "version": "1.0.0-alpha",
   "tables": [
     {
       "label": "Tokens",
       "tableName": "bridge_aggregator_tokens",
       "aggregation": "none",
-      "uniqueKey": ["chain_id", "token_address"],
+      "uniqueKey": [
+        "chain_id",
+        "token_address"
+      ],
       "description": "List of tokens supported by the bridge aggregator.",
       "properties": {
         "chain_id": {
@@ -37,7 +42,11 @@
       "label": "Token Snapshot",
       "tableName": "bridge_aggregator_token_metrics",
       "aggregation": "daily",
-      "uniqueKey": ["chain_id", "token_address", "block_date"],
+      "uniqueKey": [
+        "chain_id",
+        "token_address",
+        "block_date"
+      ],
       "description": "Snapshot of token-level metrics in the aggregator.",
       "properties": {
         "timestamp": {
@@ -86,7 +95,10 @@
       "label": "Bridge Transactions",
       "tableName": "bridge_aggregator_transactions",
       "aggregation": "transaction",
-      "uniqueKey": ["source_transaction_hash", "destination_transaction_hash"],
+      "uniqueKey": [
+        "source_transaction_hash",
+        "destination_transaction_hash"
+      ],
       "description": "Transaction-level data for bridge aggregator operations.",
       "properties": {
         "timestamp": {
