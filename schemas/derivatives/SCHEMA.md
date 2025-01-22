@@ -97,7 +97,7 @@ Liquidity providers snapshot (one entry for each token in a vault).
 | amount_useful            | The amount of tokens supplied by the LP that are liquid and usable by users in the vault, decimal normalized. | number |
 | amount_useful_usd        | The amount of liquid tokens supplied in USD.              | number |
 | liquidity_change_amount  | The amount of tokens lost (indicated by negative sign) or gained (indicated by positive sign) by the LP, decimal normalized. | number |
-| liquidity_amount_usd     | The amount lost or gained by the LP, in USD.              | number |
+| liquidity_change_amount_usd | The amount lost or gained by the LP, in USD.              | number |
 | total_lp_fees_usd        | Total fees generated for the LP at the time of snapshot (in USD). | number |
 
 ### Pool Snapshot
@@ -124,8 +124,7 @@ Vault(s) in the protocol (one entry for each vault).
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
-| timestamp                | The timestamp of the snapshot.                            | number |
-| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
+| timestamp                | The timestamp of the block the pool was created on.       | number |
 | chain_id                 | Standard chain id.                                        | number |
 | vault_address            | The smart contract address of the vault.                  | string |
 | token_symbol             | The symbol of the token.                                  | string |
