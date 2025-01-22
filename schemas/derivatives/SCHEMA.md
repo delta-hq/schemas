@@ -205,6 +205,25 @@ Trade data, one entry for each close, open, or update of a trade.
 | liquidation_fee_rate     | (If applicable, i.e. PnL<0, 0 otherwise) The liquidation fee applied to to the taker trade, as percentage. | number |
 | liquidation_fee_usd      | (If applicable, i.e. PnL<0, 0 otherwise) The liquidation fee applied to to the taker trade, in USD. | number |
 
+### Liquidity Events
+
+All liquidity user events in the derivatives protocol (ie, Deposit, Withdrawal)
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the transaction.                         | number |
+| chain_id                 | The standard id of the chain.                             | number |
+| block_number             | The block number of the trade.                            | number |
+| log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | number |
+| transaction_hash         | The hash of the transaction.                              | string |
+| user_address             | The address that initiates the transaction (ie, the transaction signer). | string |
+| taker_address            | The address that receives the output of the event (ie, account that receives LP receipt tokens). | string |
+| pool_address             | The contract address of the pool.                         | string |
+| token_address            | The address of the underlying token that was interacted with (ie, USDC). | string |
+| amount                   | The amount of token_address transacted, decimal normalized. | number |
+| amount_usd               | The amount of token_address transacted, in USD.           | number |
+| event_type               | The type of event, corresponds to the action taken by the user (ie, deposit, withdrawal). | string |
+
 ### Incentive Claim Data
 
 Transactional data on user level incentives claimed data.
