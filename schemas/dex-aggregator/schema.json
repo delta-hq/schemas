@@ -1,229 +1,245 @@
 {
-    "schema": "DEX Aggregator",
-    "description": "Standard table definitions for DEX aggregators.",
-    "protcolCategory": ["DEX Aggregator", "Trading"],
-    "version": "1.0.0-alpha",
-    "tables": [
-        {
-            "label": "Tokens",
-            "tableName": "dex_agg_tokens",
-            "aggregation": "none",
-            "uniqueKey": ["token_address"],
-            "description": "List of tokens supported by the protocol.",
-            "properties": {
-                "chain_id": {
-                    "description": "The standard id of the chain.",
-                    "type": "int"
-                },
-                "token_address": {
-                    "description": "The contract address of the token.",
-                    "type": "string"
-                },
-                "token_name": {
-                    "description": "The full name of the token, from the eth_call name().",
-                    "type": "string"
-                },
-                "token_symbol": {
-                    "description": "The symbol of the token, from the eth_call symbol().",
-                    "type": "string"
-                },
-                "decimals": {
-                    "description": "The decimals name of the token, from the eth_call decimals().",
-                    "type": "string"
-                }
-            }
+  "schema": "DEX Aggregator",
+  "description": "Standard table definitions for DEX aggregators.",
+  "protcolCategory": [
+    "DEX Aggregator",
+    "Trading"
+  ],
+  "version": "1.0.0-alpha",
+  "tables": [
+    {
+      "label": "Tokens",
+      "tableName": "dex_agg_tokens",
+      "aggregation": "none",
+      "uniqueKey": [
+        "token_address"
+      ],
+      "description": "List of tokens supported by the protocol.",
+      "properties": {
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
         },
-        {
-            "label": "Token Snapshot",
-            "tableName": "dex_agg_token_metrics",
-            "aggregation": "daily",
-            "uniqueKey": ["token_address", "block_date"],
-            "description": "Volume, fees, and incentives data at the token level.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the record.",
-                    "type": "timestamp"
-                },
-                "block_date": {
-                    "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
-                    "type": "date"
-                },
-                "chain_id": {
-                    "description": "The standard id of the chain.",
-                    "type": "int"
-                },
-                "token_address": {
-                    "description": "The contract address of the token.",
-                    "type": "string"
-                },
-                "volume_amount": {
-                    "description": "The volume amount of the token, during the snapshot period, decimal normalized.",
-                    "type": "double"
-                },
-                "volume_usd": {
-                    "description": "The volume of the token in USD.",
-                    "type": "double"
-                },
-                "fees": {
-                    "description": "The fees (ie, revenue generated from trading this token) from this token in native, decimal normalized terms.",
-                    "type": "double"
-                },
-                "fees_usd": {
-                    "description": "The fees collected in USD.",
-                    "type": "double"
-                },
-                "incentive_amount": {
-                    "description": "The amount of incentives collected from this token, during the snapshot period, decimal normalized.",
-                    "type": "double"
-                },
-                "incentive_usd": {
-                    "description": "The value of incentives in USD.",
-                    "type": "double"
-                }
-            }
+        "token_address": {
+          "description": "The contract address of the token.",
+          "type": "string"
         },
-        {
-            "label": "Protocol Snapshot",
-            "tableName": "dex_agg_metrics",
-            "aggregation": "daily",
-            "uniqueKey": ["block_date"],
-            "description": "Volume and fees data at the protocol level.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the block this snapshot was taken.",
-                    "type": "timestamp"
-                },
-                "block_date": {
-                    "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
-                    "type": "date"
-                },
-                "chain_id": {
-                    "description": "The standard id of the chain.",
-                    "type": "int"
-                },
-                "volume_usd": {
-                    "description": "The volume in USD, in the given snapshot period.",
-                    "type": "double"
-                },
-                "fees_usd": {
-                    "description": "The fees (ie, total revenue generated in the protocol) collected in USD, during the snapshot period.",
-                    "type": "double"
-                }
-            }
+        "token_name": {
+          "description": "The full name of the token, from the eth_call name().",
+          "type": "string"
         },
-        {
-            "label": "Trades",
-            "tableName": "dex_agg_trades",
-            "aggregation": "transaction",
-            "uniqueKey": ["transaction_hash", "log_index"],
-            "description": "List of trades executed on the protocol.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the trade.",
-                    "type": "timestamp"
-                },
-                "chain_id": {
-                    "description": "The standard id of the chain this trade belongs to.",
-                    "type": "int"
-                },
-                "block_number": {
-                    "description": "The block number in which the trade occurred.",
-                    "type": "bigint"
-                },
-                "transaction_hash": {
-                    "description": "The transaction hash associated with this trade.",
-                    "type": "string"
-                },
-                "log_index": {
-                    "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-                    "type": "bigint"
-                },
-                "fees": {
-                    "description": "The amount of fees from this trade (ie, the revenue generated from executing this trade).",
-                    "type": "double"
-                },
-                "fees_usd": {
-                    "description": "The fees for this trade in USD.",
-                    "type": "double"
-                },
-                "slippage": {
-                    "description": "(Optional) The slippage of the given trade, as a percentage (ie, 1.3% slippage is 0.013).",
-                    "type": "double"
-                },
-                "user_address": {
-                    "description": "The address of the user initiating the trade.",
-                    "type": "string"
-                },
-                "input_tokens": {
-                    "description": "The contract address of the input token(s).",
-                    "type": "[string]"
-                },
-                "input_token_amounts": {
-                    "description": "Parallel array to input_tokens, dictating the normalized native amounts of each token traded.",
-                    "type": "[double]"
-                },
-                "output_tokens": {
-                    "description": "The contract address of the output token(s).",
-                    "type": "[string]"
-                },
-                "output_token_amounts": {
-                    "description": "Parallel array to output_tokens, dictating the normalized native amounts of each token traded.",
-                    "type": "[double]"
-                },
-                "swap_amount_usd": {
-                    "description": "The value of the swap in USD.",
-                    "type": "double"
-                }
-            }
+        "token_symbol": {
+          "description": "The symbol of the token, from the eth_call symbol().",
+          "type": "string"
         },
-        {
-            "label": "Incentive Claim Data",
-            "tableName": "dex_agg_incentive_claim",
-            "aggregation": "transaction",
-            "uniqueKey": ["transaction_hash", "log_index"],
-            "description": "Transactional data on user level incentives claimed data.",
-            "properties": {
-              "timestamp": {
-                "description": "The timestamp of the claim.",
-                "type": "timestamp"
-              },
-              "chain_id": {
-                "description": "The standard chain id.",
-                "type": "int"
-              },
-              "transaction_hash": {
-                "description": "The hash of the transaction.",
-                "type": "string"
-              },
-              "log_index": {
-                "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-                "type": "bigint"
-              },
-              "transaction_signer": {
-                "description": "The address of the account that signed the transaction.",
-                "type": "string"
-              },
-              "user_address": {
-                "description": "The address of the user who claimed the incentives (could be different from the transaction_signer).",
-                "type": "string"
-              },
-              "claimed_token_address": {
-                "description": "The smart contract address of the claimed token.",
-                "type": "string"
-              },
-              "amount": {
-                "description": "The amount of the token claimed, decimal normalized.",
-                "type": "double"
-              },
-              "amount_usd": {
-                "description": "The amount of claimed tokens in USD.",
-                "type": "double"
-              },
-              "other_incentive_usd": {
-                "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
-                "type": "double"
-              }
-            }
-          }
-    ]
+        "decimals": {
+          "description": "The decimals name of the token, from the eth_call decimals().",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "label": "Token Snapshot",
+      "tableName": "dex_agg_token_metrics",
+      "aggregation": "daily",
+      "uniqueKey": [
+        "token_address",
+        "block_date"
+      ],
+      "description": "Volume, fees, and incentives data at the token level.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the record.",
+          "type": "timestamp"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
+        },
+        "token_address": {
+          "description": "The contract address of the token.",
+          "type": "string"
+        },
+        "volume_amount": {
+          "description": "The volume amount of the token, during the snapshot period, decimal normalized.",
+          "type": "double"
+        },
+        "volume_usd": {
+          "description": "The volume of the token in USD.",
+          "type": "double"
+        },
+        "fees": {
+          "description": "The fees (ie, revenue generated from trading this token) from this token in native, decimal normalized terms.",
+          "type": "double"
+        },
+        "fees_usd": {
+          "description": "The fees collected in USD.",
+          "type": "double"
+        },
+        "incentive_amount": {
+          "description": "The amount of incentives collected from this token, during the snapshot period, decimal normalized.",
+          "type": "double"
+        },
+        "incentive_usd": {
+          "description": "The value of incentives in USD.",
+          "type": "double"
+        }
+      }
+    },
+    {
+      "label": "Protocol Snapshot",
+      "tableName": "dex_agg_metrics",
+      "aggregation": "daily",
+      "uniqueKey": [
+        "block_date"
+      ],
+      "description": "Volume and fees data at the protocol level.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the block this snapshot was taken.",
+          "type": "timestamp"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
+        },
+        "volume_usd": {
+          "description": "The volume in USD, in the given snapshot period.",
+          "type": "double"
+        },
+        "fees_usd": {
+          "description": "The fees (ie, total revenue generated in the protocol) collected in USD, during the snapshot period.",
+          "type": "double"
+        }
+      }
+    },
+    {
+      "label": "Trades",
+      "tableName": "dex_agg_trades",
+      "aggregation": "transaction",
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
+      "description": "List of trades executed on the protocol.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the trade.",
+          "type": "timestamp"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain this trade belongs to.",
+          "type": "int"
+        },
+        "block_number": {
+          "description": "The block number in which the trade occurred.",
+          "type": "bigint"
+        },
+        "transaction_hash": {
+          "description": "The transaction hash associated with this trade.",
+          "type": "string"
+        },
+        "log_index": {
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+          "type": "bigint"
+        },
+        "fees": {
+          "description": "The amount of fees from this trade (ie, the revenue generated from executing this trade).",
+          "type": "double"
+        },
+        "fees_usd": {
+          "description": "The fees for this trade in USD.",
+          "type": "double"
+        },
+        "slippage": {
+          "description": "(Optional) The slippage of the given trade, as a percentage (ie, 1.3% slippage is 0.013).",
+          "type": "double"
+        },
+        "user_address": {
+          "description": "The address of the user initiating the trade.",
+          "type": "string"
+        },
+        "input_tokens": {
+          "description": "The contract address of the input token(s).",
+          "type": "[string]"
+        },
+        "input_token_amounts": {
+          "description": "Parallel array to input_tokens, dictating the normalized native amounts of each token traded.",
+          "type": "[double]"
+        },
+        "output_tokens": {
+          "description": "The contract address of the output token(s).",
+          "type": "[string]"
+        },
+        "output_token_amounts": {
+          "description": "Parallel array to output_tokens, dictating the normalized native amounts of each token traded.",
+          "type": "[double]"
+        },
+        "swap_amount_usd": {
+          "description": "The value of the swap in USD.",
+          "type": "double"
+        }
+      }
+    },
+    {
+      "label": "Incentive Claim Data",
+      "tableName": "dex_agg_incentive_claim",
+      "aggregation": "transaction",
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
+      "description": "Transactional data on user level incentives claimed data.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the claim.",
+          "type": "timestamp"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "int"
+        },
+        "transaction_hash": {
+          "description": "The hash of the transaction.",
+          "type": "string"
+        },
+        "log_index": {
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+          "type": "bigint"
+        },
+        "transaction_signer": {
+          "description": "The address of the account that signed the transaction.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address of the user who claimed the incentives (could be different from the transaction_signer).",
+          "type": "string"
+        },
+        "claimed_token_address": {
+          "description": "The smart contract address of the claimed token.",
+          "type": "string"
+        },
+        "amount": {
+          "description": "The amount of the token claimed, decimal normalized.",
+          "type": "double"
+        },
+        "amount_usd": {
+          "description": "The amount of claimed tokens in USD.",
+          "type": "double"
+        },
+        "other_incentive_usd": {
+          "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
+          "type": "double"
+        }
+      }
+    }
+  ]
 }

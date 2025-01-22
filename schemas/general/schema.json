@@ -1,14 +1,26 @@
 {
   "schema": "General",
   "description": "Table definitions for the generic schema. These tables can be used for any protocol.",
-  "protocolCategory": ["Bond", "Gaming", "Oracle", "Payment", "Quest", "SocialFi", "Stablecoin", "Wallet"],
+  "protocolCategory": [
+    "Bond",
+    "Gaming",
+    "Oracle",
+    "Payment",
+    "Quest",
+    "SocialFi",
+    "Stablecoin",
+    "Wallet"
+  ],
   "version": "1.0.0-alpha",
   "tables": [
     {
       "label": "Incentive Claim Data",
       "tableName": "user_incentive_claim",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "Transactional data on user level incentives claimed data.",
       "properties": {
         "timestamp": {
@@ -57,7 +69,10 @@
       "label": "Airdrop",
       "tableName": "general_airdrop",
       "aggregation": "transaction",
-      "uniqueKey": ["transaction_hash", "log_index"],
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
       "description": "Schema for airdrop data.",
       "properties": {
         "airdrop_timestamp": {
@@ -102,7 +117,10 @@
       "label": "Pool Snapshot",
       "tableName": "general_pools",
       "aggregation": "daily",
-      "uniqueKey": ["pool_address", "block_date"],
+      "uniqueKey": [
+        "pool_address",
+        "block_date"
+      ],
       "description": "APR and APY data at the pool level.",
       "properties": {
         "timestamp": {
@@ -147,7 +165,9 @@
       "label": "Protocol Snapshot",
       "tableName": "general_metrics",
       "aggregation": "daily",
-      "uniqueKey": ["block_date"],
+      "uniqueKey": [
+        "block_date"
+      ],
       "description": "Protocol level snapshot focused on incentives and users.",
       "properties": {
         "timestamp": {
@@ -180,7 +200,11 @@
       "label": "Token Balance Snapshot",
       "tableName": "general_token_balance",
       "aggregation": "daily",
-      "uniqueKey": ["user_address", "token_address", "block_date"],
+      "uniqueKey": [
+        "user_address",
+        "token_address",
+        "block_date"
+      ],
       "description": "User level token balance snapshots.",
       "properties": {
         "timestamp": {
@@ -221,7 +245,11 @@
       "label": "General Transactions",
       "tableName": "general_transactions",
       "aggregation": "None",
-      "uniqueKey": ["chain_id","block_number","transaction_hash"],
+      "uniqueKey": [
+        "chain_id",
+        "block_number",
+        "transaction_hash"
+      ],
       "description": "Generic table at a user and transaction level",
       "properties": {
         "timestamp": {
@@ -270,7 +298,10 @@
       "label": "User Transaction Fee Snapshot",
       "tableName": "general_transaction_snapshot",
       "aggregation": "daily",
-      "uniqueKey": ["user_address", "block_date"],
+      "uniqueKey": [
+        "user_address",
+        "block_date"
+      ],
       "description": "Gas and transaction snapshot data at the user level.",
       "properties": {
         "timestamp": {
