@@ -13,15 +13,15 @@
       "properties": {
         "chain_id": {
           "description": "The standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "timestamp": {
           "description": "The timestamp this pool was created.",
-          "type": "number"
+          "type": "timestamp"
         },
         "creation_block_number": {
           "description": "The block number that this pool was created.",
-          "type": "number"
+          "type": "bigint"
         },
         "strategy_vault_contract_address": {
           "description": "The contract address of the strategy vault which manages the liquidity pool positions.",
@@ -37,7 +37,7 @@
         },
         "strategy_vault_receipt_token_decimals": {
           "description": "The decimal amount of the ERC20 receipt token.",
-          "type": "number"
+          "type": "int"
         },
         "strategy_vault_receipt_token_symbol": {
           "description": "The symbol of the receipt token.",
@@ -54,7 +54,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -62,7 +62,7 @@
         },
         "chain_id": {
           "description": "The standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "strategy_vault_contract_address": {
           "description": "The address of the strategy vault this user has a position in.",
@@ -82,19 +82,19 @@
         },
         "underlying_token_index": {
           "description": "The index of the underlying token in the smart contract, default 0.",
-          "type": "number"
+          "type": "bigint"
         },
         "underlying_token_amount": {
           "description": "The amount based on the user's share of the total underlying token, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "underlying_token_amount_usd": {
           "description": "The amount based on the user's share of the total underlying token, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "total_fees_usd": {
           "description": "The total amount of revenue and fees paid in this pool in the given snapshot, in USD.",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -107,7 +107,7 @@
       "properties": {
         "timestamp": {
           "description": "The timestamp of the snapshot.",
-          "type": "number"
+          "type": "timestamp"
         },
         "block_date": {
           "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
@@ -115,7 +115,7 @@
         },
         "chain_id": {
           "description": "The standard chain id.",
-          "type": "number"
+          "type": "int"
         },
         "strategy_vault_contract_address": {
           "description": "The address of the strategy vault this user has a position in.",
@@ -131,19 +131,19 @@
         },
         "underlying_token_index": {
           "description": "The index of the underlying token in the smart contract, default 0.",
-          "type": "number"
+          "type": "bigint"
         },
         "underlying_token_amount": {
           "description": "The amount of underlying token supplied in this pool, decimal normalized.",
-          "type": "number"
+          "type": "double"
         },
         "underlying_token_amount_usd": {
           "description": "The amount of underlying tokens supplied in this pool, in USD.",
-          "type": "number"
+          "type": "double"
         },
         "total_fees_usd": {
           "description": "The total amount of revenue and fees paid in this pool in the given snapshot, in USD.",
-          "type": "number"
+          "type": "double"
         }
       }
     },
@@ -156,19 +156,19 @@
       "properties": {
           "timestamp": {
               "description": "The timestamp of the transaction.",
-              "type": "number"
+              "type": "timestamp"
           },
           "chain_id": {
               "description": "The standard id of the chain.",
-              "type": "number"
+              "type": "int"
           },
           "block_number": {
               "description": "The block number of the trade.",
-              "type": "number"
+              "type": "bigint"
           },
           "log_index": {
               "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-              "type": "number"
+              "type": "bigint"
           },
           "transaction_hash": {
               "description": "The hash of the transaction.",
@@ -181,14 +181,14 @@
         "to_address": {
           "description": "The to address of the event (ie, the to field in a transfer).",
           "type": "string"
-      },
+        },
           "pool_address": {
               "description": "The contract address of the pool LP token.",
               "type": "string"
           },
           "amount": {
               "description": "The amount of token transacted, decimal normalized.",
-              "type": "number"
+              "type": "double"
           },
           "event_type": {
               "description": "The type of event, corresponds to the action taken by the user (ie, deposit, withdrawal).",
@@ -205,19 +205,19 @@
       "properties": {
           "timestamp": {
               "description": "The timestamp of the transaction.",
-              "type": "number"
+              "type": "timestamp"
           },
           "chain_id": {
               "description": "The standard id of the chain.",
-              "type": "number"
+              "type": "int"
           },
           "block_number": {
               "description": "The block number of the trade.",
-              "type": "number"
+              "type": "bigint"
           },
           "log_index": {
               "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-              "type": "number"
+              "type": "bigint"
           },
           "transaction_hash": {
               "description": "The hash of the transaction.",
@@ -237,11 +237,11 @@
           },
           "amount": {
               "description": "The amount of token transacted, decimal normalized.",
-              "type": "number"
+              "type": "double"  
           },
           "amount_usd": {
               "description": "The amount of token transacted, in USD.",
-              "type": "number"
+              "type": "double"
           },
           "event_type": {
               "description": "The type of event, corresponds to the action taken by the user (ie, deposit, withdrawal).",
@@ -258,11 +258,11 @@
     "properties": {
       "timestamp": {
         "description": "The timestamp of the claim.",
-        "type": "number"
+        "type": "timestamp"
       },
       "chain_id": {
         "description": "The standard chain id.",
-        "type": "number"
+        "type": "int"
       },
       "transaction_hash": {
         "description": "The hash of the transaction.",
@@ -270,7 +270,7 @@
       },
       "log_index": {
         "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-        "type": "number"
+        "type": "bigint"
       },
       "transaction_signer": {
         "description": "The address of the account that signed the transaction.",
@@ -286,15 +286,15 @@
       },
       "amount": {
         "description": "The amount of the token claimed, decimal normalized.",
-        "type": "number"
+        "type": "double"
       },
       "amount_usd": {
         "description": "The amount of claimed tokens in USD.",
-        "type": "number"
+        "type": "double"
       },
       "other_incentive_usd": {
         "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
-        "type": "number"
+        "type": "double"
       }
     }
   }
