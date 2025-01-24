@@ -48,6 +48,10 @@
           "description": "The contract address of the pool.",
           "type": "string"
         },
+        "market_address": {
+          "description": "The contract responsible for configuring the market parameters (e.g., Comptroller in Compound or Pool Configurator in Aave)",
+          "type": "string"
+        },
         "pool_type": {
           "description": "The type of the pool (collateral_only, isolated, supply_pool, cdp).",
           "type": "string"

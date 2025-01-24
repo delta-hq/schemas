@@ -18,6 +18,7 @@ List of pools in the lending protocol.
 | receipt_token_address    | The contract address of the receipt token.                | string |
 | receipt_token_symbol     | The symbol of the receipt token.                          | string |
 | pool_address             | The contract address of the pool.                         | string |
+| market_address           | The contract responsible for configuring the market parameters (e.g., Comptroller in Compound or Pool Configurator in Aave) | string |
 | pool_type                | The type of the pool (collateral_only, isolated, supply_pool, cdp). | string |
 
 ### Position Snapshot
