@@ -659,6 +659,67 @@
       }
     },
     {
+      "label": "Liquidity Transaction Events",
+      "tableName": "liquidity_transaction_events",
+      "aggregation": "none",
+      "uniqueKey": ["transaction_hash","token_index","log_index"],
+      "description": "Event data capturing activities related to liquidity transactions, including deposits and withdrawals",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the transaction.",
+          "type": "number"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "number"
+        },
+        "block_number": {
+          "description": "The block number of the trade.",
+          "type": "number"
+        },
+        "log_index": {
+          "description": "The event log. For transactions that don't emit events, create an arbitrary index starting from 0.",
+          "type": "number"
+        },
+        "transaction_hash": {
+          "description": "The hash of the transaction.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address that initiates the transaction (i.e., the transaction signer).",
+          "type": "string"
+        },
+        "taker_address": {
+          "description": "The address that receives the output of the event (i.e., the account that receives LP receipt tokens).",
+          "type": "string"
+        },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
+        "token_address": {
+          "description": "The address of the underlying token that was interacted with.",
+          "type": "string"
+        },
+        "token_index": {
+          "description": "The index of the token in the smart contract (one row for each token in a pool).",
+          "type": "string"
+        },
+        "token_amount": {
+          "description": "The amount of token_address transacted, decimal normalized.",
+          "type": "number"
+        },
+        "token_amount_usd": {
+          "description": "The amount of token_address transacted, in USD.",
+          "type": "number"
+        },
+        "event_type": {
+          "description": "The type of event, corresponds to the action taken by the user (e.g., deposit, withdrawal).",
+          "type": "string"
+        }
+      }
+    },    
+    {
       "label": "Incentive Claim Data",
       "tableName": "derivatives_incentive_claim",
       "aggregation": "transaction",
