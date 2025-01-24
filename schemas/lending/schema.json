@@ -1,378 +1,399 @@
 {
-    "schema": "Lending / MM / CDP",
-    "description": "Standard table definitions for lending protocols.",
-    "protocolCategory": ["CDP", "Lending"],
-    "version": "1.0.0",
-    "tables": [
-        {
-            "label": "Pools",
-            "tableName": "lending_pools",
-            "uniqueKey": ["pool_address"],
-            "aggregation": "none",
-            "description": "List of pools in the lending protocol.",
-            "properties": {
-                "chain_id": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "creation_block_number": {
-                    "description": "The block this pool was created in.",
-                    "type": "number"
-                },
-                "timestamp": {
-                    "description": "The timestamp of the block that this pool was created in.",
-                    "type": "number"
-                },
-                "underlying_token_address": {
-                    "description": "The contract address of the underlying token.",
-                    "type": "string"
-                },
-                "underlying_token_symbol": {
-                    "description": "The symbol of the underlying token.",
-                    "type": "string"
-                },
-                "receipt_token_address": {
-                    "description": "The contract address of the receipt token.",
-                    "type": "string"
-                },
-                "receipt_token_symbol": {
-                    "description": "The symbol of the receipt token.",
-                    "type": "string"
-                },
-                "pool_address": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "pool_type": {
-                    "description": "The type of the pool (collateral_only, isolated, supply_pool, cdp).",
-                    "type": "string"
-                }
-            }
+  "schema": "Lending / MM / CDP",
+  "description": "Standard table definitions for lending protocols.",
+  "protocolCategory": [
+    "CDP",
+    "Lending"
+  ],
+  "version": "1.0.0",
+  "tables": [
+    {
+      "label": "Pools",
+      "tableName": "lending_pools",
+      "uniqueKey": [
+        "pool_address"
+      ],
+      "aggregation": "none",
+      "description": "List of pools in the lending protocol.",
+      "properties": {
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
         },
-        {
-            "label": "Position Snapshot",
-            "tableName": "lending_position_snapshot",
-            "aggregation": "daily",
-            "uniqueKey": ["user_address", "pool_address", "block_date"],
-            "description": "Snapshot of user positions in the lending protocol.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the snapshot.",
-                    "type": "number"
-                },
-                "block_date": {
-                    "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
-                    "type": "date"
-                    },
-                "chain_id": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "pool_address": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "underlying_token_address": {
-                    "description": "The contract address of the underlying token.",
-                    "type": "string"
-                },
-                "underlying_token_symbol": {
-                    "description": "The symbol of the underlying token.",
-                    "type": "string"
-                },
-                "user_address": {
-                    "description": "The address of the user who has the position.",
-                    "type": "string"
-                },
-                "supplied_amount": {
-                    "description": "The amount supplied by the user in the underlying token, decimal normalized.",
-                    "type": "number"
-                },
-                "supplied_amount_usd": {
-                    "description": "The supplied amount in USD.",
-                    "type": "number"
-                },
-                "borrowed_amount": {
-                    "description": "The amount borrowed by the user in the underlying token, decimal normalized.",
-                    "type": "number"
-                },
-                "borrowed_amount_usd": {
-                    "description": "The borrowed amount in USD.",
-                    "type": "number"
-                },
-                "collateral_amount": {
-                    "description": "The amount of collateral-only tokens of this asset, decimal normalized.",
-                    "type": "number"
-                },
-                "collateral_amount_usd": {
-                    "description": "The amount of collateral-only tokens in USD.",
-                    "type": "number"
-                }
-            }
+        "creation_block_number": {
+          "description": "The block this pool was created in.",
+          "type": "bigint"
         },
-        {
-            "label": "Pool Snapshot",
-            "tableName": "lending_pool_snapshot",
-            "aggregation": "daily",
-            "uniqueKey": ["pool_address", "block_date"],
-            "description": "Snapshot of the pool's state in the lending protocol.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the snapshot.",
-                    "type": "number"
-                },
-                "block_date": {
-                    "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
-                    "type": "date"
-                },  
-                "chain_id": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "pool_address": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "underlying_token_address": {
-                    "description": "The contract address of the underlying token.",
-                    "type": "string"
-                },
-                "underlying_token_symbol": {
-                    "description": "The symbol of the underlying token.",
-                    "type": "string"
-                },
-                "underlying_token_price_usd": {
-                    "description": "The token price of the underlying asset in USD.",
-                    "type": "number"
-                },
-                "available_amount": {
-                    "description": "The amount of token's available to borrow (liquidity or net supply or supply - borrow).",
-                    "type": "number"
-                },
-                "available_amount_usd": {
-                    "description": "The available amount of token's in this pool in USD.",
-                    "type": "number"
-                },
-                "supplied_amount": {
-                    "description": "The total amount of the underlying token supplied in this pool, decimal normalized.",
-                    "type": "number"
-                },
-                "supplied_amount_usd": {
-                    "description": "The supplied amount in USD.",
-                    "type": "number"
-                },
-                "collateral_amount": {
-                    "description": "The amount of collateral only tokens in this pool.",
-                    "type": "number"
-                },
-                "collateral_amount_usd": {
-                    "description": "The amount of collateral only tokens in the pool.",
-                    "type": "number"
-                },
-                "collateral_factor": {
-                    "description": "The collateral factor of the pool (defined as a decimal percentage, between 0-100).",
-                    "type": "number"
-                },
-                "supply_index": {
-                    "description": "The supply index of the pool.",
-                    "type": "number"
-                },
-                "supply_apr": {
-                    "description": "The current annual percentage rate for supplied amount, as a decimal percentage.",
-                    "type": "number"
-                },
-                "borrowed_amount": {
-                    "description": "The amount of underlying tokens borrowed from this pool in the underlying token, decimal normalized.",
-                    "type": "number"
-                },
-                "borrowed_amount_usd": {
-                    "description": "The borrowed amount in USD.",
-                    "type": "number"
-                },
-                "borrow_index": {
-                    "description": "The borrow index of the pool.",
-                    "type": "number"
-                },
-                "borrow_apr": {
-                    "description": "The current annual percentage rate for borrow, as a decimal percentage.",
-                    "type": "number"
-                },
-                "total_fees_usd": {
-                    "description": "The total revenue or fees accrued in this pool during the given snapshot period (ie, user_fees_usd + protocol_fees_usd = total_fees_usd).",
-                    "type": "number"
-                },
-                "user_fees_usd": {
-                    "description": "The portion of total revenue or fees accrued to users of the protocol during the given snapshot period.",
-                    "type": "number"
-                },
-                "protocol_fees_usd": {
-                    "description": "The portion of total revenue or fees accrued to protocol during the given snapshot period.",
-                    "type": "number"
-                }
-            }
+        "timestamp": {
+          "description": "The timestamp of the block that this pool was created in.",
+          "type": "timestamp"
         },
-        {
-            "label": "Events",
-            "tableName": "lending_events",
-            "aggregation": "transaction",
-            "uniqueKey": ["transaction_hash", "log_index"],
-            "description": "All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Flashloan)",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the transaction.",
-                    "type": "number"
-                },
-                "chain_id": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "block_number": {
-                    "description": "The block number of the trade.",
-                    "type": "number"
-                },
-                "log_index": {
-                    "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-                    "type": "number"
-                },
-                "transaction_hash": {
-                    "description": "The hash of the transaction.",
-                    "type": "string"
-                },
-                "user_address": {
-                    "description": "The address that initiates the transaction (ie, the transaction signer).",
-                    "type": "string"
-                },
-                "taker_address": {
-                    "description": "The address that receives the output of the event (ie, account that receives aTokens in an Aave Deposit).",
-                    "type": "string"
-                },
-                "pool_address": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "token_address": {
-                    "description": "The address of the underlying token that was interacted with (ie, USDC and not aUSDC in Aave).",
-                    "type": "string"
-                },
-                "amount": {
-                    "description": "The amount of token_address transacted, decimal normalized.",
-                    "type": "number"
-                },
-                "amount_usd": {
-                    "description": "The amount of token_address transacted, in USD.",
-                    "type": "number"
-                },
-                "event_type": {
-                    "description": "The type of lending event, corresponds to the action taken by the user (ie, deposit, withdrawal, borrow, repay, liquidation, flashloan).",
-                    "type": "string"
-                }
-            }
+        "underlying_token_address": {
+          "description": "The contract address of the underlying token.",
+          "type": "string"
         },
-        {
-            "label": "Liquidations",
-            "tableName": "lending_liquidations",
-            "aggregation": "transaction",
-            "uniqueKey": ["transaction_hash", "log_index"],
-            "description": "Liquidation events, including profit and liquidator.",
-            "properties": {
-                "timestamp": {
-                    "description": "The timestamp of the transaction.",
-                    "type": "number"
-                },
-                "chain_id": {
-                    "description": "The standard id of the chain.",
-                    "type": "number"
-                },
-                "block_number": {
-                    "description": "The block number of the trade.",
-                    "type": "number"
-                },
-                "log_index": {
-                    "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-                    "type": "number"
-                },
-                "transaction_hash": {
-                    "description": "The hash of the transaction.",
-                    "type": "string"
-                },
-                "liquidator_address": {
-                    "description": "The address that initiates the liquidation.",
-                    "type": "string"
-                },
-                "user_address": {
-                    "description": "The address that was liquidated.",
-                    "type": "string"
-                },
-                "pool_address": {
-                    "description": "The contract address of the pool.",
-                    "type": "string"
-                },
-                "token_address": {
-                    "description": "The address of the underlying token that was repaid by the liquidator (ie, USDC and not aUSDC in Aave).",
-                    "type": "string"
-                },
-                "amount": {
-                    "description": "The amount of token_address transacted, decimal normalized.",
-                    "type": "number"
-                },
-                "amount_usd": {
-                    "description": "The amount of token_address transacted, in USD.",
-                    "type": "number"
-                },
-                "profit_usd": {
-                    "description": "The amount of profit the liquidator made from liquidating user_address (can be negative).",
-                    "type": "number"
-                }
-            }
+        "underlying_token_symbol": {
+          "description": "The symbol of the underlying token.",
+          "type": "string"
         },
-        {
-            "label": "Incentive Claim Data",
-            "tableName": "lending_incentive_claim",
-            "aggregation": "transaction",
-            "uniqueKey": ["transaction_hash", "log_index"],
-            "description": "Transactional data on user level incentives claimed data.",
-            "properties": {
-              "timestamp": {
-                "description": "The timestamp of the claim.",
-                "type": "number"
-              },
-              "chain_id": {
-                "description": "The standard chain id.",
-                "type": "number"
-              },
-              "transaction_hash": {
-                "description": "The hash of the transaction.",
-                "type": "string"
-              },
-              "log_index": {
-                "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
-                "type": "number"
-              },
-              "transaction_signer": {
-                "description": "The address of the account that signed the transaction.",
-                "type": "string"
-              },
-              "user_address": {
-                "description": "The address of the user who claimed the incentives (could be different from the transaction_signer).",
-                "type": "string"
-              },
-              "claimed_token_address": {
-                "description": "The smart contract address of the claimed token.",
-                "type": "string"
-              },
-              "amount": {
-                "description": "The amount of the token claimed, decimal normalized.",
-                "type": "number"
-              },
-              "amount_usd": {
-                "description": "The amount of claimed tokens in USD.",
-                "type": "number"
-              },
-              "other_incentive_usd": {
-                "description": "Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
-                "type": "number"
-              }
-            }
-          }
-    ]
+        "receipt_token_address": {
+          "description": "The contract address of the receipt token.",
+          "type": "string"
+        },
+        "receipt_token_symbol": {
+          "description": "The symbol of the receipt token.",
+          "type": "string"
+        },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
+        "pool_type": {
+          "description": "The type of the pool (collateral_only, isolated, supply_pool, cdp).",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "label": "Position Snapshot",
+      "tableName": "lending_position_snapshot",
+      "aggregation": "daily",
+      "uniqueKey": [
+        "user_address",
+        "pool_address",
+        "block_date"
+      ],
+      "description": "Snapshot of user positions in the lending protocol.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "timestamp"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
+        },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
+        "underlying_token_address": {
+          "description": "The contract address of the underlying token.",
+          "type": "string"
+        },
+        "underlying_token_symbol": {
+          "description": "The symbol of the underlying token.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address of the user who has the position.",
+          "type": "string"
+        },
+        "supplied_amount": {
+          "description": "The amount supplied by the user in the underlying token, decimal normalized.",
+          "type": "double"
+        },
+        "supplied_amount_usd": {
+          "description": "The supplied amount in USD.",
+          "type": "double"
+        },
+        "borrowed_amount": {
+          "description": "The amount borrowed by the user in the underlying token, decimal normalized.",
+          "type": "double"
+        },
+        "borrowed_amount_usd": {
+          "description": "The borrowed amount in USD.",
+          "type": "double"
+        },
+        "collateral_amount": {
+          "description": "The amount of collateral-only tokens of this asset, decimal normalized.",
+          "type": "double"
+        },
+        "collateral_amount_usd": {
+          "description": "The amount of collateral-only tokens in USD.",
+          "type": "double"
+        }
+      }
+    },
+    {
+      "label": "Pool Snapshot",
+      "tableName": "lending_pool_snapshot",
+      "aggregation": "daily",
+      "uniqueKey": [
+        "pool_address",
+        "block_date"
+      ],
+      "description": "Snapshot of the pool's state in the lending protocol.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "timestamp"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
+        },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
+        "underlying_token_address": {
+          "description": "The contract address of the underlying token.",
+          "type": "string"
+        },
+        "underlying_token_symbol": {
+          "description": "The symbol of the underlying token.",
+          "type": "string"
+        },
+        "underlying_token_price_usd": {
+          "description": "The token price of the underlying asset in USD.",
+          "type": "double"
+        },
+        "available_amount": {
+          "description": "The amount of token's available to borrow (liquidity or net supply or supply - borrow).",
+          "type": "double"
+        },
+        "available_amount_usd": {
+          "description": "The available amount of token's in this pool in USD.",
+          "type": "double"
+        },
+        "supplied_amount": {
+          "description": "The total amount of the underlying token supplied in this pool, decimal normalized.",
+          "type": "double"
+        },
+        "supplied_amount_usd": {
+          "description": "The supplied amount in USD.",
+          "type": "double"
+        },
+        "collateral_amount": {
+          "description": "The amount of collateral only tokens in this pool.",
+          "type": "double"
+        },
+        "collateral_amount_usd": {
+          "description": "The amount of collateral only tokens in the pool.",
+          "type": "double"
+        },
+        "collateral_factor": {
+          "description": "The collateral factor of the pool (defined as a decimal percentage, between 0-100).",
+          "type": "double"
+        },
+        "supply_index": {
+          "description": "The supply index of the pool.",
+          "type": "double"
+        },
+        "supply_apr": {
+          "description": "The current annual percentage rate for supplied amount, as a decimal percentage.",
+          "type": "double"
+        },
+        "borrowed_amount": {
+          "description": "The amount of underlying tokens borrowed from this pool in the underlying token, decimal normalized.",
+          "type": "double"
+        },
+        "borrowed_amount_usd": {
+          "description": "The borrowed amount in USD.",
+          "type": "double"
+        },
+        "borrow_index": {
+          "description": "The borrow index of the pool.",
+          "type": "double"
+        },
+        "borrow_apr": {
+          "description": "The current annual percentage rate for borrow, as a decimal percentage.",
+          "type": "double"
+        },
+        "total_fees_usd": {
+          "description": "The total revenue or fees accrued in this pool during the given snapshot period (ie, user_fees_usd + protocol_fees_usd = total_fees_usd).",
+          "type": "double"
+        },
+        "user_fees_usd": {
+          "description": "The portion of total revenue or fees accrued to users of the protocol during the given snapshot period.",
+          "type": "double"
+        },
+        "protocol_fees_usd": {
+          "description": "The portion of total revenue or fees accrued to protocol during the given snapshot period.",
+          "type": "double"
+        }
+      }
+    },
+    {
+      "label": "Events",
+      "tableName": "lending_events",
+      "aggregation": "transaction",
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
+      "description": "All user events in the lending protocol (ie, Deposit, Withdrawal, Borrow, Repay, Flashloan)",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the transaction.",
+          "type": "timestamp"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
+        },
+        "block_number": {
+          "description": "The block number of the trade.",
+          "type": "bigint"
+        },
+        "log_index": {
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+          "type": "bigint"
+        },
+        "transaction_hash": {
+          "description": "The hash of the transaction.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address that initiates the transaction (ie, the transaction signer).",
+          "type": "string"
+        },
+        "taker_address": {
+          "description": "The address that receives the output of the event (ie, account that receives aTokens in an Aave Deposit).",
+          "type": "string"
+        },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
+        "token_address": {
+          "description": "The address of the underlying token that was interacted with (ie, USDC and not aUSDC in Aave).",
+          "type": "string"
+        },
+        "amount": {
+          "description": "The amount of token_address transacted, decimal normalized.",
+          "type": "double"
+        },
+        "amount_usd": {
+          "description": "The amount of token_address transacted, in USD.",
+          "type": "double"
+        },
+        "event_type": {
+          "description": "The type of lending event, corresponds to the action taken by the user (ie, deposit, withdrawal, borrow, repay, liquidation, flashloan).",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "label": "Liquidations",
+      "tableName": "lending_liquidations",
+      "aggregation": "transaction",
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
+      "description": "Liquidation events, including profit and liquidator.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the transaction.",
+          "type": "timestamp"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
+        },
+        "block_number": {
+          "description": "The block number of the trade.",
+          "type": "bigint"
+        },
+        "log_index": {
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+          "type": "bigint"
+        },
+        "transaction_hash": {
+          "description": "The hash of the transaction.",
+          "type": "string"
+        },
+        "liquidator_address": {
+          "description": "The address that initiates the liquidation.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address that was liquidated.",
+          "type": "string"
+        },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
+        "token_address": {
+          "description": "The address of the underlying token that was repaid by the liquidator (ie, USDC and not aUSDC in Aave).",
+          "type": "string"
+        },
+        "amount": {
+          "description": "The amount of token_address transacted, decimal normalized.",
+          "type": "double"
+        },
+        "amount_usd": {
+          "description": "The amount of token_address transacted, in USD.",
+          "type": "double"
+        },
+        "profit_usd": {
+          "description": "The amount of profit the liquidator made from liquidating user_address (can be negative).",
+          "type": "double"
+        }
+      }
+    },
+    {
+      "label": "Incentive Claim Data",
+      "tableName": "lending_incentive_claim",
+      "aggregation": "transaction",
+      "uniqueKey": [
+        "transaction_hash",
+        "log_index"
+      ],
+      "description": "Transactional data on user level incentives claimed data.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the claim.",
+          "type": "timestamp"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "int"
+        },
+        "transaction_hash": {
+          "description": "The hash of the transaction.",
+          "type": "string"
+        },
+        "log_index": {
+          "description": "The event log. For transactions that don't emit event, create arbitrary index starting from 0.",
+          "type": "bigint"
+        },
+        "transaction_signer": {
+          "description": "The address of the account that signed the transaction.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address of the user who claimed the incentives (could be different from the transaction_signer).",
+          "type": "string"
+        },
+        "claimed_token_address": {
+          "description": "The smart contract address of the claimed token.",
+          "type": "string"
+        },
+        "amount": {
+          "description": "The amount of the token claimed, decimal normalized.",
+          "type": "double"
+        },
+        "amount_usd": {
+          "description": "The amount of claimed tokens in USD.",
+          "type": "double"
+        },
+        "other_incentive_usd": {
+          "description": "Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
+          "type": "double"
+        }
+      }
+    }
+  ]
 }
