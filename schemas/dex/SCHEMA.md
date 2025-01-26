@@ -224,6 +224,24 @@ LP transfer events for V3 DEXs.
 | nft_token_id             | The token ID of the NFT transferred                       | string |
 | event_type               | The action type of the event (ie, transfer).              | string |
 
+### LP Position Snapshot (Staked In Farms)
+
+Snapshot of LP positions in farming contracts.
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the snapshot.                            | timestamp |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
+| chain_id                 | The standard id of the chain.                             | int |
+| farm_address             | The contract address of the farming pool.                 | string |
+| pool_address             | The contract address of the liquidity pool.               | string |
+| user_address             | The address of the liquidity provider.                    | string |
+| token_index              | The token index based on the smart contract.              | bigint |
+| token_address            | The contract address of the token provided as liquidity.  | string |
+| token_symbol             | The symbol of the token.                                  | string |
+| token_amount             | The amount of the underlying liquidity position in the pool, decimal normalized (ie, the amount of USDC provided by the LPer in a USDC/WETH pool). | double |
+| token_amount_usd         | The amount of the token in USD.                           | double |
+
 ### Liquidity Transaction Events (General)
 
 Event data capturing activities related to liquidity transactions, including deposits and withdrawals
