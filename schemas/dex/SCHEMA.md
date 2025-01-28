@@ -219,6 +219,7 @@ LP transfer events for V3 DEXs.
 | log_index                | The event log. For transactions that don't emit event, create arbitrary index starting from 0. | bigint |
 | transaction_hash         | The hash of the transaction.                              | string |
 | transaction_from_address | The address that initiates the transaction (ie, the transaction signer). | string |
+| pool_address             | The contract address of the pool.                         | string |
 | from_address             | The from address of the event (ie, the from field in a transfer). | string |
 | to_address               | The to address of the event (ie, the to field in a transfer). | string |
 | nft_token_id             | The token ID of the NFT transferred                       | string |
