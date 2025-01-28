@@ -224,6 +224,44 @@ LP transfer events for V3 DEXs.
 | nft_token_id             | The token ID of the NFT transferred                       | string |
 | event_type               | The action type of the event (ie, transfer).              | string |
 
+### LP Position Snapshot (Staked In Farms)
+
+Snapshot of LP positions in farming contracts.
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the snapshot.                            | timestamp |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
+| chain_id                 | The standard id of the chain.                             | int |
+| farm_address             | The contract address of the farming pool.                 | string |
+| pool_address             | The contract address of the liquidity pool.               | string |
+| user_address             | The address of the liquidity provider.                    | string |
+| token_index              | The token index based on the smart contract.              | bigint |
+| token_address            | The contract address of the token provided as liquidity.  | string |
+| token_symbol             | The symbol of the token.                                  | string |
+| token_amount             | The amount of the underlying liquidity position in the pool, decimal normalized (ie, the amount of USDC provided by the LPer in a USDC/WETH pool). | double |
+| token_amount_usd         | The amount of the token in USD.                           | double |
+
+### Liquidity Transaction Events (General)
+
+Event data capturing activities related to liquidity transactions, including deposits and withdrawals
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the transaction.                         | timestamp |
+| chain_id                 | The standard id of the chain.                             | int |
+| block_number             | The block number of the transaction.                      | bigint |
+| log_index                | The event log. For transactions that don't emit events, create arbitrary index starting from 0. | bigint |
+| transaction_hash         | The hash of the transaction.                              | string |
+| user_address             | The address that initiates the transaction (i.e., the transaction signer). | string |
+| taker_address            | The address that receives the output of the event (i.e., the account that receives LP receipt tokens). | string |
+| pool_address             | The contract address of the pool.                         | string |
+| token_address            | The address of the underlying token that was interacted with. | bigint |
+| token_index              | The index in the pool smart contract that this token appears at, default 0 (ie, one entry per token in a pool). | bigint |
+| token_amount             | The token amount of the underlying asset being added/removed from the pool , decimal normalized | double |
+| token_amount_usd         | The amount of the token in USD.                           | double |
+| event_type               | The type of event, corresponds to the action taken by the user (e.g., deposit, withdrawal). | double |
+
 ### Incentive Claim Data
 
 Transactional data on user level incentives claimed data.

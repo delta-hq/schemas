@@ -715,6 +715,125 @@
       }
     },
     {
+      "label": "LP Position Snapshot (Staked In Farms)",
+      "tableName": "farm_lp_position_snapshot",
+      "aggregation": "daily",
+      "uniqueKey": [
+        "user_address",
+        "pool_address",
+        "token_index",
+        "block_date"
+      ],
+      "description": "Snapshot of LP positions in farming contracts.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "timestamp"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
+        },
+        "farm_address": {
+          "description": "The contract address of the farming pool.",
+          "type": "string"
+        },
+        "pool_address": {
+          "description": "The contract address of the liquidity pool.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address of the liquidity provider.",
+          "type": "string"
+        },
+        "token_index": {
+          "description": "The token index based on the smart contract.",
+          "type": "bigint"
+        },
+        "token_address": {
+          "description": "The contract address of the token provided as liquidity.",
+          "type": "string"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token.",
+          "type": "string"
+        },
+        "token_amount": {
+          "description": "The amount of the underlying liquidity position in the pool, decimal normalized (ie, the amount of USDC provided by the LPer in a USDC/WETH pool).",
+          "type": "double"
+        },
+        "token_amount_usd": {
+          "description": "The amount of the token in USD.",
+          "type": "double"
+        }
+      }
+    },
+    {
+      "label": "Liquidity Transaction Events (General)",
+      "tableName": "liquidity_transaction_events",
+      "description": "Event data capturing activities related to liquidity transactions, including deposits and withdrawals",
+      "aggregation": "none",
+      "uniqueKey": ["transaction_hash","token_index","log_index"],
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the transaction.",
+          "type": "timestamp"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
+        },
+        "block_number": {
+          "description": "The block number of the transaction.",
+          "type": "bigint"
+        },
+        "log_index": {
+          "description": "The event log. For transactions that don't emit events, create arbitrary index starting from 0.",
+          "type": "bigint"
+        },
+        "transaction_hash": {
+          "description": "The hash of the transaction.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address that initiates the transaction (i.e., the transaction signer).",
+          "type": "string"
+        },
+        "taker_address": {
+          "description": "The address that receives the output of the event (i.e., the account that receives LP receipt tokens).",
+          "type": "string"
+        },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
+        "token_address": {
+          "description": "The address of the underlying token that was interacted with.",
+          "type": "bigint"
+        },
+        "token_index": {
+          "description": "The index in the pool smart contract that this token appears at, default 0 (ie, one entry per token in a pool).",
+          "type": "bigint"
+        },
+        "token_amount": {
+          "description": "The token amount of the underlying asset being added/removed from the pool , decimal normalized",
+          "type": "double"
+        },
+        "token_amount_usd": {
+          "description": "The amount of the token in USD.",
+          "type": "double"
+        },
+        "event_type": {
+          "description": "The type of event, corresponds to the action taken by the user (e.g., deposit, withdrawal).",
+          "type": "double"
+        }
+      }
+    },    
+    {
       "label": "Incentive Claim Data",
       "tableName": "dex_incentive_claim",
       "aggregation": "transaction",
