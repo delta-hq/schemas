@@ -278,6 +278,10 @@
         "fees_usd": {
           "description": "The fees paid by the user.",
           "type": "double"
+        },
+        "sqrt_price_x96": {
+          "description": "(Only used in concentrated liquidity pools) The sqrt price of the pool after the swap.",
+          "type": "string"
         }
       }
     },
