@@ -696,6 +696,10 @@
           "description": "The address that initiates the transaction (ie, the transaction signer).",
           "type": "string"
         },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
         "from_address": {
           "description": "The from address of the event (ie, the from field in a transfer).",
           "type": "string"
