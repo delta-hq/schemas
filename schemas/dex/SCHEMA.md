@@ -87,7 +87,7 @@ All trades across different types of DEXs.
 | spot_price_after_swap    | The spot price in the pool after the swap is complete. This is the price ratio a user would get if they made an infinitesimal swap immediately after this one. | double |
 | swap_amount_usd          | The amount of the swap in USD.                            | double |
 | fees_usd                 | The fees paid by the user.                                | double |
-| sqrt_price_x96           | (Only used in concentrated liquidity pools) The sqrt price of the pool after the swap. | double |
+| sqrt_price_x96           | (Only used in concentrated liquidity pools) The sqrt price of the pool after the swap. | string |
 
 ### User Score Snapshot
 

@@ -281,7 +281,7 @@
         },
         "sqrt_price_x96": {
           "description": "(Only used in concentrated liquidity pools) The sqrt price of the pool after the swap.",
-          "type": "double"
+          "type": "string"
         }
       }
     },
