@@ -1,0 +1,158 @@
+{
+  "schema": "Launchpad",
+  "description": "Standard table definitions for Launchpads.",
+  "protocolCategory": [
+    "Launchpad"
+  ],
+  "version": "1.0.0-alpha",
+  "tables": [
+    {
+      "label": "Bonding Curve Snapshot",
+      "tableName": "launchpad_bonding_curve_snapshot",
+      "aggregation": "snapshot",
+      "uniqueKey": [
+        "pool_address",
+        "token_index",
+        "timestamp"
+      ],
+      "description": "Snapshots of the bonding curve for pre-graduation tokens, with token amounts and their USD values.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "number"
+        },
+        "pool_address": {
+          "description": "Contract address of the bonding curve, or an identifier that is unique for this bonding curve.",
+          "type": "string"
+        },
+        "token_index": {
+          "description": "The token index based on the smart contract.",
+          "type": "number"
+        },
+        "token_address": {
+          "description": "The smart contract address of the token.",
+          "type": "string"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token we are getting the balance of.",
+          "type": "string"
+        },
+        "token_amount": {
+          "description": "The amount of the token at the given snapshot timestamp (decimal normalized).",
+          "type": "number"
+        },
+        "token_amount_usd": {
+          "description": "The amount of the token in USD.",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "Token Balance Snapshot",
+      "tableName": "launchpad_token_balance_snapshot",
+      "aggregation": "snapshot",
+      "uniqueKey": [
+        "user_address",
+        "token_address",
+        "timestamp"
+      ],
+      "description": "Snapshots of each user address' token balance of the launchpad tokens.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "number"
+        },
+        "user_address": {
+          "description": "The address of the user this snapshot activity is based on.",
+          "type": "string"
+        },
+        "token_address": {
+          "description": "The smart contract address of the token.",
+          "type": "string"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token we are getting the balance of.",
+          "type": "string"
+        },
+        "token_amount": {
+          "description": "The amount of the token at the given snapshot timestamp (decimal normalized).",
+          "type": "number"
+        },
+        "token_amount_usd": {
+          "description": "The amount of the token in USD.",
+          "type": "number"
+        }
+      }
+    },
+    {
+      "label": "LP Position Snapshot",
+      "tableName": "launchpad_lp_position_snapshot",
+      "aggregation": "snapshot",
+      "uniqueKey": [
+        "pool_address",
+        "user_address",
+        "token_index",
+        "timestamp"
+      ],
+      "description": "Snapshots of liquidity in the burnt LP position of graduated tokens.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "number"
+        },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address of the liquidity provider.",
+          "type": "string"
+        },
+        "token_index": {
+          "description": "The token index based on the smart contract.",
+          "type": "number"
+        },
+        "token_address": {
+          "description": "The contract address of the token provided as liquidity.",
+          "type": "string"
+        },
+        "token_symbol": {
+          "description": "The symbol of the token provided as liquidity.",
+          "type": "string"
+        },
+        "token_amount": {
+          "description": "The amount of the underlying liquidity position in the pool, decimal normalized (ie, the amount of USDC provided by the LPer in a USDC/WETH pool).",
+          "type": "number"
+        },
+        "token_amount_usd": {
+          "description": "The amount of the token in USD.",
+          "type": "number"
+        }
+      }
+    }
+  ]
+}
