@@ -821,7 +821,7 @@
         },
         "token_address": {
           "description": "The address of the underlying token that was interacted with.",
-          "type": "bigint"
+          "type": "string"
         },
         "token_index": {
           "description": "The index in the pool smart contract that this token appears at, default 0 (ie, one entry per token in a pool).",
