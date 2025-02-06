@@ -258,7 +258,7 @@ Event data capturing activities related to liquidity transactions, including dep
 | user_address             | The address that initiates the transaction (i.e., the transaction signer). | string |
 | taker_address            | The address that receives the output of the event (i.e., the account that receives LP receipt tokens). | string |
 | pool_address             | The contract address of the pool.                         | string |
-| token_address            | The address of the underlying token that was interacted with. | bigint |
+| token_address            | The address of the underlying token that was interacted with. | string |
 | token_index              | The index in the pool smart contract that this token appears at, default 0 (ie, one entry per token in a pool). | bigint |
 | token_amount             | The token amount of the underlying asset being added/removed from the pool , decimal normalized | double |
 | token_amount_usd         | The amount of the token in USD.                           | double |
