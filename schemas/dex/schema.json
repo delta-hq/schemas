@@ -50,7 +50,7 @@
         },
         "token_decimals": {
           "description": "The decimals of the pool token.",
-          "type": "string"
+          "type": "int"
         },
         "token_index": {
           "description": "The index in the pool smart contract that this token appears at, default 0 (ie, one entry per token in a pool).",
