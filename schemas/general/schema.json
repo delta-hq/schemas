@@ -67,11 +67,10 @@
     },
     {
       "label": "Pool Level Incentive Allocations",
-      "tableName": "user_incentive_allocations",
-      "aggregation": "transaction",
+      "tableName": "pool_level_incentive_allocations",
+      "aggregation": "general_pools",
       "uniqueKey": [
-        "reward_hash",
-        "log_index"
+        "pool_address"
       ],
       "description": "Transactional data on user level incentives claimed data.",
       "properties": {
