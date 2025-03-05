@@ -21,7 +21,7 @@
         "transaction_hash",
         "log_index"
       ],
-      "description": "Transactional data on user level incentives claimed data.",
+      "description": "Pool level allocations for an incentive program period.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the claim.",
@@ -62,6 +62,69 @@
         "other_incentive_usd": {
           "description": "(Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms.",
           "type": "double"
+        }
+      }
+    },
+    {
+      "label": "Pool Level Incentive Allocations",
+      "tableName": "pool_level_incentive_allocations",
+      "aggregation": "general_pools",
+      "uniqueKey": [
+        "pool_address"
+      ],
+      "description": "Transactional data on user level incentives claimed data.",
+      "properties": {
+        "reward_token": {
+          "description": "The token address used to provide reward incentives.",
+          "type": "string"
+        },
+        "token_symbol": {
+          "description": "The token symbol used to provide reward incentives.",
+          "type": "string"
+        },
+        "amount": {
+          "description": "The amount of incentives provided over the period.",
+          "type": "double"
+        },
+        "start_timestamp": {
+          "description": "The starting timestamp of the incentive period.",
+          "type": "timestamp"
+        },
+        "end_timestamp": {
+          "description": "The ending timestamp of the incentive period.",
+          "type": "timestamp"
+        },
+        "protocol_category": {
+          "description": "The category of the protocol (DEX, Lending, etc...).",
+          "type": "string"
+        },
+        "protocol_name": {
+          "description": "The name of the protocol receiving incentives.",
+          "type": "string"
+        },
+        "pool_address": {
+          "description": "The address of the pool receiving incentives.",
+          "type": "string"
+        },
+        "reward_hash": {
+          "description": "The transaction hash of the rewards (if applicable).",
+          "type": "string"
+        },
+        "log_index": {
+          "description": "The log index for the event in the rewards transaction (if applicable).",
+          "type": "int"
+        },
+        "submission_timestamp": {
+          "description": "The timestamp of reward submissions.",
+          "type": "timestamp"
+        },
+        "chain_id": {
+          "description": "The standard chain id.",
+          "type": "int"
+        },
+        "program_name": {
+          "description": "The name of the program providing incentives.",
+          "type": "string"
         }
       }
     },
