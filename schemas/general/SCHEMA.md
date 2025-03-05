@@ -23,7 +23,7 @@ Transactional data on user level incentives claimed data.
 
 ### Pool Level Incentive Allocations
 
-Transactional data on user level incentives claimed data.
+Pool level allocations for an incentive program period.
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
