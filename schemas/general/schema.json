@@ -21,7 +21,7 @@
         "transaction_hash",
         "log_index"
       ],
-      "description": "Transactional data on user level incentives claimed data.",
+      "description": "Pool level allocations for an incentive program period.",
       "properties": {
         "timestamp": {
           "description": "The timestamp of the claim.",
