@@ -425,6 +425,10 @@
           "description": "The contract address of the pool.",
           "type": "string"
         },
+        "underlying_token_address": {
+          "description": "The contract address of the underlying token.",
+          "type": "string"
+        },
         "fees_type": {
           "description": "The type of fee this snapshot represents (ie, origination, supply-side interest, protocol-side interest, liquidation, flashloan, etc).",
           "type": "string"

@@ -136,6 +136,7 @@ Snapshot of fees collected in the lending protocol at the pool level.
 | block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
 | chain_id                 | The standard id of the chain.                             | int |
 | pool_address             | The contract address of the pool.                         | string |
+| underlying_token_address | The contract address of the underlying token.             | string |
 | fees_type                | The type of fee this snapshot represents (ie, origination, supply-side interest, protocol-side interest, liquidation, flashloan, etc). | string |
 | token_amount             | The native token amount of fee_type collected in this pool during the given snapshot period (decimal normalized). | double |
 | token_amount_usd         | The USD value of token_amount.                            | double |
