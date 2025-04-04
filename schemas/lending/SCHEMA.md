@@ -126,4 +126,19 @@ Transactional data on user level incentives claimed data.
 | amount_usd               | The amount of claimed tokens in USD.                      | double |
 | other_incentive_usd      | Any incentives outside of the claimed token, in this transaction, summed up in USD terms. | double |
 
+### Fees
+
+Snapshot of fees collected in the lending protocol at the pool level.
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the snapshot.                            | timestamp |
+| block_date               | The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots). | date |
+| chain_id                 | The standard id of the chain.                             | int |
+| pool_address             | The contract address of the pool.                         | string |
+| underlying_token_address | The contract address of the underlying token.             | string |
+| fees_type                | The type of fee this snapshot represents (ie, origination, supply-side interest, protocol-side interest, liquidation, flashloan, etc). | string |
+| token_amount             | The native token amount of fee_type collected in this pool during the given snapshot period (decimal normalized). | double |
+| token_amount_usd         | The USD value of token_amount.                            | double |
+
 > Note: This markdown file is auto-generated.

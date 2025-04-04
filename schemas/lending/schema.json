@@ -398,6 +398,50 @@
           "type": "double"
         }
       }
+    },
+    {
+      "label": "Fees",
+      "tableName": "lending_fees",
+      "aggregation": "daily",
+      "uniqueKey": [
+        "pool_address",
+        "block_date"
+      ],
+      "description": "Snapshot of fees collected in the lending protocol at the pool level.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "timestamp"
+        },
+        "block_date": {
+          "description": "The timestamp truncated (ie, YYYY-MM-DD format for daily snapshots and YYYY-MM-DD HH:00:00 for hourly snapshots).",
+          "type": "date"
+        },
+        "chain_id": {
+          "description": "The standard id of the chain.",
+          "type": "int"
+        },
+        "pool_address": {
+          "description": "The contract address of the pool.",
+          "type": "string"
+        },
+        "underlying_token_address": {
+          "description": "The contract address of the underlying token.",
+          "type": "string"
+        },
+        "fees_type": {
+          "description": "The type of fee this snapshot represents (ie, origination, supply-side interest, protocol-side interest, liquidation, flashloan, etc).",
+          "type": "string"
+        },
+        "token_amount": {
+          "description": "The native token amount of fee_type collected in this pool during the given snapshot period (decimal normalized).",
+          "type": "double"
+        },
+        "token_amount_usd": {
+          "description": "The USD value of token_amount.",
+          "type": "double"
+        }
+      }
     }
   ]
 }

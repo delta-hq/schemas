@@ -18,7 +18,7 @@ List of LP pools in this protocol (one entry per token in a pool).
 | lp_token_symbol          | The symbol of the LP token.                               | string |
 | token_address            | The token address of the pool token at token_index.       | string |
 | token_symbol             | The symbol of the pool token.                             | string |
-| token_decimals           | The decimals of the pool token.                           | string |
+| token_decimals           | The decimals of the pool token.                           | int |
 | token_index              | The index in the pool smart contract that this token appears at, default 0 (ie, one entry per token in a pool). | bigint |
 | fee_rate                 | (Optional, if dynamic fee) The fee rate of the pool, as a percentage (ie, 2.3% as 0.023). | double |
 | dex_type                 | The type of the DEX (ie, CPMM, CLMM, Orderbook).          | string |
