@@ -400,11 +400,12 @@
       }
     },
     {
-      "label": "Fees",
-      "tableName": "lending_fees",
+      "label": "Fees Snapshot",
+      "tableName": "lending_fees_snapshot",
       "aggregation": "daily",
       "uniqueKey": [
         "pool_address",
+        "fees_type",
         "block_date"
       ],
       "description": "Snapshot of fees collected in the lending protocol at the pool level.",

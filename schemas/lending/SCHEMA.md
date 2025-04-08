@@ -126,7 +126,7 @@ Transactional data on user level incentives claimed data.
 | amount_usd               | The amount of claimed tokens in USD.                      | double |
 | other_incentive_usd      | Any incentives outside of the claimed token, in this transaction, summed up in USD terms. | double |
 
-### Fees
+### Fees Snapshot
 
 Snapshot of fees collected in the lending protocol at the pool level.
 
