@@ -6,7 +6,7 @@ Table definitions for the generic schema. These tables can be used for any proto
 
 ### Incentive Claim Data
 
-Transactional data on user level incentives claimed data.
+Pool level allocations for an incentive program period.
 
 | Property                | Description                                               | Type   |
 |-------------------------|-----------------------------------------------------------|--------|
@@ -20,6 +20,26 @@ Transactional data on user level incentives claimed data.
 | amount                   | The amount of the token claimed, decimal normalized.      | double |
 | amount_usd               | The amount of claimed tokens in USD.                      | double |
 | other_incentive_usd      | (Optional) Any incentives outside of the claimed token, in this transaction, summed up in USD terms. | double |
+
+### Pool Level Incentive Allocations
+
+Transactional data on user level incentives claimed data.
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| reward_token             | The token address used to provide reward incentives.      | string |
+| token_symbol             | The token symbol used to provide reward incentives.       | string |
+| amount                   | The amount of incentives provided over the period.        | double |
+| start_timestamp          | The starting timestamp of the incentive period.           | timestamp |
+| end_timestamp            | The ending timestamp of the incentive period.             | timestamp |
+| protocol_category        | The category of the protocol (DEX, Lending, etc...).      | string |
+| protocol_name            | The name of the protocol receiving incentives.            | string |
+| pool_address             | The address of the pool receiving incentives.             | string |
+| reward_hash              | The transaction hash of the rewards (if applicable).      | string |
+| log_index                | The log index for the event in the rewards transaction (if applicable). | int |
+| submission_timestamp     | The timestamp of reward submissions.                      | timestamp |
+| chain_id                 | The standard chain id.                                    | int |
+| program_name             | The name of the program providing incentives.             | string |
 
 ### Airdrop
 
