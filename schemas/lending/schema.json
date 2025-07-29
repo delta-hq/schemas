@@ -11,7 +11,8 @@
       "label": "Pools",
       "tableName": "lending_pools",
       "uniqueKey": [
-        "pool_address"
+        "pool_address",
+        "underlying_token_address"
       ],
       "aggregation": "none",
       "description": "List of pools in the lending protocol.",
@@ -65,6 +66,7 @@
       "uniqueKey": [
         "user_address",
         "pool_address",
+        "underlying_token_address",
         "block_date"
       ],
       "description": "Snapshot of user positions in the lending protocol.",
@@ -129,6 +131,7 @@
       "aggregation": "daily",
       "uniqueKey": [
         "pool_address",
+        "underlying_token_address",
         "block_date"
       ],
       "description": "Snapshot of the pool's state in the lending protocol.",
@@ -405,6 +408,7 @@
       "aggregation": "daily",
       "uniqueKey": [
         "pool_address",
+        "underlying_token_address",
         "fees_type",
         "block_date"
       ],
