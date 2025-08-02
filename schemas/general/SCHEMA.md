@@ -112,4 +112,15 @@ Gas and transaction snapshot data at the user level.
 | transaction_fees         | The total amount of gas used in the transactions occurring in the given snapshot (in the native gas amount). | double |
 | transaction_fees_usd     | (Optional, if possible) The total amount of gas used in USD terms in the given snapshot. | double |
 
+### EigenLayer Points Snapshot
+
+User level snapshot of EigenLayer points earned by users in this protocol.
+
+| Property                | Description                                               | Type   |
+|-------------------------|-----------------------------------------------------------|--------|
+| timestamp                | The timestamp of the snapshot.                            | number |
+| protocol_name            | The name of the LRT protocol.                             | string |
+| user_address             | The address of the user earning points (lowercase only).  | string |
+| eigenlayer_points        | The amount of EigenLayer points earned by this user (decimal normalized). | number |
+
 > Note: This markdown file is auto-generated.

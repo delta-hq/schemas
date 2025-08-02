@@ -333,6 +333,30 @@
           "type": "double"
         }
       }
-    }
+    },
+    {
+      "label": "EigenLayer Points Snapshot",
+      "tableName": "eigenlayer_points",
+      "aggregation": "daily",
+      "description": "User level snapshot of EigenLayer points earned by users in this protocol.",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the snapshot.",
+          "type": "number"
+        },
+        "protocol_name": {
+          "description": "The name of the LRT protocol.",
+          "type": "string"
+        },
+        "user_address": {
+          "description": "The address of the user earning points (lowercase only).",
+          "type": "string"
+        },
+        "eigenlayer_points": {
+          "description": "The amount of EigenLayer points earned by this user (decimal normalized).",
+          "type": "number"
+          }
+        }
+      }
   ]
 }
